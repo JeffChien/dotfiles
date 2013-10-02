@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+function exist {
+    ( `which "$1" 2> /dev/null` ) && return 1 || return 0
+}
+
+function run_once {
+    pgrep "$@" > /dev/null || ($@ &)
+}
+
+# enable transparent
+[ `exist compmgr` ] && run_once "xcompmgr -cF"
+#[ -e  "${HOME}/script/login/firefox-sync" ] && run_once "${HOME}/script/login/firefox-sync"
+[ `exist gnome-sound-applet` ] && run_once "gnome-sound-applet"
+[ `exist bluetooth-applet` ] && run_once "bluetooth-applet"
+# keymap
+# run_once "xmodmap ${HOME}/.xmodmap"
+# mouse
+# run_once 'xset m 3/1 1'

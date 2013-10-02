@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+import argparse
+import urllib
+
+
+def main():
+    """main function
+    :returns: @todo
+
+    """
+    root = argparse.ArgumentParser(prog="urldecode", description="decode url")
+    root.add_argument("url");
+    args = root.parse_args()
+    if(args.url is not None):
+        print(urllib.unquote(args.url).decode('utf8'))
+
+if __name__ == '__main__':
+    main()

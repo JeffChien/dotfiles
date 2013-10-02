@@ -1,0 +1,10 @@
+#must
+
+
+#options
+xcompmgr
+
+#ubuntu
+    liblua5.1-oocairo-dev
+#arch
+    lua-oocairo

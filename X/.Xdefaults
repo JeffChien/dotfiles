@@ -1,0 +1,35 @@
+!URxvt.background: [85]#2E0C23
+URxvt.background: [85]#000000
+URxvt.foreground: [100]#FFFFFF
+URxvt.color0:  #2E3436
+URxvt.color1:  #A40000
+URxvt.color2:  #4E9A06
+URxvt.color3:  #C4A000
+URxvt.color4:  #3465A4
+URxvt.color5:  #75507B
+URxvt.color6:  #CE5C00
+URxvt.color7:  #BABDB9
+URxvt.color8:  #555753
+URxvt.color9:  #EF2929
+URxvt.color10: #8AE234
+URxvt.color11: #FCE94F
+URxvt.color12: #729FCF
+URxvt.color13: #AD7FA8
+URxvt.color14: #FCAF3E
+URxvt.color15: #EEEEEC
+
+URxvt.transparent: true
+URxvt.shading: 10
+URxvt.scrollstyle: plain
+URxvt.scrollBar: false
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=17:antialias=true,xft:Monaco for Powerline:pixelsize=17:antialias=true
+URxvt.cursorBlink: true
+URxvt.saveLines: 65535
+URxvt.internalBorder: 0
+URxvt.externallBorder: 0
+URxvt.buffered: true
+URxvt.skipBuiltinGlyphs: true
+
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
+URxvt.perl-ext-common: default,clipboard

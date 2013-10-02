@@ -1,0 +1,9 @@
+[user]
+	name = JChien
+	email = jeffchien13@gmail.com
+[color]
+	ui = auto
+[push]
+	default = upstream
+[core]
+	excludesfile = ~/.gitignore

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# print path separate by newline
+function lspath
+{
+    local p
+    for p in $(echo "$PATH" | tr ":" "\n" | sort -d); do
+        echo "$p"
+    done
+}
+
+# add new path to the path
+# $1: directory to be added
+function addpath
+{
+    local p
+    eval p="$1"
+    if [[ "$PATH" != *"$p"* ]]; then
+        PATH="$p":"$PATH"
+        echo "adding path: $p"
+    fi
+}
+
+# back n level directory
+# $1: number of parent folders
+function up..() {
+    local n=${1:-1}
+    local DEST=${PWD}
+    for ((; n != 0; n--)); do
+         DEST=$(dirname $DEST)
+    done 
+    cd $DEST
+}

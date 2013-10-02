@@ -1,0 +1,21 @@
+#!/usr/bin/sh
+function _addpath
+{
+    local p
+    eval p="$1"
+    if [[ -d "$p" && ("$PATH" != *"$p"*) ]]; then
+        PATH="$p":"$PATH"
+    fi
+}
+
+DEFAULT_PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+#reset $PATH to default
+PATH="$DEFAULT_PATH"
+
+_addpath "$HOME/bin"
+_addpath "$HOME/bin/git-extend"
+_addpath "$HOME/.cabal/bin"
+_addpath "$HOME/.gem/ruby/2.0.0/bin"
+_addpath "$HOME/.pyenv/bin"
+_addpath "$HOME/.rvm/bin"
+_addpath "$HOME/tools/scala/sbt/bin"
