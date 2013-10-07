@@ -1,5 +1,9 @@
 alias simg="feh --auto-zoom --scale-down"
 
+alias op="xdg-open"
+alias optype="xdg-mime query filetype"
+alias opby="xdg-mime query default"
+
 #hightlight pattern with front color red
 alias hlf-r='ack-grep --passthru --color-match=red'
 #hightlight pattern with front color green
