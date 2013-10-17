@@ -1,0 +1,104 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+monitor filesystem event, and execute command.
+"""
+__author__ = 'JChien'
+__email__  = 'jeffchien13@gmail.com'
+__version__ = "1.0.0"
+
+import sys
+import fnmatch
+import argparse as ap
+import subprocess as sp
+
+try:
+    import pyinotify
+except ImportError as e:
+    print(e)
+    print("please install though pip")
+    sys.exit(1)
+
+place_holder_file = '%file%'
+place_holder_event = '%event%'
+
+class EventHandler(pyinotify.ProcessEvent):
+    def __init__(self, files, run):
+        self._files = files
+        self._run = run
+
+    def process_IN_ACCESS(self, event):
+        if self.match_event(event):
+            self.run_command(event)
+
+    def process_IN_CREATE(self, event):
+        if self.match_event(event):
+            self.run_command(event)
+
+    def process_IN_DELETE(self, event):
+        if self.match_event(event):
+            self.run_command(event)
+
+    def process_IN_MODIFY(self, event):
+        if self.match_event(event):
+            self.run_command(event)
+
+    def match_event(self, event):
+        return any(fnmatch.fnmatch(event.name, f) for f in self._files)
+
+    def run_command(self, event):
+        if self._run is None:
+            return
+        cmd = self._run.split()
+        for i in range(len(cmd)):
+            if place_holder_file in cmd[i]:
+                cmd[i] = cmd[i].replace(place_holder_file, event.pathname)
+            if place_holder_event in cmd[i]:
+                cmd[i] = cmd[i].replace(place_holder_event, event.maskname)
+        sp.call(cmd)
+
+def parse_args():
+    parser = ap.ArgumentParser()
+    #event
+    egroup = parser.add_argument_group('watch events')
+    egroup.add_argument('-s', action='store_true', help='IN_ACCESS event')
+    egroup.add_argument('-c', action='store_true', help='IN_CREATE event')
+    egroup.add_argument('-d', action='store_true', help='IN_DELETE event')
+    egroup.add_argument('-m', action='store_true', help='IN_MODIFY event')
+    egroup.add_argument('-a', action='store_true', help='''
+        IN_ACCESS|IN_CREATE|IN_DELETE|IN_MODIFY event''')
+
+    parser.add_argument('paths', nargs='+',
+            help='watch path, separate by space')
+    parser.add_argument('--run', action='store',
+            help='command when signal, "%%%%" represent as filepath')
+    parser.add_argument('--files',
+            help='watch files, separate by comma')
+
+    return parser.parse_args()
+
+def main():
+    args = parse_args()
+    wm = pyinotify.WatchManager()
+    files = args.files.split(',') if args.files is not None else None
+    handler = EventHandler(files, args.run)
+    mask = 0
+    if args.a:
+        mask |= pyinotify.ALL_EVENTS
+    if args.s:
+        mask |= pyinotify.IN_ACCESS
+    if args.c:
+        mask |= pyinotify.IN_CREATE
+    if args.d:
+        mask |= pyinotify.IN_DELETE
+    if args.m:
+        mask |= pyinotify.IN_MODIFY
+
+    notifier = pyinotify.Notifier(wm, handler)
+    for p in args.paths:
+        wm.add_watch(p, mask, rec=True)
+
+    notifier.loop()
+
+if __name__ == '__main__':
+    main()
