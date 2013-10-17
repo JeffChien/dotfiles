@@ -6,6 +6,12 @@ alias opby="xdg-mime query default"
 
 alias cp="rsync --progress -ah"
 
+alias cfg-tmux="$EDITOR ~/.tmux.conf"
+alias cfg-zshrc="$EDITOR ~/.zshrc"
+alias cfg-bashrc="$EDITOR ~/.bashrc"
+alias cfg-path="$EDITOR ~/.shellconf/conf.d/20-path"
+alias cfg-3rdparty="$EDITOR ~/.shellconf/conf.d/90-3rd-party"
+
 #hightlight pattern with front color red
 alias hlf-r='ack-grep --passthru --color-match=red'
 #hightlight pattern with front color green
