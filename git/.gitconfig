@@ -7,3 +7,6 @@
 	default = upstream
 [core]
 	excludesfile = ~/.gitignore
+	autocrlf = false
+	filemode = false
+	deltaBaseCacheLimit = 1G
