@@ -44,7 +44,10 @@ class EventHandler(pyinotify.ProcessEvent):
             self.run_command(event)
 
     def match_event(self, event):
-        return any(fnmatch.fnmatch(event.name, f) for f in self._files)
+        if self._files:
+            return any(fnmatch.fnmatch(event.name, f) for f in self._files)
+        else:
+            return True
 
     def run_command(self, event):
         if self._run is None:
