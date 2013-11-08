@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function exist {
-    ( `which "$1" 2> /dev/null` ) && return 1 || return 0
+    ( `hash "$1" 2> /dev/null` ) && return 0 || return 1
 }
 
 function run_once {
@@ -9,11 +9,14 @@ function run_once {
 }
 
 # enable transparent
-[ `exist compmgr` ] && run_once "xcompmgr -cF"
+exist compmgr && xcompmgr -cF &
 #[ -e  "${HOME}/script/login/firefox-sync" ] && run_once "${HOME}/script/login/firefox-sync"
-[ `exist gnome-sound-applet` ] && run_once "gnome-sound-applet"
-[ `exist bluetooth-applet` ] && run_once "bluetooth-applet"
+exist gnome-sound-applet && gnome-sound-applet &
+exist bluetooth-applet && bluetooth-applet &
 # keymap
-# run_once "xmodmap ${HOME}/.xmodmap"
+exist keyremap.py && keyremap.py &
 # mouse
 # run_once 'xset m 3/1 1'
+
+# fix awesome with java program
+exist wmname && wmname LG3D &
