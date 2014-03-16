@@ -31,7 +31,7 @@ ZSH_THEME="jc"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git debian dircycle vimpager fasd autols)
-plugins=(git debian vimpager fasd autols vi-mode pip npm tmuxinator vagrant zsh-syntax-highlighting scala)
+plugins=(git debian vimpager fasd autols vi-mode pip npm tmuxinator vagrant zsh-syntax-highlighting scala docker)
 
 if [[ -n "$TMUX" ]]; then
     export TERM=screen-256color

@@ -50,3 +50,9 @@ TMUXINATOR_MAIN="$HOME/.tmuxinator/scripts/tmuxinator"
 
 [[ -s "$TMUXINATOR_MAIN" ]] && source "$TMUXINATOR_MAIN"
 #}}}
+
+#gvm: go-lang vm {{{
+GVM_HOME="$HOME/.gvm"
+GVM_MAIN="$GVM_HOME/scripts/gvm"
+[[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
+# }}}

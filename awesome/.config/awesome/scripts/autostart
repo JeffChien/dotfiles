@@ -12,7 +12,8 @@ function run_once {
 exist compmgr && xcompmgr -cF &
 #[ -e  "${HOME}/script/login/firefox-sync" ] && run_once "${HOME}/script/login/firefox-sync"
 exist gnome-sound-applet && gnome-sound-applet &
-exist bluetooth-applet && bluetooth-applet &
+exist nm-applet && nm-applet &
+# exist bluetooth-applet && bluetooth-applet &
 # keymap
 exist keyremap.py && keyremap.py &
 # mouse
