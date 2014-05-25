@@ -1,5 +1,6 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
+require("revelation")
 
 config.keys = {}
 config.mouse = {}
@@ -17,6 +18,7 @@ config.keys.global = awful.util.table.join(
     awful.key({ modkey,           }, ",",  awful.tag.viewprev       ),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
+    awful.key({ modkey,           }, "e", revelation),
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -28,7 +30,7 @@ config.keys.global = awful.util.table.join(
             if client.focus then client.focus:raise() end
         end),
     awful.key({ modkey,           }, "w", function () config.menu.main:show({keygrabber=true}) end),
-    awful.key({ "Mod1" }, "Escape", 
+    awful.key({ "Mod1" }, "Escape",
         function ()
             awful.menu.menu_keys.down = { "Down", "Alt_L" }
             local cmenu = awful.menu.clients({width=500}, {keygrabber=true, coords={x=525, y=300}})
@@ -68,10 +70,10 @@ config.keys.global = awful.util.table.join(
 
     -- Run or raise applications with dmenu
     awful.key({ modkey },            "r",     function ()
-        awful.util.spawn("/usr/local/bin/dmenu_run -fn 'LiHei Pro-11' -b -i -p 'Run command:' -nb '" .. 
-            beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal .. 
-            "' -sb '" .. beautiful.bg_focus .. 
-            "' -sf '" .. beautiful.fg_focus .. "'") 
+        awful.util.spawn("/usr/local/bin/dmenu_run -fn 'LiHei Pro-11' -b -i -p 'Run command:' -nb '" ..
+            beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
+            "' -sb '" .. beautiful.bg_focus ..
+            "' -sf '" .. beautiful.fg_focus .. "'")
         end),
     --- Move focus window with keyboard {{{
     awful.key({ modkey }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
