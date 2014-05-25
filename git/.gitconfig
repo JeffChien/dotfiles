@@ -10,3 +10,5 @@
 	autocrlf = false
 	filemode = false
 	deltaBaseCacheLimit = 1G
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
