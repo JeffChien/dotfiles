@@ -1,6 +1,5 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
-require("revelation")
 
 config.keys = {}
 config.mouse = {}
@@ -18,7 +17,6 @@ config.keys.global = awful.util.table.join(
     awful.key({ modkey,           }, ",",  awful.tag.viewprev       ),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
-    awful.key({ modkey,           }, "e", revelation),
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)

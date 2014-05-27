@@ -1,6 +1,7 @@
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+local beautiful = require("beautiful")
 
 -- {{{ Wallpaper
 local wall_d = os.getenv("HOME") .. "/Pictures"
