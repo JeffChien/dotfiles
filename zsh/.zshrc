@@ -31,7 +31,24 @@ ZSH_THEME="jc"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 #plugins=(git debian dircycle vimpager fasd autols)
-plugins=(git debian vimpager fasd autols vi-mode pip npm tmuxinator vagrant zsh-syntax-highlighting scala docker)
+plugins=(
+    git
+    debian
+    vimpager
+    fasd
+    autols
+    pip
+    npm
+    tmuxinator
+    vagrant
+    zsh-syntax-highlighting
+    scala
+    docker
+    zsh_reload
+    web-search
+    zsh-history-substring-search
+    #autosuggestions
+)
 
 if [[ -n "$TMUX" ]]; then
     export TERM=screen-256color
@@ -61,3 +78,31 @@ done
 stty stop undef
 stty -ixon
 # }}}
+
+#source ~/zsh-history-subs/zsh-history-substring-search.zsh
+
+## bind UP and DOWN arrow keys
+#zmodload zsh/terminfo
+#bindkey "$terminfo[kcuu1]" history-substring-search-up
+#bindkey "$terminfo[kcud1]" history-substring-search-down
+
+## bind P and N for EMACS mode
+#bindkey -M emacs '^P' history-substring-search-up
+#bindkey -M emacs '^N' history-substring-search-down
+
+## bind k and j for VI mode
+#bindkey -M vicmd 'k' history-substring-search-up
+#bindkey -M vicmd 'j' history-substring-search-down
+
+## Setup zsh-autosuggestions
+#source ~/.zsh-autosuggestions/autosuggestions.zsh
+
+## Enable autosuggestions automatically
+#zle-line-init() {
+    #zle autosuggest-start
+#}
+#zle -N zle-line-init
+
+## use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
+## zsh-autosuggestions is designed to be unobtrusive)
+#bindkey '^T' autosuggest-toggle
