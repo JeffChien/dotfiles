@@ -9,15 +9,21 @@ function run_once {
 }
 
 # enable transparent
-exist compmgr && xcompmgr -cF &
+exist compmgr && run_once 'xcompmgr -cF'
 #[ -e  "${HOME}/script/login/firefox-sync" ] && run_once "${HOME}/script/login/firefox-sync"
-exist gnome-sound-applet && gnome-sound-applet &
-exist nm-applet && nm-applet &
+exist gnome-sound-applet && run_once 'gnome-sound-applet'
+exist nm-applet && run_once 'nm-applet'
 # exist bluetooth-applet && bluetooth-applet &
 # keymap
-exist keyremap.py && keyremap.py &
+exist keyremap.py && run_once 'keyremap.py'
 # mouse
 # run_once 'xset m 3/1 1'
 
 # fix awesome with java program
-exist wmname && wmname LG3D &
+exist wmname && run_once 'wmname LG3D'
+
+# at work
+if [ `hostname` =  'jchien-4free' ]; then
+    # disable notebook screen
+    run_once 'xrandr --output LVDS --off'
+fi

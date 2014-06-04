@@ -58,3 +58,6 @@ alias frb='fastboot reboot'
 # }}}
 
 alias psudo='sudo env PATH=$PATH'
+alias rezsh='source ~/.zshrc'
+
+alias serialp='screen /dev/ttyUSB0'
