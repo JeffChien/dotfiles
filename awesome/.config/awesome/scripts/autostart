@@ -25,5 +25,5 @@ exist wmname && run_once 'wmname LG3D'
 # at work
 if [ `hostname` =  'jchien-4free' ]; then
     # disable notebook screen
-    run_once 'xrandr --output LVDS --off'
+    run_once "$(dirname $0)/dual-screen.sh"
 fi
