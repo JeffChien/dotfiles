@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 
 # nvm: manage multiple version of nodejs {{{
-NVM_HOME="$HOME/.nvm"
-NVM_MAIN="$NVM_HOME/nvm.sh"
-NVM_COMPLETION="$NVM_HOME/bash_completion"
+need_node () {
+    NVM_HOME="$HOME/.nvm"
+    NVM_MAIN="$NVM_HOME/nvm.sh"
+    NVM_COMPLETION="$NVM_HOME/bash_completion"
 
-[[ -s "$NVM_MAIN" ]] && source "$NVM_MAIN"
-[[ -s "$NVM_COMPLETION" ]] && source "$NVM_COMPLETION"
+    [[ -s "$NVM_MAIN" ]] && source "$NVM_MAIN"
+    [[ -s "$NVM_COMPLETION" ]] && source "$NVM_COMPLETION"
 
-# setting up global node_module path
-NODE_CURVER_HOME=`which node | sed s#/bin/node##g`
-export NODE_PATH="$NODE_PATH:$NODE_CURVER_HOME/lib/node_modules"
+    # setting up global node_module path
+    NODE_CURVER_HOME=`which node | sed s#/bin/node##g`
+    export NODE_PATH="$NODE_PATH:$NODE_CURVER_HOME/lib/node_modules"
+}
 # }}}
 
+
 #rvm: ruby vm {{{
-RVM_HOME="$HOME/.rvm"
-RVM_MAIN="$HOME/.rvm/scripts/rvm"
-[[ -s "$RVM_MAIN" ]] && source "$RVM_MAIN"
+need_ruby () {
+    RVM_HOME="$HOME/.rvm"
+    RVM_MAIN="$HOME/.rvm/scripts/rvm"
+    [[ -s "$RVM_MAIN" ]] && source "$RVM_MAIN"
+}
 #}}}
 
 #scm-breeze: better cli interface for scm  {{{
@@ -26,22 +31,17 @@ SCM_MAIN="$SCM_HOME/scm_breeze.sh"
 [[ -s "$SCM_MAIN" ]] && source "$SCM_MAIN"
 #}}}
 
-#pythonbrew: mange multiple version of python <deprecated>{{{
-PYTHONBREW_HOME="$HOME/.pythonbrew"
-PYTHONBREW_MAIN="$PYTHONBREW_HOME/etc/bashrc"
-
-[[ -s "$PYTHONBREW_MAIN" ]] && source "$PYTHONBREW_MAIN"
-# }}}
-
 #pyenv: mange multiple version of python {{{
-export PYENV_ROOT="$HOME/.pyenv"
-PYENV_COMPLETION_ZSH="$PYENV_ROOT/completions/pyenv.zsh"
-PYENV_COMPLETION_BASH="$PYENV_ROOT/completions/pyenv.bash"
-eval "$(pyenv init -)"
-case "$SHELL" in
-    *zsh*) source "$PYENV_COMPLETION_ZSH";;
+need_python() {
+    export PYENV_ROOT="$HOME/.pyenv"
+    PYENV_COMPLETION_ZSH="$PYENV_ROOT/completions/pyenv.zsh"
+    PYENV_COMPLETION_BASH="$PYENV_ROOT/completions/pyenv.bash"
+    eval "$(pyenv init -)"
+    case "$SHELL" in
+        *zsh*) source "$PYENV_COMPLETION_ZSH";;
     *bash*) source "$PYENV_COMPLETION_BASH";;
 esac
+}
 # }}}
 
 #tmuxinator: manage tmux session {{{
@@ -52,7 +52,9 @@ TMUXINATOR_MAIN="$HOME/.tmuxinator/scripts/tmuxinator"
 #}}}
 
 #gvm: go-lang vm {{{
-GVM_HOME="$HOME/.gvm"
-GVM_MAIN="$GVM_HOME/scripts/gvm"
-[[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
+need_golang () {
+    GVM_HOME="$HOME/.gvm"
+    GVM_MAIN="$GVM_HOME/scripts/gvm"
+    [[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
+}
 # }}}

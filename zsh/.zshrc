@@ -25,7 +25,7 @@ ZSH_THEME="jc"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
- COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -47,7 +47,7 @@ plugins=(
     zsh_reload
     web-search
     zsh-history-substring-search
-    #autosuggestions
+    autosuggestions
 )
 
 if [[ -n "$TMUX" ]]; then
@@ -78,31 +78,3 @@ done
 stty stop undef
 stty -ixon
 # }}}
-
-#source ~/zsh-history-subs/zsh-history-substring-search.zsh
-
-## bind UP and DOWN arrow keys
-#zmodload zsh/terminfo
-#bindkey "$terminfo[kcuu1]" history-substring-search-up
-#bindkey "$terminfo[kcud1]" history-substring-search-down
-
-## bind P and N for EMACS mode
-#bindkey -M emacs '^P' history-substring-search-up
-#bindkey -M emacs '^N' history-substring-search-down
-
-## bind k and j for VI mode
-#bindkey -M vicmd 'k' history-substring-search-up
-#bindkey -M vicmd 'j' history-substring-search-down
-
-## Setup zsh-autosuggestions
-#source ~/.zsh-autosuggestions/autosuggestions.zsh
-
-## Enable autosuggestions automatically
-#zle-line-init() {
-    #zle autosuggest-start
-#}
-#zle -N zle-line-init
-
-## use ctrl+t to toggle autosuggestions(hopefully this wont be needed as
-## zsh-autosuggestions is designed to be unobtrusive)
-#bindkey '^T' autosuggest-toggle
