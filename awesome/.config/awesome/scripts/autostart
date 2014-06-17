@@ -11,7 +11,7 @@ function run_once {
 # enable transparent
 exist compmgr && run_once 'xcompmgr -cF'
 #[ -e  "${HOME}/script/login/firefox-sync" ] && run_once "${HOME}/script/login/firefox-sync"
-exist gnome-sound-applet && run_once 'gnome-sound-applet'
+# exist gnome-sound-applet && run_once 'gnome-sound-applet'
 exist nm-applet && run_once 'nm-applet'
 # exist bluetooth-applet && bluetooth-applet &
 # keymap

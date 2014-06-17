@@ -5,6 +5,7 @@ local vicious = require("vicious")
 
 package.path = awful.util.getdir("config") .. '/widgets/?.lua;' .. package.path
 local calendar2 = require("calendar2")
+local alsawidget = require("simpleVolume")
 
 config.screen = {}
 for s = 1, screen.count() do
@@ -137,6 +138,7 @@ for s = 1, screen.count() do
     right_layout:add(cpuwidget)
     right_layout:add(memwidget)
     right_layout:add(textclock)
+    right_layout:add(alsawidget.bar)
     right_layout:add(layoutbox[s])
 
     if s == 1 then right_layout:add(wibox.widget.systray()) end
