@@ -2,8 +2,6 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local vicious = require("vicious")
-
-package.path = awful.util.getdir("config") .. '/widgets/?.lua;' .. package.path
 local calendar2 = require("calendar2")
 local alsawidget = require("simpleVolume")
 

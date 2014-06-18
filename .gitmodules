@@ -7,3 +7,6 @@
 [submodule "zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = zsh/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "awesome/.config/awesome/widgets/hints"]
+	path = awesome/.config/awesome/widgets/hints
+	url = https://github.com/gvalkov/hints

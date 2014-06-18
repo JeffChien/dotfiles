@@ -1,12 +1,12 @@
+
 -- Standard awesome library
 local awful = require("awful")
 require("awful.autofocus")
 -- Notification library
 local naughty = require("naughty")
--- {{{ Customize library
---require("widgets.volumn")
---require("widgets.cpuinfo")
-
+-- search path
+package.path = awful.util.getdir('config') .. '/widgets/?.lua;' .. package.path
+package.path = awful.util.getdir('config') .. '/widgets/?/?.lua;' .. package.path
 --- {{{ loadrc
 -- Simple function to load additional LUA files from rc/.
 function loadrc(name, mod)
