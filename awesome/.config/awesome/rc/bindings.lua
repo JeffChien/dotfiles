@@ -1,6 +1,15 @@
 local awful = require("awful")
 local beautiful = require("beautiful")
 local hints = require("hints")
+local quake = require("quake")
+
+local quakeconsole = {}
+for s=1, screen.count() do
+    quakeconsole[s] = quake({
+        height = 0.25,
+        screen = s
+    })
+end
 
 -- must after beatuful.init()
 hints.init()
@@ -18,6 +27,7 @@ config.mouse.global = awful.util.table.join(
 
 --- {{{ global keymap
 config.keys.global = awful.util.table.join(
+    awful.key({ modkey,           }, "q",  function() quakeconsole[mouse.screen]:toggle() end      ),
     awful.key({ modkey,           }, ",",  awful.tag.viewprev       ),
     awful.key({ modkey,           }, ".",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
