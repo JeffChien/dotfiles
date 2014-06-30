@@ -48,6 +48,7 @@ plugins=(
     web-search
     zsh-history-substring-search
     autosuggestions
+    ranger
 )
 
 if [[ -n "$TMUX" ]]; then
