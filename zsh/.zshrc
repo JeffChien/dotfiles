@@ -6,7 +6,7 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="my-steeef"
-ZSH_THEME="jc"
+ZSH_THEME="ys"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -49,6 +49,7 @@ plugins=(
     zsh-history-substring-search
     autosuggestions
     ranger
+    percol
 )
 
 if [[ -n "$TMUX" ]]; then

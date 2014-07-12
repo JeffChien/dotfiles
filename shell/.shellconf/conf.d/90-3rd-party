@@ -58,3 +58,6 @@ need_golang () {
     [[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
 }
 # }}}
+
+need_python
+need_node

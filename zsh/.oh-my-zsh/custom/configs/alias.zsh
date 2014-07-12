@@ -61,3 +61,5 @@ alias psudo='sudo env PATH=$PATH'
 alias rezsh='source ~/.zshrc'
 
 alias serialp='screen /dev/ttyUSB0'
+
+alias ack='ack-grep'
