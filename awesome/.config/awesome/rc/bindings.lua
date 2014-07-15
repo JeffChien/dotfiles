@@ -6,6 +6,7 @@ local quake = require("quake")
 local quakeconsole = {}
 for s=1, screen.count() do
     quakeconsole[s] = quake({
+        terminal = 'uxterm',
         height = 0.25,
         screen = s
     })
