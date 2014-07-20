@@ -1,13 +1,7 @@
 # Configuration file for ipython.
 import os, sys
 
-sys.path.append(os.path.expanduser('~/tools/inuse/powerline'))
-
 c = get_config()
-
-c.InteractiveShellApp.extensions = [
-            'powerline.bindings.ipython.post_0_11'
-            ]
 
 #------------------------------------------------------------------------------
 # InteractiveShellApp configuration
