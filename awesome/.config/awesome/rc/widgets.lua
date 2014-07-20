@@ -4,6 +4,7 @@ local beautiful = require("beautiful")
 local vicious = require("vicious")
 local calendar2 = require("calendar2")
 local alsawidget = require("simpleVolume")
+local blingbling = require("blingbling")
 
 config.screen = {}
 for s = 1, screen.count() do
@@ -18,8 +19,12 @@ local promptbox = {}
 local textclock = {}
 local memwidget = {}
 local cpuwidget = {}
+local netwidget = {}
 
 -- widgets {{{
+netwidget = blingbling.net({interface = "wlan0", show_text = true})
+--for k,v in pairs(netwidget) do print(k, v) end
+netwidget:set_ippopup()
 
 -- {{{textclock widget
 textclock = awful.widget.textclock()
@@ -133,6 +138,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(netwidget)
     right_layout:add(cpuwidget)
     right_layout:add(memwidget)
     right_layout:add(textclock)

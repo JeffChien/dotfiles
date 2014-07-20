@@ -10,3 +10,6 @@
 [submodule "awesome/.config/awesome/widgets/hints"]
 	path = awesome/.config/awesome/widgets/hints
 	url = https://github.com/gvalkov/hints
+[submodule "awesome/.config/awesome/blingbling"]
+	path = awesome/.config/awesome/blingbling
+	url = git@github.com:JeffChien/blingbling.git
