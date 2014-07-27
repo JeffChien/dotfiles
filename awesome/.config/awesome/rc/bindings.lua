@@ -68,7 +68,13 @@ config.keys.global = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(config.terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Shift"   }, "q",     function ()
+            if os.getenv("DESKTOP_SESSION") == "awesome-gnome" then
+                os.execute("/usr/bin/gnome-session-quit")
+            else
+                awesome.quit()
+            end
+        end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.025)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.025)    end),
