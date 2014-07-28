@@ -1,3 +1,4 @@
+from percol.finder import FinderMultiQueryMigemo, FinderMultiQueryRegex
 # Run command file for percol
 # X / _ / X
 percol.view.__class__.PROMPT = property(
@@ -30,4 +31,7 @@ percol.import_keymap({
     "C-m" : lambda percol: percol.finish(),
     "C-j" : lambda percol: percol.finish(),
     "C-g" : lambda percol: percol.cancel(),
+    "M-c" : lambda percol: percol.command.toggle_case_sensitive(),
+    "M-m" : lambda percol: percol.command.toggle_finder(FinderMultiQueryMigemo),
+    "M-r" : lambda percol: percol.command.toggle_finder(FinderMultiQueryRegex)
 })
