@@ -55,10 +55,12 @@ TMUXINATOR_MAIN="$HOME/.tmuxinator/scripts/tmuxinator"
 #gvm: go-lang vm {{{
 need_golang () {
     GVM_HOME="$HOME/.gvm"
-    GVM_MAIN="$GVM_HOME/scripts/gvm"
+    GVM_MAIN="$GVM_HOME/scripts/gvm-default"
+    export GVM_ROOT="$GVM_HOME"
     [[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
 }
 # }}}
 
 need_python
 need_node
+need_golang
