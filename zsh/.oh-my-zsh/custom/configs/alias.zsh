@@ -63,3 +63,4 @@ alias rezsh='source ~/.zshrc'
 alias serialp='screen /dev/ttyUSB0'
 
 alias ack='ack-grep'
+alias npm-exec='PATH=$(npm bin):$PATH'

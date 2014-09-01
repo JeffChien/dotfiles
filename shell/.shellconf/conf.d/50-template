@@ -1,0 +1,29 @@
+template_gulp()
+{
+    if ! hash gulp 2>/dev/null; then
+        echo 'missing gulp, you should install with: npm install -g gulp'
+        return 1
+    fi
+
+    if [[ -e 'gulpfile.js' ]]; then
+        echo 'gulpfile.js already exist, abort'
+        return 1
+    fi
+
+    touch 'gulpfile.js' && echo 'create gulpfile.js'
+}
+
+template_grunt()
+{
+    if ! hash grunt 2>/dev/null; then
+        echo 'missing gulp, you should install with: npm install -g grunt'
+        return 1
+    fi
+
+    if [[ -e 'Gruntfile.js' ]]; then
+        echo 'Gruntfile.js already exist, abort'
+        return 1
+    fi
+
+    touch 'Gruntfile.js' && echo 'create Gruntfile.js'
+}
