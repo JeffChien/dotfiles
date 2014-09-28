@@ -1,0 +1,33 @@
+! altgr + m = 1
+keycode  58 = m M 1 exclam
+! altgr + , = 2
+keycode  59 = comma less 2 at
+! altgr + . = 3
+keycode  60 = period greater 3 numbersign
+! altgr + j = 4
+keycode  44 = j J 4 dollar
+! altgr + k = 5
+keycode  45 = k K 5 percent
+! altgr + l = 6
+keycode  46 = l L 6 asciicircum
+! altgr + u = 7
+keycode  30 = u U 7 ampersand
+! altgr + i = 8
+keycode  31 = i I 8 asterisk
+! altgr + o = 9
+keycode  32 = o O 9 parenleft
+! altgr + space = 0
+keycode  65 = space NoSymbol 0 parenright
+! altgr + h = -
+keycode  43 = h H minus underscore
+! altgr + n = =
+keycode  57 = n N equal plus
+
+clear mod1
+clear mod3
+clear mod5
+
+keysym Alt_L = Mode_switch
+add mod1 = Meta_L
+add mod3 = ISO_Level3_Shift
+add mod5 = Mode_switch

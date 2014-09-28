@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import shlex
 import sys
 import os
 import subprocess as sp
@@ -9,7 +10,7 @@ xcap_setting = {
     'Shift_L' : 'Control_L|s'
 }
 
-xmodmap_setting = 'my'
+xmodmap_setting = 'numpad'
 
 def cmdExist(program):
     import os
@@ -33,11 +34,21 @@ class Xcape(object):
     def __init__(self):
         pass
 
+    def isRunning(self):
+        try:
+            pid = sp.check_output(shlex.split("pgrep xcape"))
+        except sp.CalledProcessError as e:
+            return False
+        return True
+
     def remap(self, setting):
         s = []
         for key, val in setting.iteritems():
             s.append('%s=%s' % (key, val))
+        if self.isRunning():
+            sp.call(shlex.split("pkill xcape"))
         sp.call(['xcape', '-e', ';'.join(s)])
+
 
 class Xmodmap(object):
     def __init__(self, origin='origin'):
@@ -46,7 +57,8 @@ class Xmodmap(object):
 
     def remap(self, setting):
         # revert to original
-        sp.call(['xmodmap', os.path.join(self.keymapdir, self.origin)])
+        #sp.call(['xmodmap', os.path.join(self.keymapdir, self.origin)])
+        sp.call(['setxkbmap', '-layout', 'us', '-option', 'ctrl:swapcaps'])
         # apply keymap
         sp.call(['xmodmap', os.path.join(self.keymapdir, setting + '.xmodmap')])
 
