@@ -69,9 +69,9 @@ def main():
             sys.exit(1)
 
     # xmodmap
-    print('applying xmodmap setting: %s' % xmodmap_setting)
-    xm = Xmodmap()
-    xm.remap(xmodmap_setting)
+    #print('applying xmodmap setting: %s' % xmodmap_setting)
+    #xm = Xmodmap()
+    #xm.remap(xmodmap_setting)
 
     # xcap
     print('applying xcap setting')
