@@ -33,23 +33,27 @@ ZSH_THEME="jc"
 #plugins=(git debian dircycle vimpager fasd autols)
 plugins=(
     git
-    debian
+    #debian
     vimpager
     fasd
     autols
     pip
-    npm
-    tmuxinator
-    vagrant
-    zsh-syntax-highlighting
-    scala
+    #npm
+    #tmuxinator
+    #vagrant
+    #zsh-syntax-highlighting
+    #scala
     docker
-    zsh_reload
-    web-search
-    zsh-history-substring-search
-    autosuggestions
+    docker-compose
+    #zsh_reload
+    #web-search
+    #zsh-history-substring-search
+    #autosuggestions
     ranger
     percol
+    git-extras
+    httpie
+    sudo
 )
 
 if [[ -n "$TMUX" ]]; then
