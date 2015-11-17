@@ -6,7 +6,9 @@ function percol_select_history()
     if ! hash tac > /dev/null; then
         tac='tail -r'
     fi
-    BUFFER=$(history | sed 's/^[ ]*[0-9]\+[ ]*//' | eval $tac | percol --query "$LBUFFER")
+    history | sed 's/^[ ]*[0-9*]\+[ ]*//' | eval $tac | percol --query "$LBUFFER" > /tmp/choice.tmp
+    #BUFFER=$(history | sed 's/^[ ]*[0-9*]\+[ ]*//' | eval $tac | percol --query "$LBUFFER")
+    BUFFER=$(cat /tmp/choice.tmp)
     CURSOR=$#BUFFER
     zle clear-screen
 }

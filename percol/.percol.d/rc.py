@@ -1,10 +1,11 @@
 from percol.finder import FinderMultiQueryMigemo, FinderMultiQueryRegex
 # Run command file for percol
 # X / _ / X
+
 percol.view.__class__.PROMPT = property(
     lambda self:
-    ur"<bold><blue>QUERY </blue>[a]:</bold> %q" if percol.model.finder.case_insensitive
-    else ur"<bold><green>QUERY </green>[A]:</bold> %q"
+    "<bold><blue>QUERY </blue>[a]:</bold> %q" if percol.model.finder.case_insensitive
+    else "<bold><green>QUERY </green>[A]:</bold> %q"
 )
 
 # Emacs like
