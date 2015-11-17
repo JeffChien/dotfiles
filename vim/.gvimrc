@@ -16,7 +16,7 @@
 " Source a global configuration file if available
 
 "set guifont=monospace\ 12
-set guifont=Menlo\ for\ Powerline\ 13
+"set guifont=Menlo\ for\ Powerline\ 13
 set guioptions-=m "remove menu bar
 set guioptions-=T "remove tool bar
 set guioptions-=r "remove right-hand scroll bar

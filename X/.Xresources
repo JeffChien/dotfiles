@@ -1,6 +1,14 @@
+!-------------------------------Uxterm----------------------------------------
+UXTerm*faceName: Hack
+UXTerm*faceNameDoublesize: Noto Sans
+UXTerm*locale: zn_TW.UTF-8
+UXTerm*utf8: 2
+UXTerm*faceSize: 11
 !-------------------------------Xterm------------------------------------------
-xterm*faceName: Droid Sans Mono
-xterm*faceNameDoublesize: WenQuanYi Zen Hei Mono
+!xterm*faceName: Droid Sans Mono
+!xterm*faceNameDoublesize: WenQuanYi Zen Hei Mono
+xterm*faceName: Hack
+xterm*faceNameDoublesize: Noto Sans
 xterm*locale: zn_TW.UTF-8
 xterm*utf8: 2
 xterm*faceSize: 11
