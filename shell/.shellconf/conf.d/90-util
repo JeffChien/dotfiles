@@ -31,3 +31,10 @@ function up..() {
     done 
     cd $DEST
 }
+
+# sum
+function totalsum()
+{
+    # http://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
+    paste -s -d+ - | bc
+}
