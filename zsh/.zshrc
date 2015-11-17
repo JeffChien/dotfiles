@@ -75,6 +75,7 @@ source $ZSH/oh-my-zsh.sh
 export USE_CCACHE=1
 export EDITOR=vim
 export BROWSER=firefox
+export GO15VENDOREXPERIMENT=1
 
 for conf in `ls "$HOME/.shellconf/conf.d"`; do
     source "$HOME/.shellconf/conf.d/$conf"
