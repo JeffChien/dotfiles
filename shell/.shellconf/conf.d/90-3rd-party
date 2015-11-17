@@ -10,8 +10,8 @@ need_node () {
     [[ -s "$NVM_COMPLETION" ]] && source "$NVM_COMPLETION"
 
     # setting up global node_module path
-    NODE_CURVER_HOME=`which node | sed s#/bin/node##g`
-    export NODE_PATH="$NODE_PATH:$NODE_CURVER_HOME/lib/node_modules"
+#    NODE_CURVER_HOME=`which node | sed s#/bin/node##g`
+#    export NODE_PATH="$NODE_PATH:$NODE_CURVER_HOME/lib/node_modules"
 }
 # }}}
 
@@ -22,6 +22,7 @@ need_ruby () {
     RVM_MAIN="$HOME/.rvm/scripts/rvm"
     [[ -s "$RVM_MAIN" ]] && source "$RVM_MAIN"
 }
+need_ruby
 #}}}
 
 #scm-breeze: better cli interface for scm  {{{
