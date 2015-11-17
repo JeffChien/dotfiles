@@ -85,3 +85,5 @@ done
 stty stop undef
 stty -ixon
 # }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
