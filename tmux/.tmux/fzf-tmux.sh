@@ -12,9 +12,15 @@ fs() {
 
 # ftpane - switch pane
 ftpane () {
-  local panes current_window target target_window target_pane
-  panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
+  local panes current_window target target_window target_pane current_pane
   current_window=$(tmux display-message  -p '#I')
+  if (( $IGNORE_SPLIT )); then
+      current_pane=$(tmux display-message  -p '#P')
+      panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}' | \
+          grep -vE "^($current_window:$current_pane)")
+  else
+      panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command} #{pane_pid}')
+  fi
 
   target=$(echo "$panes" | fzf) || return
 
