@@ -32,6 +32,12 @@ SCM_MAIN="$SCM_HOME/scm_breeze.sh"
 [[ -s "$SCM_MAIN" ]] && source "$SCM_MAIN"
 #}}}
 
+#scmpuff: scm-breeze alternative, fast and better {{{
+if hash scmpuff 2>/dev/null; then
+    eval "$(scmpuff init -s)"
+fi
+#}}}
+
 #pyenv: mange multiple version of python {{{
 need_python() {
     export PYENV_ROOT="$HOME/.pyenv"

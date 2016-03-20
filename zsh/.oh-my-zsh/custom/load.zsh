@@ -1,4 +1,5 @@
 files=()
+files=(~/.oh-my-zsh/custom/configs/profile.zsh)
 files+=(~/.oh-my-zsh/custom/configs/complete.zsh)
 files+=(~/.oh-my-zsh/custom/configs/bindkeys.zsh)
 files+=(~/.oh-my-zsh/custom/configs/alias.zsh)
