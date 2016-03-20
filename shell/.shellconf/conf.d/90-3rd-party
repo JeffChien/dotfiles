@@ -35,14 +35,8 @@ SCM_MAIN="$SCM_HOME/scm_breeze.sh"
 #pyenv: mange multiple version of python {{{
 need_python() {
     export PYENV_ROOT="$HOME/.pyenv"
-    PYENV_COMPLETION_ZSH="$PYENV_ROOT/completions/pyenv.zsh"
-    PYENV_COMPLETION_BASH="$PYENV_ROOT/completions/pyenv.bash"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
-    case "$SHELL" in
-        *zsh*) source "$PYENV_COMPLETION_ZSH";;
-    *bash*) source "$PYENV_COMPLETION_BASH";;
-esac
 }
 # }}}
 

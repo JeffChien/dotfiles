@@ -21,11 +21,16 @@ zstyle ':completion::complete:*' '\\'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 #彩色補全菜單
-eval $(dircolors -b)
-export ZLSCOLORS="${LS_COLORS}"
 zmodload zsh/complist
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+if hash dircolor &>/dev/null; then
+    eval $(dircolors -b)
+    export ZLSCOLORS="${LS_COLORS}"
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+else
+    export CLICOLOR=1
+    zstyle ':completion:*:default' list-colors ''
+fi
 
 # cd ~ 補全顺序
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'users' 'expand'

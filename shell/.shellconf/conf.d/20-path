@@ -8,7 +8,7 @@ function _addpath
     fi
 }
 
-DEFAULT_PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin
+DEFAULT_PATH=/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin:
 #reset $PATH to default
 PATH="$DEFAULT_PATH"
 

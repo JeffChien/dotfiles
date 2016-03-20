@@ -87,3 +87,4 @@ stty -ixon
 # }}}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/credentials/homebrew ] && source ~/credentials/homebrew
