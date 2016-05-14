@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+if [[ -n "$TMUX" ]]; then
+    export TERM=screen-256color
+else
+    case "$TERM" in
+        xterm) export TERM=xterm-256color;;
+        linux)
+            if [[ -n $FBTERM ]]; then
+                export TERM=fbterm
+            fi
+        ;;
+    esac
+fi
+# vim: fdm=marker

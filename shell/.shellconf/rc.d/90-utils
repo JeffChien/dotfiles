@@ -1,18 +1,7 @@
 #!/usr/bin/env bash
-
-# print path separate by newline
-function lspath
-{
-    local p
-    for p in $(echo "$PATH" | tr ":" "\n" | sort -d); do
-        echo "$p"
-    done
-}
-
-# add new path to the path
-# $1: directory to be added
-function addpath
-{
+# add new path to the path {{{
+function addpath {
+    # $1: directory to be added
     local p
     eval p="$1"
     if [[ "$PATH" != *"$p"* ]]; then
@@ -20,10 +9,11 @@ function addpath
         echo "adding path: $p"
     fi
 }
+# }}}
 
-# back n level directory
-# $1: number of parent folders
+# back n level directory {{{
 function up..() {
+    # $1: number of parent folders
     local n=${1:-1}
     local DEST=${PWD}
     for ((; n != 0; n--)); do
@@ -31,10 +21,14 @@ function up..() {
     done 
     cd $DEST
 }
+# }}}
 
-# sum
+# sum {{{
 function totalsum()
 {
     # http://stackoverflow.com/questions/450799/shell-command-to-sum-integers-one-per-line
     paste -s -d+ - | bc
 }
+# }}}
+
+# vim: fdm=marker

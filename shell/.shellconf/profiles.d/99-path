@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# order matters
+_PATHS=(
+    ###### user
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    ###### 3rd party
+    ###### system default
+    /usr/local/sbin
+    /usr/local/bin
+    /usr/sbin
+    /usr/bin
+    /sbin
+    /bin
+)
+export PATH=$(IFS=':'; echo "${_PATHS[*]}")

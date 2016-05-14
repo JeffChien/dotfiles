@@ -56,35 +56,15 @@ plugins=(
     sudo
 )
 
-if [[ -n "$TMUX" ]]; then
-    export TERM=screen-256color
-else
-    case "$TERM" in
-        xterm) export TERM=xterm-256color;;
-        linux)
-            if [[ -n $FBTERM ]]; then
-                export TERM=fbterm
-            fi
-        ;;
-    esac
-fi
+[ -d "$HOME/.shellconf/rc.d" ] && {
+    pushd "$HOME/.shellconf/rc.d" >/dev/null
+        for conf in $(ls .); do
+            source "$conf"
+        done
+    popd >/dev/null
+}
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export USE_CCACHE=1
-export EDITOR=vim
-export BROWSER=firefox
-export GO15VENDOREXPERIMENT=1
-
-for conf in `ls "$HOME/.shellconf/conf.d"`; do
-    source "$HOME/.shellconf/conf.d/$conf"
-done
-
-# disable ctrl-s stop terminal feature {{{
-stty stop undef
-stty -ixon
-# }}}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/credentials/homebrew ] && source ~/credentials/homebrew
