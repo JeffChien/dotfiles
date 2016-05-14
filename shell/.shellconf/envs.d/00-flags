@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
 # language vm {{{
-export ENABLE_PYTHON_PYENV
-export ENABLE_NODE_NVM
-export ENABLE_GO_GVM
-export ENABLE_RUBY_RVM
+export ENABLE_PYTHON_PYENV=1
+export ENABLE_NODE_NVM=1
+export ENABLE_GO_GVM=1
+export ENABLE_RUBY_RVM=1
 # }}}
 
 # productive utilities {{{
 # allow num to manipulate git command output.
-export ENABLE_SCM_BREEZE
+export ENABLE_SCM_BREEZE=1
 # same as scm_breeze, should use one of if.
-export ENABLE_SCMPUFF
+export ENABLE_SCMPUFF=1
 # tmux session mangement
-export ENABLE_TMUXINATOR
+export ENABLE_TMUXINATOR=1
 # }}}
