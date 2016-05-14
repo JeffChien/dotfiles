@@ -5,6 +5,7 @@ if [[ -n ${ENABLE_PYTHON_PYENV+x} ]]; then
     export PYENV_ROOT="$HOME/.pyenv"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
+    which python
 fi #}}}
 # enable nodejs {{{
 if [[ -n ${ENABLE_NODE_NVM+x} ]]; then
