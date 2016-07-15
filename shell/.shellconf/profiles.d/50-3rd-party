@@ -20,6 +20,10 @@ if [[ ${ENABLE_RUBY_RVM} ]]; then
     RVM_MAIN="$HOME/.rvm/scripts/rvm"
     [[ -s "$RVM_MAIN" ]] && source "$RVM_MAIN"
 fi #}}}
+# enable anyenv {{{
+if [[ ${ENABLE_ANY_ENV} ]]; then
+    eval "$(anyenv init -)"
+fi #}}}
 # enable scm breeze {{{
 if [[ ${ENABLE_SCM_BREEZE} ]]; then
     SCM_HOME="$HOME/.scm_breeze"

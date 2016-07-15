@@ -6,6 +6,8 @@ _PATHS=(
     "$HOME/bin"
     "$HOME/.local/bin"
     ###### 3rd party
+    "$HOME/.anyenv/bin"
+    "$HOME/.pyenv/bin"
     ###### system default
     /usr/local/sbin
     /usr/local/bin
