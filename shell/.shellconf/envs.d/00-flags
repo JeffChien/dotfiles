@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # language vm {{{
 export ENABLE_PYTHON_PYENV=1
-export ENABLE_NODE_NVM=1
+export ENABLE_NODE_NVM=0
 export ENABLE_GO_GVM=1
 export ENABLE_RUBY_RVM=1
 export ENABLE_ANY_ENV=1

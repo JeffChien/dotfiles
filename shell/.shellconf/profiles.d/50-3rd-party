@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # enable pyenv {{{
-if [[ ${ENABLE_PYTHON_PYENV} ]]; then
+if (( ${ENABLE_PYTHON_PYENV} )); then
     export PYENV_ROOT="$HOME/.pyenv"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi #}}}
 # enable golang {{{
-if [[ ${ENABLE_GO_GVM} ]]; then
+if (( ${ENABLE_GO_GVM} )); then
     GVM_HOME="$HOME/.gvm"
     GVM_MAIN="$GVM_HOME/scripts/gvm-default"
     export GVM_ROOT="$GVM_HOME"
@@ -15,29 +15,29 @@ if [[ ${ENABLE_GO_GVM} ]]; then
     [[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
 fi #}}}
 # enalbe ruby {{{
-if [[ ${ENABLE_RUBY_RVM} ]]; then
+if (( ${ENABLE_RUBY_RVM} )); then
     RVM_HOME="$HOME/.rvm"
     RVM_MAIN="$HOME/.rvm/scripts/rvm"
     [[ -s "$RVM_MAIN" ]] && source "$RVM_MAIN"
 fi #}}}
 # enable anyenv {{{
-if [[ ${ENABLE_ANY_ENV} ]]; then
+if (( ${ENABLE_ANY_ENV} )); then
     eval "$(anyenv init -)"
 fi #}}}
 # enable scm breeze {{{
-if [[ ${ENABLE_SCM_BREEZE} ]]; then
+if (( ${ENABLE_SCM_BREEZE} )); then
     SCM_HOME="$HOME/.scm_breeze"
     SCM_MAIN="$SCM_HOME/scm_breeze.sh"
     [[ -s "$SCM_MAIN" ]] && source "$SCM_MAIN"
 fi #}}}
 # enable scmpuff {{{
-if [[ ${ENABLE_SCMPUFF} ]]; then
+if (( ${ENABLE_SCMPUFF} )); then
     if hash scmpuff 2>/dev/null; then
         eval "$(scmpuff init -s)"
     fi
 fi #}}}
 # enable scmpuff {{{
-if [[ ${ENABLE_TMUXINATOR} ]]; then
+if (( ${ENABLE_TMUXINATOR} )); then
     TMUXINATOR_HOME="$HOME/.tmuxinator"
     TMUXINATOR_MAIN="$HOME/.tmuxinator/scripts/tmuxinator"
     [[ -s "$TMUXINATOR_MAIN" ]] && source "$TMUXINATOR_MAIN"

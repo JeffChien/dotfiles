@@ -2,7 +2,8 @@
 
 # enable nodejs {{{
 # damm... it can not be initialized in profile
-if [[ ${ENABLE_NODE_NVM} ]]; then
+if (( ${ENABLE_NODE_NVM} )); then
+    echo $ENABLE_NODE_NVM
     NVM_HOME="$HOME/.nvm"
     NVM_MAIN="$NVM_HOME/nvm.sh"
     NVM_COMPLETION="$NVM_HOME/bash_completion"
