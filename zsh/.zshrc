@@ -68,3 +68,8 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/credentials/homebrew ] && source ~/credentials/homebrew
+
+export PINKOI_ROOT='/Users/jchien/workspaces/pinkoi/office'
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

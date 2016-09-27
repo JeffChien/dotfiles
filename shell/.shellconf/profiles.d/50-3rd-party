@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
-
-# enable pyenv {{{
-if (( ${ENABLE_PYTHON_PYENV} )); then
-    export PYENV_ROOT="$HOME/.pyenv"
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi #}}}
 # enable golang {{{
 if (( ${ENABLE_GO_GVM} )); then
     GVM_HOME="$HOME/.gvm"

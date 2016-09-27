@@ -15,7 +15,7 @@ if [ "$ROOT" = "x" ]; then
 fi
 # powerline settings
 tmux set -g status on
-tmux set -g status-interval 5
+tmux set -g status-interval 10
 tmux set -g status-utf8 on
 tmux set -g status-justify "left"
 tmux set -g status-left-length 100

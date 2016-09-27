@@ -1,0 +1,6 @@
+# enable scm breeze {{{
+if [[ ${ENABLE_SCM_BREEZE} ]]; then
+    SCM_HOME="$HOME/.scm_breeze"
+    SCM_MAIN="$SCM_HOME/scm_breeze.sh"
+    [[ -s "$SCM_MAIN" ]] && source "$SCM_MAIN"
+fi #}}}

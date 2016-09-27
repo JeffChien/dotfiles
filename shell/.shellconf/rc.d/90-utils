@@ -31,4 +31,19 @@ function totalsum()
 }
 # }}}
 
+# fdr - cd to selected parent directory
+fdr() {
+  local declare dirs=()
+  start_path=$(pwd)
+  while [[ "$start_path" != '/' ]]; do
+      if [[ -d "$start_path" ]]; then
+          dirs+=("$start_path")
+      fi
+      start_path=$(dirname "$start_path")
+  done
+
+  DIR=$(echo ${dirs[@]} | tr ' ' '\n' | fzf-tmux --tac)
+  cd "$DIR"
+}
+
 # vim: fdm=marker
