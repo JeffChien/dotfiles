@@ -14,3 +14,5 @@ bind -r C-Up resize-pane -U 3
 bind -r C-Down resize-pane -D 3
 bind -r C-Left resize-pane -L 3
 bind -r C-Right resize-pane -R 3
+
+bind -t vi-copy y copy-pipe "xclip"

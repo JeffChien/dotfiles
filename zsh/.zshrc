@@ -1,60 +1,53 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+export ZSH_CACHE_DIR="~/.cache/zsh"
+if [[ ! -f "$ZSH_CACHE_DIR" ]]; then
+    mkdir -p "$ZSH_CACHE_DIR"
+fi
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="my-steeef"
-ZSH_THEME="jc"
+source $ZPLUG_HOME/init.zsh
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#zplug "zsh-users/zsh-syntax-highlighting", nice:10
+#zplug "zsh-users/zsh-history-substring-search"  #if not enable highlighting, need this config: nice:10
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zaw"
+zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
+zplug "clvv/fasd", as:command, use:fasd
+zplug "plugins/fasd", from:oh-my-zsh, if:"(( $+commands[fasd] ))", on:"clvv/fasd"
+zplug "plugins/ssh", from:oh-my-zsh
+zplug "lib/history", from:oh-my-zsh
+zplug "lib/clipboard", from:oh-my-zsh
+zplug "lib/key-bindings", from:oh-my-zsh
+zplug "mafredri/zsh-async"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+# local
+zplug "~/dotfiles/zsh/configs", from:local, use:"*.zsh"
+zplug "~/", from:local, use:".zshrc.local"
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+# theme
+#zplug "dracula/zsh", as:theme
+zplug "sindresorhus/pure", as:theme, use:pure.zsh
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+zplug load
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+# config
+if zplug check 'zsh-users/zsh-history-substring-search'; then
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-#plugins=(git debian dircycle vimpager fasd autols)
-plugins=(
-    git
-    #debian
-    vimpager
-    fasd
-    autols
-    pip
-    #npm
-    #tmuxinator
-    #vagrant
-    #zsh-syntax-highlighting
-    #scala
-    docker
-    docker-compose
-    #zsh_reload
-    #web-search
-    #zsh-history-substring-search
-    #autosuggestions
-    ranger
-    percol
-    git-extras
-    httpie
-    sudo
-)
+if zplug check 'zsh-users/zsh-autosuggestions'; then
+    bindkey '^ ' autosuggest-accept
+fi
+
+if zplug check '~/dotfiles/zsh/configs'; then
+    bindkey '^o' widget-ranger-cd
+fi
 
 [ -d "$HOME/.shellconf/rc.d" ] && {
     pushd "$HOME/.shellconf/rc.d" >/dev/null
@@ -64,12 +57,7 @@ plugins=(
     popd >/dev/null
 }
 
-source $ZSH/oh-my-zsh.sh
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/credentials/homebrew ] && source ~/credentials/homebrew
 
-export PINKOI_ROOT='/Users/jchien/workspaces/pinkoi/office'
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+alias nvim='exec_scmb_expand_args /usr/local/bin/nvim'

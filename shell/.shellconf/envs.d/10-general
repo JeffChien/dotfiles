@@ -1,1 +1,7 @@
-export EDITOR=vim
+export EDITOR=nvim
+
+# Tell ls to use color
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# Tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'

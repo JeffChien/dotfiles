@@ -11,3 +11,6 @@ bind -r Up resize-pane -U 3
 bind -r Down resize-pane -D 3
 bind -r Left resize-pane -L 3
 bind -r Right resize-pane -R 3
+
+#set-option -g default-command "reattach-to-user-namespace zsh"
+bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
