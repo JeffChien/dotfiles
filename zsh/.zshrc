@@ -5,16 +5,57 @@ fi
 
 source $ZPLUG_HOME/init.zsh
 
+# commands {{{
+zplug "clvv/fasd", as:command, use:fasd
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq, \
+    use:"jq-osx-amd64", \
+    if:"[[ $OSTYPE == *darwin* ]]"
+
+zplug "stedolan/jq", \
+    from:gh-r, \
+    as:command, \
+    rename-to:jq, \
+    use:"jq-linux64", \
+    if:"[[ $OSTYPE == *linux* ]]"
+
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*darwin*amd64*", \
+    if:"[[ $OSTYPE == *darwin* ]]"
+
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    as:command, \
+    rename-to:fzf, \
+    use:"*linux*amd64*", \
+    if:"[[ $OSTYPE == *linux* ]]"
+
+zplug "b4b4r07/httpstat", \
+    as:command, \
+    use:'(*).sh', \
+    rename-to:'$1'
+
+zplug "riywo/anyenv", \
+    as:command, \
+    use:'bin/anyenv'
+# }}}
+
+
+# plugins
 #zplug "zsh-users/zsh-syntax-highlighting", nice:10
 #zplug "zsh-users/zsh-history-substring-search"  #if not enable highlighting, need this config: nice:10
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zaw"
 zplug "plugins/git", from:oh-my-zsh, if:"(( $+commands[git] ))"
-zplug "clvv/fasd", as:command, use:fasd
 zplug "plugins/fasd", from:oh-my-zsh, if:"(( $+commands[fasd] ))", on:"clvv/fasd"
 zplug "plugins/ssh", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
-zplug "lib/clipboard", from:oh-my-zsh
+zplug "lib/clipboard", from:oh-my-zsh, if:"[[ $OSTYPE == *darwin* ]]"
 zplug "lib/key-bindings", from:oh-my-zsh
 zplug "mafredri/zsh-async"
 
@@ -36,6 +77,10 @@ fi
 zplug load
 
 # config
+if zplug check 'riywo/anyenv'; then
+    eval "$(anyenv init -)"
+fi
+
 if zplug check 'zsh-users/zsh-history-substring-search'; then
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
