@@ -1,5 +1,5 @@
-export ZSH_CACHE_DIR="~/.cache/zsh"
-if [[ ! -f "$ZSH_CACHE_DIR" ]]; then
+export ZSH_CACHE_DIR="$HOME/.cache/zsh"
+if [[ ! -d "$ZSH_CACHE_DIR" ]]; then
     mkdir -p "$ZSH_CACHE_DIR"
 fi
 
@@ -40,9 +40,15 @@ zplug "b4b4r07/httpstat", \
     use:'(*).sh', \
     rename-to:'$1'
 
-zplug "riywo/anyenv", \
+zplug "yyuu/pyenv", \
     as:command, \
-    use:'bin/anyenv'
+    use:'bin/pyenv', \
+    hook-load:"export PYENV_ROOT=$ZPLUG_ROOT/repos/yyuu/pyenv"
+
+zplug "yyuu/pyenv-virtualenv", \
+    on:'yyuu/pyenv', \
+    hook-build:"ln -s $ZPLUG_ROOT/repos/yyuu/pyenv-virtualenv $ZPLUG_ROOT/repos/yyuu/pyenv/plugins/pyenv-virtualenv", \
+    if:"[[ -d  $ZPLUG_ROOT/repos/yyuu/pyenv ]]"
 # }}}
 
 
@@ -61,7 +67,7 @@ zplug "mafredri/zsh-async"
 
 # local
 zplug "~/dotfiles/zsh/configs", from:local, use:"*.zsh"
-zplug "~/", from:local, use:".zshrc.local"
+zplug "~/", from:local, use:".zshrc.local",if:"[[ -e ~/.zshrc.local ]]"
 
 # theme
 #zplug "dracula/zsh", as:theme
@@ -77,10 +83,6 @@ fi
 zplug load
 
 # config
-if zplug check 'riywo/anyenv'; then
-    eval "$(anyenv init -)"
-fi
-
 if zplug check 'zsh-users/zsh-history-substring-search'; then
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
