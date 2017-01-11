@@ -32,6 +32,13 @@ if (( ${ENABLE_TMUXINATOR} )); then
     [[ -s "$TMUXINATOR_MAIN" ]] && source "$TMUXINATOR_MAIN"
 fi #}}}
 
-export ZPLUG_HOME=~/.zplug
+case $OSTYPE in
+    *darwin*)
+        export ZPLUG_HOME=/usr/local/opt/zplug
+        ;;
+    *)
+        export ZPLUG_HOME=~/.zplug
+        ;;
+esac
 
 # vim: fdm=marker

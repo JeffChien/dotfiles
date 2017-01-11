@@ -49,6 +49,11 @@ zplug "yyuu/pyenv-virtualenv", \
     on:'yyuu/pyenv', \
     hook-build:"ln -s $ZPLUG_ROOT/repos/yyuu/pyenv-virtualenv $ZPLUG_ROOT/repos/yyuu/pyenv/plugins/pyenv-virtualenv", \
     if:"[[ -d  $ZPLUG_ROOT/repos/yyuu/pyenv ]]"
+
+zplug "yyuu/pyenv-virtualenvwrapper", \
+    on:'yyuu/pyenv', \
+    hook-build:"ln -s $ZPLUG_ROOT/repos/yyuu/pyenv-virtualenvwrapper $ZPLUG_ROOT/repos/yyuu/pyenv/plugins/pyenv-virtualenvwrapper", \
+    if:"[[ -d  $ZPLUG_ROOT/repos/yyuu/pyenv ]]"
 # }}}
 
 
@@ -67,7 +72,7 @@ zplug "mafredri/zsh-async"
 
 # local
 zplug "~/dotfiles/zsh/configs", from:local, use:"*.zsh"
-zplug "~/", from:local, use:".zshrc.local",if:"[[ -e ~/.zshrc.local ]]"
+zplug "~/", from:local, use:".zshrc.local", if:"[[ -e $HOME/.zshrc.local ]]"
 
 # theme
 #zplug "dracula/zsh", as:theme
