@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
-# enable golang {{{
-if (( ${ENABLE_GO_GVM} )); then
-    GVM_HOME="$HOME/.gvm"
-    GVM_MAIN="$GVM_HOME/scripts/gvm-default"
-    export GVM_ROOT="$GVM_HOME"
-    export GO15VENDOREXPERIMENT=1
-    [[ -s "$GVM_MAIN" ]] && source "$GVM_MAIN"
-fi #}}}
 # enalbe ruby {{{
 if (( ${ENABLE_RUBY_RVM} )); then
     RVM_HOME="$HOME/.rvm"
@@ -41,4 +33,6 @@ case $OSTYPE in
         ;;
 esac
 
+export ZPLUG_REPOS=~/.zplug/repos
+export ZPLUG_BIN=~/.zplug/bin
 # vim: fdm=marker

@@ -66,3 +66,4 @@ alias ack='ack-grep'
 alias npm-exec='PATH=$(npm bin):$PATH'
 
 alias dk='docker'
+alias nvim='exec_scmb_expand_args /usr/local/bin/nvim'

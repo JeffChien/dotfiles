@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # disable ctrl-s stop terminal feature {{{
 stty stop undef

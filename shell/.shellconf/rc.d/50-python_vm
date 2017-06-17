@@ -4,5 +4,5 @@
 if (( ${ENABLE_PYTHON_PYENV} )); then
     eval "$(pyenv init -)"
     #eval "$(pyenv virtualenv-init -)"
-    pyenv virtualenvwrapper_lazy
+    #pyenv virtualenvwrapper_lazy
 fi #}}}
