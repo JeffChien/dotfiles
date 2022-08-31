@@ -1,0 +1,33 @@
+#+title: Readme
+#+PROPERTY: header-args :tangle .config/tig/config :mkdirp yes
+
+* Table of content :TOC:
+- [[#tig-text-mode-interface-for-git][Tig: text-mode interface for Git]]
+  - [[#config][config]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Tig: text-mode interface for Git
+** config
+#+begin_src conf
+set line-graphics = utf-8
+set git-colors = yes
+set show-changes = yes
+set reference-format = (branch) <tag> {remote}
+set commit-order = default
+set main-options = -n 300
+
+## Add keybinding to quickly jump to the next diff chunk in the stage view
+bind stage <Enter> :/^@@
+bind diff <Enter> :/^@@
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src

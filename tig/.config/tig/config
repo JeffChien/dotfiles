@@ -4,3 +4,7 @@ set show-changes = yes
 set reference-format = (branch) <tag> {remote}
 set commit-order = default
 set main-options = -n 300
+
+## Add keybinding to quickly jump to the next diff chunk in the stage view
+bind stage <Enter> :/^@@
+bind diff <Enter> :/^@@
