@@ -1,0 +1,72 @@
+#+title: Readme
+#+PROPERTY: header-args :tangle .config/fontconfig/fonts.conf :mkdirp yes
+* Table of content :TOC:
+- [[#fontconfig][Fontconfig]]
+  - [[#config][config]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Fontconfig
+[[https://www.freedesktop.org/wiki/Software/fontconfig/][Fontconfig]] is a library for configuring and customizing font access for linux environment.
+
+Fontconfig can:
+- discover new fonts when installed automatically, removing a common source of configuration problems.
+- perform font name substitution, so that appropriate alternative fonts can be selected if fonts are missing.
+- identify the set of fonts required to completely cover a set of languages.
+- have GUI configuration tools built as it uses an XML-based configuration file (though with autodiscovery, we believe this need is minimized).
+- efficiently and quickly find the fonts you need among the set of fonts you have installed, even if you have installed thousands of fonts, while minimzing memory usage.
+- be used in concert with the X Render Extension and FreeType to implement high quality, anti-aliased and subpixel rendered text on a display.
+
+Fontconfig does not:
+- render the fonts themselves (this is left to FreeType or other rendering mechanisms)
+- depend on the X Window System in any fashion, so that printer only applications do not have such dependencies
+
+** config
+#+begin_src xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+    <match target="pattern">
+        <test qual="any" name="family">
+            <string>serif</string>
+        </test>
+        <edit name="family" mode="prepend" binding="strong">
+            <string>Noto Serif</string>
+        </edit>
+    </match>
+
+    <match target="pattern">
+        <test qual="any" name="family">
+            <string>sans-serif</string>
+        </test>
+        <edit name="family" mode="prepend" binding="strong">
+            <string>Noto Sans</string>
+            <string>Noto Sans CJK TC</string>
+            <string>Noto Sans CJK SC</string>
+            <string>Noto Sans CJK JP</string>
+        </edit>
+    </match>
+
+    <match target="pattern">
+        <test qual="any" name="family">
+            <string>monospace</string>
+        </test>
+        <edit name="family" mode="prepend" binding="strong">
+            <string>Hack</string>
+            <string>PowerlineSymbols</string>
+            <string>Bitstream Vera Sans Mono</string>
+            <string>Droid Sans Mono</string>
+            <string>Noto Sans CJK TC</string>
+        </edit>
+    </match>
+</fontconfig>
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+#+end_src
