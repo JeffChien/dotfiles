@@ -1,0 +1,137 @@
+#+title: Readme
+#+PROPERTY: header-args :tangle .config/lf/lfrc :mkdirp yes
+
+* Table of content :TOC:
+- [[#lf-terminal-file-manager][lf terminal file manager]]
+  - [[#flags][Flags]]
+  - [[#commands][Commands]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* lf terminal file manager
+[[https://github.com/gokcehan/lf][github]]
+lf (as in "list files") is a terminal file manager written in Go with a heavy inspiration from ranger file manager.
+
+** Flags
+#+begin_src conf
+
+# show file size
+set info size
+
+# show items counts inside directory
+set dircounts
+
+# colors and icons
+# for colors, use LS_COLORS environment variable.
+set icons
+
+# show section borders
+set drawbox
+
+# set hidden
+set hidden
+#+end_src
+
+** Commands
+*** zsh file picker / directory changer
+[[https://github.com/gokcehan/lf/wiki/Integrations#zsh-file-picker--directory-changer][🔗]] This snippet adds a zsh key binding Alt-k that opens lf in a tmux split. Pressing a in lf adds the selected file(s) to the zsh command line as relative paths, A adds absolute paths. . changes the zsh directory.
+
+Add this to your .zshrc:
+#+begin_src shell :tangle no
+_zlf() {
+    emulate -L zsh
+    local d=$(mktemp -d) || return 1
+    {
+        mkfifo -m 600 $d/fifo || return 1
+        tmux split -bf zsh -c "exec {ZLE_FIFO}>$d/fifo; export ZLE_FIFO; exec lf" || return 1
+        local fd
+        exec {fd}<$d/fifo
+        zle -Fw $fd _zlf_handler
+    } always {
+        rm -rf $d
+    }
+}
+zle -N _zlf
+bindkey '\ek' _zlf
+
+_zlf_handler() {
+    emulate -L zsh
+    local line
+    if ! read -r line <&$1; then
+        zle -F $1
+        exec {1}<&-
+        return 1
+    fi
+    eval $line
+    zle -R
+}
+zle -N _zlf_handler
+#+end_src
+
+Finally, add this to lfrc:
+#+begin_src shell
+# zsh file picker / directory changer
+cmd zle-cd %printf 'cd %q && zle reset-prompt\n' "$PWD" >&$ZLE_FIFO
+
+cmd zle-insert-relative %{{
+    for f in $fx; do
+        printf 'LBUFFER+="${LBUFFER:+ }${(q)$(realpath %q --relative-to=$PWD)}"\n' "$f" >&$ZLE_FIFO
+    done
+}}
+
+cmd zle-insert-absolute %{{
+    for f in $fx; do
+        printf 'LBUFFER+="${LBUFFER:+ }%q"\n' "$f" >&$ZLE_FIFO
+    done
+}}
+
+cmd zle-init :{{
+    map . zle-cd
+    map a zle-insert-relative
+    map A zle-insert-absolute
+}}
+
+&[[ -n "$ZLE_FIFO" ]] && lf -remote "send $id zle-init"
+#+end_src
+*** ripgrep
+you can interactively search in the contents of files under the current directory and select a file from the results:
+#+begin_src shell
+cmd fzf_search ${{
+    res="$( \
+        RG_PREFIX="rg --column --line-number --no-heading --color=always \
+            --smart-case "
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+map gs :fzf_search
+#+end_src
+*** fzf
+[[https://github.com/gokcehan/lf/wiki/Integrations#fzf][🔗 ]]If you want to jump to a file or directory in lf using fuzzy matching, you can utilize fzf for this purpose:
+#+begin_src shell
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+map / :fzf_jump
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
