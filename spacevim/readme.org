@@ -1,0 +1,135 @@
+#+title: Readme
+
+* Table of content :TOC:
+- [[#spacevim---modern-vim-distribution][SpaceVim - Modern Vim distribution]]
+  - [[#inittoml][init.toml]]
+  - [[#bootstrap-function][bootstrap function]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* SpaceVim - Modern Vim distribution
+A community-driven modular vim/neovim distribution - The ultimate vimrc
+
+https://spacevim.org/
+
+** init.toml
+:PROPERTIES:
+:header-args: :tangle .SpaceVim.d/init.toml :mkdirp yes
+:END:
+
+All SpaceVim option below [option] section
+#+begin_src toml
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "dracula"
+    background = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+    bootstrap_before = 'myspacevim#before'
+    bootstrap_after = 'myspacevim#after'
+
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto_completion_return_key_behavior = "complete"
+auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'top'
+default_height = 30
+#+end_src
+
+*** layers
+available layers can be discovered via
+- ':SPLayer -l'
+- 'SPC h l'
+
+layer document url can be constructed though
+https://spacevim.org/layers/<name>/
+
+**** default
+https://spacevim.org/layers/default/
+
+| key        | description          |
+|------------+----------------------|
+| <leader> y | yank to clipboard    |
+| <leader> p | paste from clipboard |
+
+#+begin_src toml
+[[layers]]
+name = 'default'
+#+end_src
+
+**** edit
+https://spacevim.org/layers/edit/
+- vim-surround
+- vim-repeat
+- align
+- multiple cursors
+- editorconfig
+
+#+begin_src
+[[layers]]
+name = 'edit'
+#+end_src
+**** sudo
+https://spacevim.org/layers/sudo/
+
+| key     | description |
+|---------+-------------|
+| SPC f E | open file   |
+| SPC f W | save file   |
+
+#+begin_src toml
+[[layers]]
+name = 'sudo'
+#+end_src
+
+**** fzf
+https://spacevim.org/layers/fzf/
+#+begin_src toml
+[[layers]]
+name = 'fzf'
+#+end_src
+
+** bootstrap function
+:PROPERTIES:
+:header-args: :tangle .SpaceVim.d/autoload/myspacevim.vim :mkdirp yes
+:END:
+to config vim / neovim
+
+*** before
+#+begin_src vimrc
+function! myspacevim#before() abort
+
+endfunction
+#+end_src
+
+*** after
+#+begin_src vimrc
+function! myspacevim#after() abort
+    set timeoutlen=250 "control menu popup delay
+    set ignorecase     "less typing
+endfunction
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
