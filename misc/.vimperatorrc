@@ -1,3 +1,0 @@
-set hintchars=wertsdfgyuiohjkl
-nnoremap ; :
-nnoremap : ;
