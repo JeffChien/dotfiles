@@ -1,0 +1,23 @@
+#+title: Readme
+
+
+* Dotfiles
+deploy by gnu stow base on the [[http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html][link]].
+
+I've tried 3 different ways to manage dotfiles including this one, the current one is using Mackup, it's easy to use doesn't have a clean way to remove package. while I was trying the
+other dotfile system that make home folder managed by git I came across the emacs org mode
+babel dotfile system then I thought I should pick up this repo again.
+
+migrating from the old system to the new one [0/3]
+- [ ] remove legacy configs
+- [-] using emacs org mode babel to maintain config files. [4/9]
+  - [X] alacritty
+  - [-] awesome
+  - [ ] bash
+  - [ ] zsh
+  - [X] lf
+  - [X] spacevim
+  - [ ] tmux
+  - [ ] utils
+  - [X] tig
+- [ ] generating platform oriented lits for gnu stow
