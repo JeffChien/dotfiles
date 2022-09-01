@@ -1,0 +1,28 @@
+#+title: Readme
+#+PROPERTY: header-args :tangle .config/yt-dlp/config :mkdirp yes
+
+* Table of content :TOC:
+- [[#yt-dlp][yt-dlp]]
+- [[#config][config]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* yt-dlp
+[[https://github.com/yt-dlp/yt-dlp][github]]
+A fork base on the now inactive youtube-dlc.
+
+* config
+#+begin_src conf
+-f 'bestvideo[height<=720][ext=webm]+bestaudio/best[height<=720][ext=webm]'
+#+end_src
+
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
