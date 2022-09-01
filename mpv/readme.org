@@ -1,0 +1,72 @@
+#+title: Readme
+#+PROPERTY: header-args :tangle .config/mpv/mpv.conf :mkdirp yes
+
+* Table of content :TOC:
+- [[#mpv][mpv]]
+- [[#mpvconf][mpv.conf]]
+- [[#inputconf][input.conf]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* mpv
+mpv is a media player based on MPlayer and mplayer2. It supports a wide variety of video file formats, audio and video codecs, and subtitle types. Special input URL types are available to read input from a variety of sources other than disk files. Depending on platform, a variety of different video and audio output methods are supported.
+
+[[https://mpv.io/manual/stable/][document]]
+* mpv.conf
+:PROPERTIES:
+:header-args: :tangle .config/mpv/mpv.conf :mkdirp yes
+:END:
+
+[[https://www.reddit.com/r/mpv/comments/opoorx/mpv_with_ytdlp/][replace youtube-dl]] because it's download speed is limited to ~60k/s
+#+begin_src conf
+script-opts=ytdl_hook-ytdl_path=yt-dlp
+
+ytdl-format=bestvideo[height<=720][ext=webm]+bestaudio/best[height<=720][ext=webm]'
+#+end_src
+
+cache
+#+begin_src conf
+cache=yes
+cache-secs=15
+demuxer-max-bytes=123400KiB
+demuxer-readahead-secs=15
+#+end_src
+
+* input.conf
+:PROPERTIES:
+:header-args: :tangle .config/mpv/input.conf :mkdirp yes
+:END:
+
+key bindings, [[https://github.com/mpv-player/mpv/blob/master/etc/input.conf][default]]
+#+begin_src conf
+## seek
+LEFT seek -3
+RIGHT seek 3
+Shift+Left seek -10
+Shift+Right seek 10
+Alt+Left seek -30
+Alt+Right seek 30
+Alt+Shift+Left seek -100
+Alt+Shift+Right seek 100
+
+## volume
+UP add volume 2
+DOWN add volume -2
+
+## playback speed
+[ add speed -0.25
+] add speed 0.25
+{ multiply speed 0.5
+} multiply speed 2.0
+0 set speed 1.0
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
