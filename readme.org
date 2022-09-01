@@ -10,9 +10,9 @@ babel dotfile system then I thought I should pick up this repo again.
 
 migrating from the old system to the new one [0/3]
 - [ ] remove legacy configs
-- [-] using emacs org mode babel to maintain config files. [4/9]
+- [-] using emacs org mode babel to maintain config files. [7/12]
   - [X] alacritty
-  - [-] awesome
+  - [ ] awesome
   - [ ] bash
   - [ ] zsh
   - [X] lf
@@ -20,4 +20,7 @@ migrating from the old system to the new one [0/3]
   - [ ] tmux
   - [ ] utils
   - [X] tig
+  - [X] mpv
+  - [X] yt-dlp
+  - [X] fontconfig
 - [ ] generating platform oriented lits for gnu stow
