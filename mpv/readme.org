@@ -5,6 +5,8 @@
 - [[#mpv][mpv]]
 - [[#mpvconf][mpv.conf]]
 - [[#inputconf][input.conf]]
+- [[#plugins][plugins]]
+  - [[#insalled-plugins][insalled plugins]]
 - [[#gnu-stow][Gnu stow]]
 - [[#tagging][Tagging]]
 
@@ -60,6 +62,16 @@ DOWN add volume -2
 } multiply speed 2.0
 0 set speed 1.0
 #+end_src
+
+* plugins
+popular lua scripts can be found at https://nudin.github.io/mpv-script-directory/
+
+** insalled plugins
+*** [[https://github.com/jgreco/mpv-youtube-quality][youtube-quality]]
+
+'C-f' to show the available list.
+
+need to modify the source code to change the 'youtube-dl' to 'yt-dlp'
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
