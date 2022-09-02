@@ -1,0 +1,7 @@
+player=mpv
+player-no-close
+player-continuous-http
+player-passthrough=hls,http
+default-stream=720p60,720p,480p,best
+hls-segment-threads=2
+stream-segment-threads=2

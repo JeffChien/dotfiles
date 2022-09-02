@@ -1,6 +1,0 @@
-player=vlc --file-caching=30000
-player-no-close
-player-continuous-http
-default-stream=best
-hls-segment-threads=3
-stream-segment-threads=3

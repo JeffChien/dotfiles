@@ -1,0 +1,33 @@
+#+title: Readme
+#+PROPERTY: header-args :tangle .config/streamlink/config :mkdirp yes
+* Table of content :TOC:
+- [[#streamlink][Streamlink]]
+- [[#configs][configs]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Streamlink
+Streamlink is a command-line utility which pipes video streams from various services into a video player, such as VLC. The main purpose of Streamlink is to avoid resource-heavy and unoptimized websites, while still allowing the user to enjoy various streamed content. There is also an API available for developers who want access to the stream data.
+
+[[https://streamlink.github.io/index.html][document]]
+
+* configs
+#+begin_src conf
+player=mpv
+player-no-close
+player-continuous-http
+player-passthrough=hls,http
+default-stream=720p60,720p,480p,best
+hls-segment-threads=2
+stream-segment-threads=2
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
