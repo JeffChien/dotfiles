@@ -383,13 +383,12 @@ key bindings
 #+begin_src emacs-lisp
 (map! :leader
       :desc "media note controller"
-      "m v" #'org-media-note-hydra/body
+      "m v" #'org-media-note-hydra/body)
 
 ;; no idea the default RET key doesn't work so I have to map it ot other key
 (map! :map evil-multiedit-mode-map
       :leader
       :v "t s" #'evil-multiedit-toggle-or-restrict-region)
- )
 #+end_src
 
 * Gnu stow
