@@ -10,7 +10,9 @@
 - [[#tagging][Tagging]]
 
 * doomemacs
+An Emacs framework for the stubborn martian hacker
 
+[[https://github.com/doomemacs/doomemacs][github]]
 
 | modifier | description                                       |
 |----------+---------------------------------------------------|
