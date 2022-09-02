@@ -9,9 +9,9 @@
       (load-theme 'wombat t))))
 (add-hook 'after-make-frame-functions #'reload-theme)
 
-(setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 15)
-      doom-variable-pitch-font (font-spec :family "Helvetica" :size 15)
-      doom-big-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 24))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 16)
+      doom-variable-pitch-font (font-spec :family "Helvetica" :size 16)
+      doom-big-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 32))
 (after! doom-themes
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))

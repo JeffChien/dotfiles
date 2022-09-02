@@ -110,7 +110,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
-       ;;vterm             ; the best terminal emulation in Emacs
+       vterm             ; the best terminal emulation in Emacs
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
@@ -336,8 +336,8 @@ https://github.com/doomemacs/doomemacs/issues/1403#issuecomment-491470949
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
 (custom-set-faces!
-  '(font-lock-comment-face :slant light italic)
-  '(font-lock-keyword-face :slant light italic))
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 #+end_src
 
 *** package settings
