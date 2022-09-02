@@ -1,0 +1,14 @@
+alacritty
+aria2
+awesome
+bash
+doom_emacs
+fontconfig
+git
+lf
+mpv
+spacevim
+streamlink
+tig
+yt-dlp
+zsh
