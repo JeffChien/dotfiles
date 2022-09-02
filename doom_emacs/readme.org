@@ -3,15 +3,21 @@
 
 * Table of contents :TOC@3:
 - [[#doomemacs][doomemacs]]
-- [[#configs][configs]]
-  - [[#initel][init.el]]
-  - [[#packagesel][packages.el]]
-    - [[#base-example][base example]]
-    - [[#extra-packages][extra packages]]
-  - [[#configel][config.el]]
-    - [[#me][me]]
-    - [[#display][Display]]
-    - [[#package-settings][package settings]]
+- [[#initel][init.el]]
+- [[#packagesel][packages.el]]
+  - [[#base-example][base example]]
+  - [[#extra-packages][extra packages]]
+- [[#configel][config.el]]
+  - [[#me][me]]
+  - [[#display][Display]]
+    - [[#theme][theme]]
+    - [[#fonts][fonts]]
+  - [[#package-settings][package settings]]
+    - [[#org][org]]
+    - [[#org-media-note][org-media-note]]
+    - [[#org-super-agenda][org-super-agenda]]
+    - [[#others][others]]
+    - [[#vterm][vterm]]
 - [[#gnu-stow][Gnu stow]]
 - [[#tagging][Tagging]]
 
@@ -26,8 +32,7 @@ An Emacs framework for the stubborn martian hacker
 | S        | shift                                             |
 | C        | ctrl                                              |
 | s        | command key in mac, can easily confuse with shift |
-* configs
-** init.el
+* init.el
 :PROPERTIES:
 :header-args: :tangle .doom.d/init.el :mkdirp yes
 :END:
@@ -224,7 +229,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        (default +bindings +smartparens))
 #+end_src
 
-** packages.el
+* packages.el
 :PROPERTIES:
 :header-args: :tangle .doom.d/packages.el :mkdirp yes
 :END:
@@ -233,7 +238,7 @@ To install a package with Doom you must declare them here and run 'doom sync'
 on the command line, then restart Emacs for the changes to take effect -- or
 use 'M-x doom/reload'.
 
-*** base example
+** base example
 #+begin_src emacs-lisp
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
@@ -279,21 +284,21 @@ use 'M-x doom/reload'.
 ;(unpin! t)
 #+end_src
 
-*** extra packages
+** extra packages
 #+begin_src emacs-lisp
 (package! pretty-hydra)
 (package! org-media-note :recipe (:host github :repo "yuchen-lea/org-media-note"))
 (package! org-super-agenda)
 #+end_src
 
-** config.el
+* config.el
 :PROPERTIES:
 :header-args: :tangle .doom.d/config.el :mkdirp yes
 :END:
 Place your private configuration here! Remember, you do not need to run 'doom
 sync' after modifying this file!
 
-*** me
+** me
 Some functionality uses this to identify you, e.g. GPG configuration, email
 clients, file templates and snippets.
 
@@ -302,8 +307,8 @@ clients, file templates and snippets.
       user-mail-address "jeffchien13@gmail.com")
 #+end_src
 
-*** Display
-**** theme
+** Display
+*** theme
 There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set `doom-theme' or manually load a theme with the
 `load-theme' function.
@@ -320,7 +325,7 @@ https://github.com/doomemacs/doomemacs/issues/1403#issuecomment-491470949
       (load-theme 'wombat t))))
 (add-hook 'after-make-frame-functions #'reload-theme)
 #+end_src
-**** fonts
+*** fonts
 [[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org#fonts][source]]
 ‘doom-font’ – standard monospace font that is used for most things in Emacs.
 ‘doom-variable-pitch-font’ – variable font which is useful in some Emacs plugins.
@@ -340,7 +345,7 @@ https://github.com/doomemacs/doomemacs/issues/1403#issuecomment-491470949
   '(font-lock-keyword-face :slant italic))
 #+end_src
 
-*** package settings
+** package settings
 Here are some additional functions/macros that could help you configure Doom:
 
 - `load!' for loading external *.el files relative to this one
@@ -358,7 +363,7 @@ This will open documentation for it, including demos of how they are used.
 You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 they are implemented.
 
-**** org
+*** org
 #+begin_src emacs-lisp
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -367,7 +372,7 @@ they are implemented.
 ;; hide / * _ ~ markers
 (setq org-hide-emphasis-markers t)
 #+end_src
-**** org-media-note
+*** org-media-note
 make taking video note painless.
 #+begin_src emacs-lisp
 (use-package! org-media-note
@@ -379,7 +384,7 @@ make taking video note painless.
       :desc "media note controller"
       "m v" #'org-media-note-hydra/body)
 #+end_src
-**** org-super-agenda
+*** org-super-agenda
 #+begin_src emacs-lisp
 (use-package! org-super-agenda
   :after org-agenda
@@ -400,7 +405,7 @@ make taking video note painless.
   :config
   (org-super-agenda-mode))
 #+end_src
-**** others
+*** others
 #+begin_src emacs-lisp
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -420,6 +425,13 @@ make taking video note painless.
       :leader
       :v "t s" #'evil-multiedit-toggle-or-restrict-region)
 #+end_src
+*** vterm
+**** mac silicon installation
+due to the mix of x86 and arm, vterm is likely fail to compile. Just make sure to
+- use x86 homebrew to remove libvterm and cmake
+- install libvterm and cmake in arm64 homebrew
+- go to vterm folder, remove the cmake cache *build* folder.
+- check all path is correct in emacs with =execute_path=
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
