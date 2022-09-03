@@ -1,4 +1,4 @@
---dir ${HOME}/dotfiles
 --target ${HOME}
 --ignore=TAGS
 --ignore=\.org
+--ignore=\.DS_Store
