@@ -1,16 +1,25 @@
-#+title:  reademe
+#+title:  Reademe
 #+PROPERTY: header-args :tangle .config/tmux/tmux.conf :mkdirp yes
+#+STARTUP: content
 
-* Table of contents :TOC:
+* Table of contents :TOC@3:
 - [[#tmux][tmux]]
-  - [[#config][config]]
+- [[#config][config]]
+  - [[#before][before]]
+    - [[#packages][packages]]
+    - [[#options][options]]
+  - [[#after][after]]
+    - [[#key-bindings][key-bindings]]
+    - [[#the-very-end][the very end]]
 - [[#gnu-stow][Gnu stow]]
 - [[#tagging][Tagging]]
 
 * tmux
-** config
-*** before
-**** packages
+[[https://github.com/tmux/tmux][tmux]] is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+* config
+** before
+*** packages
+managed by [[https://github.com/tmux-plugins/tpm][TPM]]
 #+begin_src conf
 # TMUX_PLUGIN_MANAGER_PATH is needed
 set -g @plugin 'tmux-plugins/tpm'
@@ -19,17 +28,12 @@ set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
-# copycat doesn't work well with tmux >= 2.4
-#set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'jimeh/tmux-themepack'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
-set -g @plugin 'jbnicolai/tmux-fpp'
-set -g @plugin 'tmux-plugins/tmux-urlview'
-set -g @plugin 'dracula/tmux'
 #+end_src
 
-**** options
+*** options
 #+begin_src conf
 # don't spawn login shell, becaulse it has been set by terminal emulator.
 set -g default-command "$SHELL"
@@ -61,12 +65,37 @@ set -g terminal-overrides "xterm*:XT:smcup@:rmcup@:kUP5=\eOA:kDN5=\eOB:kLFT5=\eO
 set -g mode-keys vi
 
 set -g word-separators ' @(){}'
-
-set -g @themepack 'powerline/block/orange'
 #+end_src
+**** themes
+- [[https://draculatheme.com/tmux][dracula theme]]
+    #+begin_src conf
+    set -g @plugin 'dracula/tmux'
 
-**** others
-#+begin_src conf
+    # powerline symbols, triangle symbol [true / false*]
+    set -g @dracula-show-powerline false
+
+    # window flags [true / false]
+    # see window-status-format for detail
+    set -g @dracula-show-flags true
+
+    # it can accept `session`, `smiley`*, `window`, or any character.
+    set -g @dracula-show-left-icon smiley
+
+    # high contrast border, [true / false*]
+    set -g @dracula-border-contrast false
+
+    # available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, network, network-bandwidth, network-ping, weather, time
+    set -g @dracula-plugins "cpu-usage ram-usage"
+
+    # false* for CPU percentange, true for system load
+    set -g @dracula-cpu-display-load true
+    #+end_src
+
+**** nested remote tmux(disabled)
+this is old config, haven't migrate to new one, just leave here without tangle.
+the idea is to use F12 shift control between local and remote and use different theme to distinguish environments.
+
+#+begin_src conf :tangle no
 
 # when data input speed faster than terminal display rate, instead update everything to screen
 # tmux can update screen every interval time. with proper value, can workaround for terminal
@@ -98,75 +127,57 @@ bind -T off F12 \
 
 #+end_src
 
-*** after
-**** key-bindings
-
-Normal mode
-| key                    | description                              | PS                 |
-|------------------------+------------------------------------------+--------------------|
-| M                      | alt                                      |                    |
-| Ctrl - s               | prefix                                   |                    |
-| M -️ up                 | copy mode                                |                    |
-| prefix + C - p         | previous window                          | from tmux-sensible |
-| prefix + C - + n       | next window                              | from tmux-sensible |
-| prefix + C - + s       | choose session                           |                    |
-| prefix + C - + o       | rotate panes                             |                    |
-| prefix + C - + p       | next layout                              |                    |
-| prefix + C - + 0       | show clock                               |                    |
-| prefix + C - + =       | paste last yanked text                   |                    |
-| prefix + C - + m       | maximize pane                            |                    |
-| prefix - ;             | command mode                             |                    |
-| prefix - x             | confirm before kill a pane               |                    |
-| prefix + C - h         | focus pane left                          | from pane-control  |
-| prefix + C - j         | focus pane down                          | from pane-control  |
-| prefix + C - k         | focus pane up                            | from pane-control  |
-| prefix + C - l         | focus pane right                         | from pane-control  |
-| prefix + shift + C - h | resize pane left                         | from pane-control  |
-| prefix + shift + C - j | resize pane down                         | from pane-control  |
-| prefix + shift + C - k | resize pane up                           | from pane-control  |
-| prefix + shift + C - l | resize pane right                        | from pane-control  |
-| prefix - vbar          | split pane into 2 vertically             | from pane-control  |
-| prefix - hbar          | split pane into 2 horizonally            | from pane-control  |
-| prefix - \             | split pane into 2 vertically full width  | from pane-control  |
-| prefix - _             | split pane into 2 vertically full height | from pane-control  |
-| prefix - <             | move window left                         | from pane-control  |
-| prefix - >             | move window left                         | from pane-control  |
-| prefix - y             | copy text from command line to clipboard | from tmux-yank     |
-| prefix - Y             | copy pwd to clipboard                    | from tmux-yank     |
-| prefix - I             | tpm install all packages                 | from tpm           |
-| prefix - U             | tpm update all packages                  | from tpm           |
-
-
-copy mode
-| key           | description                     | PS             |
-|---------------+---------------------------------+----------------|
-| M - up        | scroll up                       |                |
-| M - down      | scroll down                     |                |
-| M - page up   | scroll half page up             |                |
-| M - page down | scroll half page down           |                |
-| page up       | scroll page up                  |                |
-| page down     | scroll page down                |                |
-| y             | copy selection to clipboard     | from tmux-yank |
-| Y             | copy and immediately paste      | from tmux-yank |
-| o             | open selected text              | from tmux-open |
-| C - o         | open selected text with $EDITOR | from tmux-open |
-| shift - s     | google the selected text        | from tmux-open |
-
+** after
+*** key-bindings
+- global
+    | FROM          | DESCRIPTION                              | KEY                    |
+    |---------------+------------------------------------------+------------------------|
+    |               | alt                                      | M                      |
+    |               | prefix                                   | Ctrl - s               |
+    |               | copy mode                                | M -️ up                 |
+    | tmux-sensible | previous window                          | prefix + C - p         |
+    | tmux-sensible | next window                              | prefix + C - + n       |
+    |               | choose session                           | prefix + C - + s       |
+    |               | rotate panes                             | prefix + C - + o       |
+    |               | next layout                              | prefix + C - + p       |
+    |               | show clock                               | prefix + C - + 0       |
+    |               | paste last yanked text                   | prefix + C - + =       |
+    |               | maximize pane                            | prefix + C - + m       |
+    |               | command mode                             | prefix - ;             |
+    |               | confirm before kill a pane               | prefix - x             |
+    | pane-control  | focus pane left                          | prefix + C - h         |
+    | pane-control  | focus pane down                          | prefix + C - j         |
+    | pane-control  | focus pane up                            | prefix + C - k         |
+    | pane-control  | focus pane right                         | prefix + C - l         |
+    | pane-control  | resize pane left                         | prefix + shift + C - h |
+    | pane-control  | resize pane down                         | prefix + shift + C - j |
+    | pane-control  | resize pane up                           | prefix + shift + C - k |
+    | pane-control  | resize pane right                        | prefix + shift + C - l |
+    | pane-control  | split pane into 2 vertically             | prefix - vbar          |
+    | pane-control  | split pane into 2 horizonally            | prefix - hbar          |
+    | pane-control  | split pane into 2 vertically full width  | prefix - \             |
+    | pane-control  | split pane into 2 vertically full height | prefix - _             |
+    | pane-control  | move window left                         | prefix - <             |
+    | pane-control  | move window left                         | prefix - >             |
+    | tmux-yank     | copy text from command line to clipboard | prefix - y             |
+    | tmux-yank     | copy pwd to clipboard                    | prefix - Y             |
+    | tpm           | tpm install all packages                 | prefix - I             |
+    | tpm           | tpm update all packages                  | prefix - U             |
+- Copy mode
+    | PS        | DESCRIPTION                     | KEY       |
+    |-----------+---------------------------------+-----------|
+    | tmux-yank | copy selection to clipboard     | y         |
+    | tmux-yank | copy and immediately paste      | Y         |
+    | tmux-open | open selected text              | o         |
+    | tmux-open | open selected text with $EDITOR | C - o     |
+    | tmux-open | google the selected text        | shift - s |
+    |           | visual select                   | v         |
 #+begin_src conf
 # Set the prefix key to Ctrl-z(qwerty) Ctrl-s(dvorak)
 set -g prefix C-s
 
 # trigger copy mode by
 bind -n M-Up copy-mode
-
-# Scroll up/down by 1 line, half screen, whole screen
-bind -T copy-mode-vi M-Up              send-keys -X scroll-up
-bind -T copy-mode-vi M-Down            send-keys -X scroll-down
-bind -T copy-mode-vi M-PageUp          send-keys -X halfpage-up
-bind -T copy-mode-vi M-PageDown        send-keys -X halfpage-down
-bind -T copy-mode-vi PageUp            send-keys -X page-up
-bind -T copy-mode-vi PageDown          send-keys -X page-down
-
 
 # Ctrl-S: choose session
 #bind s choose-session
@@ -197,8 +208,9 @@ bind x confirm-before kill-pane
 # When scrolling with mouse wheel, reduce number of scrolled rows per tick to "2" (default is 5)
 bind -T copy-mode-vi WheelUpPane       select-pane \; send-keys -X -N 2 scroll-up
 bind -T copy-mode-vi WheelDownPane     select-pane \; send-keys -X -N 2 scroll-down
+bind -T copy-mode-vi v send -X begin-selection
 #+end_src
-**** the very end
+*** the very end
 #+begin_src conf
 run-shell "$TMUX_PLUGIN_MANAGER_PATH/tpm/tpm"
 #+end_src
