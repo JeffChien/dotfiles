@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# This is a simple script using zenity to popup input dialog for video url link
+# then feed it to streamlink.
+#
+# Copyright 2022 Jeff Chien
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#
+export PATH="$PATH:/opt/homebrew/bin"
+
+# because zenetiy popup doesn't get focus, so this delayed apple script is try to find
+# zenity pid and bring it to frontmost.
+(sleep 0.125 && osascript <<EOF
+  set PID to (do shell script "pgrep -f -- 'zenity'") as integer
+  tell application "System Events"
+    set frontmost of every process whose unix id is PID to true
+  end tell
+EOF
+) &
+link=$(zenity --entry --title='zenity streamlink' --text='Enter video link' --width=600) && exec streamlink "$link" || exit 0
