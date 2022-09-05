@@ -1,0 +1,416 @@
+#+title: Readme
+#+startup: content
+
+* Table of content :TOC:
+- [[#zsh][zsh]]
+  - [[#script-loading-orders][script loading orders]]
+  - [[#dependencies][dependencies]]
+- [[#zinit][zinit]]
+  - [[#zshenv][zshenv]]
+  - [[#zprofile-only-load-in-login-shell][zprofile, only load in login shell]]
+  - [[#zlogin-only-load-in-login-shell][zlogin, only load in login shell]]
+  - [[#zshrc][zshrc]]
+  - [[#zlogout][zlogout]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* zsh
+
+** script loading orders
+1. .zshenv
+2. .zprofile, if it's a login shell
+3. .zshrc
+4. .zlogin, if it's a login shell
+5. .zlogout
+
+** dependencies
+- sharkdp/vivid
+
+* zinit
+** zshenv
+# https://www.reddit.com/r/zsh/comments/3ubrdr/proper_way_to_set_zdotdir/
+*** bootstrap
+#+begin_src shell :tangle .zshenv :mkdirp yes
+export ZDOTDIR=$HOME/.config/zsh
+[[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
+#+end_src
+*** actual zshenv
+#+begin_src shell :tangle .config/zsh/.zshenv :mkdirp yes
+export ZDOTDIR=${ZDOTDIR:=-$HOME/.config/zsh}
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-$HOME/.xdg}
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ${ZDOTDIR:-$HOME}/.zprofile ]]; then
+  source ${ZDOTDIR:-$HOME}/.zprofile
+fi
+#+end_src
+** zprofile, only load in login shell
+:PROPERTIES:
+:header-args: :tangle .config/zsh/.zprofile :mkdirp yes
+:END:
+
+#+begin_src shell
+source "$XDG_CONFIG_HOME/zsh/lib/utils.zsh"
+
+# Default derminal editor, EDITOR is a fallback option.
+export VISUAL='emacsclient -n -a "emacs"'
+export EDITOR='emacsclient -n -a "emacs"'
+
+# To speed up c compiling time.
+export USE_CCACHE=1
+
+# npm pachage
+export NPM_PACKAGES="${HOME}/.npm-packages"
+
+typeset -TUx NODE_PATH fnode_path :
+fnode_path=(
+  "$NPM_PACKAGES/lib/node_modules"
+  "${fnode_path[@]}"
+)
+
+# zsh path
+fpath=(
+    /usr/local/share/zsh/site-functions
+    "${fpath[@]}"
+)
+
+# zplugin config
+# https://github.com/zdharma/zplugin/blob/ec79623684944b813cbd8fa3faee484c486d1f68/README.md#customizing-paths--other
+
+
+export OS_NAME=`uname`
+export LC_ALL=zh_TW.UTF-8
+export LANG=zh_TW.UTF-8
+
+exportIfAny 'PYTHON3_HOST_PROG' "$(get1stExistsPath '/usr/local/bin/python3' '/usr/bin/python3')"
+
+# Language Rust
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+# typeset -TUx PATH path : # T: define, U: unique, x: auto export, ':' is the same as default value, can be remove here.
+typeset -Ux path
+
+path=(
+  "$HOME/bin"
+  "$HOME/.local/bin"
+  "$HOME/.poetry/bin"
+  "$HOME/.SpaceVim/bin"
+  "$CARGO_HOME/bin"
+  "$NPM_PACKAGES/bin"
+  "$(get1stExistsPath "/snap/bin")"
+  "$(get1stExistsPath '/Applications/Visual Studio Code.app/Contents/Resources/app/bin')"
+  "$(get1stExistsPath "/opt/homebrew/bin")"
+  "$(get1stExistsPath "/opt/homebrew/opt/make/libexec/gnubin")"
+  "$(get1stExistsPath "$HOME/.krew/bin")"
+  "/opt/X11/bin"
+  "${path[@]}"
+)
+
+# Apache Spark
+exportIfAny 'SPARK_HOME' "$(get1stExistsPath "$(brew --prefix)/opt/apache-spark/libexec")"
+path=(
+  "$(get1stExistsPath "$SPARK_HOME/bin")"
+  "${path[@]}"
+)
+
+## terminal colormap
+# https://github.com/sharkdp/vivid
+export LS_COLORS="$(vivid generate dracula)"
+
+#Hadoop
+# exportIfAny 'HADOOP_HOME' "$(get1stExistsPath "$(brew --prefix)/opt/hadoop/libexec")"
+# exportIfAny 'HADOOP_CONF_DIR' "$(get1stExistsPath "$HADOOP_HOME/etc/hadoop")"
+# path=(
+  # "$(get1stExistsPath "$HADOOP_HOME/bin")"
+  # "${path[@]}"
+# )
+# export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
+# export SPARK_DIST_CLASSPATH="$(hadoop classpath):$HADOOP_HOME/share/hadoop/tools/libs/*"
+
+#+end_src
+** zlogin, only load in login shell
+:PROPERTIES:
+:header-args: :tangle .config/zsh/.zlogin :mkdirp yes
+:END:
+#+begin_src shell
+echo "Hello $USER, nice to see you again."
+#+end_src
+** zshrc
+:PROPERTIES:
+:header-args: :tangle .config/zsh/.zshrc :mkdirp yes
+:END:
+#+begin_src shell
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+zinit light-mode for \
+    pick"zsh-lazyload.zsh" \
+        qoomon/zsh-lazyload
+#+end_src
+*** docker
+#+begin_src shell
+zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"; zinit light docker/compose
+zinit wait lucid svn for \
+  atload"zicompinit; zicdreplay" \
+  blockf \
+  as"completion" OMZP::docker \
+  as"completion" OMZP::docker-compose \
+  as"completion" id-as"complete-pip" OMZP::pip
+#+end_src
+
+#+RESULTS:
+
+*** fasd
+#+begin_src shell
+zinit ice wait'0' lucid pick"fasd"; zinit light clvv/fasd
+zinit ice wait'0' lucid svn silent; zinit snippet PZT::modules/fasd
+#+end_src
+*** bd
+#+begin_src shell
+zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
+#+end_src
+*** tmux
+#+begin_src shell
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux-3rd-plugins"
+[[ ! -d "$TMUX_PLUGIN_MANAGER_PATH" ]] && mkdir -p "$TMUX_PLUGIN_MANAGER_PATH"
+zinit ice wait'1' lucid atclone'ln -s `pwd` "$TMUX_PLUGIN_MANAGER_PATH/tpm" && ./bin/install_plugins'; \
+    zinit light tmux-plugins/tpm
+#+end_src
+*** asdf
+don't put it in async mode, it will break the order of search path.
+#+begin_src shell
+zinit load asdf-vm/asdf
+#+end_src
+
+*** direnv
+#+begin_src shell
+zinit ice from'gh-r' as'program' mv'*direnv* -> direnv' atclone'./direnv hook zsh >! zhook.zsh' atpull'%atclone' src'zhook.zsh';
+zinit load direnv/direnv
+#+end_src
+*** shell-functools
+#+begin_src shell
+zinit ice wait'1' if'[[ -n "$commands[python3]" ]]' depth'1' lucid  as"program" pick"ft/*"; \
+    zinit load sharkdp/shell-functools
+#+end_src
+*** git
+#+begin_src shell
+zplugin ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zplugin snippet OMZ::lib/git.zsh
+#+end_src
+*** fd
+#+begin_src shell
+zinit ice wait lucid from"gh-r" as"program" pick"*/fd"; \
+    zinit load @sharkdp/fd
+#+end_src
+*** exa
+#+begin_src shell
+zinit ice wait lucid from"gh-r" as"program" pick"bin/exa"; \
+    zinit load ogham/exa
+#+end_src
+*** fzf
+#+begin_src shell
+zinit ice wait lucid from"gh-r" as"program" pick"fzf"; \
+    zinit load junegunn/fzf
+
+export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always'
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=always'
+export FZF_DEFAULT_OPTS="--ansi --multi --no-height --extended"
+zplugin ice wait'0' lucid multisrc"shell/{completion,key-bindings}.zsh" id-as"fzf-zsh"; \
+    zplugin load junegunn/fzf
+zplugin ice wait'0' if'[[ -n "$TMUX" ]]' lucid pick"bin/fzf-tmux" as"program" id-as"fzf-tmux"; \
+    zplugin load junegunn/fzf
+zplugin ice wait'0' lucid; zplugin snippet ~/.config/zsh/lib/fzf.zsh
+zplugin ice wait'0' lucid; zinit light Aloxaf/fzf-tab
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+#+end_src
+
+#+RESULTS:
+
+*** xsv
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program"; \
+    zinit load BurntSushi/xsv
+#+end_src
+*** enhance cd
+#+begin_src shell
+zinit ice wait'0' lucid; \
+    zinit load b4b4r07/enhancd
+#+end_src
+*** httpstat
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program" mv'httpstat* -> httpstat'; \
+    zinit load davecheney/httpstat
+#+end_src
+***
+*** bombardier
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program" mv'*bombardier* -> bombardier'; \
+    zinit load codesenberg/bombardier
+#+end_src
+*** vegeta
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program"; \
+    zinit load tsenart/vegeta
+#+end_src
+*** zsh
+#+begin_src shell
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+## zsh syntax highlighting
+## autosuggestions
+zinit wait lucid for \
+  light-mode zdharma-continuum/fast-syntax-highlighting \
+  light-mode zsh-users/zsh-autosuggestions
+
+# complete
+zinit ice blockf; zinit light zsh-users/zsh-completions
+
+zstyle ':prezto:module:editor' key-bindings 'emacs'
+
+HISTFILE="$HOME/.zhistory"       # The path to the history file.
+#+end_src
+*** ssh(disabled)
+ssh-agent, automatically launch ssh-agent and add keys with this presto module
+comment out because I want keepassxc to manage it for me.
+#+begin_src shell :tangle no
+#zinit ice svn silent; zinit snippet PZT::modules/ssh
+#zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_dsa' 'id_github'
+#+end_src
+
+*** prompt
+**** spaceship (disabled)
+#+begin_src shell :tangle no
+zinit ice depth'1'; \
+    zinit load denysdovhan/spaceship-prompt
+#+end_src
+**** starship
+#+begin_src shell
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh" # pull behavior same as clone, source init.zsh
+zinit light starship/starship
+#+end_src
+*** os related
+#+begin_src shell
+# OS related
+case "$OS_NAME" in
+  Darwin)
+    zinit ice lucid atclone'ln -s `pwd` "$HOME/iTerm2-Color-Schemes"' atpull'%atclone'; \
+        zinit load mbadolato/iTerm2-Color-Schemes
+
+    #zinit ice wait'1' if'[[ -n "$ITERM_SESSION_ID" ]]' lucid; zinit snippet "${HOME}/.iterm2_shell_integration.zsh"
+
+    # ALIAS
+    zinit ice wait'0' if'[[ -x "/usr/libexec/java_home" ]]' lucid; \
+        zinit snippet ~/.config/zsh/lib/java.zsh
+  ;;
+  Linux)
+    # disable ctrl-s stop terminal feature {{{
+    stty stop undef
+    stty -ixon
+    # }}}
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+#+end_src
+*** lazy
+#+begin_src shell
+zinit ice if'[[ -e $HOME/.localrc.zsh ]]' lucid; \
+    zinit load "$HOME/.localrc.zsh"
+lazyload k3d -- 'source <(k3d completion zsh)'
+lazyload kind -- 'source <(kind completion zsh)'
+lazyload helm -- 'source <(helm completion zsh)'
+lazyload zoxide -- 'source <(zoxide init zsh)'
+#+end_src
+*** kubectl
+#+begin_src shell
+if [[ -n "$commands[kubectl]" ]]; then
+  lazyload kubectl -- 'source <(kubectl completion zsh)'
+  other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
+  if [[ ! -z "$other_confs" ]]; then
+    export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
+  fi
+fi
+#+end_src
+
+*** alias
+#+begin_src shell
+alias ls='exa -F --icons --color=auto --group-directories-first'
+alias ll='ls -l --time-style long-iso'
+alias la='ll -a'
+alias tree='exa -T --icons --color=auto --group-directories-first'
+alias tree2='tree -L2'
+alias tree4='tree -L4'
+alias tree8='tree -L8'
+alias grep='rg --color=auto -S'
+alias egrep='rg --color=auto -e'
+alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
+alias lspath='printf "%s\n" $path'
+alias ec='emacsclient -t -a "emacs -nw"'                # Opens emacs inside terminal
+alias ecw='emacsclient -cn -a "emacs"'                # Opens emacs inside terminal
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+#+end_src
+
+*** rest
+#+begin_src shell
+asdf_update_java_home() {
+  JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
+  export JAVA_HOME;
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook precmd asdf_update_java_home
+
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' match-list 'm:{a-z}={A-Za-z}'
+
+
+zinit cdreplay -q # -q is for quiet; actually run all the `compdef's saved before
+                    #`compinit` call (`compinit' declares the `compdef' function, so
+                    # it cannot be used until `compinit` is ran; zinit solves this
+                    # via intercepting the `compdef'-calls and storing them for later
+                    # use with `zinit cdreplay')
+#+end_src
+** zlogout
+:PROPERTIES:
+:header-args: :tangle .config/zsh/.zlogout :mkdirp yes
+:END:
+#+begin_src shell
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
