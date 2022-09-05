@@ -17,6 +17,7 @@
     - [[#org][org]]
     - [[#org-media-note][org-media-note]]
     - [[#org-super-agenda][org-super-agenda]]
+    - [[#org-appear][org-appear]]
     - [[#others][others]]
     - [[#vterm][vterm]]
 - [[#gnu-stow][Gnu stow]]
@@ -298,6 +299,7 @@ use 'M-x doom/reload'.
 (package! pretty-hydra)
 (package! org-media-note :recipe (:host github :repo "yuchen-lea/org-media-note"))
 (package! org-super-agenda)
+(package! org-appear) ;; show plaintext at current line.
 #+end_src
 
 * config.el
@@ -413,6 +415,15 @@ make taking video note painless.
                                    :tag "bo")))
   :config
   (org-super-agenda-mode))
+#+end_src
+*** org-appear
+#+begin_src emacs-lisp
+(use-package org-appear
+  :ensure t
+  :hook (org-mode . org-appear-mode)
+  :custom
+  (org-appear-autolinks t)
+  )
 #+end_src
 *** others
 #+begin_src emacs-lisp

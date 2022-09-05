@@ -44,3 +44,4 @@
 (package! pretty-hydra)
 (package! org-media-note :recipe (:host github :repo "yuchen-lea/org-media-note"))
 (package! org-super-agenda)
+(package! org-appear) ;; show plaintext at current line.
