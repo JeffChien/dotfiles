@@ -18,6 +18,9 @@
     - [[#org-media-note][org-media-note]]
     - [[#org-super-agenda][org-super-agenda]]
     - [[#org-appear][org-appear]]
+    - [[#which-key][which-key]]
+    - [[#dired][dired]]
+    - [[#beacon][Beacon]]
     - [[#others][others]]
     - [[#vterm][vterm]]
 - [[#gnu-stow][Gnu stow]]
@@ -115,7 +118,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
@@ -249,7 +252,7 @@ on the command line, then restart Emacs for the changes to take effect -- or
 use 'M-x doom/reload'.
 
 ** base example
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp tangle: no
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 
@@ -300,6 +303,7 @@ use 'M-x doom/reload'.
 (package! org-media-note :recipe (:host github :repo "yuchen-lea/org-media-note"))
 (package! org-super-agenda)
 (package! org-appear) ;; show plaintext at current line.
+(package! beacon)
 #+end_src
 
 * config.el
@@ -328,7 +332,7 @@ gui and terminal version use different themes
 https://github.com/doomemacs/doomemacs/issues/1403#issuecomment-491470949
 
 #+begin_src emacs-lisp
-(setq doom-theme 'wombat)
+(setq doom-theme 'doom-tomorrow-night)
 (defun reload-theme (frame)
   (with-selected-frame frame
     (if (display-graphic-p)
@@ -425,20 +429,61 @@ make taking video note painless.
   (org-appear-autolinks t)
   )
 #+end_src
+*** which-key
+#+begin_src emacs-lisp
+(use-package which-key
+  :config
+  (setq which-key-idle-delay 0.2)
+  (setq which-key-allow-imprecise-window-fit nil)
+  )
+#+end_src
+*** dired
+| COMMAND             | DESCRIPTION                 | KEYBINDING     | ALTERNATIVE |
+|---------------------+-----------------------------+----------------+-------------|
+|                     | enter edit mode             | <normal> i     |             |
+|                     | confirm change in edit mode | <normal> Z Z   | C-c C-c     |
+|                     | abort change in edit mode   | <normal> Z Z   | C-c ESC     |
+|                     | preview content             | <normal> M-RET |             |
+| dired-do-kill-lines | hide marked lines(visually) | <normal> -     |             |
+
+#+begin_src emacs-lisp
+(map! :map dired-mode-map
+           :n "h" 'dired-up-directory
+           :n "l" 'dired-find-file
+           :n "-" 'dired-do-kill-lines
+           )
+#+end_src
+**** making deleted files go to trash can
+#+begin_src emacs-lisp
+(setq delet-by-moving to trash t
+      trash-directory "~/.Trash")
+#+end_src
+
+=NOTE=: in linux, the default trash can folder may locates in different place, make sure to create a symbolic link.
+
+*** Beacon
+never lose your cursor.
+#+begin_src emacs-lisp
+(use-package beacon
+  :diminish beacon-mode
+  :config
+  (beacon-mode 1))
+#+end_src
+
 *** others
 #+begin_src emacs-lisp
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; show the popup window earlier
-(after! 'which-key
-  (setq which-key-idle-delay 0.2))
+;; (after! 'which-key
+;;   (setq which-key-idle-delay 0.2))
 
 ;; this fix the suggestion list form which-key is partially covered by status line.
 ;; https://github.com/doomemacs/doomemacs/issues/5622
-(setq which-key-allow-imprecise-window-fit nil)
+;; (setq which-key-allow-imprecise-window-fit nil)
 
 ;; no idea the default RET key doesn't work so I have to map it ot other key
 (map! :map evil-multiedit-mode-map

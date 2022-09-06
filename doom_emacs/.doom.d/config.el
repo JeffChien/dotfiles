@@ -1,7 +1,7 @@
 (setq user-full-name "Jeff Chien"
       user-mail-address "jeffchien13@gmail.com")
 
-(setq doom-theme 'wombat)
+(setq doom-theme 'doom-tomorrow-night)
 (defun reload-theme (frame)
   (with-selected-frame frame
     (if (display-graphic-p)
@@ -61,17 +61,37 @@
   (org-appear-autolinks t)
   )
 
+(use-package which-key
+  :config
+  (setq which-key-idle-delay 0.2)
+  (setq which-key-allow-imprecise-window-fit nil)
+  )
+
+(map! :map dired-mode-map
+           :n "h" 'dired-up-directory
+           :n "l" 'dired-find-file
+           :n "-" 'dired-do-kill-lines
+           )
+
+(setq delet-by-moving to trash t
+      trash-directory "~/.Trash")
+
+(use-package beacon
+  :diminish beacon-mode
+  :config
+  (beacon-mode 1))
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; show the popup window earlier
-(after! 'which-key
-  (setq which-key-idle-delay 0.2))
+;; (after! 'which-key
+;;   (setq which-key-idle-delay 0.2))
 
 ;; this fix the suggestion list form which-key is partially covered by status line.
 ;; https://github.com/doomemacs/doomemacs/issues/5622
-(setq which-key-allow-imprecise-window-fit nil)
+;; (setq which-key-allow-imprecise-window-fit nil)
 
 ;; no idea the default RET key doesn't work so I have to map it ot other key
 (map! :map evil-multiedit-mode-map
