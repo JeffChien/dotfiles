@@ -455,7 +455,7 @@ make taking video note painless.
 #+end_src
 **** making deleted files go to trash can
 #+begin_src emacs-lisp
-(setq delet-by-moving to trash t
+(setq delet-by-moving-to-trash t
       trash-directory "~/.Trash")
 #+end_src
 

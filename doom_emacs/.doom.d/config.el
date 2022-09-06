@@ -73,7 +73,7 @@
            :n "-" 'dired-do-kill-lines
            )
 
-(setq delet-by-moving to trash t
+(setq delet-by-moving-to-trash t
       trash-directory "~/.Trash")
 
 (use-package beacon
