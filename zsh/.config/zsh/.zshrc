@@ -39,8 +39,8 @@ zinit load direnv/direnv
 zinit ice wait'1' if'[[ -n "$commands[python3]" ]]' depth'1' lucid  as"program" pick"ft/*"; \
     zinit load sharkdp/shell-functools
 
-zplugin ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zplugin snippet OMZ::plugins/git/git.plugin.zsh
-zplugin ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zplugin snippet OMZ::lib/git.zsh
+zinit ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zinit snippet OMZ::lib/git.zsh
 
 zinit ice wait lucid from"gh-r" as"program" pick"*/fd"; \
     zinit load @sharkdp/fd
@@ -55,12 +55,12 @@ export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always'
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=always'
 export FZF_DEFAULT_OPTS="--ansi --multi --no-height --extended"
-zplugin ice wait'0' lucid multisrc"shell/{completion,key-bindings}.zsh" id-as"fzf-zsh"; \
-    zplugin load junegunn/fzf
-zplugin ice wait'0' if'[[ -n "$TMUX" ]]' lucid pick"bin/fzf-tmux" as"program" id-as"fzf-tmux"; \
-    zplugin load junegunn/fzf
-zplugin ice wait'0' lucid; zplugin snippet ~/.config/zsh/lib/fzf.zsh
-zplugin ice wait'0' lucid; zinit light Aloxaf/fzf-tab
+zinit ice wait'0' lucid multisrc"shell/{completion,key-bindings}.zsh" id-as"fzf-zsh"; \
+    zinit load junegunn/fzf
+zinit ice wait'0' if'[[ -n "$TMUX" ]]' lucid pick"bin/fzf-tmux" as"program" id-as"fzf-tmux"; \
+    zinit load junegunn/fzf
+zinit ice wait'0' lucid; zinit snippet "$HOME/.config/zsh/lib/fzf.zsh"
+zinit ice wait'0' lucid; zinit light Aloxaf/fzf-tab
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -117,7 +117,7 @@ case "$OS_NAME" in
 
     # ALIAS
     zinit ice wait'0' if'[[ -x "/usr/libexec/java_home" ]]' lucid; \
-        zinit snippet ~/.config/zsh/lib/java.zsh
+        zinit snippet "$HOME/.config/zsh/lib/java.zsh"
   ;;
   Linux)
     # disable ctrl-s stop terminal feature {{{
