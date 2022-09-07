@@ -26,6 +26,8 @@
 ;; hide / * _ ~ markers
 (setq org-hide-emphasis-markers t)
 
+(setq org-goto-interface 'outline-path-completion)
+
 (use-package! org-media-note
   :hook (org-mode . org-media-note-mode)
   :config

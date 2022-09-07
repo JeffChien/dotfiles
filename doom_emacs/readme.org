@@ -379,6 +379,9 @@ You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 they are implemented.
 
 *** org
+| COMMAND  | DESCRIPTION     | KEYBINDING | ALTERNATIVE |
+|----------+-----------------+------------+-------------|
+| org-goto | search headings | C-c C-j    |             |
 #+begin_src emacs-lisp
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -386,6 +389,8 @@ they are implemented.
 
 ;; hide / * _ ~ markers
 (setq org-hide-emphasis-markers t)
+
+(setq org-goto-interface 'outline-path-completion)
 #+end_src
 *** org-media-note
 make taking video note painless.
@@ -445,6 +450,13 @@ make taking video note painless.
 |                     | abort change in edit mode   | <normal> Z Z   | C-c ESC     |
 |                     | preview content             | <normal> M-RET |             |
 | dired-do-kill-lines | hide marked lines(visually) | <normal> -     |             |
+|                     | select item                 | m              |             |
+|                     | reverse selection           | t              |             |
+|                     | unselect item               | u              |             |
+|                     | unselect all item           | shift - u      |             |
+|                     | copy                        | shift - c      |             |
+|                     | rename / move               | shift - r      |             |
+|                     | chmod                       | shift - m      |             |
 
 #+begin_src emacs-lisp
 (map! :map dired-mode-map
