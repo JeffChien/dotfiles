@@ -10,5 +10,6 @@ mpv
 spacevim
 streamlink
 tig
+tmux
 yt-dlp
 zsh

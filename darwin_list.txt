@@ -5,8 +5,12 @@ doom_emacs
 git
 lf
 mpv
+skhd
+spacebar
 spacevim
 streamlink
 tig
+tmux
+yabai
 yt-dlp
 zsh
