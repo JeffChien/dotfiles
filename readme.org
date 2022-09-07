@@ -16,20 +16,23 @@ babel dotfile system then I thought I should pick up this repo again.
 
 migrating from the old system to the new one [1/3]
 - [ ] remove legacy configs
-- [-] using emacs org mode babel to maintain config files. [8/13]
+- [-] using emacs org mode babel to maintain config files. [13/16]
   - [X] alacritty
   - [ ] awesome
   - [ ] bash
-  - [ ] zsh
+  - [X] zsh
   - [X] lf
   - [X] spacevim
-  - [ ] tmux
+  - [X] tmux
   - [ ] utils
   - [X] tig
   - [X] mpv
   - [X] yt-dlp
   - [X] fontconfig
   - [X] emacs
+  - [X] yabai
+  - [X] skhd
+  - [X] spacebar
 - [X] generating platform oriented lits for gnu stow
 
 * Deploy
