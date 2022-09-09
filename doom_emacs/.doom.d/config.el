@@ -75,9 +75,16 @@
 
 (use-package which-key
   :config
+  ;; show the popup window earlier
   (setq which-key-idle-delay 0.2)
+
+  ;; this fix the suggestion list form which-key is partially covered by status line.
+  ;; https://github.com/doomemacs/doomemacs/issues/5622
   (setq which-key-allow-imprecise-window-fit nil)
   )
+
+;; dired will automatically refresh buffer to reflect changes which were made by other applications.
+(setq global-auto-revert-non-file-buffers t)
 
 (map! :map dired-mode-map
            :n "h" 'dired-up-directory
@@ -97,13 +104,8 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
-;; show the popup window earlier
-;; (after! 'which-key
-;;   (setq which-key-idle-delay 0.2))
-
-;; this fix the suggestion list form which-key is partially covered by status line.
-;; https://github.com/doomemacs/doomemacs/issues/5622
-;; (setq which-key-allow-imprecise-window-fit nil)
+;; reload the buffer to reflect changes make by other applicaton.
+(global-auto-revert-mode 1)
 
 ;; no idea the default RET key doesn't work so I have to map it ot other key
 (map! :map evil-multiedit-mode-map
