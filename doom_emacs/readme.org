@@ -379,18 +379,29 @@ You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 they are implemented.
 
 *** org
-| COMMAND  | DESCRIPTION     | KEYBINDING | ALTERNATIVE |
-|----------+-----------------+------------+-------------|
-| org-goto | search headings | C-c C-j    |             |
+| COMMAND                       | DESCRIPTION               | KEYBINDING | ALTERNATIVE |
+|-------------------------------+---------------------------+------------+-------------|
+| org-goto                      | search headings           | C-c C-j    |             |
+| org-insert-structure-template | insert structure template | C-c C-,    | <keyword    |
 #+begin_src emacs-lisp
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
 
-;; hide / * _ ~ markers
-(setq org-hide-emphasis-markers t)
+(use-package! org
+  :config
+  (setq org-directory "~/org/")
 
-(setq org-goto-interface 'outline-path-completion)
+  ;; hide / * _ ~ markers
+  (setq org-hide-emphasis-markers t)
+
+  ;; make C-c C-j show headings in menu
+  (setq org-goto-interface 'outline-path-completion)
+
+  ;; structure template list
+  (add-to-list 'org-structure-template-alist '("py" . "src python"))
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp"))
+)
 #+end_src
 *** org-media-note
 make taking video note painless.
@@ -398,7 +409,7 @@ make taking video note painless.
 (use-package! org-media-note
   :hook (org-mode . org-media-note-mode)
   :config
-  (setq org-media-note-screenshot-image-dir "./assets/")
+  (setq org-media-note-screenshot-image-dir (concat org-directory "assets"))
   )
 (map! :leader
       :desc "media note controller"

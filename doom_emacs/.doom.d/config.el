@@ -21,17 +21,27 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
 
-;; hide / * _ ~ markers
-(setq org-hide-emphasis-markers t)
+(use-package! org
+  :config
+  (setq org-directory "~/org/")
 
-(setq org-goto-interface 'outline-path-completion)
+  ;; hide / * _ ~ markers
+  (setq org-hide-emphasis-markers t)
+
+  ;; make C-c C-j show headings in menu
+  (setq org-goto-interface 'outline-path-completion)
+
+  ;; structure template list
+  (add-to-list 'org-structure-template-alist '("py" . "src python"))
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp"))
+)
 
 (use-package! org-media-note
   :hook (org-mode . org-media-note-mode)
   :config
-  (setq org-media-note-screenshot-image-dir "./assets/")
+  (setq org-media-note-screenshot-image-dir (concat org-directory "assets"))
   )
 (map! :leader
       :desc "media note controller"
