@@ -73,6 +73,8 @@
   (org-appear-autolinks t)
   )
 
+
+
 (use-package which-key
   :config
   ;; show the popup window earlier

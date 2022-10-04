@@ -20,8 +20,11 @@ mpv is a media player based on MPlayer and mplayer2. It supports a wide variety 
 :END:
 
 [[https://www.reddit.com/r/mpv/comments/opoorx/mpv_with_ytdlp/][replace youtube-dl]] because it's download speed is limited to ~60k/s
+[[https://github.com/mpv-player/mpv/issues/9042#issuecomment-886113926
+][fix slow cache even with yt-dlp]]
 #+begin_src conf
-script-opts=ytdl_hook-ytdl_path=yt-dlp
+script-opts=ytdl_hook-try_ytdl_first=yes,ytdl_hook-ytdl_path=yt-dlp,ytdl_hook-exclude="%.webm$|%.ts$|%.mp3$|%.m3u8$|%.m3u$|%.mkv$|%.mp4$|%.VOB$"
+
 
 ytdl-format=bestvideo[height<=720][ext=webm]+bestaudio/best[height<=720][ext=webm]'
 #+end_src

@@ -46,3 +46,4 @@
 (package! org-super-agenda)
 (package! org-appear) ;; show plaintext at current line.
 (package! beacon)
+(package! org-drill)
