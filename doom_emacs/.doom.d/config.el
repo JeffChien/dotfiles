@@ -19,6 +19,11 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
+(use-package company
+  :ensure t
+  :init
+  (add-hook 'after-init-hook 'global-company-mode))
+
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 
@@ -88,11 +93,11 @@
 ;; dired will automatically refresh buffer to reflect changes which were made by other applications.
 (setq global-auto-revert-non-file-buffers t)
 
-(map! :map dired-mode-map
-           :n "h" 'dired-up-directory
-           :n "l" 'dired-find-file
-           :n "-" 'dired-do-kill-lines
-           )
+(evil-define-key 'normal dired-mode-map
+  (kbd "h") 'dired-up-directory
+  (kbd "l") 'dired-find-file
+  (kbd "-") 'dired-do-kill-lines
+                )
 
 (setq delet-by-moving-to-trash t
       trash-directory "~/.Trash")
@@ -101,6 +106,13 @@
   :diminish beacon-mode
   :config
   (beacon-mode 1))
+
+(use-package lsp-mode
+  :config
+  (setq lsp-clients-lua-language-server-bin "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec/bin/lua-language-server"
+        lsp-clients-lua-language-server-install-dir "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec"
+        lsp-clients-lua-language-server-main-location "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec/main.lua")
+  (add-hook 'lua-mode-hook #'lsp))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
