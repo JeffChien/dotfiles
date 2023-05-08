@@ -15,14 +15,12 @@
 - [[#tagging][Tagging]]
 
 * zsh
-
 ** script loading orders
 1. .zshenv
 2. .zprofile, if it's a login shell
 3. .zshrc
 4. .zlogin, if it's a login shell
 5. .zlogout
-
 ** dependencies
 - sharkdp/vivid
 
@@ -120,17 +118,6 @@ path=(
 ## terminal colormap
 # https://github.com/sharkdp/vivid
 export LS_COLORS="$(vivid generate dracula)"
-
-#Hadoop
-# exportIfAny 'HADOOP_HOME' "$(get1stExistsPath "$(brew --prefix)/opt/hadoop/libexec")"
-# exportIfAny 'HADOOP_CONF_DIR' "$(get1stExistsPath "$HADOOP_HOME/etc/hadoop")"
-# path=(
-  # "$(get1stExistsPath "$HADOOP_HOME/bin")"
-  # "${path[@]}"
-# )
-# export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
-# export SPARK_DIST_CLASSPATH="$(hadoop classpath):$HADOOP_HOME/share/hadoop/tools/libs/*"
-
 #+end_src
 ** zlogin, only load in login shell
 :PROPERTIES:
@@ -140,101 +127,58 @@ export LS_COLORS="$(vivid generate dracula)"
 echo "Hello $USER, nice to see you again."
 #+end_src
 ** zshrc
+*** active
 :PROPERTIES:
 :header-args: :tangle .config/zsh/.zshrc :mkdirp yes
 :END:
+**** zinit bootstrap
 #+begin_src shell
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+#+end_src
+**** prompt
+***** powerlevel10k
+#+begin_src shell
+# Load powerlevel10k theme
+zinit ice depth"1" \  # git clone depth
+  zinit light romkatv/Powerlevel10k
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+zinit ice if'[[ -r ${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh ]]'; \
+  zinit snippet "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+zinit ice if'[[ -f ~/.config/zsh/.p10k.zsh ]]'; \
+  zinit snippet ~/.config/zsh/.p10k.zsh
+#+end_src
+**** modules
+***** better zsh
+#+begin_src shell
+zinit ice depth"1"; zinit light zdharma-continuum/history-search-multi-word
+zinit ice depth"1"; zinit light zsh-users/zsh-autosuggestions
+zinit ice depth"1"; zinit light zdharma-continuum/fast-syntax-highlighting
+zinit ice depth"1" blockf; zinit light zsh-users/zsh-completions
 
-# Load a few important annexes, without Turbo
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+HISTFILE="$HOME/.zhistory"       # The path to the history file.
 
-zinit light-mode for \
-    pick"zsh-lazyload.zsh" \
-        qoomon/zsh-lazyload
+zstyle ':completion:*' match-list 'm:{a-z}={A-Za-z}'
 #+end_src
-*** docker
+***** fd
 #+begin_src shell
-zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"; zinit light docker/compose
-zinit wait lucid svn for \
-  atload"zicompinit; zicdreplay" \
-  blockf \
-  as"completion" OMZP::docker \
-  as"completion" OMZP::docker-compose \
-  as"completion" id-as"complete-pip" OMZP::pip
+zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 #+end_src
-
-#+RESULTS:
-
-*** fasd
+***** exa
 #+begin_src shell
-zinit ice wait'0' lucid pick"fasd"; zinit light clvv/fasd
-zinit ice wait'0' lucid svn silent; zinit snippet PZT::modules/fasd
+zinit ice from"gh-r" as"program" pick"bin/exa"; zinit load ogham/exa
 #+end_src
-*** bd
+***** fzf
 #+begin_src shell
-zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
-#+end_src
-*** tmux
-#+begin_src shell
-export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux-3rd-plugins"
-[[ ! -d "$TMUX_PLUGIN_MANAGER_PATH" ]] && mkdir -p "$TMUX_PLUGIN_MANAGER_PATH"
-zinit ice wait'1' lucid atclone'ln -s `pwd` "$TMUX_PLUGIN_MANAGER_PATH/tpm" && ./bin/install_plugins'; \
-    zinit light tmux-plugins/tpm
-#+end_src
-*** asdf
-don't put it in async mode, it will break the order of search path.
-#+begin_src shell
-zinit load asdf-vm/asdf
-#+end_src
-
-*** direnv
-#+begin_src shell
-zinit ice from'gh-r' as'program' mv'*direnv* -> direnv' atclone'./direnv hook zsh >! zhook.zsh' atpull'%atclone' src'zhook.zsh';
-zinit load direnv/direnv
-#+end_src
-*** shell-functools
-#+begin_src shell
-zinit ice wait'1' if'[[ -n "$commands[python3]" ]]' depth'1' lucid  as"program" pick"ft/*"; \
-    zinit load sharkdp/shell-functools
-#+end_src
-*** git
-#+begin_src shell
-zinit ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zinit snippet OMZ::lib/git.zsh
-#+end_src
-*** fd
-#+begin_src shell
-zinit ice wait lucid from"gh-r" as"program" pick"*/fd"; \
-    zinit load @sharkdp/fd
-#+end_src
-*** exa
-#+begin_src shell
-zinit ice wait lucid from"gh-r" as"program" pick"bin/exa"; \
-    zinit load ogham/exa
-#+end_src
-*** fzf
-#+begin_src shell
-zinit ice wait lucid from"gh-r" as"program" pick"fzf"; \
+zinit ice from"gh-r" as"program" pick"fzf" id-as"fzf-bin"; zinit load junegunn/fzf
+zinit ice depth"1" multisrc"shell/{completion,key-bindings}.zsh" pick"bin/*" as"program"; \
     zinit load junegunn/fzf
 
-export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always'
-export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always'
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=always'
-export FZF_DEFAULT_OPTS="--ansi --multi --no-height --extended"
-zinit ice wait'0' lucid multisrc"shell/{completion,key-bindings}.zsh" id-as"fzf-zsh"; \
-    zinit load junegunn/fzf
-zinit ice wait'0' if'[[ -n "$TMUX" ]]' lucid pick"bin/fzf-tmux" as"program" id-as"fzf-tmux"; \
-    zinit load junegunn/fzf
-zinit ice wait'0' lucid; zinit snippet "$HOME/.config/zsh/lib/fzf.zsh"
-zinit ice wait'0' lucid; zinit light Aloxaf/fzf-tab
-
+zinit light Aloxaf/fzf-tab
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -245,85 +189,53 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+
+export FZF_DEFAULT_OPTS="--ansi --multi --no-height --extended"
+if (( $+commands[fd] )); then
+    export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always'
+    export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always'
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=always'
+fi
+#+end_src
+***** enhance cd
+https://github.com/b4b4r07/enhancd
+#+begin_src shell
+zinit light b4b4r07/enhancd
+#+end_src
+***** tmux
+#+begin_src shell
+export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux-3rd-plugins"
+[[ ! -d "$TMUX_PLUGIN_MANAGER_PATH" ]] && mkdir -p "$TMUX_PLUGIN_MANAGER_PATH"
+zinit ice atclone'./bin/install_plugins'; \
+    zinit light tmux-plugins/tpm
 #+end_src
 
 #+RESULTS:
 
-*** xsv
+***** asdf
+don't put it in async mode, it will break the order of search path.
 #+begin_src shell
-zinit ice wait'1' lucid from"gh-r" as"program"; \
-    zinit load BurntSushi/xsv
-#+end_src
-*** enhance cd
-#+begin_src shell
-zinit ice wait'0' lucid; \
-    zinit load b4b4r07/enhancd
-#+end_src
-*** httpstat
-#+begin_src shell
-zinit ice wait'1' lucid from"gh-r" as"program" mv'httpstat* -> httpstat'; \
-    zinit load davecheney/httpstat
-#+end_src
-***
-*** bombardier
-#+begin_src shell
-zinit ice wait'1' lucid from"gh-r" as"program" mv'*bombardier* -> bombardier'; \
-    zinit load codesenberg/bombardier
-#+end_src
-*** vegeta
-#+begin_src shell
-zinit ice wait'1' lucid from"gh-r" as"program"; \
-    zinit load tsenart/vegeta
-#+end_src
-*** zsh
-#+begin_src shell
-export ZSH_AUTOSUGGEST_USE_ASYNC=1
-## zsh syntax highlighting
-## autosuggestions
-zinit wait lucid for \
-  light-mode zdharma-continuum/fast-syntax-highlighting \
-  light-mode zsh-users/zsh-autosuggestions
+zinit load asdf-vm/asdf
+asdf_update_java_home() {
+  JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
+  export JAVA_HOME;
+}
 
-# complete
-zinit ice blockf; zinit light zsh-users/zsh-completions
-
-zstyle ':prezto:module:editor' key-bindings 'emacs'
-
-HISTFILE="$HOME/.zhistory"       # The path to the history file.
+autoload -U add-zsh-hook
+add-zsh-hook precmd asdf_update_java_home
 #+end_src
-*** ssh(disabled)
-ssh-agent, automatically launch ssh-agent and add keys with this presto module
-comment out because I want keepassxc to manage it for me.
-#+begin_src shell :tangle no
-#zinit ice svn silent; zinit snippet PZT::modules/ssh
-#zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_dsa' 'id_github'
-#+end_src
-
-*** prompt
-**** spaceship (disabled)
-#+begin_src shell :tangle no
-zinit ice depth'1'; \
-    zinit load denysdovhan/spaceship-prompt
-#+end_src
-**** starship
-#+begin_src shell
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh" # pull behavior same as clone, source init.zsh
-zinit light starship/starship
-#+end_src
-*** os related
+**** os related
 #+begin_src shell
 # OS related
 case "$OS_NAME" in
   Darwin)
-    zinit ice lucid atclone'ln -s `pwd` "$HOME/iTerm2-Color-Schemes"' atpull'%atclone'; \
+    zinit ice atclone'ln -s `pwd` "$HOME/iTerm2-Color-Schemes"' atpull'%atclone'; \
         zinit load mbadolato/iTerm2-Color-Schemes
 
-    #zinit ice wait'1' if'[[ -n "$ITERM_SESSION_ID" ]]' lucid; zinit snippet "${HOME}/.iterm2_shell_integration.zsh"
+    zinit ice if'[[ -n "$ITERM_SESSION_ID" ]]'; zinit snippet "${HOME}/.iterm2_shell_integration.zsh"
 
     # ALIAS
-    zinit ice wait'0' if'[[ -x "/usr/libexec/java_home" ]]' lucid; \
+    zinit ice if'[[ -x "/usr/libexec/java_home" ]]'; \
         zinit snippet "$HOME/.config/zsh/lib/java.zsh"
   ;;
   Linux)
@@ -332,32 +244,12 @@ case "$OS_NAME" in
     stty -ixon
     # }}}
   ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
 esac
-#+end_src
-*** lazy
-#+begin_src shell
-zinit ice if'[[ -e $HOME/.localrc.zsh ]]' lucid; \
-    zinit load "$HOME/.localrc.zsh"
-lazyload k3d -- 'source <(k3d completion zsh)'
-lazyload kind -- 'source <(kind completion zsh)'
-lazyload helm -- 'source <(helm completion zsh)'
-lazyload zoxide -- 'source <(zoxide init zsh)'
-#+end_src
-*** kubectl
-#+begin_src shell
-if [[ -n "$commands[kubectl]" ]]; then
-  lazyload kubectl -- 'source <(kubectl completion zsh)'
-  other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
-  if [[ ! -z "$other_confs" ]]; then
-    export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
-  fi
-fi
-#+end_src
 
-*** alias
+zinit ice if'[[ -e $HOME/.localrc.zsh ]]'; \
+    zinit snippet "$HOME/.localrc.zsh"
+#+end_src
+**** alias
 #+begin_src shell
 alias ls='exa -F --icons --color=auto --group-directories-first'
 alias ll='ls -l --time-style long-iso'
@@ -374,23 +266,10 @@ alias ec='emacsclient -t -a "emacs -nw"'                # Opens emacs inside ter
 alias ecw='emacsclient -cn -a "emacs"'                # Opens emacs inside terminal
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 #+end_src
-
-*** rest
+**** rest
 #+begin_src shell
-asdf_update_java_home() {
-  JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
-  export JAVA_HOME;
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook precmd asdf_update_java_home
-
-
 autoload -Uz compinit
 compinit
-
-zstyle ':completion:*' match-list 'm:{a-z}={A-Za-z}'
-
 
 zinit cdreplay -q # -q is for quiet; actually run all the `compdef's saved before
                     #`compinit` call (`compinit' declares the `compdef' function, so
@@ -398,6 +277,104 @@ zinit cdreplay -q # -q is for quiet; actually run all the `compdef's saved befor
                     # via intercepting the `compdef'-calls and storing them for later
                     # use with `zinit cdreplay')
 #+end_src
+*** disabled
+:PROPERTIES:
+:header-args: :tangle no
+:END:
+**** docker
+#+begin_src shell
+zinit ice from"gh-r" as"program" mv"docker* -> docker-compose"; zinit light docker/compose
+zinit wait lucid svn for \
+  atload"zicompinit; zicdreplay" \
+  blockf \
+  as"completion" OMZP::docker \
+  as"completion" OMZP::docker-compose \
+  as"completion" id-as"complete-pip" OMZP::pip
+#+end_src
+**** fasd
+#+begin_src shell
+zinit ice wait'0' lucid pick"fasd"; zinit light clvv/fasd
+zinit ice wait'0' lucid svn silent; zinit snippet PZT::modules/fasd
+#+end_src
+**** bd
+#+begin_src shell
+zinit ice pick"bd.zsh"; zinit light Tarrasch/zsh-bd
+#+end_src
+**** direnv
+#+begin_src shell
+zinit ice from'gh-r' as'program' mv'*direnv* -> direnv' atclone'./direnv hook zsh >! zhook.zsh' atpull'%atclone' src'zhook.zsh';
+zinit load direnv/direnv
+#+end_src
+**** shell-functools
+#+begin_src shell
+zinit ice wait'1' if'[[ -n "$commands[python3]" ]]' depth'1' lucid  as"program" pick"ft/*"; \
+    zinit load sharkdp/shell-functools
+#+end_src
+**** git
+#+begin_src shell
+zinit ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit ice wait'0' if'[[ -n "$commands[git]" ]]' lucid; zinit snippet OMZ::lib/git.zsh
+#+end_src
+**** xsv
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program"; \
+    zinit load BurntSushi/xsv
+#+end_src
+**** httpstat
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program" mv'httpstat* -> httpstat'; \
+    zinit load davecheney/httpstat
+#+end_src
+***
+**** bombardier
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program" mv'*bombardier* -> bombardier'; \
+    zinit load codesenberg/bombardier
+#+end_src
+**** vegeta
+#+begin_src shell
+zinit ice wait'1' lucid from"gh-r" as"program"; \
+    zinit load tsenart/vegeta
+#+end_src
+**** ssh(disabled)
+ssh-agent, automatically launch ssh-agent and add keys with this presto module
+comment out because I want keepassxc to manage it for me.
+#+begin_src shell :tangle no
+#zinit ice svn silent; zinit snippet PZT::modules/ssh
+#zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'id_dsa' 'id_github'
+#+end_src
+
+**** prompt
+***** spaceship
+#+begin_src shell
+zinit ice depth'1'; \
+    zinit load denysdovhan/spaceship-prompt
+#+end_src
+***** starship
+#+begin_src shell
+zinit ice as"command" from"gh-r" \
+          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
+          atpull"%atclone" src"init.zsh" # pull behavior same as clone, source init.zsh
+zinit light starship/starship
+#+end_src
+**** lazy
+#+begin_src shell
+lazyload k3d -- 'source <(k3d completion zsh)'
+lazyload kind -- 'source <(kind completion zsh)'
+lazyload helm -- 'source <(helm completion zsh)'
+lazyload zoxide -- 'source <(zoxide init zsh)'
+#+end_src
+**** kubectl
+#+begin_src shell
+if [[ -n "$commands[kubectl]" ]]; then
+  lazyload kubectl -- 'source <(kubectl completion zsh)'
+  other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
+  if [[ ! -z "$other_confs" ]]; then
+    export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
+  fi
+fi
+#+end_src
+
 ** zlogout
 :PROPERTIES:
 :header-args: :tangle .config/zsh/.zlogout :mkdirp yes

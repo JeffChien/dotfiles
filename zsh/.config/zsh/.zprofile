@@ -65,13 +65,3 @@ path=(
 ## terminal colormap
 # https://github.com/sharkdp/vivid
 export LS_COLORS="$(vivid generate dracula)"
-
-#Hadoop
-# exportIfAny 'HADOOP_HOME' "$(get1stExistsPath "$(brew --prefix)/opt/hadoop/libexec")"
-# exportIfAny 'HADOOP_CONF_DIR' "$(get1stExistsPath "$HADOOP_HOME/etc/hadoop")"
-# path=(
-  # "$(get1stExistsPath "$HADOOP_HOME/bin")"
-  # "${path[@]}"
-# )
-# export LD_LIBRARY_PATH=$HADOOP_HOME/lib/native
-# export SPARK_DIST_CLASSPATH="$(hadoop classpath):$HADOOP_HOME/share/hadoop/tools/libs/*"
