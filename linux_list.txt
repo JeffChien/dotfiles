@@ -13,3 +13,4 @@ tig
 tmux
 yt-dlp
 zsh
+wezterm

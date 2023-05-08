@@ -1,0 +1,36 @@
+#+title: Readme
+* Table of content :TOC:
+- [[#wezterm][Wezterm]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Wezterm
+:PROPERTIES:
+:header-args: :tangle .config/wezterm/wezterm.lua :mkdirp yes
+:END:
+[[https://wezfurlong.org/wezterm/config/files.html#configuration-files][official page]]
+
+#+begin_src lua
+local wezterm = require('wezterm')
+local config = {}
+
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
+
+config.color_scheme = "Catppuccin Frappe"
+config.font = wezterm.font('SauceCodePro Nerd Font Mono')
+config.font_size = 15
+
+return config
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
