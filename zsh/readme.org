@@ -5,10 +5,10 @@
 - [[#zsh][zsh]]
   - [[#script-loading-orders][script loading orders]]
   - [[#dependencies][dependencies]]
-- [[#zinit][zinit]]
+- [[#rcfiles][rcfiles]]
   - [[#zshenv][zshenv]]
-  - [[#zprofile-only-load-in-login-shell][zprofile, only load in login shell]]
-  - [[#zlogin-only-load-in-login-shell][zlogin, only load in login shell]]
+  - [[#zprofile][zprofile]]
+  - [[#zlogin][zlogin]]
   - [[#zshrc][zshrc]]
   - [[#zlogout][zlogout]]
 - [[#gnu-stow][Gnu stow]]
@@ -24,7 +24,7 @@
 ** dependencies
 - sharkdp/vivid
 
-* zinit
+* rcfiles
 ** zshenv
 # https://www.reddit.com/r/zsh/comments/3ubrdr/proper_way_to_set_zdotdir/
 *** bootstrap
@@ -45,7 +45,7 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ${ZDOTDIR:-$HOME}/.zprofile ]]; the
   source ${ZDOTDIR:-$HOME}/.zprofile
 fi
 #+end_src
-** zprofile, only load in login shell
+** zprofile
 :PROPERTIES:
 :header-args: :tangle .config/zsh/.zprofile :mkdirp yes
 :END:
@@ -119,7 +119,8 @@ path=(
 # https://github.com/sharkdp/vivid
 export LS_COLORS="$(vivid generate dracula)"
 #+end_src
-** zlogin, only load in login shell
+** zlogin
+this file is only loaded in login shell
 :PROPERTIES:
 :header-args: :tangle .config/zsh/.zlogin :mkdirp yes
 :END:
@@ -127,6 +128,7 @@ export LS_COLORS="$(vivid generate dracula)"
 echo "Hello $USER, nice to see you again."
 #+end_src
 ** zshrc
+managed by [[https://github.com/zdharma-continuum/zinit][zinit]]
 *** active
 :PROPERTIES:
 :header-args: :tangle .config/zsh/.zshrc :mkdirp yes
@@ -325,7 +327,6 @@ zinit ice wait'1' lucid from"gh-r" as"program"; \
 zinit ice wait'1' lucid from"gh-r" as"program" mv'httpstat* -> httpstat'; \
     zinit load davecheney/httpstat
 #+end_src
-***
 **** bombardier
 #+begin_src shell
 zinit ice wait'1' lucid from"gh-r" as"program" mv'*bombardier* -> bombardier'; \
