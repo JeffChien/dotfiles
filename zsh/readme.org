@@ -211,9 +211,6 @@ export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux-3rd-plugins"
 zinit ice atclone'./bin/install_plugins'; \
     zinit light tmux-plugins/tpm
 #+end_src
-
-#+RESULTS:
-
 ***** asdf
 don't put it in async mode, it will break the order of search path.
 #+begin_src shell
