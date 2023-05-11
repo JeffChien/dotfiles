@@ -502,11 +502,14 @@ make taking video note painless.
   (kbd "l") 'dired-find-file
   (kbd "-") 'dired-do-kill-lines)
 #+end_src
-**** making deleted files go to trash can
+**** Trash can
+
+Doom-emacs should already have handled it well, just make sure this variable is set
 #+begin_src emacs-lisp
-(setq delet-by-moving-to-trash t
-      trash-directory "~/.Trash")
+(setq delet-by-moving-to-trash t)
 #+end_src
+or follow the instruction from the [[https://www.emacswiki.org/emacs/SystemTrash][emacswiki]]
+
 
 =NOTE=: in linux, the default trash can folder may locates in different place, make sure to create a symbolic link.
 
