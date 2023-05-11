@@ -69,13 +69,6 @@ fnode_path=(
   "${fnode_path[@]}"
 )
 
-# zsh path
-fpath=(
-    "$XDG_DATA_HOME/zsh/completions"
-    /usr/local/share/zsh/site-functions
-    "${fpath[@]}"
-)
-
 # zplugin config
 # https://github.com/zdharma/zplugin/blob/ec79623684944b813cbd8fa3faee484c486d1f68/README.md#customizing-paths--other
 
@@ -134,6 +127,16 @@ managed by [[https://github.com/zdharma-continuum/zinit][zinit]]
 :PROPERTIES:
 :header-args: :tangle .config/zsh/.zshrc :mkdirp yes
 :END:
+
+fpath need to be inside zshrc, it will get reset
+#+begin_src emacs-lisp
+fpath=(
+    "$XDG_DATA_HOME/zsh/completions"
+    /usr/local/share/zsh/site-functions
+    "${fpath[@]}"
+)
+#+end_src
+
 **** zinit bootstrap
 #+begin_src shell
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

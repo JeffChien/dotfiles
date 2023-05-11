@@ -16,13 +16,6 @@ fnode_path=(
   "${fnode_path[@]}"
 )
 
-# zsh path
-fpath=(
-    "$XDG_DATA_HOME/zsh/completions"
-    /usr/local/share/zsh/site-functions
-    "${fpath[@]}"
-)
-
 # zplugin config
 # https://github.com/zdharma/zplugin/blob/ec79623684944b813cbd8fa3faee484c486d1f68/README.md#customizing-paths--other
 
