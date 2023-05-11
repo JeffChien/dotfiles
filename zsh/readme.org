@@ -71,6 +71,7 @@ fnode_path=(
 
 # zsh path
 fpath=(
+    "$XDG_DATA_HOME/zsh/completions"
     /usr/local/share/zsh/site-functions
     "${fpath[@]}"
 )
@@ -172,7 +173,7 @@ zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 #+end_src
 ***** exa
 #+begin_src shell
-zinit ice from"gh-r" as"program" pick"bin/exa"; zinit load ogham/exa
+zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
 #+end_src
 ***** fzf
 #+begin_src shell
@@ -223,6 +224,18 @@ asdf_update_java_home() {
 autoload -U add-zsh-hook
 add-zsh-hook precmd asdf_update_java_home
 #+end_src
+***** k8s
+#+begin_src shell
+if (( $+commands[kubectl] )); then
+    other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
+    if [[ ! -z "$other_confs" ]]; then
+        export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
+    fi
+    zinit ice if'(( $+commands[kubectl] ))' depth"1" as"program" pick"kubectx;kubens" atclone'cp completion/*.zsh .'; \
+        zinit light ahmetb/kubectx
+fi
+
+#+end_src
 **** os related
 #+begin_src shell
 # OS related
@@ -264,6 +277,7 @@ alias lspath='printf "%s\n" $path'
 alias ec='emacsclient -t -a "emacs -nw"'                # Opens emacs inside terminal
 alias ecw='emacsclient -cn -a "emacs"'                # Opens emacs inside terminal
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias please='sudo $(fc -ln -1)' # sudo the last command
 #+end_src
 **** rest
 #+begin_src shell
