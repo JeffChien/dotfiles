@@ -388,6 +388,8 @@ they are implemented.
   :ensure t
   :init
   (add-hook 'after-init-hook 'global-company-mode))
+  :config
+  (setq company-minimum-prefix-length 3)
 #+end_src
 *** org
 | COMMAND                       | DESCRIPTION               | KEYBINDING | ALTERNATIVE |
