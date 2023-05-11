@@ -18,6 +18,7 @@ fnode_path=(
 
 # zsh path
 fpath=(
+    "$XDG_DATA_HOME/zsh/completions"
     /usr/local/share/zsh/site-functions
     "${fpath[@]}"
 )

@@ -23,6 +23,8 @@
   :ensure t
   :init
   (add-hook 'after-init-hook 'global-company-mode))
+  :config
+  (setq company-minimum-prefix-length 3)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -96,11 +98,25 @@
 (evil-define-key 'normal dired-mode-map
   (kbd "h") 'dired-up-directory
   (kbd "l") 'dired-find-file
-  (kbd "-") 'dired-do-kill-lines
-                )
+  (kbd "-") 'dired-do-kill-lines)
 
-(setq delet-by-moving-to-trash t
-      trash-directory "~/.Trash")
+(setq delet-by-moving-to-trash t)
+
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("dired" (mode . dired-mode))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")
+                         (name . "^\\*compilation\\*$")
+                         (name . "^\\*Async-native-compile-log\\*$")
+                         (name . "^\\*Native-compile-Log\\*$")
+                         (name . "^\\*vc\\*$")))))))
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")
+            (setq ibuffer-hidden-filter-groups (list "emacs"))
+            (ibuffer-update nil t)))
 
 (use-package beacon
   :diminish beacon-mode

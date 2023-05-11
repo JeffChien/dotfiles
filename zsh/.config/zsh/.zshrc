@@ -25,7 +25,7 @@ zstyle ':completion:*' match-list 'm:{a-z}={A-Za-z}'
 
 zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 
-zinit ice from"gh-r" as"program" pick"bin/exa"; zinit load ogham/exa
+zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
 
 zinit ice from"gh-r" as"program" pick"fzf" id-as"fzf-bin"; zinit load junegunn/fzf
 zinit ice depth"1" multisrc"shell/{completion,key-bindings}.zsh" pick"bin/*" as"program"; \
@@ -66,6 +66,15 @@ asdf_update_java_home() {
 autoload -U add-zsh-hook
 add-zsh-hook precmd asdf_update_java_home
 
+if (( $+commands[kubectl] )); then
+    other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
+    if [[ ! -z "$other_confs" ]]; then
+        export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
+    fi
+    zinit ice if'(( $+commands[kubectl] ))' depth"1" as"program" pick"kubectx;kubens" atclone'cp completion/*.zsh .'; \
+        zinit light ahmetb/kubectx
+fi
+
 # OS related
 case "$OS_NAME" in
   Darwin)
@@ -103,6 +112,7 @@ alias lspath='printf "%s\n" $path'
 alias ec='emacsclient -t -a "emacs -nw"'                # Opens emacs inside terminal
 alias ecw='emacsclient -cn -a "emacs"'                # Opens emacs inside terminal
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias please='sudo $(fc -ln -1)' # sudo the last command
 
 autoload -Uz compinit
 compinit
