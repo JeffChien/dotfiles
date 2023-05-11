@@ -22,6 +22,7 @@
     - [[#org-drill][org-drill]]
     - [[#which-key][which-key]]
     - [[#dired][dired]]
+    - [[#ibuffer][iBuffer]]
     - [[#beacon][Beacon]]
     - [[#lsp][lsp]]
     - [[#others][others]]
@@ -509,9 +510,28 @@ Doom-emacs should already have handled it well, just make sure this variable is 
 (setq delet-by-moving-to-trash t)
 #+end_src
 or follow the instruction from the [[https://www.emacswiki.org/emacs/SystemTrash][emacswiki]]
+*** iBuffer
 
+**** Default groups
 
-=NOTE=: in linux, the default trash can folder may locates in different place, make sure to create a symbolic link.
+Grouping buffers and fold emacs's internal buffers.
+#+begin_src emacs-lisp
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("dired" (mode . dired-mode))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")
+                         (name . "^\\*compilation\\*$")
+                         (name . "^\\*Async-native-compile-log\\*$")
+                         (name . "^\\*Native-compile-Log\\*$")
+                         (name . "^\\*vc\\*$")))))))
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")
+            (setq ibuffer-hidden-filter-groups (list "emacs"))
+            (ibuffer-update nil t)))
+#+end_src
 
 *** Beacon
 never lose your cursor.
