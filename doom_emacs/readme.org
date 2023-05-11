@@ -473,6 +473,7 @@ make taking video note painless.
   )
 #+end_src
 *** dired
+
 | COMMAND             | DESCRIPTION                 | KEYBINDING     | ALTERNATIVE |
 |---------------------+-----------------------------+----------------+-------------|
 |                     | enter edit mode             | <normal> i     |             |
@@ -497,8 +498,7 @@ make taking video note painless.
 (evil-define-key 'normal dired-mode-map
   (kbd "h") 'dired-up-directory
   (kbd "l") 'dired-find-file
-  (kbd "-") 'dired-do-kill-lines
-                )
+  (kbd "-") 'dired-do-kill-lines)
 #+end_src
 **** making deleted files go to trash can
 #+begin_src emacs-lisp
