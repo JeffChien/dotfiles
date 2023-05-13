@@ -530,13 +530,7 @@ Grouping buffers and fold emacs's internal buffers.
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                ("dired" (mode . dired-mode))
-               ("emacs" (or
-                         (name . "^\\*scratch\\*$")
-                         (name . "^\\*Messages\\*$")
-                         (name . "^\\*compilation\\*$")
-                         (name . "^\\*Async-native-compile-log\\*$")
-                         (name . "^\\*Native-compile-Log\\*$")
-                         (name . "^\\*vc\\*$")))))))
+               ("emacs" (name . "^\*.*\*"))))))
 (add-hook 'ibuffer-mode-hook
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")
