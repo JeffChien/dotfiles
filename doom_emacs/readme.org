@@ -448,6 +448,31 @@ This package is extremely important for GUI and deamonized emacs
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp")))
 #+end_src
+
+**** Utility functions & settings
+
+#+begin_src emacs-lisp
+(defun extract-src-content (name)
+  (save-excursion
+    (org-babel-goto-named-src-block name)
+    (org-element-property :value (org-element-at-point))))
+#+end_src
+
+[[https://emacs.stackexchange.com/questions/24247/org-mode-pipe-source-block-output-as-stdin-to-next-source-block/51734#51734?s=a6dac07a4ad3437e993ee98acae00ca6][source]]
+this is a very useful function, especially chain with *:post*, one use case is to feed yaml config to k8s *kubectl*, we define 2 souce blocks
+one for the yaml config, and the other one for *kubectl* apply command, then in the later block, we can use *:stdin* and pass the name of the yaml block.
+
+the same functionality can be done with pure *begin_example* block, but therefore we can't have code highlight.
+
+#+begin_src emacs-lisp
+(defun org-babel-execute:passthrough (body params)
+  body)
+
+;; json output is json
+(defalias 'org-babel-execute:yaml 'org-babel-execute:passthrough)
+(defalias 'org-babel-execute:json 'org-babel-execute:passthrough)
+#+end_src
+
 ***** Enable lsp in org-edit-special
 
 Base on the [[https://github.com/emacs-lsp/lsp-mode/issues/2842#issuecomment-870807018][github issue]] that lsp needs a file, so we give it a file.
