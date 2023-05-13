@@ -238,7 +238,7 @@ add-zsh-hook precmd asdf_update_java_home
 if (( $+commands[kubectl] )); then
     other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
     if [[ ! -z "$other_confs" ]]; then
-        export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
+        export KUBECONFIG="$HOME/.kube/config:${other_confs}"
     fi
     zinit ice if'(( $+commands[kubectl] ))' depth"1" as"program" pick"kubectx;kubens" atclone'cp completion/*.zsh .'; \
         zinit light ahmetb/kubectx
