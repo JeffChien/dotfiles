@@ -225,7 +225,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
-       yaml              ; JSON, but readable
+       (yaml +lsp)              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email
@@ -417,6 +417,17 @@ they are implemented.
   (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp"))
 )
 #+end_src
+***** Enable lsp in org-edit-special
+
+Base on the [[https://github.com/emacs-lsp/lsp-mode/issues/2842#issuecomment-870807018][github issue]] that lsp needs a file, so we give it a file.
+
+#+begin_src emacs-lisp
+(defun org-babel-edit-prep:lsp-mode (babel-info)
+  (setq-local buffer-file-name (->> babel-info caddr (alist-get :tangle)))
+  (lsp))
+(defalias 'org-babel-edit-prep:yaml 'org-babel-edit-prep:lsp-mode)
+#+end_src
+
 *** org-media-note
 make taking video note painless.
 #+begin_src emacs-lisp
@@ -549,7 +560,8 @@ never lose your cursor.
   (setq lsp-clients-lua-language-server-bin "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec/bin/lua-language-server"
         lsp-clients-lua-language-server-install-dir "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec"
         lsp-clients-lua-language-server-main-location "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec/main.lua")
-  (add-hook 'lua-mode-hook #'lsp))
+  (add-hook 'lua-mode-hook #'lsp)
+  (add-hook 'yaml-mode-hook #'lsp))
 #+end_src
 *** others
 #+begin_src emacs-lisp
