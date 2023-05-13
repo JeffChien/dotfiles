@@ -178,6 +178,12 @@ zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 #+begin_src shell
 zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
 #+end_src
+
+***** ripgrep
+
+#+begin_src shell
+zinit ice from"gh-r" as"program" pick"**/rg"; zinit load burntSushi/ripgrep
+#+end_src
 ***** fzf
 #+begin_src shell
 zinit ice from"gh-r" as"program" pick"fzf" id-as"fzf-bin"; zinit load junegunn/fzf
