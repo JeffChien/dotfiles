@@ -47,3 +47,4 @@
 (package! org-appear) ;; show plaintext at current line.
 (package! beacon)
 (package! org-drill)
+(package! exec-path-from-shell)

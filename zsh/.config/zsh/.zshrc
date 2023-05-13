@@ -33,6 +33,8 @@ zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 
 zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
 
+zinit ice from"gh-r" as"program" pick"**/rg"; zinit load burntSushi/ripgrep
+
 zinit ice from"gh-r" as"program" pick"fzf" id-as"fzf-bin"; zinit load junegunn/fzf
 zinit ice depth"1" multisrc"shell/{completion,key-bindings}.zsh" pick"bin/*" as"program"; \
     zinit load junegunn/fzf
@@ -75,7 +77,7 @@ add-zsh-hook precmd asdf_update_java_home
 if (( $+commands[kubectl] )); then
     other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
     if [[ ! -z "$other_confs" ]]; then
-        export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
+        export KUBECONFIG="$HOME/.kube/config:${other_confs}"
     fi
     zinit ice if'(( $+commands[kubectl] ))' depth"1" as"program" pick"kubectx;kubens" atclone'cp completion/*.zsh .'; \
         zinit light ahmetb/kubectx
