@@ -14,6 +14,7 @@
     - [[#theme][theme]]
     - [[#fonts][fonts]]
   - [[#package-settings][package settings]]
+    - [[#exec-path-from-shell][exec-path-from-shell]]
     - [[#company][company]]
     - [[#org][org]]
     - [[#org-media-note][org-media-note]]
@@ -309,6 +310,7 @@ use 'M-x doom/reload'.
 (package! org-appear) ;; show plaintext at current line.
 (package! beacon)
 (package! org-drill)
+(package! exec-path-from-shell)
 #+end_src
 
 * config.el
@@ -382,6 +384,23 @@ This will open documentation for it, including demos of how they are used.
 
 You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 they are implemented.
+
+*** exec-path-from-shell
+
+This package is extremely important for GUI and deamonized emacs
+
+#+begin_src emacs-lisp
+(use-package exec-path-from-shell
+  :if (or
+       (memq window-system '(mac ns x))
+       (daemonp))
+  :ensure t
+  :init
+  (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "KUBECONFIG"))
+  (add-to-list 'exec-path-from-shell-variables var))
+  :config
+  (exec-path-from-shell-initialize))
+#+end_src
 
 *** company
 #+begin_src emacs-lisp
