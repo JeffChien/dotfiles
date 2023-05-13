@@ -414,14 +414,14 @@ This package is extremely important for GUI and deamonized emacs
 #+end_src
 
 *** company
+
 #+begin_src emacs-lisp
 (use-package company
   :ensure t
-  :init
-  (add-hook 'after-init-hook 'global-company-mode))
-  :config
-  (setq company-minimum-prefix-length 3)
+  :hook ((text-mode . company-mode)
+         (prog-mode . company-mode)))
 #+end_src
+
 *** org
 
 | COMMAND                       | DESCRIPTION               | KEYBINDING | ALTERNATIVE |
@@ -485,38 +485,43 @@ Base on the [[https://github.com/emacs-lsp/lsp-mode/issues/2842#issuecomment-870
 #+end_src
 
 *** org-media-note
-make taking video note painless.
+
+Making video note taking painless.
 #+begin_src emacs-lisp
 (use-package! org-media-note
   :hook (org-mode . org-media-note-mode)
+  :after org
+  :custom
+  (org-media-note-screenshot-image-dir (concat org-directory "assets"))
   :config
-  (setq org-media-note-screenshot-image-dir (concat org-directory "assets"))
-  )
-(map! :leader
-      :desc "media note controller"
-      "m v" #'org-media-note-hydra/body)
+  (map! :leader
+        :desc "media note controller"
+        "m v" #'org-media-note-hydra/body))
 #+end_src
+
 *** org-super-agenda
+
 #+begin_src emacs-lisp
 (use-package! org-super-agenda
   :after org-agenda
-  :init
-  (setq org-super-agenda-groups '((:name "Today"
-                                        :time-grid t
-                                        :scheduled today)
-                                  (:name "Due today"
-                                        :deadline today)
-                                  (:name "Important"
-                                        :priority "A")
-                                  (:name "Overdue"
-                                        :deadline past)
-                                  (:name "Due soon"
-                                        :deadline future)
-                                  (:name "Big Outcomes"
-                                   :tag "bo")))
+  :custom
+  (org-super-agenda-groups '((:name "Today"
+                              :time-grid t
+                              :scheduled today)
+                             (:name "Due today"
+                              :deadline today)
+                             (:name "Important"
+                              :priority "A")
+                             (:name "Overdue"
+                              :deadline past)
+                             (:name "Due soon"
+                              :deadline future)
+                             (:name "Big Outcomes"
+                              :tag "bo")))
   :config
   (org-super-agenda-mode))
 #+end_src
+
 *** org-appear
 #+begin_src emacs-lisp
 (use-package org-appear
@@ -530,18 +535,19 @@ make taking video note painless.
 #+begin_src emacs-lisp
 
 #+end_src
+
 *** which-key
+
 #+begin_src emacs-lisp
 (use-package which-key
-  :config
-  ;; show the popup window earlier
-  (setq which-key-idle-delay 0.2)
+  :custom
+  (which-key-idle-delay 0.5 "make popup window earlier")
 
   ;; this fix the suggestion list form which-key is partially covered by status line.
   ;; https://github.com/doomemacs/doomemacs/issues/5622
-  (setq which-key-allow-imprecise-window-fit nil)
-  )
+  (which-key-allow-imprecise-window-fit nil))
 #+end_src
+
 *** dired
 
 | COMMAND             | DESCRIPTION                 | KEYBINDING     | ALTERNATIVE |
@@ -560,47 +566,52 @@ make taking video note painless.
 |                     | chmod                       | shift - m      |             |
 
 #+begin_src emacs-lisp
-;; dired will automatically refresh buffer to reflect changes which were made by other applications.
-(setq global-auto-revert-non-file-buffers t)
+
+(use-package dired
+  :ensure nil
+  :custom
+  ;; dired will automatically refresh buffer to reflect changes which were made by other applications.
+  (global-auto-revert-non-file-buffers t)
+  :config
+  (setq delet-by-moving-to-trash t)
+
+  (evil-define-key 'normal dired-mode-map
+    (kbd "h") 'dired-up-directory
+    (kbd "l") 'dired-find-file))
 #+end_src
 
-#+begin_src emacs-lisp
-(evil-define-key 'normal dired-mode-map
-  (kbd "h") 'dired-up-directory
-  (kbd "l") 'dired-find-file
-  (kbd "-") 'dired-do-kill-lines)
-#+end_src
 **** Trash can
 
 Doom-emacs should already have handled it well, just make sure this variable is set
-#+begin_src emacs-lisp
-(setq delet-by-moving-to-trash t)
-#+end_src
 or follow the instruction from the [[https://www.emacswiki.org/emacs/SystemTrash][emacswiki]]
+
 *** iBuffer
 
-**** Default groups
-
 Grouping buffers and fold emacs's internal buffers.
+
 #+begin_src emacs-lisp
-(setq ibuffer-saved-filter-groups
-      (quote (("default"
-               ("dired" (mode . dired-mode))
-               ("emacs" (name . "^\*.*\*"))))))
-(add-hook 'ibuffer-mode-hook
-          (lambda ()
-            (ibuffer-switch-to-saved-filter-groups "default")
-            (setq ibuffer-hidden-filter-groups (list "emacs"))
-            (ibuffer-update nil t)))
+(use-package ibuffer
+  :custom
+  (ibuffer-saved-filter-groups
+   (quote (("default"
+            ("dired" (mode . dired-mode))
+            ("emacs" (name . "^\*.*\*"))))))
+  :config
+  (add-hook 'ibuffer-mode-hook
+            (lambda ()
+              (ibuffer-switch-to-saved-filter-groups "default")
+              (setq ibuffer-hidden-filter-groups (list "emacs"))
+              (ibuffer-update nil t))))
 #+end_src
 
 *** Beacon
-never lose your cursor.
+
+Never lose your cursor.
 #+begin_src emacs-lisp
 (use-package beacon
   :diminish beacon-mode
-  :config
-  (beacon-mode 1))
+  :custom
+  (beacon-mode t))
 #+end_src
 
 *** lsp
