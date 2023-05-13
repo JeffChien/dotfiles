@@ -9,6 +9,7 @@
   - [[#base-example][base example]]
   - [[#extra-packages][extra packages]]
 - [[#configel][config.el]]
+  - [[#cheatsheet-of-use-package][Cheatsheet of use-package]]
   - [[#me][me]]
   - [[#display][Display]]
     - [[#theme][theme]]
@@ -43,6 +44,7 @@ An Emacs framework for the stubborn martian hacker
 | C        | ctrl                                              |
 | s        | command key in mac, can easily confuse with shift |
 * key bindings
+
 | COMMAND                                     | DESCRIPTION                   | KEYBINDING |
 |---------------------------------------------+-------------------------------+------------|
 | +vterm/toggle                               | popup terminal                | SPC o t    |
@@ -50,6 +52,8 @@ An Emacs framework for the stubborn martian hacker
 | org-media-note-hydra/body                   | video note controller         | SPC m v    |
 | evil-multiedit-toggle-or-restriction-region | toggle multi cursor selection | SPC t s    |
 | doom/reload                                 | reload everything             | SPC h r r  |
+| universal-argument                          | aka prefix argument(C-u)      | SPC u      |
+
 * init.el
 :PROPERTIES:
 :header-args: :tangle .doom.d/init.el :mkdirp yes
@@ -320,6 +324,13 @@ use 'M-x doom/reload'.
 Place your private configuration here! Remember, you do not need to run 'doom
 sync' after modifying this file!
 
+** Cheatsheet of use-package
+- ~:init~ run before package is loaded
+- ~:config~ run after package is loaded
+- ~:custom~ configure variables
+- ~:hook~ evivalent to ~add-hook~, can have multiple, or give it a list
+
+
 ** me
 Some functionality uses this to identify you, e.g. GPG configuration, email
 clients, file templates and snippets.
@@ -412,10 +423,12 @@ This package is extremely important for GUI and deamonized emacs
   (setq company-minimum-prefix-length 3)
 #+end_src
 *** org
+
 | COMMAND                       | DESCRIPTION               | KEYBINDING | ALTERNATIVE |
 |-------------------------------+---------------------------+------------+-------------|
 | org-goto                      | search headings           | C-c C-j    |             |
 | org-insert-structure-template | insert structure template | C-c C-,    | <keyword    |
+
 #+begin_src emacs-lisp
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -433,8 +446,7 @@ This package is extremely important for GUI and deamonized emacs
   ;; structure template list
   (add-to-list 'org-structure-template-alist '("py" . "src python"))
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-  (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp"))
-)
+  (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp")))
 #+end_src
 ***** Enable lsp in org-edit-special
 
