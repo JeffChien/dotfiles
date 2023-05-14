@@ -12,6 +12,7 @@
   - [[#cheatsheet-of-use-package][Cheatsheet of use-package]]
   - [[#me][me]]
   - [[#display][Display]]
+    - [[#menu-bar][Menu bar]]
     - [[#theme][theme]]
     - [[#fonts][fonts]]
   - [[#package-settings][package settings]]
@@ -341,6 +342,24 @@ clients, file templates and snippets.
 #+end_src
 
 ** Display
+
+*** Menu bar
+
+~menu-bar-mode~ change all frame, but I only want get rid of it in terminal mode
+but keep it in GUI mode, since I also have a emacs backgrounnd service so things
+becomes tricker. [[https://stackoverflow.com/questions/24956521/how-can-i-hide-the-menu-bar-from-a-specific-frame-in-emacs][source]]
+
+#+begin_src emacs-lisp
+(defun contextual-menubar (&optional frame)
+  "Display the menubar in FRAME (default: selected frame) if on a
+graphical display, but hide it if in terminal."
+  (interactive)
+  (set-frame-parameter frame 'menu-bar-lines (if (display-graphic-p frame) 1 0)))
+
+(add-hook 'after-make-frame-functions 'contextual-menubar)
+(add-hook 'after-init-hook 'contextual-menubar)
+#+end_src
+
 *** theme
 There are two ways to load a theme. Both assume the theme is installed and
 available. You can either set `doom-theme' or manually load a theme with the
