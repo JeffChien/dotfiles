@@ -652,6 +652,8 @@ Never lose your cursor.
 ;; reload the buffer to reflect changes make by other applicaton.
 (global-auto-revert-mode 1)
 
+(setq-default fill-column 120)
+
 ;; no idea the default RET key doesn't work so I have to map it ot other key
 (map! :map evil-multiedit-mode-map
       :leader
