@@ -54,8 +54,9 @@ fi
 source "$XDG_CONFIG_HOME/zsh/lib/utils.zsh"
 
 # Default derminal editor, EDITOR is a fallback option.
-export VISUAL='emacsclient -n -a "emacs"'
-export EDITOR='emacsclient -n -a "emacs"'
+export VISUAL='em'
+export EDITOR='em'
+export MANPAGER='nvim +Man!'
 
 # To speed up c compiling time.
 export USE_CCACHE=1
