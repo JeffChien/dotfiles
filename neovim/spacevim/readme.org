@@ -8,13 +8,17 @@
 - [[#tagging][Tagging]]
 
 * SpaceVim - Modern Vim distribution
+:PROPERTIES:
+:basedir: .build/.SpaceVim.d/
+:END:
+
 A community-driven modular vim/neovim distribution - The ultimate vimrc
 
 https://spacevim.org/
 
 ** init.toml
 :PROPERTIES:
-:header-args: :tangle .SpaceVim.d/init.toml :mkdirp yes
+:header-args: :tangle (resolve-path "init.toml") :mkdirp yes
 :END:
 
 All SpaceVim option below [option] section
@@ -105,7 +109,7 @@ name = 'fzf'
 
 ** bootstrap function
 :PROPERTIES:
-:header-args: :tangle .SpaceVim.d/autoload/myspacevim.vim :mkdirp yes
+:header-args: :tangle (resolve-path "autoload/myspacevim.vim") :mkdirp yes
 :END:
 to config vim / neovim
 
@@ -126,6 +130,18 @@ endfunction
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
 #+end_src
 
 * Tagging
