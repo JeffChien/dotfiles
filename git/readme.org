@@ -1,0 +1,221 @@
+#+title: Git
+* Table of content :TOC:
+- [[#git][Git]]
+  - [[#config][config]]
+  - [[#ignore][ignore]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Git
+:PROPERTIES:
+:header-args: :tangle no :mkdirp yes
+:basedir: .build/.config/git/
+:END:
+
+** config
+#+begin_src conf :tangle (resolve-path "config")
+[user]
+    name = JChien
+    email = jeffchien13@gmail.com
+
+[core]
+    autocrlf = false
+    filemode = false
+    deltaBaseCacheLimit = 1G
+    fsmonitor = true
+    pager = delta
+    excludesFile = ~/.config/git/ignore
+
+[color]
+    ui = auto
+
+[merge]
+    tool = kdiff3
+
+[diff]
+    guitool = kdiff3
+    colorMoved = default
+
+[mergetool "kdiff3"]
+    trustExitCode = false
+
+[difftool "kdiff3"]
+    trustExitCode = false
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[credential]
+    helper = cache --timeout=3600
+
+[push]
+    default = current
+
+[rebase]
+    autosquash = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[add.interactive]
+  useBuiltin = false
+
+[delta]
+  navigate = true # n for next diff section
+  light = false
+  side-by-side = true
+
+[include]
+    path = ~/.work.gitconfig
+#+end_src
+
+** ignore
+
+Created by https://www.toptal.com/developers/gitignore/api/macos,linux,vim,emacs
+Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,vim,emacs
+
+
+#+begin_src txt :tangle (resolve-path "ignore")
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+# reftex files
+*.rel
+
+# AUCTeX auto folder
+/auto/
+
+# cask packages
+.cask/
+dist/
+
+# Flycheck
+flycheck_*.el
+
+# server auth directory
+/server/
+
+# projectiles files
+.projectile
+
+# directory configuration
+.dir-locals.el
+
+# network security
+/network-security.data
+
+
+### Linux ###
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
+
+# End of https://www.toptal.com/developers/gitignore/api/macos,linux,vim,emacs
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
+#+end_src
+
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
