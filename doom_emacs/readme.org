@@ -659,8 +659,23 @@ Never lose your cursor.
 ;; no idea the default RET key doesn't work so I have to map it ot other key
 (map! :map evil-multiedit-mode-map
       :leader
+      :mode evil-multiedit-mode
+      :desc "Toggle multiedit candidate"
       :v "t s" #'evil-multiedit-toggle-or-restrict-region)
+
+(map! :map doom-leader-map
+      :leader
+      :desc "Find file in dotfiles"
+      :n "f p" (lambda () (interactive)(doom-project-find-file "~/dotfiles/"))
+      :desc "Browse dotfiles"
+      :n "f P" (lambda () (interactive)(doom-project-browse "~/dotfiles/"))
+      :desc "Find file in org directory"
+      :n "f o" (lambda () (interactive)(doom-project-find-file org-directory))
+      :desc "Browse org directory"
+      :n "f O" (lambda () (interactive)(doom-project-browse org-directory))
+ )
 #+end_src
+
 *** vterm
 **** mac silicon installation
 due to the mix of x86 and arm, vterm is likely fail to compile. Just make sure to
