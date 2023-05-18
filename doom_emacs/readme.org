@@ -22,7 +22,6 @@
     - [[#org-media-note][org-media-note]]
     - [[#org-super-agenda][org-super-agenda]]
     - [[#org-appear][org-appear]]
-    - [[#org-drill][org-drill]]
     - [[#which-key][which-key]]
     - [[#dired][dired]]
     - [[#ibuffer][iBuffer]]
@@ -548,10 +547,6 @@ Making video note taking painless.
   :custom
   (org-appear-autolinks t)
   )
-#+end_src
-*** org-drill
-#+begin_src emacs-lisp
-
 #+end_src
 
 *** which-key
