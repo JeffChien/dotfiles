@@ -43,6 +43,13 @@ An Emacs framework for the stubborn martian hacker
 | S        | shift                                             |
 | C        | ctrl                                              |
 | s        | command key in mac, can easily confuse with shift |
+
+
+#+NAME: variables
+| Variable | Value           | Description           |
+|----------+-----------------+-----------------------|
+| basedir  | .build/.doom.d/ | dotfile target folder |
+
 * key bindings
 
 | COMMAND                                     | DESCRIPTION                   | KEYBINDING |
@@ -56,7 +63,7 @@ An Emacs framework for the stubborn martian hacker
 
 * init.el
 :PROPERTIES:
-:header-args: :tangle .doom.d/init.el :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) "init.el") :mkdirp yes
 :END:
 
 This file controls what Doom modules are enabled and what order they load
@@ -253,7 +260,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
 
 * packages.el
 :PROPERTIES:
-:header-args: :tangle .doom.d/packages.el :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) "packages.el") :mkdirp yes
 :END:
 
 To install a package with Doom you must declare them here and run 'doom sync'
@@ -319,7 +326,7 @@ use 'M-x doom/reload'.
 
 * config.el
 :PROPERTIES:
-:header-args: :tangle .doom.d/config.el :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) "config.el") :mkdirp yes
 :END:
 Place your private configuration here! Remember, you do not need to run 'doom
 sync' after modifying this file!
@@ -686,6 +693,18 @@ due to the mix of x86 and arm, vterm is likely fail to compile. Just make sure t
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
 #+end_src
 
 * Tagging
