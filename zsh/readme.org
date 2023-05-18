@@ -25,15 +25,29 @@
 - sharkdp/vivid
 
 * rcfiles
+:PROPERTIES:
+:header-args: :mkdirp yes
+:END:
+
+#+NAME: variables
+| Variable | Value               | Description           |
+|----------+---------------------+-----------------------|
+| basedir  | .build/.config/zsh/ | dotfile target folder |
+
 ** zshenv
+
 # https://www.reddit.com/r/zsh/comments/3ubrdr/proper_way_to_set_zdotdir/
+
 *** bootstrap
-#+begin_src shell :tangle .zshenv :mkdirp yes
+
+#+begin_src shell :tangle .build/.zshenv
 export ZDOTDIR=$HOME/.config/zsh
 [[ -f $ZDOTDIR/.zshenv ]] && . $ZDOTDIR/.zshenv
 #+end_src
+
 *** actual zshenv
-#+begin_src shell :tangle .config/zsh/.zshenv :mkdirp yes
+
+#+begin_src shell :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zshenv")
 export ZDOTDIR=${ZDOTDIR:=-$HOME/.config/zsh}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
@@ -45,9 +59,10 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s ${ZDOTDIR:-$HOME}/.zprofile ]]; the
   source ${ZDOTDIR:-$HOME}/.zprofile
 fi
 #+end_src
+
 ** zprofile
 :PROPERTIES:
-:header-args: :tangle .config/zsh/.zprofile :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zprofile")
 :END:
 
 #+begin_src shell
@@ -114,19 +129,24 @@ path=(
 # https://github.com/sharkdp/vivid
 export LS_COLORS="$(vivid generate dracula)"
 #+end_src
+
 ** zlogin
+
 this file is only loaded in login shell
 :PROPERTIES:
-:header-args: :tangle .config/zsh/.zlogin :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zlogin")
 :END:
+
 #+begin_src shell
 echo "Hello $USER, nice to see you again."
 #+end_src
+
 ** zshrc
+
 managed by [[https://github.com/zdharma-continuum/zinit][zinit]]
 *** active
 :PROPERTIES:
-:header-args: :tangle .config/zsh/.zshrc :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zshrc")
 :END:
 
 fpath need to be inside zshrc, it will get reset
@@ -398,14 +418,31 @@ fi
 
 ** zlogout
 :PROPERTIES:
-:header-args: :tangle .config/zsh/.zlogout :mkdirp yes
+:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zlogout")
 :END:
+
 #+begin_src shell
 #+end_src
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
 #+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+stow -v1 -t ~ assets
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
+stow -t ~ -D assets
+#+end_src
+
+#+RESULTS:
 
 * Tagging
 #+begin_src tag :tangle TAGS
