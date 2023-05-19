@@ -12,14 +12,18 @@
 * AstroNvim
 :PROPERTIES:
 :header-args: :tangle no :mkdirp yes
-:basedir: .build/.config/nvim/lua/user
 :END:
 
 [[https://astronvim.com/][Official page]]
 
+#+NAME: variables
+| Variable | Value                         | Description         |
+|----------+-------------------------------+---------------------|
+| basedir  | .build/.config/nvim/lua/user/ | dotfile target path |
+
 ** init.lua
 
-#+begin_src lua :tangle (resolve-path "init.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"init.lua"))
 return {
   -- Configure AstroNvim updates
   updater = {
@@ -115,7 +119,7 @@ Please use this mappings table to set keyboard mapping since this is the
 lower level configuration and more robust one. (which-key will
 automatically pick-up stored data by this setting.)
 
-#+begin_src lua :tangle (resolve-path "mapping.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"mapping.lua"))
 return {
   -- first key is the mode
   n = {
@@ -150,7 +154,7 @@ return {
 
 ** options.lua
 
-#+begin_src lua :tangle (resolve-path "options.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"options.lua"))
 -- set vim options here (vim.<first_key>.<second_key> = value)
 return {
   opt = {
@@ -185,7 +189,7 @@ return {
 
 *** cmp.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/cmp.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/cmp.lua"))
 return {
   {
     "nvim-cmp",
@@ -203,7 +207,7 @@ return {
 
 Add the community repository of plugin specifications
 
-#+begin_src lua :tangle (resolve-path "plugins/community.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/community.lua"))
 return {
   "AstroNvim/astrocommunity",
   -- example of imporing a plugin, comment out to use it or add your own
@@ -227,7 +231,7 @@ return {
 
 *** core.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/core.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/core.lua"))
 return {
   -- customize alpha options
   {
@@ -309,7 +313,7 @@ return {
 
 *** mason.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/mason.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/mason.lua"))
 -- customize mason plugins
 return {
   -- use mason-lspconfig to configure LSP installations
@@ -350,7 +354,7 @@ return {
 
 *** neo-tree.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/neo-tree.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/neo-tree.lua"))
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
@@ -373,7 +377,7 @@ return {
 
 *** null-ls.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/null-ls.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/null-ls.lua"))
 return {
   "jose-elias-alvarez/null-ls.nvim",
   opts = function(_, config)
@@ -395,7 +399,7 @@ return {
 
 *** rust.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/rust.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/rust.lua"))
 return {
   {
     "rust-lang/rust.vim",
@@ -415,7 +419,7 @@ return {
 
 *** treesitter.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/treesitter.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/treesitter.lua"))
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = function(_, opts)
@@ -429,7 +433,7 @@ return {
 
 *** user.lua
 
-#+begin_src lua :tangle (resolve-path "plugins/user.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/user.lua"))
 return {
   -- You can also add new plugins here as well:
   -- Add plugins, the lazy syntax
@@ -451,7 +455,7 @@ return {
 ** highlights
 *** init.lua
 
-#+begin_src lua :tangle (resolve-path "highlights/init.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"highlights/init.lua"))
 return { -- this table overrides highlights in all themes
   -- Normal = { bg = "#000000" },
 }
@@ -459,7 +463,7 @@ return { -- this table overrides highlights in all themes
 
 *** duskfox.lua
 
-#+begin_src lua :tangle (resolve-path "highlights/duskfox.lua")
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"highlights/duskfox.lua"))
 return { -- a table of overrides/changes to the duskfox theme
   Normal = { bg = "#000000" },
 }
