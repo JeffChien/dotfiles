@@ -433,73 +433,126 @@ return {
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/hop.lua"))
 return {
-  "phaazon/hop.nvim",
-  opts = {
-    keys = 'aoeuhtnsqjkmwvgcr'
-  },
-  init = function()
-    local hop = require('hop')
-    local directions = require('hop.hint').HintDirection
-    local positions = require('hop.hint').HintPosition
-    local wk = require("which-key")
+    "phaazon/hop.nvim",
+    opts = {
+        keys = "aoeuhtnsqjkmwvgcr"
+    },
+    init = function()
+        local hop = require("hop")
+        local directions = require("hop.hint").HintDirection
+        local positions = require("hop.hint").HintPosition
+        local jump_target = require("hop.jump_target")
+        local wk = require("which-key")
 
-    wk.register({
-        f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, "Hop to char 👉 in line"},
-        F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, "Hop to char 👈 in line"},
-        t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }) end, "Hop before char 👉 in line"},
-        T = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }) end, "Hop before char 👈 in line"},
-        w = { function() hop.hint_words({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, "Hop word 👉 in line"},
-        W = { function() hop.hint_words({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, "Hop word 👈 in line"},
-        e = { function() hop.hint_words({ direction = directions.AFTER_CURSOR, hint_position = positions.END, current_line_only = true }) end, "Hop end of word 👉 in line"},
-        E = { function() hop.hint_words({ direction = directions.BEFORE_CURSOR, hint_position = positions.END, current_line_only = true }) end, "Hop end of word 👈 in line"},
-    }, {mode="n"})
+        wk.register(
+            {
+                f = {function()
+                        hop.hint_char1({current_line_only = true})
+                    end, "Hop to char 👉 in line"},
+                t = {function()
+                        hop.hint_char1(
+                            {direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1}
+                        )
+                    end, "Hop after char 👉 in line"},
+                T = {function()
+                        hop.hint_char1(
+                            {direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1}
+                        )
+                    end, "Hop before char 👉 in line"},
+                s = {function()
+                        hop.hint_char2({current_line_only = true})
+                    end, "Hop 2 char in line"}
+            },
+            {mode = "n"}
+        )
 
-    wk.register({
-        s = {
-          name = "Hop select",
-          f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, "Hop to char 👉 in line"},
-          F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, "Hop to char 👈 in line"},
-          t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 }) end, "Hop before char 👉 in line"},
-          T = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 }) end, "Hop before char 👈 in line"},
-          w = { function() hop.hint_words({ direction = directions.AFTER_CURSOR, current_line_only = true }) end, "Hop word 👉 in line"},
-          W = { function() hop.hint_words({ direction = directions.BEFORE_CURSOR, current_line_only = true }) end, "Hop word 👈 in line"},
-        e = { function() hop.hint_words({ direction = directions.AFTER_CURSOR, hint_position = positions.END, current_line_only = true }) end, "Hop end of word 👉 in line"},
-        E = { function() hop.hint_words({ direction = directions.BEFORE_CURSOR, hint_position = positions.END, current_line_only = true }) end, "Hop end of word 👈 in line"},
-        }
-    }, {mode="v"})
+        wk.register(
+            {
+                s = {
+                    name = "Hop select",
+                    f = {function()
+                            hop.hint_char1({current_line_only = true})
+                        end, "Hop to char 👉 in line"},
+                    t = {function()
+                            hop.hint_char1(
+                                {direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1}
+                            )
+                        end, "Hop after char 👉 in line"},
+                    T = {function()
+                            hop.hint_char1(
+                                {direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1}
+                            )
+                        end, "Hop before char 👉 in line"},
+                    s = {function()
+                            hop.hint_char2({current_line_only = true})
+                        end, "Hop 2 char in line"}
+                }
+            },
+            {mode = "v"}
+        )
 
-    wk.register({
-        s = {
-          name="hop",
-          f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop to char 👉"},
-          F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop to char 👈"},
-          t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop before char 👉"},
-          T = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false, hint_offset = 1 }) end, "Hop before char 👈"},
-          s = { function() hop.hint_char2({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop 2 char 👉"},
-          S = { function() hop.hint_char2({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop 2 char 👈"},
-          ["<Space>"] = { hop.hint_patterns, "Hop pattern"},
-        }
-    }, {
-        prefix="g",
-        mode="n",
-    })
+        wk.register(
+            {
+                s = {
+                    name = "hop",
+                    s = {function()
+                            hop.hint_char2({multi_windows = true})
+                        end, "Hop 2 char 🪟"},
+                    ["*"] = {function()
+                            hop.hint_patterns({multi_windows = true}, vim.fn.expand("<cword>"))
+                        end, "Hop current word 🪟"},
+                    ["%"] = {
+                        function()
+                            hop.hint_with(
+                                jump_target.jump_targets_by_scanning_lines(
+                                    jump_target.regex_by_case_searching("[(){}\\[\\]]", false, {})
+                                ),
+                                hop.opts
+                            )
+                        end,
+                        "Hop ()[]{}"
+                    },
+                    ["<Space>"] = {function()
+                            hop.hint_patterns({multi_windows = true})
+                        end, "Hop pattern 🪟"}
+                }
+            },
+            {
+                prefix = "g",
+                mode = "n"
+            }
+        )
 
-    wk.register({
-        s = {
-          name="hop",
-          f = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop to char 👉"},
-          F = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop to char 👈"},
-          t = { function() hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = false, hint_offset = -1 }) end, "Hop before char 👉"},
-          T = { function() hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = false, hint_offset = 1 }) end, "Hop before char 👈"},
-          s = { function() hop.hint_char2({ direction = directions.AFTER_CURSOR, current_line_only = false }) end, "Hop 2 char 👉"},
-          S = { function() hop.hint_char2({ direction = directions.BEFORE_CURSOR, current_line_only = false }) end, "Hop 2 char 👈"},
-          ["<Space>"] = { hop.hint_patterns, "Hop pattern"},
-        }
-    }, {
-        prefix="g",
-        mode="v",
-    })
-  end,
+        wk.register(
+            {
+                s = {
+                    name = "hop",
+                    s = {function()
+                            hop.hint_char2({current_line_only = false})
+                        end, "Hop 2 char 👉"},
+                    ["*"] = {function()
+                            hop.hint_patterns(nil, vim.fn.expand("<cword>"))
+                        end, "Hop current word"},
+                    ["%"] = {
+                        function()
+                            hop.hint_with(
+                                jump_target.jump_targets_by_scanning_lines(
+                                    jump_target.regex_by_case_searching("[(){}\\[\\]]", false, {})
+                                ),
+                                hop.opts
+                            )
+                        end,
+                        "Hop ()[]{}"
+                    },
+                    ["<Space>"] = {hop.hint_patterns, "Hop pattern"}
+                }
+            },
+            {
+                prefix = "g",
+                mode = "v"
+            }
+        )
+    end
 }
 #+end_src
 
