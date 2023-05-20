@@ -63,7 +63,7 @@ An Emacs framework for the stubborn martian hacker
 
 * init.el
 :PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) "init.el") :mkdirp yes
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"init.el")) :mkdirp yes
 :END:
 
 This file controls what Doom modules are enabled and what order they load
@@ -260,7 +260,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
 
 * packages.el
 :PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) "packages.el") :mkdirp yes
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"packages.el")) :mkdirp yes
 :END:
 
 To install a package with Doom you must declare them here and run 'doom sync'
@@ -326,7 +326,7 @@ use 'M-x doom/reload'.
 
 * config.el
 :PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) "config.el") :mkdirp yes
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"config.el")) :mkdirp yes
 :END:
 Place your private configuration here! Remember, you do not need to run 'doom
 sync' after modifying this file!
