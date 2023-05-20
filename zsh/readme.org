@@ -47,7 +47,7 @@ export ZDOTDIR=$HOME/.config/zsh
 
 *** actual zshenv
 
-#+begin_src shell :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zshenv")
+#+begin_src shell :tangle (org-sbe helper.org.resolve-path (path $".zshenv"))
 export ZDOTDIR=${ZDOTDIR:=-$HOME/.config/zsh}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
@@ -62,7 +62,7 @@ fi
 
 ** zprofile
 :PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zprofile")
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $".zprofile"))
 :END:
 
 #+begin_src shell
@@ -131,11 +131,11 @@ export LS_COLORS="$(vivid generate dracula)"
 #+end_src
 
 ** zlogin
+:PROPERTIES:
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $".zlogin"))
+:END:
 
 this file is only loaded in login shell
-:PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zlogin")
-:END:
 
 #+begin_src shell
 echo "Hello $USER, nice to see you again."
@@ -146,7 +146,7 @@ echo "Hello $USER, nice to see you again."
 managed by [[https://github.com/zdharma-continuum/zinit][zinit]]
 *** active
 :PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zshrc")
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $".zshrc"))
 :END:
 
 fpath need to be inside zshrc, it will get reset
@@ -418,7 +418,7 @@ fi
 
 ** zlogout
 :PROPERTIES:
-:header-args: :tangle (concat (org-sbe helper.org.getvar (var 'basedir)) ".zlogout")
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $".zlogout"))
 :END:
 
 #+begin_src shell
