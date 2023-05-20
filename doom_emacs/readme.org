@@ -442,8 +442,12 @@ This package is extremely important for GUI and deamonized emacs
 #+begin_src emacs-lisp
 (use-package company
   :ensure t
-  :hook ((text-mode . company-mode)
-         (prog-mode . company-mode)))
+  :hook ((after-init . 'global-company-mode))
+  :custom
+  (company-files-exclusions '(".git/" ".DS_Store"))
+  :config
+  (set-company-backend! '(org-mode) '(company-files company-dabbrev))
+  (set-company-backend! '(prog-mode) '(company-capf company-dabbrev-code company-yasnippet)))
 #+end_src
 
 *** org
