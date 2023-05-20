@@ -519,6 +519,7 @@ return {
   -- },
   { "nvim-treesitter/nvim-treesitter-context", event = "User AstroFile" },
   { "andymass/vim-matchup", enabled = false },
+  { "vim-scripts/ReplaceWithRegister", event = "User AstroFile" },
   -- colorscheme
   { "Mofiqul/dracula.nvim", name = "dracula", keys = { "<leader>ft" } },
   { "catppuccin/nvim", name = "catppuccin", lazy = false },
