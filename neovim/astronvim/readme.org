@@ -121,34 +121,33 @@ automatically pick-up stored data by this setting.)
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"mapping.lua"))
 return {
-  -- first key is the mode
-  n = {
-    -- second key is the lefthand side of the map
-    -- mappings seen under group name "Buffer"
-    ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-    ["<leader>bD"] = {
-      function()
-        require("astronvim.utils.status").heirline.buffer_picker(
-          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
-        )
-      end,
-      desc = "Pick to close",
+    -- first key is the mode
+    n = {
+        -- second key is the lefthand side of the map
+        -- mappings seen under group name "Buffer"
+        ["<leader>bn"] = {"<cmd>tabnew<cr>", desc = "New tab"},
+        ["<leader>bD"] = {
+            function()
+                require("astronvim.utils.status").heirline.buffer_picker(
+                    function(bufnr)
+                        require("astronvim.utils.buffer").close(bufnr)
+                    end
+                )
+            end,
+            desc = "Pick to close"
+        },
+        -- tables with the `name` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<leader>b"] = {name = "Buffers"}
+        -- quick save
+        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
-    -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
-    ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-  },
-  i = {
-    [";o"] = { "<C-o>A;<CR>", desc = "; to the end and move on" },
-    [";<Space>"] = { ";", desc = "just a simple ;" },
-    [";;"] = { "::", desc = ":: instead" },
-  },
-  t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
-  },
+    i = {
+        [";o"] = {"<C-o>A;<CR>", desc = "; to the end and move on"},
+        [";<Space>"] = {";", desc = "just a simple ;"},
+        [";;"] = {"::", desc = ":: instead"}
+    },
+    t = {}
 }
 #+end_src
 
@@ -191,14 +190,24 @@ return {
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/cmp.lua"))
 return {
-  {
-    "nvim-cmp",
-    opts = {
-      completion = {
-        completeopt = "menu, menuone, noinsert",
-      },
-    },
-  },
+    {
+        "nvim-cmp",
+        opts = function(_, opts)
+            local cmp = require("cmp")
+            opts.completion = {
+                completeopt = "menu, menuone, noinsert"
+            }
+            opts.sources =
+                cmp.config.sources(
+                {
+                    {name = "nvim_lsp"}, -- lsp
+                    {name = "luasnip"}, -- snippets
+                    {name = "buffer"}, -- text within current buffer
+                    {name = "path"} -- file system paths
+                }
+            )
+        end
+    }
 }
 #+end_src
 
@@ -208,22 +217,22 @@ Add the community repository of plugin specifications
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/community.lua"))
 return {
-  "AstroNvim/astrocommunity",
-  -- example of imporing a plugin, comment out to use it or add your own
-  -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
+    "AstroNvim/astrocommunity",
+    -- example of imporing a plugin, comment out to use it or add your own
+    -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
-  -- { import = "astrocommunity.colorscheme.catppuccin" },
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-  { import = "astrocommunity.motion.vim-matchup" },
-  { import = "astrocommunity.motion.nvim-surround" },
-  { import = "astrocommunity.pack.python" },
-  { import = "astrocommunity.pack.bash" },
-  { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.editing-support.neogen" },
-  { import = "astrocommunity.project.nvim-spectre" },
+    -- { import = "astrocommunity.colorscheme.catppuccin" },
+    -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+    {import = "astrocommunity.motion.vim-matchup"},
+    {import = "astrocommunity.motion.nvim-surround"},
+    {import = "astrocommunity.pack.python"},
+    {import = "astrocommunity.pack.bash"},
+    {import = "astrocommunity.pack.json"},
+    {import = "astrocommunity.pack.rust"},
+    {import = "astrocommunity.pack.lua"},
+    {import = "astrocommunity.pack.typescript"},
+    {import = "astrocommunity.editing-support.neogen"},
+    {import = "astrocommunity.project.nvim-spectre"}
 }
 #+end_src
 
