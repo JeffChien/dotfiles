@@ -204,7 +204,7 @@ NOTE Move your cursor over a module's name (or its flags) and press 'K' (or
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
-       ;;json              ; At least it ain't XML
+       (json +lsp)              ; At least it ain't XML
        ;;(java +meghanada) ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
@@ -506,6 +506,7 @@ the same functionality can be done with pure *begin_example* block, but therefor
 ***** Enable lsp in org-edit-special
 
 Base on the [[https://github.com/emacs-lsp/lsp-mode/issues/2842#issuecomment-870807018][github issue]] that lsp needs a file, so we give it a file.
+Recently I found that give it a temporary file is enough.
 
 #+begin_src emacs-lisp
 (after! org
@@ -513,7 +514,18 @@ Base on the [[https://github.com/emacs-lsp/lsp-mode/issues/2842#issuecomment-870
     (setq-local buffer-file-name (->> babel-info caddr (alist-get :tangle)))
     (lsp))
 
-  (defalias 'org-babel-edit-prep:yaml 'org-babel-edit-prep:lsp-mode))
+  (defun org-babel-edit-prep:yaml (babel-info)
+    (setq-local buffer-file-name "_tmp.yaml")
+    (lsp))
+
+  (defun org-babel-edit-prep:json (babel-info)
+    (setq-local buffer-file-name "_tmp.json")
+    (lsp))
+
+  (defun org-babel-edit-prep:lua (babel-info)
+    (setq-local buffer-file-name "_tmp.lua")
+    (lsp))
+  )
 #+end_src
 
 *** org-media-note
@@ -649,9 +661,6 @@ Never lose your cursor.
 #+begin_src emacs-lisp
 (use-package lsp-mode
   :config
-  (setq lsp-clients-lua-language-server-bin "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec/bin/lua-language-server"
-        lsp-clients-lua-language-server-install-dir "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec"
-        lsp-clients-lua-language-server-main-location "/opt/homebrew/Cellar/lua-language-server/3.6.19/libexec/main.lua")
   (add-hook 'lua-mode-hook #'lsp)
   (add-hook 'yaml-mode-hook #'lsp))
 #+end_src
