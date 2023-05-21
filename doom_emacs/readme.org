@@ -27,6 +27,7 @@
     - [[#ibuffer][iBuffer]]
     - [[#beacon][Beacon]]
     - [[#lsp][lsp]]
+    - [[#projectile][projectile]]
     - [[#others][others]]
     - [[#vterm][vterm]]
 - [[#gnu-stow][Gnu stow]]
@@ -664,6 +665,15 @@ Never lose your cursor.
   (add-hook 'lua-mode-hook #'lsp)
   (add-hook 'yaml-mode-hook #'lsp))
 #+end_src
+
+*** projectile
+
+#+begin_src emacs-lisp
+(use-package! projectile
+  :custom
+  (projectile-project-search-path '("~/workspace")))
+#+end_src
+
 *** others
 #+begin_src emacs-lisp
 
