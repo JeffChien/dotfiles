@@ -189,26 +189,7 @@ return {
 *** cmp.lua
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/cmp.lua"))
-return {
-    {
-        "nvim-cmp",
-        opts = function(_, opts)
-            local cmp = require("cmp")
-            opts.completion = {
-                completeopt = "menu, menuone, noinsert"
-            }
-            opts.sources =
-                cmp.config.sources(
-                {
-                    {name = "nvim_lsp"}, -- lsp
-                    {name = "luasnip"}, -- snippets
-                    {name = "buffer"}, -- text within current buffer
-                    {name = "path"} -- file system paths
-                }
-            )
-        end
-    }
-}
+return {}
 #+end_src
 
 *** community.lua
