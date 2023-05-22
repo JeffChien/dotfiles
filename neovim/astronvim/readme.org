@@ -119,36 +119,50 @@ Please use this mappings table to set keyboard mapping since this is the
 lower level configuration and more robust one. (which-key will
 automatically pick-up stored data by this setting.)
 
+Have to look the official config source code at `.config/nvim/lua/astronvim/mappings.lua` in order to know
+how to properly follow astronvim's rule to config plugin's mapping.
+
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"mappings.lua"))
-return {
-    -- first key is the mode
-    n = {
-        -- second key is the lefthand side of the map
-        -- mappings seen under group name "Buffer"
-        ["<leader>bn"] = {"<cmd>tabnew<cr>", desc = "New tab"},
-        ["<leader>bD"] = {
-            function()
-                require("astronvim.utils.status").heirline.buffer_picker(
-                    function(bufnr)
-                        require("astronvim.utils.buffer").close(bufnr)
-                    end
-                )
-            end,
-            desc = "Pick to close"
-        },
-        -- tables with the `name` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<leader>b"] = {name = "Buffers"}
-        -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+local utils = require "astronvim.utils"
+
+local maps = {
+  -- first key is the mode
+  n = {
+    -- second key is the lefthand side of the map
+    -- mappings seen under group name "Buffer"
+    ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+    ["<leader>bD"] = {
+      function()
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr)
+            require("astronvim.utils.buffer").close(bufnr)
+          end
+        )
+      end,
+      desc = "Pick to close"
     },
-    i = {
-        [";o"] = {"<C-o>A;<CR>", desc = "; to the end and move on"},
-        [";<Space>"] = {";", desc = "just a simple ;"},
-        [";;"] = {"::", desc = ":: instead"}
-    },
-    t = {}
+    -- tables with the `name` key will be registered with which-key if it's installed
+    -- this is useful for naming menus
+    ["<leader>b"] = { name = "Buffers" }
+    -- quick save
+    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+  },
+  i = {
+    [";o"] = { "<C-o>A;<CR>", desc = "; to the end and move on to next line" },
+    [";e"] = { "<C-o>A;", desc = "; to the end" },
+    [";<Space>"] = { ";", desc = "just a simple ;" },
+    [";;"] = { "::", desc = ":: instead" }
+  },
+  t = {},
+  v = {}
 }
+
+-- mappings for plugins
+if utils.is_available "neogit" then
+  maps.n["<leader>gg"] = { "<cmd>Neogit<cr>", desc = "Launch Magit for neovim" }
+end
+
+return maps
 #+end_src
 
 ** options.lua
@@ -594,6 +608,18 @@ return {
   end
 }
 #+end_src
+*** neogit.lua
+
+magit for neovim
+
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/neogit.lua"))
+return {
+  "TimUntersberger/neogit",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  cmd = { "Neogit" },
+}
+#+end_src
+
 *** user.lua
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/user.lua"))
