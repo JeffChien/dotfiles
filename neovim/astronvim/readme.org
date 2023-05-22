@@ -2,7 +2,7 @@
 * Table of content :TOC:
 - [[#astronvim][AstroNvim]]
   - [[#initlua][init.lua]]
-  - [[#mappinglua][mapping.lua]]
+  - [[#mappingslua][mappings.lua]]
   - [[#optionslua][options.lua]]
   - [[#plugins][plugins]]
   - [[#highlights][highlights]]
@@ -111,7 +111,7 @@ return {
 }
 #+end_src
 
-** mapping.lua
+** mappings.lua
 
 Mapping data with "desc" stored directly by vim.keymap.set().
 
@@ -119,7 +119,7 @@ Please use this mappings table to set keyboard mapping since this is the
 lower level configuration and more robust one. (which-key will
 automatically pick-up stored data by this setting.)
 
-#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"mapping.lua"))
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"mappings.lua"))
 return {
     -- first key is the mode
     n = {
