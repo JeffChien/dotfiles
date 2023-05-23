@@ -25,6 +25,7 @@
     - [[#which-key][which-key]]
     - [[#dired][dired]]
     - [[#ibuffer][iBuffer]]
+    - [[#imenu][imenu]]
     - [[#beacon][Beacon]]
     - [[#lsp][lsp]]
     - [[#projectile][projectile]]
@@ -323,6 +324,7 @@ use 'M-x doom/reload'.
 (package! beacon)
 (package! org-drill)
 (package! exec-path-from-shell)
+(package! imenu-list)
 #+end_src
 
 * config.el
@@ -646,6 +648,25 @@ Grouping buffers and fold emacs's internal buffers.
               (ibuffer-switch-to-saved-filter-groups "default")
               (setq ibuffer-hidden-filter-groups (list "emacs"))
               (ibuffer-update nil t))))
+#+end_src
+
+*** imenu
+
+This is much better than ~Org-goto (C-c C-j)~
+
+| Command                 | Description                      | Keybinding |
+|-------------------------+----------------------------------+------------|
+| consul-imenu            | Menu to jump to places in buffer | SPC s i    |
+| imenu-list-smart-toggle | Toggle imenu sidebar             | SPC t i    |
+
+#+begin_src emacs-lisp
+(use-package! imenu-list
+  :custom
+  (imenu-list-focus-after-activation t)
+  (imenu-list-auto-resize t)
+  :config
+  (map! :leader
+        :desc "Toggle imenu sidebar" "t i" #'imenu-list-smart-toggle))
 #+end_src
 
 *** Beacon
