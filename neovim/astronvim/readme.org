@@ -126,40 +126,44 @@ how to properly follow astronvim's rule to config plugin's mapping.
 local utils = require "astronvim.utils"
 
 local maps = {
-  -- first key is the mode
-  n = {
-    -- second key is the lefthand side of the map
-    -- mappings seen under group name "Buffer"
-    ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-    ["<leader>bD"] = {
-      function()
-        require("astronvim.utils.status").heirline.buffer_picker(
-          function(bufnr)
-            require("astronvim.utils.buffer").close(bufnr)
-          end
-        )
-      end,
-      desc = "Pick to close"
+    -- first key is the mode
+    n = {
+        -- second key is the lefthand side of the map
+        -- mappings seen under group name "Buffer"
+        ["<leader>bn"] = {"<cmd>tabnew<cr>", desc = "New tab"},
+        ["<leader>bD"] = {
+            function()
+                require("astronvim.utils.status").heirline.buffer_picker(
+                    function(bufnr)
+                        require("astronvim.utils.buffer").close(bufnr)
+                    end
+                )
+            end,
+            desc = "Pick to close"
+        },
+        -- tables with the `name` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<leader>b"] = {name = "Buffers"}
+        -- quick save
+        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
-    -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
-    ["<leader>b"] = { name = "Buffers" }
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-  },
-  i = {
-    [";o"] = { "<C-o>A;<CR>", desc = "; to the end and move on to next line" },
-    [";e"] = { "<C-o>A;", desc = "; to the end" },
-    [";<Space>"] = { ";", desc = "just a simple ;" },
-    [";;"] = { "::", desc = ":: instead" }
-  },
-  t = {},
-  v = {}
+    i = {
+        [";o"] = {"<C-o>A;<CR>", desc = "; to the end and move on to next line"},
+        [";e"] = {"<C-o>A;", desc = "; to the end"},
+        [";<Space>"] = {";", desc = "just a simple ;"},
+        [";;"] = {"::", desc = ":: instead"}
+    },
+    t = {},
+    v = {}
 }
 
 -- mappings for plugins
 if utils.is_available "neogit" then
-  maps.n["<leader>gg"] = { "<cmd>Neogit<cr>", desc = "Launch Magit for neovim" }
+    maps.n["<leader>gg"] = {"<cmd>Neogit<cr>", desc = "Launch Magit for neovim"}
+end
+
+if utils.is_available "legendary.nvim" then
+    maps.n["<leader>f/"] = {"<cmd>Legendary<cr>", desc = "Find by legendary"}
 end
 
 return maps
@@ -632,6 +636,22 @@ return {
 }
 #+end_src
 
+*** legendary.lua
+
+Command palette plugins
+
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/legendary.lua"))
+return {
+  "mrjones2014/legendary.nvim",
+  opts = {
+    commands = {
+      {":Neogit", description="Magit for neovim"},
+      {":Oil", description="file explorer: edit in a buffer"},
+    }
+  },
+  cmd = { "Legendary" }
+}
+#+end_src
 
 *** user.lua
 
