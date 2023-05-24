@@ -12,8 +12,13 @@
 :basedir: .build/.config/git/
 :END:
 
+#+NAME: variables
+| Variable | Value               | Description           |
+|----------+---------------------+-----------------------|
+| basedir  | .build/.config/git/ | dotfile target folder |
+
 ** config
-#+begin_src conf :tangle (resolve-path "config")
+#+begin_src conf :tangle (org-sbe helper.org.resolve-path (path $"config"))
 [user]
     name = JChien
     email = jeffchien13@gmail.com
@@ -75,7 +80,7 @@ Created by https://www.toptal.com/developers/gitignore/api/macos,linux,vim,emacs
 Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,vim,emacs
 
 
-#+begin_src txt :tangle (resolve-path "ignore")
+#+begin_src txt :tangle (org-sbe helper.org.resolve-path (path $"ignore"))
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
