@@ -653,6 +653,29 @@ return {
 }
 #+end_src
 
+*** luasnip.lua
+
+Add auto cancel all jump points when mode change back to normal mode, config taken from the [[https://github.com/L3MON4D3/LuaSnip/issues/258#issuecomment-1429989436][github issue]].
+
+#+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/luasnip.lua"))
+return {
+  "L3MON4D3/LuaSnip",
+  init = function()
+    vim.api.nvim_create_autocmd('ModeChanged', {
+      pattern = '*',
+      callback = function()
+        if ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+            and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+            and not require('luasnip').session.jump_active
+        then
+          require('luasnip').unlink_current()
+        end
+      end
+    })
+  end
+}
+#+end_src
+
 *** user.lua
 
 #+begin_src lua :tangle (org-sbe helper.org.resolve-path (path $"plugins/user.lua"))
