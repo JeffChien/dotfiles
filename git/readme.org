@@ -34,18 +34,28 @@
 [color]
     ui = auto
 
-[merge]
-    tool = kdiff3
-
 [diff]
+    tool = nvimdiff
     guitool = kdiff3
     colorMoved = default
 
-[mergetool "kdiff3"]
+[difftool]
+    prompt = true
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+    tool = nvimdiff
+    guitool = kdiff3
+
+[mergetool]
+    prompt = true
     trustExitCode = false
 
-[difftool "kdiff3"]
+[mergetool "nvimdiff"]
     trustExitCode = false
+    cmd = "nvim -d \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c 'wincmd J | wincmd ='"
 
 [url "git@github.com:"]
     insteadOf = https://github.com/
