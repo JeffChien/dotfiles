@@ -405,17 +405,6 @@ lazyload kind -- 'source <(kind completion zsh)'
 lazyload helm -- 'source <(helm completion zsh)'
 lazyload zoxide -- 'source <(zoxide init zsh)'
 #+end_src
-**** kubectl
-#+begin_src shell
-if [[ -n "$commands[kubectl]" ]]; then
-  lazyload kubectl -- 'source <(kubectl completion zsh)'
-  other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
-  if [[ ! -z "$other_confs" ]]; then
-    export KUBECONFIG="${KUBECONFIG}:$HOME/.kube/config:${other_confs}"
-  fi
-fi
-#+end_src
-
 ** zlogout
 :PROPERTIES:
 :header-args: :tangle (org-sbe helper.org.resolve-path (path $".zlogout"))
