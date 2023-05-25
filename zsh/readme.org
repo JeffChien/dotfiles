@@ -271,7 +271,7 @@ fi
 # OS related
 case "$OS_NAME" in
   Darwin)
-    zinit ice atclone'ln -s `pwd` "$HOME/iTerm2-Color-Schemes"' atpull'%atclone'; \
+    zinit ice depth"1" atclone'ln -s `pwd` "$HOME/iTerm2-Color-Schemes"' atpull'%atclone'; \
         zinit load mbadolato/iTerm2-Color-Schemes
 
     zinit ice if'[[ -n "$ITERM_SESSION_ID" ]]'; zinit snippet "${HOME}/.iterm2_shell_integration.zsh"
