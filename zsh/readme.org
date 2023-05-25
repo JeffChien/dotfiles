@@ -181,6 +181,14 @@ zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
 #+end_src
 
+***** [[https://github.com/sharkdp/bat][bat]]
+
+A rust cat alternative.
+
+#+begin_src shell
+zinit ice from"gh-r" as"program" pick"*/bat" atclone"cp */autocomplete/bat.zsh _bat.zsh" atpull"%atclone"; zinit load sharkdp/bat
+#+end_src
+
 ***** ripgrep
 
 #+begin_src shell
@@ -339,10 +347,10 @@ alias please='sudo $(fc -ln -1)' # sudo the last command
 alias mkdir='mkdir -p'
 alias ..='\cd ..'
 alias ..2='\cd ../..'
+(( $+commands[bat] )) && alias cat='bat --paging=never --theme="ansi" --style=numbers,changes'
 if (( $+commands[coreutils] )); then
     alias cp='coreutils cp'
     alias mv='coreutils mv'
-    alias cat='coreutils cat'
     alias tac='coreutils tac'
     alias head='coreutils head'
     alias tail='coreutils tail'
