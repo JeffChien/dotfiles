@@ -284,11 +284,9 @@ fi
 ***** rust
 
 #+begin_src shell
-if (( $+commands[rustup] )); then
-    export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-    export CARGO_HOME="$XDG_DATA_HOME"/cargo
-    path=("$CARGO_HOME/bin" $path)
-fi
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+path=("$CARGO_HOME/bin" $path)
 #+end_src
 
 **** paths
