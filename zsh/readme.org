@@ -366,6 +366,74 @@ fi
 (( $+commands[gfind] )) && alias find='gfind'
 (( $+commands[gsed] )) && alias sed='gsed'
 #+end_src
+**** keybinding
+
+launch `cat` and press key combination to find out the keycode. [[https://stackoverflow.com/questions/12382499/looking-for-altleftarrowkey-solution-in-zsh][stack overflow]],
+another way is 'C-v' then press the key, terminal will display the raw keycode.
+
+keycode and useful helper function can also be found in this [[https://github.com/vapniks/zsh-keybindings][github repo]].
+
+zsh official document
+- [[https://zsh.sourceforge.io/Doc/Release/Editor-Functions-Index.html][command]]
+- [[https://zsh.sourceforge.io/Guide/zshguide04.html][bindkey]]
+
+~bindkeys~ along will list all keybindings, common prefixes are
+- ~^~, Ctrl key
+- ~^[~, Alt key or Escape key
+
+- TODOs [0/3]
+  - [ ] change cursor color between vi mode and emacs mode.
+  - [ ] change cursor shape between viins mode and vicmd mode.
+  - [ ] complete vi mode key bindings.
+
+***** auxiliaries
+
+Enable modules, helper functions
+
+#+begin_src shell
+autoload -z edit-command-line; zle -N edit-command-line
+
+set-viins-mode() { set -o vi; }
+set-emacs-mode() { set -o emacs; }
+zle -N set-viins-mode
+zle -N set-emacs-mode
+#+end_src
+
+****** references
+[[https://stackoverflow.com/a/74680901][switch between vi mode and emacs mode]]
+
+***** emacs mode (default)
+
+| Keybinding        | Description                     | note        |
+|-------------------+---------------------------------+-------------|
+| C-f               | farward char                    |             |
+| C-b               | backward char                   |             |
+| M-f,A-<right>     | forward a word                  |             |
+| M-b,A-<left>      | backward a word                 |             |
+| C-a               | begining of line                |             |
+| C-e               | end of line                     |             |
+| C-r               | search command history          |             |
+| C-n               | forward history                 |             |
+| C-p               | backward history                |             |
+| M-c               | fuzzy cd jump in subtree        | require fzf |
+| C-t               | fuzzy select file in subtree    | require fzf |
+| C-h,<backspace>   | delete char backward            |             |
+| C-d               | delete char forward             |             |
+| C-w,A-<backspace> | delete word backward            |             |
+| M-d               | delete word forward             |             |
+| C-k               | delete everything after cursor  |             |
+| C-u               | delete everything before cursor |             |
+| M-'               | quote line                      |             |
+| C-x C-e           | edit line in external editor    |             |
+
+#+begin_src shell
+bindkey -e # use emacs mode
+bindkey -M emacs "^[[1;3C" forward-word # M-<right>
+bindkey -M emacs "^[[1;3D" backward-word # M-<left>
+bindkey -M emacs "^X^E" edit-command-line # (C-x C-e) to launch external editor to edit current line
+bindkey -M emacs '^[i' set-viins-mode; bindkey -M viins '^[i' set-emacs-mode # (M-i) toggle between emacs mode and viins mode
+#+end_src
+
 **** rest
 #+begin_src shell
 autoload -Uz compinit
