@@ -11,7 +11,7 @@ key bindings.
 
 | Keybinding | Description                                            |
 |------------+--------------------------------------------------------|
-| fn-/       | Active yabai mode                                      |
+| fn-w       | Active yabai mode                                      |
 | f2         | Switch keyboard input between Dvorak and Chinese input |
 
 * skhdrc
@@ -157,6 +157,10 @@ key bindings.
 #+end_src
 
 *** yabai
+
+- TODOs [0/1]
+  - [ ] Update spacebar information.
+
 **** modes definition
 #+begin_src conf
 :: yabai @: \
@@ -176,7 +180,7 @@ key bindings.
         spacebar -m config center_shell_command "echo '[1-3,.] focus\t [shift - [1-3,.]] -> move window to monitor\t [s] -> space mode\t [backspace] -> yabai'"
 
 # mode switch
-default < fn - 0x2C ; yabai # fn - slash
+default < fn - w ; yabai # fn - w
 yabai, yabai_window_misc < escape; default
 yabai_space < escape; default
 yabai_monitor < escape; default
