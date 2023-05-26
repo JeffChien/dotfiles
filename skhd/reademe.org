@@ -1,5 +1,4 @@
 #+title: Reademe
-#+PROPERTY: header-args :tangle .config/skhd/skhdrc :mkdirp yes
 #+STARTUP: content
 
 * skhd
@@ -9,8 +8,32 @@ It allows me to implement different modes like vim or emac's which key, all it l
 key bindings.
 
 [[https://github.com/koekeishiya/skhd][github]]
+
+| Keybinding | Description                                            |
+|------------+--------------------------------------------------------|
+| fn-/       | Active yabai mode                                      |
+| f2         | Switch keyboard input between Dvorak and Chinese input |
+
 * skhdrc
+:PROPERTIES:
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"skhdrc")) :mkdirp yes
+:END:
+
+#+NAME: variables
+| Variable | Value                | Description           |
+|----------+----------------------+-----------------------|
+| basedir  | .build/.config/skhd/ | dotfile target folder |
+
 ** doc
+
+| key | hex code |
+|-----+----------|
+| -   |     0x1B |
+| \   |     0x2A |
+| ,   |     0x2B |
+| /   |     0x2C |
+| .   |     0x2F |
+
 #+begin_src conf :tangle no
 #  NOTE(koekeishiya): A list of all built-in modifier and literal keywords can
 #                     be found at https://github.com/koekeishiya/skhd/issues/1
@@ -125,42 +148,62 @@ key bindings.
 ** confs
 *** modes declaration
 #+begin_src conf
-:: default : spacebar -m config background_color 0xff202020 ; \
+:: default : \
+        spacebar -m config background_color 0xff202020 ; \
         spacebar -m config left_shell_command "echo ''"; \
-        spacebar -m config left_shell off; \
+        spacebar -m config left_shell on; \
         spacebar -m config center_shell_command "echo ''"; \
-        spacebar -m config center_shell off; \
+        spacebar -m config center_shell on; \
+#+end_src
 
-:: activate @: spacebar -m config center_shell on; \
-        spacebar -m config center_shell_command "echo '[y]abai'"
-
-# deprecated
-:: yabai @: spacebar -m config left_shell on; \
+*** yabai
+**** modes definition
+#+begin_src conf
+:: yabai @: \
         spacebar -m config left_shell_command "echo 'yabai'"; \
         spacebar -m config center_shell_command "echo '[hkjl] -> focus\t [shift - [hkjl]] -> swap\t [t] -> misc mode\t [s] -> space mode\t [m] -> monitor mode'"
 
-:: yabai_window_misc @: spacebar -m config left_shell_command "echo 'yabai/window/misc'"; \
+:: yabai_window_misc @: \
+        spacebar -m config left_shell_command "echo 'yabai/window/misc'"; \
         spacebar -m config center_shell_command "echo 'shift - f, floating main window    [f]loat    [s]ticky'";
 
-:: yabai_space @: spacebar -m config left_shell_command "echo 'yabai/space'"; \
+:: yabai_space @: \
+        spacebar -m config left_shell_command "echo 'yabai/space'"; \
         spacebar -m config center_shell_command "echo '[1-6,.] -> focus\t [shift - [1-6,.]] -> move window to space\t [b] -> bsp\t [f] -> float\t [c] -> rotate 90\t [-] -> horizontal mirror\t [|] -> vertical mirrow\t [m] -> monitor mode\t [backspace] -> yabai'"
 
-:: yabai_monitor @: spacebar -m config left_shell_command "echo 'yabai/monitor'"; \
+:: yabai_monitor @: \
+        spacebar -m config left_shell_command "echo 'yabai/monitor'"; \
         spacebar -m config center_shell_command "echo '[1-3,.] focus\t [shift - [1-3,.]] -> move window to monitor\t [s] -> space mode\t [backspace] -> yabai'"
-#+end_src
 
-*** modes definition
-#+begin_src conf
 # mode switch
-default < fn - 0x2C ; activate # fn - slash
-activate, yabai < escape; default
+default < fn - 0x2C ; yabai # fn - slash
 yabai, yabai_window_misc < escape; default
 yabai_space < escape; default
 yabai_monitor < escape; default
+#+end_src
 
-# yabai
-activate < y; yabai
+**** Window mode
 
+This mode is the default mode that control window focus and swapping.
+
+| Keybinding | Description                         |
+|------------+-------------------------------------|
+| [hjkl]     | Focus window in vim style direction |
+| S-[hjkl]   | Swap window in vim style direction  |
+| m          | Switch to monitor(screen) mode      |
+| s          | Switch to space mode                |
+| o          | Switch to window options mode       |
+| <esc>      | Exit                                |
+
+#+begin_src conf
+# yabai / window
+
+## mode switch
+yabai < m ; yabai_monitor
+yabai < s ; yabai_space
+yabai < o ; yabai_window_misc
+
+## keybindings
 yabai < h    : yabai -m window --focus west
 yabai < j    : yabai -m window --focus south
 yabai < k    : yabai -m window --focus north
@@ -169,75 +212,169 @@ yabai < shift - h    : yabai -m window --swap west
 yabai < shift - j    : yabai -m window --swap south
 yabai < shift - k    : yabai -m window --swap north
 yabai < shift - l    : yabai -m window --swap east
-# send 2x command keys to trigger alfred
-# 0x2A is \
-#yabai < shift - 0x2A    : yabai -m window --insert west; \
-#        skhd -k 'escape'; sleep 0.25; skhd -k '0x37'; skhd -k '0x37'
-## 0x1B is minus symbol
-#yabai < 0x1B    : yabai -m window --insert south; \
-#        skhd -k 'escape'; sleep 0.25; skhd -k '0x37'; skhd -k '0x37'
+#+end_src
 
-yabai < m ; yabai_monitor
-yabai < s ; yabai_space
-yabai < t ; yabai_window_misc
-yabai < backspace    ; activate
+**** Window options mode
 
+| Keybinding  | Description                                                  |
+|-------------+--------------------------------------------------------------|
+| m           | Toggle fullscreen                                            |
+| f           | Toggle float(small)                                          |
+| S-f         | Toggle float(large)                                          |
+| s           | Toggle sticky and topmost, making it to appear across spaces |
+| <backspace> | Switch to window mode                                   |
+| <esc>       | Exit                                                         |
+
+#+begin_src conf
 # yabai / window / misc
-yabai_window_misc < shift - f    : yabai -m window --toggle float; \
-        yabai -m window --grid 40:40:1:1:38:38
-# yabai_window_misc < shift - f    : yabai -m window --toggle zoom-fullscreen
-yabai_window_misc < f    : yabai -m window --toggle float; \
-        yabai -m window --grid 4:4:1:1:2:2
-yabai_window_misc < s    : yabai -m window --toggle sticky; \
-        yabai -m window --toggle topmost;
 
+## mode switch
 yabai_window_misc < backspace    ; yabai
 
+
+## keybindings
+yabai_window_misc < m : \
+        yabai -m window --toggle zoom-fullscreen
+
+yabai_window_misc < f : \
+        yabai -m window --toggle float; \
+        yabai -m window --grid 4:4:1:1:2:2
+
+yabai_window_misc < shift - f : \
+        yabai -m window --toggle float; \
+        yabai -m window --grid 40:40:1:1:38:38
+
+yabai_window_misc < s : \
+        yabai -m window --toggle sticky; \
+        yabai -m window --toggle topmost;
+#+end_src
+
+**** Space mode
+
+| Keybinding   | Description                                               |
+|--------------+-----------------------------------------------------------|
+| ,            | Focus previous space                                      |
+| .            | Focus next space                                          |
+| S-,          | Move window to previous space and follow                  |
+| S-.          | Move window to next space and follow                      |
+| C-S-,        | Move window to previous space and stay                    |
+| C-S-.        | Move window to next space and stay                        |
+| [123456]     | Focus to space #                                          |
+| S-[123456]   | Move window to space # and follow                         |
+| C-S-[123456] | Move window to space and stay                             |
+| c            | Rotate 90 degree clockwise                                |
+| b            | Change layout to bsp                                      |
+| f            | Change layout to float, yabai will not manage any windows |
+| -            | Horizontal mirror (x-axis)                                |
+| S-\          | Vertical mirror (y-axis)                                  |
+| m            | Switch to monitor mode                                    |
+| <backspace>  | Switch to window mode                                     |
+| <esc>        | Exit                                                      |
+
+#+begin_src conf
 # yabai / space
+
+## mode switch
+yabai_space < m    ; yabai_monitor
+yabai_space < backspace    ; yabai
+
+## keybindings
+yabai_space < 0x2B    : yabai -m space --focus prev # key=,
+yabai_space < 0x2F    : yabai -m space --focus next # key=.
+yabai_space < shift - 0x2B    : yabai -m window --space prev; yabai -m space --focus prev # key=,
+yabai_space < shift - 0x2F    : yabai -m window --space next; yabai -m space --focus next # key=.
+yabai_space < ctrl + shift - 0x2B    : yabai -m window --space prev # key=,
+yabai_space < ctrl + shift - 0x2F    : yabai -m window --space next # key=.
 yabai_space < 1    : yabai -m space --focus 1
 yabai_space < 2    : yabai -m space --focus 2
 yabai_space < 3    : yabai -m space --focus 3
 yabai_space < 4    : yabai -m space --focus 4
 yabai_space < 5    : yabai -m space --focus 5
 yabai_space < 6    : yabai -m space --focus 6
-yabai_space < 0x2B    : yabai -m space --focus prev # key=,
-yabai_space < 0x2F    : yabai -m space --focus next # key=.
 yabai_space < shift - 1    : yabai -m window --space 1; yabai -m space --focus 1
 yabai_space < shift - 2    : yabai -m window --space 2; yabai -m space --focus 2
 yabai_space < shift - 3    : yabai -m window --space 3; yabai -m space --focus 3
 yabai_space < shift - 4    : yabai -m window --space 4; yabai -m space --focus 4
 yabai_space < shift - 5    : yabai -m window --space 5; yabai -m space --focus 5
 yabai_space < shift - 6    : yabai -m window --space 6; yabai -m space --focus 6
-yabai_space < shift - 0x2B    : yabai -m window --space prev; yabai -m space --focus prev # key=,
-yabai_space < shift - 0x2F    : yabai -m window --space next; yabai -m space --focus next # key=.
+yabai_space < ctrl + shift - 1    : yabai -m window --space 1
+yabai_space < ctrl + shift - 2    : yabai -m window --space 2
+yabai_space < ctrl + shift - 3    : yabai -m window --space 3
+yabai_space < ctrl + shift - 4    : yabai -m window --space 4
+yabai_space < ctrl + shift - 5    : yabai -m window --space 5
+yabai_space < ctrl + shift - 6    : yabai -m window --space 6
 yabai_space < c    : yabai -m space --rotate 90
 yabai_space < b    : yabai -m space --layout bsp
 yabai_space < f    : yabai -m space --layout float
-yabai_space < 0x1B    : yabai -m space --mirror x-axis
-yabai_space < shift - 0x2A    : yabai -m space --mirror y-axis
-yabai_space < m    ; yabai_monitor
-yabai_space < backspace    ; yabai
+yabai_space < 0x1B    : yabai -m space --mirror x-axis # key=-
+yabai_space < shift - 0x2A    : yabai -m space --mirror y-axis #key=|
 
+#+end_src
+
+**** Monitor mode
+
+| Keybinding | Description                                |
+|------------+--------------------------------------------|
+| ,          | Focus previous monitor                     |
+| .          | Focus next monitor                         |
+| S-,        | Move window to previous monitor and follow |
+| S-.        | Move window to next monitor and follow     |
+| C-S-,      | Move window to previous monitor and stay   |
+| C-S-.      | Move window to next monitor and stay       |
+| [123]      | Focus monitor #                            |
+| S-[123]    | Move window to monitor # and follow        |
+| C-S-[123]  | Move window to monitor # and stay          |
+|            |                                            |
+
+#+begin_src conf
 # yabai / monitor
-yabai_monitor < 1    : yabai -m display --focus 1
-yabai_monitor < 2    : yabai -m display --focus 2
-yabai_monitor < 3    : yabai -m display --focus 3
-yabai_monitor < 0x2B    : yabai -m display --focus prev # key=,
-yabai_monitor < 0x2F    : yabai -m display --focus next # key=.
-yabai_monitor < shift - 1    : yabai -m window --display 1; yabai -m display --focus 1
-yabai_monitor < shift - 2    : yabai -m window --display 2; yabai -m display --focus 2
-yabai_monitor < shift - 3    : yabai -m window --display 3; yabai -m display --focus 3
-yabai_monitor < shift - 0x2B    : yabai -m window --display prev; yabai -m display --focus prev # key=,
-yabai_monitor < shift - 0x2F    : yabai -m window --display next; yabai -m display --focus next # key=.
+## mode switch
 yabai_monitor < s    ; yabai_space
 yabai_monitor < backspace    ; yabai
 
+## keybindings
+yabai_monitor < 0x2B : yabai -m display --focus prev # key=,
+yabai_monitor < 0x2F : yabai -m display --focus next # key=.
+yabai_monitor < shift - 0x2B : \
+    yabai -m window --display prev; yabai -m display --focus prev # key=,
+yabai_monitor < shift - 0x2F : \
+    yabai -m window --display next; yabai -m display --focus next # key=.
+yabai_monitor < ctrl+shift - 0x2B : yabai -m window --display prev # key=,
+yabai_monitor < ctrl+shift - 0x2F : yabai -m window --display next # key=.
+yabai_monitor < 1 : yabai -m display --focus 1
+yabai_monitor < 2 : yabai -m display --focus 2
+yabai_monitor < 3 : yabai -m display --focus 3
+yabai_monitor < shift - 1 : \
+    yabai -m window --display 1; yabai -m display --focus 1
+yabai_monitor < shift - 2 : \
+    yabai -m window --display 2; yabai -m display --focus 2
+yabai_monitor < shift - 3 : \
+    yabai -m window --display 3; yabai -m display --focus 3
+yabai_monitor < ctrl+shift - 1 : yabai -m window --display 1
+yabai_monitor < ctrl+shift - 2 : yabai -m window --display 2
+yabai_monitor < ctrl+shift - 3 : yabai -m window --display 3
+#+end_src
+*** Others
+
+#+begin_src conf
 ## defalut mode
 default < f2  : [[ `im-select` = "com.apple.keylayout.Dvorak" ]] && im-select im.rime.inputmethod.Squirrel.Rime || im-select com.apple.keylayout.Dvorak
 #+end_src
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
 #+end_src
 
 * Tagging
