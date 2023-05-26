@@ -171,6 +171,10 @@ zinit ice depth"1" blockf; zinit light zsh-users/zsh-completions
 HISTFILE="$HOME/.zhistory"       # The path to the history file.
 
 zstyle ':completion:*' match-list 'm:{a-z}={A-Za-z}'
+
+# Remove '/' allows me to manipulate path string easier.
+## '//' means global subsitution.
+WORDCHARS=${WORDCHARS//[\/]}
 #+end_src
 ***** fd
 #+begin_src shell
