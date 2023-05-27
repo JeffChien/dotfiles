@@ -5,8 +5,8 @@ import shlex
 import sys
 import json
 from typing import TypedDict
-from typing import List
-
+from typing import List, Optional
+from dataclasses import dataclass
 
 class FrameType(TypedDict):
     x: float
@@ -41,54 +41,80 @@ SpaceType = TypedDict(
     },
 )
 
+@dataclass
+class DomainObject:
+    domain: str
+    id: Optional[int]
+    offset: int
 
-def query_displays() -> List[DisplayType]:
+
+def parse_domain_object_str(s: str) -> Optional[DomainObject]:
+    parts = s.split('/')
+    obj = None
+    if len(parts) == 2:
+        obj = DomainObject(
+            domain=parts[0],
+            id=None if parts[1] == '@' else int(parts[1]),
+            offset=0)
+    else:
+        obj = DomainObject(
+            domain=parts[0],
+            id=None if parts[1] == '@' else int(parts[1]),
+            offset=int(parts[2]))
+    return obj
+
+
+def query_all_displays() -> List[DisplayType]:
     return json.loads(subprocess.check_output(shlex.split("yabai -m query --displays")))
 
 
-def query_current_space() -> SpaceType:
+def query_space(idx: Optional[int] = None) -> SpaceType:
+    cmd = f'yabai -m query --spaces --space {idx if idx is not None else ""}'.rstrip()
     return json.loads(
-        subprocess.check_output(shlex.split("yabai -m query --spaces --space"))
+        subprocess.check_output(shlex.split(cmd))
     )
 
 
-def focus(args):
+def focus(target: str):
     """Focus space or display cyclically
 
     Args:
-        args : command line argument
-            domain: space or display
-            offset: decimal number
+        domain: space or display
+        offset: decimal number
     """
 
-    display_datas: List[DisplayType] = query_displays()
+    target_domain_obj = parse_domain_object_str(target)
+    if not target_domain_obj :
+        raise KeyError(target)
+
+    display_datas: List[DisplayType] = query_all_displays()
     display_datas.sort(key=lambda x: x['index'])
-    cur_space: SpaceType = query_current_space()
+    cur_space: SpaceType = query_space()
 
     # the index in yabai is starting at 1
-    if args.domain == "space":
+    if target_domain_obj.domain == "space":
         total_spaces = len(display_datas[cur_space["display"] - 1]["spaces"])
         first_space_idx = display_datas[cur_space["display"] - 1]["spaces"][0]
-        final_space_idx = first_space_idx + ((cur_space["index"] - 1 + args.offset) % total_spaces)
+        final_space_idx = first_space_idx + ((cur_space["index"] - 1 + target_domain_obj.offset) % total_spaces)
         if final_space_idx != cur_space["index"]:
             subprocess.check_call(shlex.split(f'yabai -m space --focus {final_space_idx}'))
 
-    elif args.domain == "display":
-        final_display_idx = 1 + ((cur_space["display"] - 1 + args.offset) % len(display_datas))
+    elif target_domain_obj.domain == "display":
+        final_display_idx = 1 + ((cur_space["display"] - 1 + target_domain_obj.offset) % len(display_datas))
         if final_display_idx != cur_space["display"]:
             subprocess.check_call(shlex.split(f'yabai -m display --focus {final_display_idx}'))
 
 def main():
     parser = argparse.ArgumentParser(description="Helper for yabai")
-    subparsers = parser.add_subparsers(title="subcommands")
+    subparsers = parser.add_subparsers(title="subcommands", dest="subcommand")
+
     focus_parser = subparsers.add_parser("focus")
-    focus_parser.add_argument("domain", choices=["space", "display"])
-    focus_parser.add_argument("offset", default=1, type=int, help="offset direction")
-    focus_parser.set_defaults(func=focus)
+    focus_parser.add_argument("target", help='(window|space|display)[/(@|<idx>)][/offset]')
     args = parser.parse_args()
 
     try:
-        args.func(args)
+        if args.subcommand == 'focus':
+            focus(args.target)
     except subprocess.CalledProcessError as e:
         print(e.stderr, file=sys.stderr)
         exit(e.returncode)
