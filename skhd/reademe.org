@@ -283,8 +283,12 @@ yabai_space < m    ; yabai_monitor
 yabai_space < backspace    ; yabai
 
 ## keybindings
-yabai_space < 0x2B    : yabai -m space --focus prev # key=,
-yabai_space < 0x2F    : yabai -m space --focus next # key=.
+yabai_space < 0x2B : \
+    ~/bin/yabai-helper focus space -1
+yabai_space < 0x2F : \
+    ~/bin/yabai-helper focus space 1
+
+## TODO, allowing cycle through spaces
 yabai_space < shift - 0x2B    : yabai -m window --space prev; yabai -m space --focus prev # key=,
 yabai_space < shift - 0x2F    : yabai -m window --space next; yabai -m space --focus next # key=.
 yabai_space < ctrl + shift - 0x2B    : yabai -m window --space prev # key=,
@@ -337,8 +341,10 @@ yabai_monitor < s    ; yabai_space
 yabai_monitor < backspace    ; yabai
 
 ## keybindings
-yabai_monitor < 0x2B : yabai -m display --focus prev # key=,
-yabai_monitor < 0x2F : yabai -m display --focus next # key=.
+yabai_monitor < 0x2B : \
+    yabai -m display --focus prev || yabai -m display --focus last
+yabai_monitor < 0x2F : \
+    yabai -m display --focus next || yabai -m display --focus first
 yabai_monitor < shift - 0x2B : \
     yabai -m window --display prev; yabai -m display --focus prev # key=,
 yabai_monitor < shift - 0x2F : \
