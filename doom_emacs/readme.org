@@ -29,6 +29,7 @@
     - [[#beacon][Beacon]]
     - [[#lsp][lsp]]
     - [[#projectile][projectile]]
+    - [[#docstr][docstr]]
     - [[#others][others]]
     - [[#vterm][vterm]]
 - [[#gnu-stow][Gnu stow]]
@@ -325,6 +326,7 @@ use 'M-x doom/reload'.
 (package! org-drill)
 (package! exec-path-from-shell)
 (package! imenu-list)
+(package! docstr)
 #+end_src
 
 * config.el
@@ -693,6 +695,15 @@ Never lose your cursor.
 (use-package! projectile
   :custom
   (projectile-project-search-path '("~/workspace")))
+#+end_src
+*** [[https://emacs-vs.github.io/docstr/][docstr]]
+
+#+begin_src emacs-lisp
+(use-package! docstr
+  :hook
+  (python-mode . (lambda () (docstr-mode 1)))
+  :custom
+  (docstr-python-style "google"))
 #+end_src
 
 *** others
