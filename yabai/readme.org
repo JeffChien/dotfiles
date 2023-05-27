@@ -1,11 +1,19 @@
 #+title: Readme
-#+PROPERTY: header-args :tangle .config/yabai/yabairc :mkdirp yes
 #+STARTUP: content
 
 * yabai
 A tiling window manager for macOS based on binary space partitioning
 [[https://github.com/koekeishiya/yabai][github]]
 * yabairc
+:PROPERTIES:
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"yabairc")) :mkdirp yes
+:END:
+
+#+NAME: variables
+| Variable | Value                | Description           |
+|----------+----------------------+-----------------------|
+| basedir  | .build/.config/yabai/ | dotfile target folder |
+
 #+begin_src shell
 #!/usr/bin/env bash
 # set -x
@@ -103,6 +111,20 @@ printf "yabai: configuration loaded...\\n"
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+stow -v1 -t ~ assets
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
+stow -t ~ -D assets
 #+end_src
 
 * Tagging
