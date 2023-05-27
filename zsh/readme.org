@@ -65,6 +65,12 @@ fi
 :header-args: :tangle (org-sbe helper.org.resolve-path (path $".zprofile"))
 :END:
 
+I've found that LC_COLOR will greatly affect therminal color theme, in many
+combinations some text will be too dark to read. I've tried many, the only pair
+I can live on are molokai + molokai.
+
+so... in order to be able to hop around different themes, comment LC_COLOR for now.
+
 #+begin_src shell
 # zplugin config
 # https://github.com/zdharma/zplugin/blob/ec79623684944b813cbd8fa3faee484c486d1f68/README.md#customizing-paths--other
@@ -84,7 +90,7 @@ path=(
 
 ## terminal colormap
 # https://github.com/sharkdp/vivid
-export LS_COLORS="$(vivid generate dracula)"
+# export LS_COLORS="$(vivid generate molokai)"
 
 export OS_NAME=`uname`
 export LC_ALL=en_US.UTF-8

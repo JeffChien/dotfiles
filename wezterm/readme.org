@@ -18,12 +18,15 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.color_scheme = "Catppuccin Frappe"
+config.color_scheme = "Monokai Pro (Gogh)"
 config.font = wezterm.font('SauceCodePro Nerd Font Mono')
 config.font_size = 15
 
 return config
 #+end_src
+
+catpuccin looks great in many way but in some cases it's terrible, like it makes
+ipython's auto completion menu unreadable.
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
