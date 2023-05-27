@@ -41,6 +41,41 @@ SpaceType = TypedDict(
     },
 )
 
+WindowType = TypedDict(
+    "WindowType",
+    {
+        "id": int,
+        "pid": int,
+        "app": str,
+        "title": str,
+        "frame": FrameType,
+        "role": str,
+        "subrole": str,
+        "display": int,
+        "space": int,
+        "level": int,
+        "opacity": float,
+        "split-type": str,
+        "split-child": str,
+        "stack-index": int,
+        "can-move": bool,
+        "can-resize": bool,
+        "has-focus": bool,
+        "has-shadow": bool,
+        "has-border": bool,
+        "has-parent-zoom": bool,
+        "has-fullscreen-zoom": bool,
+        "is-native-fullscreen": bool,
+        "is-visible": bool,
+        "is-minimized": bool,
+        "is-hidden": bool,
+        "is-floating": bool,
+        "is-sticky": bool,
+        "is-topmost": bool,
+        "is-grabbed": bool,
+    }
+)
+
 @dataclass
 class DomainObject:
     domain: str
@@ -75,6 +110,13 @@ def query_space(idx: Optional[int] = None) -> SpaceType:
     )
 
 
+def query_window(wid: Optional[int] = None) -> WindowType:
+    cmd = f'yabai -m query --windows --window {wid if wid is not None else ""}'.rstrip()
+    return json.loads(
+        subprocess.check_output(shlex.split(cmd))
+    )
+
+
 def focus(target: str):
     """Focus space or display cyclically
 
@@ -104,17 +146,66 @@ def focus(target: str):
         if final_display_idx != cur_space["display"]:
             subprocess.check_call(shlex.split(f'yabai -m display --focus {final_display_idx}'))
 
+
+def throw(src: str, target: str, follow: bool):
+    """Throw source domain object to target domain
+
+    Args:
+        src: source domain object str
+        target: target domain object str
+        follow: should we change focus also?
+    """
+
+    src_domain_obj = parse_domain_object_str(src)
+    if not src_domain_obj:
+        raise KeyError(src)
+
+    target_domain_obj = parse_domain_object_str(target)
+    if not target_domain_obj :
+        raise KeyError(target)
+
+    display_datas: List[DisplayType] = query_all_displays()
+    display_datas.sort(key=lambda x: x['index'])
+    if src_domain_obj.domain == 'window':
+        display_datas: List[DisplayType] = query_all_displays()
+        display_datas.sort(key=lambda x: x['index'])
+        cur_space: SpaceType = query_space()
+        if target_domain_obj.domain == 'space':
+            total_spaces = len(display_datas[cur_space["display"] - 1]["spaces"])
+            first_space_idx = display_datas[cur_space["display"] - 1]["spaces"][0]
+            final_space_idx = first_space_idx + ((cur_space["index"] - 1 + target_domain_obj.offset) % total_spaces)
+            if final_space_idx != cur_space["index"]:
+                subprocess.check_call(shlex.split(f'yabai -m window --space {final_space_idx}'))
+                if follow:
+                    subprocess.check_call(shlex.split(f'yabai -m space --focus {final_space_idx}'))
+
+        elif target_domain_obj.domain == 'display':
+            final_display_idx = 1 + ((cur_space["display"] - 1 + target_domain_obj.offset) % len(display_datas))
+            if final_display_idx != cur_space["display"]:
+                subprocess.check_call(shlex.split(f'yabai -m window --display {final_display_idx}'))
+                if follow:
+                    subprocess.check_call(shlex.split(f'yabai -m display --focus {final_display_idx}'))
+
+
 def main():
     parser = argparse.ArgumentParser(description="Helper for yabai")
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand")
 
     focus_parser = subparsers.add_parser("focus")
     focus_parser.add_argument("target", help='(window|space|display)[/(@|<idx>)][/offset]')
+
+    throw_parser = subparsers.add_parser("throw")
+    throw_parser.add_argument("src", help='(window|space|display)[/(@|<idx>)]')
+    throw_parser.add_argument("target", help='(window|space|display)[/(@|<idx>)][/offset]')
+    throw_parser.add_argument("-f", "--follow", help='focus follow', action='store_true')
+
     args = parser.parse_args()
 
     try:
         if args.subcommand == 'focus':
             focus(args.target)
+        elif args.subcommand == 'throw':
+            throw(args.src, args.target, args.follow)
     except subprocess.CalledProcessError as e:
         print(e.stderr, file=sys.stderr)
         exit(e.returncode)
