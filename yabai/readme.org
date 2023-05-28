@@ -95,15 +95,14 @@ yabai -m rule --add label="mpv" app="^mpv$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Digital Color Meter" app="Digital Color Meter" manage=off
-yabai -m rule --add label="Guake" app="iTerm2" title="^Guake.*" manage=off grid="20:20:1:1:18:18" sticky=on
+yabai -m rule --add label="Guake" app="iTerm2" title="^Guake.*" manage=off grid="20:20:0:15:20:5" sticky=on border=off mouse_follows_focus=off
 yabai -m rule --add label="mpv-bundle" app="mpv-bundle" manage=off
 yabai -m rule --add label="IINA" app="IINA" manage=off
 yabai -m rule --add label="UTM" app="UTM" title="(VM|Preference)" manage=off
 
 # ===== Signals ================================
-#
-# yabai -m signal --add event='application_activated' label="^Guake.*" app="iTerm2" \
-#     action="yabai -m query --spaces --display | $HOME/.local/share/zinit/plugins/stedolan---jq/jq 'map(select(.\"has-focus\")) | .[0].index' | xargs -I{} yabai -m window --space {}"
+#+end_src
+
 * Service control
 
 Homebrew starts to drop plist support there yabai create seveal commands for service management.

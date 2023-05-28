@@ -365,6 +365,7 @@ yabai_monitor < ctrl+shift - 3 : yabai -m window --display 3
 #+begin_src conf
 ## defalut mode
 default < f2  : [[ `im-select` = "com.apple.keylayout.Dvorak" ]] && im-select im.rime.inputmethod.Squirrel.Rime || im-select com.apple.keylayout.Dvorak
+default < f12 : ~/bin/yabai-helper guake --toggle --topmost --grid "20:20:0:15:20:5" '^Guake'
 #+end_src
 
 * Gnu stow
