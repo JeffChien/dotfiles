@@ -6,9 +6,14 @@
 
 * Wezterm
 :PROPERTIES:
-:header-args: :tangle .config/wezterm/wezterm.lua :mkdirp yes
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"wezterm.lua")) :mkdirp yes
 :END:
 [[https://wezfurlong.org/wezterm/config/files.html#configuration-files][official page]]
+
+#+NAME: variables
+| Variable | Value                | Description           |
+|----------+----------------------+-----------------------|
+| basedir  | .build/.config/wezterm/ | dotfile target folder |
 
 #+begin_src lua
 local wezterm = require('wezterm')
@@ -30,6 +35,18 @@ ipython's auto completion menu unreadable.
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ .build
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D .build
 #+end_src
 
 * Tagging
