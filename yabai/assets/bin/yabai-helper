@@ -211,7 +211,7 @@ def throw(src: str, target: str, follow: bool):
                     )
 
 
-def guake(title_pattern: str, topmost: bool, toggle: bool, grid: str):
+def guake(title_pattern: str, topmost: bool, grid: str):
     all_windows = query_all_windows()
     guake_window: Optional[WindowType] = None
 
@@ -222,30 +222,29 @@ def guake(title_pattern: str, topmost: bool, toggle: bool, grid: str):
     if not guake_window:
         return
 
-    cur_space: SpaceType = query_space()
-    subprocess.check_call(
-        shlex.split(
-            f'yabai -m window {guake_window["id"]} --space {cur_space["index"]}'
+    if guake_window["has-focus"]:
+        subprocess.check_call(
+            shlex.split(f'yabai -m window {guake_window["id"]} --toggle border')
         )
-    )
-    subprocess.check_call(
-        shlex.split(f'yabai -m window {guake_window["id"]} --grid {grid}')
-    )
-
-    if toggle:
+        subprocess.check_call(
+            shlex.split(f'yabai -m window --minimize {guake_window["id"]}')
+        )
+        subprocess.check_call(shlex.split(f"yabai -m window --focus recent"))
+    else:
         if guake_window["is-minimized"]:
-            # subprocess.check_call(shlex.split(f'yabai -m window --deminimize {guake_window["id"]}'))
+            cur_space: SpaceType = query_space()
             subprocess.check_call(
-                shlex.split(f'yabai -m window --focus {guake_window["id"]}')
+                shlex.split(
+                    f'yabai -m window {guake_window["id"]} --space {cur_space["index"]}'
+                )
             )
-        else:
             subprocess.check_call(
-                shlex.split(f'yabai -m window --minimize {guake_window["id"]}')
+                shlex.split(f'yabai -m window {guake_window["id"]} --grid {grid}')
             )
-            subprocess.check_call(shlex.split(f"yabai -m window --focus recent"))
+            subprocess.check_call(
+                shlex.split(f'yabai -m window {guake_window["id"]} --toggle border')
+            )
 
-    elif guake_window["is-minimized"]:
-        # subprocess.check_call(shlex.split(f'yabai -m window --deminimize {guake_window["id"]}'))
         subprocess.check_call(
             shlex.split(f'yabai -m window --focus {guake_window["id"]}')
         )
@@ -275,7 +274,6 @@ def main():
     )
 
     quake_parser = subparsers.add_parser("guake")
-    quake_parser.add_argument("--toggle", help="show/hide", action="store_true")
     quake_parser.add_argument("--topmost", help="topmost", action="store_true")
     quake_parser.add_argument("--grid", help="topmost")
     quake_parser.add_argument("title_pattern", help="title regex pattern", type=str)
@@ -288,7 +286,7 @@ def main():
         elif args.subcommand == "throw":
             throw(args.src, args.target, args.follow)
         elif args.subcommand == "guake":
-            guake(args.title_pattern, args.topmost, args.toggle, args.grid)
+            guake(args.title_pattern, args.topmost, args.grid)
     except subprocess.CalledProcessError as e:
         print(e.stderr, file=sys.stderr)
         exit(e.returncode)
