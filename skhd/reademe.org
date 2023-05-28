@@ -360,6 +360,22 @@ yabai_monitor < ctrl+shift - 1 : yabai -m window --display 1
 yabai_monitor < ctrl+shift - 2 : yabai -m window --display 2
 yabai_monitor < ctrl+shift - 3 : yabai -m window --display 3
 #+end_src
+**** Others
+
+layout backup/restore snippet from [[https://github.com/koekeishiya/yabai/issues/259#issuecomment-865056633][github discuss]]
+
+#+begin_src conf
+## defalut mode
+default < fn - 0 : \
+    osascript -e 'display dialog "Save window layout to /tmp/yabai-layout-backup.sh ?" with title "yabai backup"' \
+    && yabai -m query --windows | jq -re '.[] | select(.minimized != 1) | "yabai -m window \(.id) --display \(.display) --space \(.space) --move abs:\(.frame.x):\(.frame.y) --resize abs:\(.frame.w):\(.frame.h)"' >! /tmp/yabai-layout-backup.sh \
+    && osascript -e 'display notification "done" with title "yabai backup"'
+
+default < fn + shift - 0 : \
+    osascript -e 'display dialog "Restore window layout from /tmp/yabai-layout-backup.sh ?" with title "yabai restore"' \
+    && bash /tmp/yabai-layout-backup.sh \
+    && (osascript -e 'display notification "done" with title "yabai restore"'; rm /tmp/yabai-layout-backup.sh)
+#+end_src
 *** Others
 
 #+begin_src conf
