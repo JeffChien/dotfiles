@@ -9,6 +9,7 @@ from typing import TypedDict
 from typing import List, Optional
 from dataclasses import dataclass
 
+
 class FrameType(TypedDict):
     x: float
     y: float
@@ -74,8 +75,9 @@ WindowType = TypedDict(
         "is-sticky": bool,
         "is-topmost": bool,
         "is-grabbed": bool,
-    }
+    },
 )
+
 
 @dataclass
 class DomainObject:
@@ -85,39 +87,37 @@ class DomainObject:
 
 
 def parse_domain_object_str(s: str) -> Optional[DomainObject]:
-    parts = s.split('/')
+    parts = s.split("/")
     obj = None
     if len(parts) == 2:
         obj = DomainObject(
-            domain=parts[0],
-            id=None if parts[1] == '@' else int(parts[1]),
-            offset=0)
+            domain=parts[0], id=None if parts[1] == "@" else int(parts[1]), offset=0
+        )
     else:
         obj = DomainObject(
             domain=parts[0],
-            id=None if parts[1] == '@' else int(parts[1]),
-            offset=int(parts[2]))
+            id=None if parts[1] == "@" else int(parts[1]),
+            offset=int(parts[2]),
+        )
     return obj
 
 
 def query_all_displays() -> List[DisplayType]:
     return json.loads(subprocess.check_output(shlex.split("yabai -m query --displays")))
 
+
 def query_all_windows() -> List[WindowType]:
     return json.loads(subprocess.check_output(shlex.split("yabai -m query --windows")))
 
+
 def query_space(idx: Optional[int] = None) -> SpaceType:
     cmd = f'yabai -m query --spaces --space {idx if idx is not None else ""}'.rstrip()
-    return json.loads(
-        subprocess.check_output(shlex.split(cmd))
-    )
+    return json.loads(subprocess.check_output(shlex.split(cmd)))
 
 
 def query_window(wid: Optional[int] = None) -> WindowType:
     cmd = f'yabai -m query --windows --window {wid if wid is not None else ""}'.rstrip()
-    return json.loads(
-        subprocess.check_output(shlex.split(cmd))
-    )
+    return json.loads(subprocess.check_output(shlex.split(cmd)))
 
 
 def focus(target: str):
@@ -129,25 +129,33 @@ def focus(target: str):
     """
 
     target_domain_obj = parse_domain_object_str(target)
-    if not target_domain_obj :
+    if not target_domain_obj:
         raise KeyError(target)
 
     display_datas: List[DisplayType] = query_all_displays()
-    display_datas.sort(key=lambda x: x['index'])
+    display_datas.sort(key=lambda x: x["index"])
     cur_space: SpaceType = query_space()
 
     # the index in yabai is starting at 1
     if target_domain_obj.domain == "space":
         total_spaces = len(display_datas[cur_space["display"] - 1]["spaces"])
         first_space_idx = display_datas[cur_space["display"] - 1]["spaces"][0]
-        final_space_idx = first_space_idx + ((cur_space["index"] - 1 + target_domain_obj.offset) % total_spaces)
+        final_space_idx = first_space_idx + (
+            (cur_space["index"] - 1 + target_domain_obj.offset) % total_spaces
+        )
         if final_space_idx != cur_space["index"]:
-            subprocess.check_call(shlex.split(f'yabai -m space --focus {final_space_idx}'))
+            subprocess.check_call(
+                shlex.split(f"yabai -m space --focus {final_space_idx}")
+            )
 
     elif target_domain_obj.domain == "display":
-        final_display_idx = 1 + ((cur_space["display"] - 1 + target_domain_obj.offset) % len(display_datas))
+        final_display_idx = 1 + (
+            (cur_space["display"] - 1 + target_domain_obj.offset) % len(display_datas)
+        )
         if final_display_idx != cur_space["display"]:
-            subprocess.check_call(shlex.split(f'yabai -m display --focus {final_display_idx}'))
+            subprocess.check_call(
+                shlex.split(f"yabai -m display --focus {final_display_idx}")
+            )
 
 
 def throw(src: str, target: str, follow: bool):
@@ -164,30 +172,43 @@ def throw(src: str, target: str, follow: bool):
         raise KeyError(src)
 
     target_domain_obj = parse_domain_object_str(target)
-    if not target_domain_obj :
+    if not target_domain_obj:
         raise KeyError(target)
 
     display_datas: List[DisplayType] = query_all_displays()
-    display_datas.sort(key=lambda x: x['index'])
-    if src_domain_obj.domain == 'window':
+    display_datas.sort(key=lambda x: x["index"])
+    if src_domain_obj.domain == "window":
         display_datas: List[DisplayType] = query_all_displays()
-        display_datas.sort(key=lambda x: x['index'])
+        display_datas.sort(key=lambda x: x["index"])
         cur_space: SpaceType = query_space()
-        if target_domain_obj.domain == 'space':
+        if target_domain_obj.domain == "space":
             total_spaces = len(display_datas[cur_space["display"] - 1]["spaces"])
             first_space_idx = display_datas[cur_space["display"] - 1]["spaces"][0]
-            final_space_idx = first_space_idx + ((cur_space["index"] - 1 + target_domain_obj.offset) % total_spaces)
+            final_space_idx = first_space_idx + (
+                (cur_space["index"] - 1 + target_domain_obj.offset) % total_spaces
+            )
             if final_space_idx != cur_space["index"]:
-                subprocess.check_call(shlex.split(f'yabai -m window --space {final_space_idx}'))
+                subprocess.check_call(
+                    shlex.split(f"yabai -m window --space {final_space_idx}")
+                )
                 if follow:
-                    subprocess.check_call(shlex.split(f'yabai -m space --focus {final_space_idx}'))
+                    subprocess.check_call(
+                        shlex.split(f"yabai -m space --focus {final_space_idx}")
+                    )
 
-        elif target_domain_obj.domain == 'display':
-            final_display_idx = 1 + ((cur_space["display"] - 1 + target_domain_obj.offset) % len(display_datas))
+        elif target_domain_obj.domain == "display":
+            final_display_idx = 1 + (
+                (cur_space["display"] - 1 + target_domain_obj.offset)
+                % len(display_datas)
+            )
             if final_display_idx != cur_space["display"]:
-                subprocess.check_call(shlex.split(f'yabai -m window --display {final_display_idx}'))
+                subprocess.check_call(
+                    shlex.split(f"yabai -m window --display {final_display_idx}")
+                )
                 if follow:
-                    subprocess.check_call(shlex.split(f'yabai -m display --focus {final_display_idx}'))
+                    subprocess.check_call(
+                        shlex.split(f"yabai -m display --focus {final_display_idx}")
+                    )
 
 
 def guake(title_pattern: str, topmost: bool, toggle: bool, grid: str):
@@ -202,23 +223,37 @@ def guake(title_pattern: str, topmost: bool, toggle: bool, grid: str):
         return
 
     cur_space: SpaceType = query_space()
-    subprocess.check_call(shlex.split(f'yabai -m window {guake_window["id"]} --space {cur_space["index"]}'))
-    subprocess.check_call(shlex.split(f'yabai -m window {guake_window["id"]} --grid {grid}'))
+    subprocess.check_call(
+        shlex.split(
+            f'yabai -m window {guake_window["id"]} --space {cur_space["index"]}'
+        )
+    )
+    subprocess.check_call(
+        shlex.split(f'yabai -m window {guake_window["id"]} --grid {grid}')
+    )
 
     if toggle:
         if guake_window["is-minimized"]:
             # subprocess.check_call(shlex.split(f'yabai -m window --deminimize {guake_window["id"]}'))
-            subprocess.check_call(shlex.split(f'yabai -m window --focus {guake_window["id"]}'))
+            subprocess.check_call(
+                shlex.split(f'yabai -m window --focus {guake_window["id"]}')
+            )
         else:
-            subprocess.check_call(shlex.split(f'yabai -m window --minimize {guake_window["id"]}'))
-            subprocess.check_call(shlex.split(f'yabai -m window --focus recent'))
+            subprocess.check_call(
+                shlex.split(f'yabai -m window --minimize {guake_window["id"]}')
+            )
+            subprocess.check_call(shlex.split(f"yabai -m window --focus recent"))
 
     elif guake_window["is-minimized"]:
-            # subprocess.check_call(shlex.split(f'yabai -m window --deminimize {guake_window["id"]}'))
-            subprocess.check_call(shlex.split(f'yabai -m window --focus {guake_window["id"]}'))
+        # subprocess.check_call(shlex.split(f'yabai -m window --deminimize {guake_window["id"]}'))
+        subprocess.check_call(
+            shlex.split(f'yabai -m window --focus {guake_window["id"]}')
+        )
 
     if topmost and not guake_window["is-topmost"]:
-        subprocess.check_call(shlex.split(f'yabai -m window {guake_window["id"]} --toggle topmost'))
+        subprocess.check_call(
+            shlex.split(f'yabai -m window {guake_window["id"]} --toggle topmost')
+        )
 
 
 def main():
@@ -226,27 +261,33 @@ def main():
     subparsers = parser.add_subparsers(title="subcommands", dest="subcommand")
 
     focus_parser = subparsers.add_parser("focus")
-    focus_parser.add_argument("target", help='(window|space|display)[/(@|<idx>)][/offset]')
+    focus_parser.add_argument(
+        "target", help="(window|space|display)[/(@|<idx>)][/offset]"
+    )
 
     throw_parser = subparsers.add_parser("throw")
-    throw_parser.add_argument("src", help='(window|space|display)[/(@|<idx>)]')
-    throw_parser.add_argument("target", help='(window|space|display)[/(@|<idx>)][/offset]')
-    throw_parser.add_argument("-f", "--follow", help='focus follow', action='store_true')
+    throw_parser.add_argument("src", help="(window|space|display)[/(@|<idx>)]")
+    throw_parser.add_argument(
+        "target", help="(window|space|display)[/(@|<idx>)][/offset]"
+    )
+    throw_parser.add_argument(
+        "-f", "--follow", help="focus follow", action="store_true"
+    )
 
     quake_parser = subparsers.add_parser("guake")
-    quake_parser.add_argument("--toggle", help='show/hide', action='store_true')
-    quake_parser.add_argument("--topmost", help='topmost', action='store_true')
-    quake_parser.add_argument("--grid", help='topmost')
-    quake_parser.add_argument("title_pattern", help='title regex pattern', type=str)
+    quake_parser.add_argument("--toggle", help="show/hide", action="store_true")
+    quake_parser.add_argument("--topmost", help="topmost", action="store_true")
+    quake_parser.add_argument("--grid", help="topmost")
+    quake_parser.add_argument("title_pattern", help="title regex pattern", type=str)
 
     args = parser.parse_args()
 
     try:
-        if args.subcommand == 'focus':
+        if args.subcommand == "focus":
             focus(args.target)
-        elif args.subcommand == 'throw':
+        elif args.subcommand == "throw":
             throw(args.src, args.target, args.follow)
-        elif args.subcommand == 'guake':
+        elif args.subcommand == "guake":
             guake(args.title_pattern, args.topmost, args.toggle, args.grid)
     except subprocess.CalledProcessError as e:
         print(e.stderr, file=sys.stderr)
