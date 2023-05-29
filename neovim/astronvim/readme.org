@@ -148,10 +148,12 @@ local maps = {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
     i = {
-        [";o"] = {"<C-o>A;<CR>", desc = "; to the end and move on to next line"},
-        [";e"] = {"<C-o>A;", desc = "; to the end"},
-        [";<Space>"] = {";", desc = "just a simple ;"},
-        [";;"] = {"::", desc = ":: instead"}
+        ["<C-a>"] = {"<C-o>^", desc = "To the beginning of line"},
+        ["<C-e>"] = {"<C-o>$", desc = "To the end of line"},
+        ["<C-f>"] = {"<right>", desc = "Move cursor forward"},
+        ["<C-b>"] = {"<left>", desc = "Move cursor backward"},
+        ["<M-f>"] = {"<Esc>ea", desc = "Move cursor forward to the end of word"},
+        ["<M-b>"] = {"<C-o>b", desc = "Move cursor backward to the beginning of word"},
     },
     t = {},
     v = {}
