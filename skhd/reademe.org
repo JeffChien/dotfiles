@@ -257,12 +257,12 @@ yabai_window_misc < s : \
 
 | Keybinding   | Description                                               |
 |--------------+-----------------------------------------------------------|
-| ,            | Focus previous space                                      |
-| .            | Focus next space                                          |
-| S-,          | Move window to previous space and follow                  |
-| S-.          | Move window to next space and follow                      |
-| C-S-,        | Move window to previous space and stay                    |
-| C-S-.        | Move window to next space and stay                        |
+| h            | Focus previous space                                      |
+| l            | Focus next space                                          |
+| S-h          | Move window to previous space and follow                  |
+| S-l          | Move window to next space and follow                      |
+| C-S-h        | Move window to previous space and stay                    |
+| C-S-l        | Move window to next space and stay                        |
 | [123456]     | Focus to space #                                          |
 | S-[123456]   | Move window to space # and follow                         |
 | C-S-[123456] | Move window to space and stay                             |
@@ -283,14 +283,14 @@ yabai_space < m    ; yabai_monitor
 yabai_space < backspace    ; yabai
 
 ## keybindings
-yabai_space < 0x2B : ~/bin/yabai-helper focus "space/@/-1"
-yabai_space < 0x2F : ~/bin/yabai-helper focus "space/@/1"
+yabai_space < h : ~/bin/yabai-helper focus "space/@/-1"
+yabai_space < l : ~/bin/yabai-helper focus "space/@/1"
 
 ## TODO, allowing cycle through spaces
-yabai_space < shift - 0x2B    : ~/bin/yabai-helper throw "window/@" "space/@/-1" --follow
-yabai_space < shift - 0x2F    : ~/bin/yabai-helper throw "window/@" "space/@/1" --follow
-yabai_space < ctrl + shift - 0x2B    : ~/bin/yabai-helper throw "window/@" "space/@/-1"
-yabai_space < ctrl + shift - 0x2F    : ~/bin/yabai-helper throw "window/@" "space/@/1"
+yabai_space < shift - h    : ~/bin/yabai-helper throw "window/@" "space/@/-1" --follow
+yabai_space < shift - l    : ~/bin/yabai-helper throw "window/@" "space/@/1" --follow
+yabai_space < ctrl + shift - h    : ~/bin/yabai-helper throw "window/@" "space/@/-1"
+yabai_space < ctrl + shift - l    : ~/bin/yabai-helper throw "window/@" "space/@/1"
 
 yabai_space < 1    : yabai -m space --focus 1
 yabai_space < 2    : yabai -m space --focus 2
@@ -322,12 +322,12 @@ yabai_space < shift - 0x2A    : yabai -m space --mirror y-axis #key=|
 
 | Keybinding | Description                                |
 |------------+--------------------------------------------|
-| ,          | Focus previous monitor                     |
-| .          | Focus next monitor                         |
-| S-,        | Move window to previous monitor and follow |
-| S-.        | Move window to next monitor and follow     |
-| C-S-,      | Move window to previous monitor and stay   |
-| C-S-.      | Move window to next monitor and stay       |
+| h          | Focus previous monitor                     |
+| l          | Focus next monitor                         |
+| S-h        | Move window to previous monitor and follow |
+| S-l        | Move window to next monitor and follow     |
+| C-S-h      | Move window to previous monitor and stay   |
+| C-S-l      | Move window to next monitor and stay       |
 | [123]      | Focus monitor #                            |
 | S-[123]    | Move window to monitor # and follow        |
 | C-S-[123]  | Move window to monitor # and stay          |
@@ -340,13 +340,13 @@ yabai_monitor < s    ; yabai_space
 yabai_monitor < backspace    ; yabai
 
 ## keybindings
-yabai_monitor < 0x2B : ~/bin/yabai-helper focus "display/@/-1"
-yabai_monitor < 0x2F : ~/bin/yabai-helper focus "display/@/1"
+yabai_monitor < h : ~/bin/yabai-helper focus "display/@/-1"
+yabai_monitor < l : ~/bin/yabai-helper focus "display/@/1"
 
-yabai_monitor < shift - 0x2B : ~/bin/yabai-helper throw "window/@" "display/@/-1" --follow
-yabai_monitor < shift - 0x2F : ~/bin/yabai-helper throw "window/@" "display/@/1" --follow
-yabai_monitor < ctrl+shift - 0x2B : ~/bin/yabai-helper throw "window/@" "display/@/-1"
-yabai_monitor < ctrl+shift - 0x2F : ~/bin/yabai-helper throw "window/@" "display/@/1"
+yabai_monitor < shift - h : ~/bin/yabai-helper throw "window/@" "display/@/-1" --follow
+yabai_monitor < shift - l : ~/bin/yabai-helper throw "window/@" "display/@/1" --follow
+yabai_monitor < ctrl+shift - h : ~/bin/yabai-helper throw "window/@" "display/@/-1"
+yabai_monitor < ctrl+shift - l : ~/bin/yabai-helper throw "window/@" "display/@/1"
 yabai_monitor < 1 : yabai -m display --focus 1
 yabai_monitor < 2 : yabai -m display --focus 2
 yabai_monitor < 3 : yabai -m display --focus 3
