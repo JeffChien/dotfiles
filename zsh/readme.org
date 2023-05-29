@@ -97,9 +97,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Default derminal editor, EDITOR is a fallback option.
-if (( $+commands[emacsclient] )); then
-    VISUAL='emacsclient -t -a ""'
-elif (( $+commands[nvim] )); then
+if (( $+commands[nvim] )); then
     VISUAL='nvim'
 elif (( $+commands[vim] )); then
     VISUAL='vim'
