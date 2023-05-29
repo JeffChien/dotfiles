@@ -98,7 +98,8 @@ yabai -m rule --add label="Digital Color Meter" app="Digital Color Meter" manage
 yabai -m rule --add label="Guake" app="iTerm2" title="^Guake.*" manage=off grid="20:20:0:15:20:5" sticky=on border=off mouse_follows_focus=off
 yabai -m rule --add label="mpv-bundle" app="mpv-bundle" manage=off
 yabai -m rule --add label="IINA" app="IINA" manage=off
-yabai -m rule --add label="UTM" app="UTM" title="(VM|Preference)" manage=off
+yabai -m rule --add label="Karabiner" app="Karabiner-Elements" manage=off
+yabai -m rule --add label="UTM" app="UTM" manage=off
 
 # ===== Signals ================================
 #+end_src
