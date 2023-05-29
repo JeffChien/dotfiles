@@ -153,10 +153,18 @@ local maps = {
         ["<C-f>"] = {"<right>", desc = "Move cursor forward"},
         ["<C-b>"] = {"<left>", desc = "Move cursor backward"},
         ["<M-f>"] = {"<Esc>ea", desc = "Move cursor forward to the end of word"},
-        ["<M-b>"] = {"<C-o>b", desc = "Move cursor backward to the beginning of word"},
+        ["<M-b>"] = {"<S-Left>", desc = "Move cursor backward to the beginning of word"},
     },
     t = {},
-    v = {}
+    v = {},
+    c = {
+        ["<C-a>"] = {"<C-b>", desc = "To the beginning of line"},
+        ["<C-f>"] = {"<right>", desc = "Move cursor forward"},
+        ["<C-b>"] = {"<left>", desc = "Move cursor backward"},
+        ["<M-f>"] = {"<S-Right>", desc = "Move cursor forward to the next word"},
+        ["<M-b>"] = {"<S-Left>", desc = "Move cursor backward to the beginning of word"},
+        ["<C-d>"] = {"<Del>", desc = "Delete char forward"},
+    },
 }
 
 -- mappings for plugins
