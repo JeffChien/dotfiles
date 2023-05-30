@@ -248,8 +248,8 @@ asdf_update_java_home() {
   export JAVA_HOME;
 }
 
-autoload -U add-zsh-hook
-add-zsh-hook precmd asdf_update_java_home
+# autoload -U add-zsh-hook
+# add-zsh-hook precmd asdf_update_java_home
 #+end_src
 ***** k8s
 #+begin_src shell
