@@ -184,11 +184,6 @@ WORDCHARS=${WORDCHARS//[\/]}
 #+begin_src shell
 zinit ice from"gh-r" as"program" pick"*/fd"; zinit load @sharkdp/fd
 #+end_src
-***** exa
-#+begin_src shell
-zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
-#+end_src
-
 ***** [[https://github.com/sharkdp/bat][bat]]
 
 A rust cat alternative.
@@ -303,6 +298,14 @@ fi
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 path=("$CARGO_HOME/bin" $path)
+if (( ! $+commands[rustup] )); then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+path=("$CARGO_HOME/bin" $path)
+
+if (( ! $+commands[cargo] )); then
+    (( $+commands[exa] )) || cargo install exa
+fi
 #+end_src
 
 **** paths
@@ -338,13 +341,15 @@ zinit ice if'[[ -e $HOME/.localrc.zsh ]]'; \
 #+end_src
 **** alias
 #+begin_src shell
-alias ls='exa -F --icons --color=auto --group-directories-first'
-alias ll='ls -l --time-style long-iso'
-alias la='ll -a'
-alias tree='exa -T --icons --color=auto --group-directories-first'
-alias tree2='tree -L2'
-alias tree4='tree -L4'
-alias tree8='tree -L8'
+if (( $+commands[exa] )); then
+    alias ls='exa -F --icons --color=auto --group-directories-first'
+    alias ll='ls -l --time-style long-iso'
+    alias la='ll -a'
+    alias tree='exa -T --icons --color=auto --group-directories-first'
+    alias tree2='tree -L2'
+    alias tree4='tree -L4'
+    alias tree8='tree -L8'
+fi
 alias grep='rg --color=auto -S'
 alias egrep='rg --color=auto -e'
 alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
@@ -507,6 +512,12 @@ zinit ice wait'1' lucid from"gh-r" as"program" mv'*bombardier* -> bombardier'; \
 zinit ice wait'1' lucid from"gh-r" as"program"; \
     zinit load tsenart/vegeta
 #+end_src
+**** exa
+It doesn't provide arm linux binary, we have to build it ourself.
+#+begin_src shell
+zinit ice from"gh-r" as"program" pick"bin/exa" atclone'cp -vf completions/exa.zsh _exa'; zinit load ogham/exa
+#+end_src
+
 **** ssh(disabled)
 ssh-agent, automatically launch ssh-agent and add keys with this presto module
 comment out because I want keepassxc to manage it for me.
