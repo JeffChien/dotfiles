@@ -1,0 +1,32 @@
+#+title: Readme
+* Table of content :TOC:
+- [[#application][Application]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Application
+:PROPERTIES:
+:header-args: :tangle no :mkdirp yes
+:END:
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+Install dotfile
+#+begin_src sh :results output
+stow -v1 -t ~ assets
+#+end_src
+
+#+RESULTS:
+
+Uninstall dotfile
+#+begin_src sh :results output
+stow -t ~ -D assets
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
