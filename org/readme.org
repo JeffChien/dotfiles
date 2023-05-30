@@ -1,0 +1,60 @@
+#+title: Readme
+* Table of content :TOC:
+- [[#helper-methods][Helper methods]]
+  - [[#org][org]]
+  - [[#k8s][k8s]]
+
+* Helper methods
+:PROPERTIES:
+:header-args: :tangle no
+:END:
+
+** org
+*** Handy way to get variable
+[[obsidian://advanced-uri?vault=Zettlekasten&filepath=pages%252Femacs-org.md&block=doneh5][detail]]
+
+Define a table like this in org file.
+#+NAME: variables
+| Variable | Value      | Description |
+|----------+------------+-------------|
+| user1    | alice      | Manager     |
+| user2    | bob        | Developer   |
+
+#+NAME: helper.org.getvar
+#+begin_src emacs-lisp :var data=variables var="a var name"
+  ;; (nth 1 (assoc (format "%s" var) data))
+  (nth 1 (assoc var data))
+#+end_src
+
+Use like this
+#+begin_src emacs-lisp
+(org-sbe helper.org.getvar (var $"user1"))
+#+end_src
+
+or
+#+call: helper.org.getvar(var=$"user1")
+
+**** Extend on it
+
+#+NAME: helper.org.resolve-path
+#+begin_src emacs-lisp :var data=variables vardir='basedir path=""
+(concat (org-sbe helper.org.getvar
+                 (data variables)
+                 (var (prin1-to-string vardir))
+                 )
+        path)
+#+end_src
+
+
+** k8s
+This functions can be use in ~:post~ of a yaml src code block.
+
+#+name: helper.k8s.kube-apply
+#+begin_src sh :var yaml=""
+echo "$yaml" | k3s kubectl apply -f -
+#+end_src
+
+#+name: helper.k8s.kube-delete
+#+begin_src sh :var yaml=""
+echo "$yaml" | k3s kubectl delete -f -
+#+end_src

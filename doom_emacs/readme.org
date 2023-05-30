@@ -468,7 +468,7 @@ This package is extremely important for GUI and deamonized emacs
 
 (use-package! org
   :custom
-  (org-directory "/Users/jchien/Google Drive/Notes/org/")
+  (org-directory "~/Google Drive/Notes/org/")
   (org-hide-emphasis-markers t "hide / * _ ~ markers")
   :config
   ;; make C-c C-j show headings in menu
@@ -480,7 +480,7 @@ This package is extremely important for GUI and deamonized emacs
   (add-to-list 'org-structure-template-alist '("em" . "src emacs-lisp"))
 
   ;; files contains helper functions for other org file
-  (org-babel-lob-ingest (format "%s/%s" org-directory "helper.org")))
+  (org-babel-lob-ingest "~/dotfiles/org/readme.org"))
 #+end_src
 
 **** Utility functions & settings
