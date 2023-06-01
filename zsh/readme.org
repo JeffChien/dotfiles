@@ -198,6 +198,18 @@ zinit ice from"gh-r" as"program" pick"*/bat" atclone"cp */autocomplete/bat.zsh _
 zinit ice from"gh-r" as"program" pick"**/rg"; zinit load burntSushi/ripgrep
 #+end_src
 ***** fzf
+
+| Keybinding    | Description                |
+|---------------+----------------------------|
+| C-n, C-j      | Move down                  |
+| C-p, C-k      | Move up                    |
+| Enter         | Select and exit            |
+| Esc, C-c, C-g | Abort                      |
+| Tab           | Toggle mark then move down |
+| S-Tab         | Toggle mark then move up   |
+| M-c           | Change directory           |
+| M-t           | Find file                  |
+
 #+begin_src shell
 zinit ice from"gh-r" as"program" pick"fzf" id-as"fzf-bin"; zinit load junegunn/fzf
 zinit ice depth"1" multisrc"shell/{completion,key-bindings}.zsh" pick"bin/*" as"program"; \
@@ -215,11 +227,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-export FZF_DEFAULT_OPTS="--ansi --multi --no-height --extended"
+export FZF_DEFAULT_OPTS="--ansi --multi --height=40%"
 if (( $+commands[fd] )); then
-    export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always'
-    export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always'
-    export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --color=always'
+    export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always --maxdepth=3'
+    export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always --maxdepth=3'
 fi
 
 zinit ice; zinit snippet "$ZDOTDIR/lib/fzf.zsh"
