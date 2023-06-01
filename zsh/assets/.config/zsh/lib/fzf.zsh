@@ -54,3 +54,17 @@ fcoc_preview() {
         --ansi --preview $_viewGitLogLine ) && \
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
+
+# backward cd
+bd() {
+  candidates=()
+  pdir="$(pwd)"
+  while [[ "$pdir" != "/" ]]; do
+	  pdir=$(dirname "$pdir")
+	  candidates+=("$pdir")
+  done
+  choice=$(printf "%s\n" "${candidates[@]}" | fzf --height 40% --reverse)
+  if [[ "$choice" != "" ]]; then
+    builtin cd "$choice"
+  fi
+}
