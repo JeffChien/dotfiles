@@ -208,7 +208,7 @@ zinit ice from"gh-r" as"program" pick"**/rg"; zinit load burntSushi/ripgrep
 | Tab           | Toggle mark then move down |
 | S-Tab         | Toggle mark then move up   |
 | M-c           | Change directory           |
-| M-t           | Find file                  |
+| C-t           | Find file                  |
 
 #+begin_src shell
 zinit ice from"gh-r" as"program" pick"fzf" id-as"fzf-bin"; zinit load junegunn/fzf
@@ -228,6 +228,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
 export FZF_DEFAULT_OPTS="--ansi --multi --height=40%"
+export FZF_CTRL_T_OPTS="--preview 'bat {} -r 1:32 --color=always'"
+export FZF_ALT_C_OPTS="--preview 'ls -F --color=always {}'"
 if (( $+commands[fd] )); then
     export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always --maxdepth=3'
     export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always --maxdepth=3'
