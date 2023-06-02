@@ -100,6 +100,7 @@ yabai -m rule --add label="mpv-bundle" app="mpv-bundle" manage=off
 yabai -m rule --add label="IINA" app="IINA" manage=off
 yabai -m rule --add label="Karabiner" app="Karabiner-Elements" manage=off
 yabai -m rule --add label="UTM" app="UTM" manage=off
+yabai -m rule --add label="Modal" app="Vorta" manage=off
 
 # ===== Signals ================================
 #+end_src
