@@ -1,0 +1,108 @@
+#+title: Readme
+* Table of content :TOC:
+- [[#application][Application]]
+- [[#custom-configs][Custom configs]]
+  - [[#defaultcustomyaml][default.custom.yaml]]
+  - [[#input-methods][Input methods]]
+  - [[#archive][Archive]]
+- [[#gnu-stow][Gnu stow]]
+  - [[#macos][MacOS]]
+  - [[#linux][Linux]]
+- [[#tagging][Tagging]]
+
+* Application
+
+Use [[https://github.com/rime/plum][東風破]] to install other input methods.
+
+* Custom configs
+:PROPERTIES:
+:header-args: :mkdirp yes
+:END:
+
+#+NAME: variables
+| Variable | Value   | Description           |
+|----------+---------+-----------------------|
+| basedir  | .build/ | dotfile target folder |
+
+** default.custom.yaml
+
+#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"default.custom.yaml"))
+patch:
+  schema_list:
+    - schema: bopomofo_tw
+    - schema: luna_pinyin_tw
+    - schema: double_pinyin_flypy
+  menu:
+    page_size: 6
+#+end_src
+
+** Input methods
+
+#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"bopomofo_tw.custom.yaml"))
+patch:
+  menu:
+    alternative_select_keys: "SDFWER"
+#+end_src
+
+** Archive
+*** Dvorak mapping
+I'm sick of having dealing with different keyboard layouts everytime I install a new application.
+these are settings I used for bopomofo in dvorak layout
+
+#+begin_src yaml
+patch:
+  schema/name: bopomofo (dvorak)
+  speller/alphabet: "1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347"
+  speller/initials: "1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz["
+  speller/algebra/@last: "xlit|bpmfdtnlgkhjqxZCSrzcsiuvaoeEAIOUMNKGR12345|1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347|"
+  translator/preedit_format/@0: "xlit|1\'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+  all_bpm/preedit_format/@0: "xlit|1\'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+  menu/alternative_select_keys: "UHETON"
+#+end_src
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+** MacOS
+
+Install dotfile
+#+begin_src sh :results silent
+stow -v1 -t ~/Library/Rime .build
+#+end_src
+
+Uninstall dotfile
+#+begin_src sh :results silent
+stow -t ~/Library/Rime -D .build
+#+end_src
+
+** Linux
+*** ibus
+
+Install dotfile
+#+begin_src sh :results silent
+stow -v1 -t ~/.config/ibus/rime .build
+#+end_src
+
+Uninstall dotfile
+#+begin_src sh :results silent
+stow -t ~/.config/ibus/rime -D .build
+#+end_src
+
+*** fcitx
+
+Install dotfile
+#+begin_src sh :results silent
+stow -v1 -t ~/.local/share/fcitx5/rime .build
+#+end_src
+
+Uninstall dotfile
+#+begin_src sh :results silent
+stow -t ~/.local/share/fcitx5/rime -D .build
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
