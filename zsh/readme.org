@@ -316,9 +316,8 @@ path=("$CARGO_HOME/bin" $path)
 if (( ! $+commands[rustup] )); then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
-path=("$CARGO_HOME/bin" $path)
 
-if (( ! $+commands[cargo] )); then
+if (( $+commands[cargo] )); then
     (( $+commands[exa] )) || cargo install exa
 fi
 #+end_src
