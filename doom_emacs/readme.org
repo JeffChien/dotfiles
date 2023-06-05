@@ -31,6 +31,7 @@
     - [[#lsp][lsp]]
     - [[#projectile][projectile]]
     - [[#docstr][docstr]]
+    - [[#yasnippet][yasnippet]]
     - [[#others][others]]
     - [[#vterm][vterm]]
 - [[#gnu-stow][Gnu stow]]
@@ -716,6 +717,18 @@ Never lose your cursor.
   (python-mode . (lambda () (docstr-mode 1)))
   :custom
   (docstr-python-style "google"))
+#+end_src
+*** yasnippet
+
+[[https://github.com/joaotavora/yasnippet/issues/998#issuecomment-494438399][discuss]], allowing automatically expand snippet with ~#condition: 'auto~.
+
+#+begin_src emacs-lisp
+(after! yasnippet
+  (defun my-yas-try-expanding-auto-snippets ()
+    (when yas-minor-mode
+      (let ((yas-buffer-local-condition ''(require-snippet-condition . auto)))
+        (yas-expand))))
+  (add-hook 'post-command-hook #'my-yas-try-expanding-auto-snippets))
 #+end_src
 
 *** others
