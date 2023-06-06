@@ -42,6 +42,8 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'jimeh/tmux-themepack'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
+set -g @plugin 'fcsonline/tmux-thumbs'
+set -g @plugin 'roosta/tmux-fuzzback'
 #+end_src
 
 *** options
@@ -161,6 +163,7 @@ bind -T off F12 \
     |               | maximize pane                            | prefix + C - + m       |
     |               | command mode                             | prefix - ;             |
     |               | confirm before kill a pane               | prefix - x             |
+    |               | reload config                            | prefix - r             |
     | pane-control  | focus pane left                          | prefix + C - h         |
     | pane-control  | focus pane down                          | prefix + C - j         |
     | pane-control  | focus pane up                            | prefix + C - k         |
@@ -177,6 +180,8 @@ bind -T off F12 \
     | pane-control  | move window left                         | prefix - >             |
     | tmux-yank     | copy text from command line to clipboard | prefix - y             |
     | tmux-yank     | copy pwd to clipboard                    | prefix - Y             |
+    | tmux-thumbs   | copy buffer pattern with hint            | prefix - space         |
+    | tmux-fuzzback | fuzzy search buffer                      | prefix - ?             |
     | tpm           | tpm install all packages                 | prefix - I             |
     | tpm           | tpm update all packages                  | prefix - U             |
 - Copy mode
@@ -220,6 +225,8 @@ bind m resize-pane -Z
 bind \; command-prompt
 
 bind x confirm-before kill-pane
+
+bind r source-file ~/.config/tmux/tmux.conf
 
 # When scrolling with mouse wheel, reduce number of scrolled rows per tick to "2" (default is 5)
 bind -T copy-mode-vi WheelUpPane       select-pane \; send-keys -X -N 2 scroll-up
