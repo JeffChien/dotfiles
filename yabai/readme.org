@@ -101,6 +101,8 @@ yabai -m rule --add label="IINA" app="IINA" manage=off
 yabai -m rule --add label="Karabiner" app="Karabiner-Elements" manage=off
 yabai -m rule --add label="UTM" app="UTM" manage=off
 yabai -m rule --add label="Modal" app="Vorta" manage=off
+yabai -m rule --add label="Modal" app="Karabiner-EventViewer" manage=off
+yabai -m rule --add label="Modal" app="Alfred Preferences" manage=off
 
 # ===== Signals ================================
 #+end_src
