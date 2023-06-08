@@ -9,6 +9,52 @@
 :header-args: :tangle no :mkdirp yes
 :END:
 
+Using karabiner.ts to manage profile. It's easier to implement complext rule.
+the limitation is that it only generate complex rule, and since karabiner elements only allow chaining rules between simple rule and complex rules,
+so I can only modify a key for once, it's not possible to swap key then apply complex rule on the swapped keys.
+
+| Layer   | Keybindings                    | Description                                       |
+|---------+--------------------------------+---------------------------------------------------|
+|         | caps -> LCTL_T(ESC)            | left ctrl if held, esc if tapped                  |
+|         | enter -> RCTL_T(enter)         | righ ctrl if held, enter if tapped                |
+|         | right option -> left option    | workaround, the default right option is altgr key |
+|         | tab -> LALT_T(tab)             | left alt if held, tab if tapped                   |
+|         | backslash -> LALT_T(backslash) | left alt if held, backslash if tapped             |
+|         | shift -> sticky shift          | sticky shift if tapped                            |
+| move    | hold down z + c                | mode prefix keys                                  |
+| move    | h                              | left                                              |
+| move    | j                              | down                                              |
+| move    | k                              | up                                                |
+| move    | l                              | right                                             |
+| move    | y                              | home                                              |
+| move    | u                              | page up                                           |
+| move    | i                              | page down                                         |
+| move    | o                              | end                                               |
+| symbol  | hold down /                    | mode prefix key                                   |
+| symbol  | space                          | shift if hold, sticky shift if tapped             |
+| symbol  | x                              | 9                                                 |
+| symbol  | c                              | 0                                                 |
+| symbol  | s                              | [                                                 |
+| symbol  | d                              | ]                                                 |
+| symbol  | w                              | ,                                                 |
+| symbol  | e                              | .                                                 |
+| symbol  | a                              | -                                                 |
+| symbol  | f                              | =                                                 |
+| symbol  | z                              | ;                                                 |
+| snippet | hold down x + c                | mode prefix                                       |
+| snippet | ,                              | '<<'                                              |
+| snippet | .                              | '>>'                                              |
+| snippet | k                              | '<='                                              |
+| snippet | l                              | '>='                                              |
+| snippet | m                              | '->'                                              |
+| snippet | i                              | '&&'                                              |
+| snippet | o                              | '\vert\vert'                                      |
+| snippet | u                              | '+='                                              |
+| snippet | y                              | '-='                                              |
+| snippet | j                              | '*='                                              |
+| snippet | /                              | '/='                                              |
+| snippet | ;                              | '::'                                              |
+
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
 #+end_src

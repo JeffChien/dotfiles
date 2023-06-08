@@ -4,3 +4,4 @@
 .zsh_sessions/
 .zsh_history
 .build
+node_modules/
