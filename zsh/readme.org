@@ -174,7 +174,8 @@ zinit ice depth"1" blockf; zinit light zsh-users/zsh-completions
 
 HISTFILE="$HOME/.zhistory"       # The path to the history file.
 
-zstyle ':completion:*' match-list 'm:{a-z}={A-Za-z}'
+# case-insensitive completion
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 
 # Remove '/' allows me to manipulate path string easier.
 ## '//' means global subsitution.
