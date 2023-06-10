@@ -391,6 +391,7 @@ default < f12 : ~/bin/yabai-helper guake --topmost --grid "20:20:0:15:20:5" '^Gu
 Install dotfile
 #+begin_src sh :results output
 stow -v1 -t ~ .build
+stow -v1 -t ~ assets
 #+end_src
 
 #+RESULTS:
@@ -398,6 +399,7 @@ stow -v1 -t ~ .build
 Uninstall dotfile
 #+begin_src sh :results output
 stow -t ~ -D .build
+stow -t ~ -D assets
 #+end_src
 
 * Tagging
