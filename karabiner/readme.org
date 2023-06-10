@@ -47,57 +47,59 @@ Most of the keybindings follow ergodox ez layout.
 
 *** Symbols and snippets
 
-| Keybindings     | Description     |
-|-----------------+-----------------|
-| hold down l + k | mode prefix key |
-| j               | right shift     |
-| b               | backspace       |
-| q               | ' (")           |
-| w               | , (<)           |
-| e               | . (>)           |
-| r               | 7 (&)           |
-| t               | \ (\vert)       |
-| a               | - (+)           |
-| s               | [ ({)           |
-| d               | ] (})           |
-| f               | = (+)           |
-| g               | / (?)           |
-| z               | ; (:)           |
-| x               | 9 (()           |
-| c               | 0 ())           |
-| v               | 8 (*)           |
-| cmd - `         | ```             |
-| cmd - 1         | !=              |
-| cmd - 5         | %=              |
-| cmd + shift - ` | \~~~            |
-| cmd + shift - 1 | !!              |
-| cmd + shift - 5 | %%              |
-| cmd - q         | '''             |
-| cmd - w         | <=              |
-| cmd - e         | >=              |
-| cmd - r         | &=              |
-| cmd - t         | \vert=          |
-| cmd + shift - q | """             |
-| cmd + shift - w | <<              |
-| cmd + shift - e | >>              |
-| cmd + shift - r | &&              |
-| cmd + shift - t | \vert\vert      |
-| cmd - a         | -=              |
-| cmd - s         | __              |
-| cmd - d         | \==             |
-| cmd - f         | +=              |
-| cmd - g         | /=              |
-| cmd + shift - a | --              |
-| cmd + shift - d | \===            |
-| cmd + shift - f | ++              |
-| cmd + shift - g | //              |
-| cmd - z         | ;;              |
-| cmd - x         | ^=              |
-| cmd - c         | ->              |
-| cmd - v         | *=              |
-| cmd + shift - z | ::              |
-| cmd + shift - c | =>              |
-| cmd + shift - v | **              |
+| Keybindings              | Description                               |
+|--------------------------+-------------------------------------------|
+| hold down l + k          | mode prefix key                           |
+| j                        | right shift                               |
+| b                        | backspace                                 |
+| m                        | right command + left option               |
+| n                        | right command + left option + right shift |
+| q                        | ' (")                                     |
+| w                        | , (<)                                     |
+| e                        | . (>)                                     |
+| r                        | 7 (&)                                     |
+| t                        | \ (\vert)                                 |
+| a                        | - (+)                                     |
+| s                        | [ ({)                                     |
+| d                        | ] (})                                     |
+| f                        | = (+)                                     |
+| g                        | / (?)                                     |
+| z                        | ; (:)                                     |
+| x                        | 9 (()                                     |
+| c                        | 0 ())                                     |
+| v                        | 8 (*)                                     |
+| cmd + option - `         | ```                                       |
+| cmd + option - 1         | !=                                        |
+| cmd + option - 5         | %=                                        |
+| cmd + option + shift - ` | \~~~                                      |
+| cmd + option + shift - 1 | !!                                        |
+| cmd + option + shift - 5 | %%                                        |
+| cmd + option - q         | '''                                       |
+| cmd + option - w         | <=                                        |
+| cmd + option - e         | >=                                        |
+| cmd + option - r         | &=                                        |
+| cmd + option - t         | \vert=                                    |
+| cmd + option + shift - q | """                                       |
+| cmd + option + shift - w | <<                                        |
+| cmd + option + shift - e | >>                                        |
+| cmd + option + shift - r | &&                                        |
+| cmd + option + shift - t | \vert\vert                                |
+| cmd + option - a         | -=                                        |
+| cmd + option - s         | __                                        |
+| cmd + option - d         | \==                                       |
+| cmd + option - f         | +=                                        |
+| cmd + option - g         | /=                                        |
+| cmd + option + shift - a | --                                        |
+| cmd + option + shift - d | \===                                      |
+| cmd + option + shift - f | ++                                        |
+| cmd + option + shift - g | //                                        |
+| cmd + option - z         | ;;                                        |
+| cmd + option - x         | ^=                                        |
+| cmd + option - c         | ->                                        |
+| cmd + option - v         | *=                                        |
+| cmd + option + shift - z | ::                                        |
+| cmd + option + shift - c | =>                                        |
+| cmd + option + shift - v | **                                        |
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
