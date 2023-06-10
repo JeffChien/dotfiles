@@ -1,16 +1,17 @@
 import {
   duoLayer,
-  layer,
+  ifDevice,
   map,
-  mapDoubleTap,
-  mapSimultaneous,
   rule,
-  simlayer,
   toStickyModifier,
   writeToProfile,
 } from 'karabiner.ts'
 
-import { qwertyRule } from './auto-shift'
+const ifErgoDoxEz = ifDevice({ vendor_id: 12951, product_id: 18804 });
+const condSkipKeyboards = [
+  ifErgoDoxEz.unless()
+];
+
 
 // ! Change '--dry-run' to your Karabiner-Elements Profile name.
 // (--dry-run print the config json into console)
@@ -20,7 +21,8 @@ writeToProfile('ts', [
   // (If you type fast, use simlayer instead, see https://evan-liu.github.io/karabiner.ts/rules/simlayer)
   // to make it easier to write '←' instead of 'left_arrow'.
   // Supported alias: https://github.com/evan-liu/karabiner.ts/blob/main/src/utils/key-alias.ts
-  rule('Key mapping').manipulators([
+
+  rule('Key mapping').condition(...condSkipKeyboards).manipulators([
     // config key mappings
     map('caps_lock').toIfHeldDown('left_control').toIfAlone('escape'),
     map('return_or_enter').toIfHeldDown('right_control').toIfAlone('return_or_enter'),
@@ -28,45 +30,76 @@ writeToProfile('ts', [
     map('right_option').to('left_option'),
     map('tab').toIfHeldDown('left_option').toIfAlone('tab')
   ]),
-  duoLayer('z', 'x', 'movement').manipulators([
-    map('h').to('left_arrow'),
-    map('j').to('down_arrow'),
-    map('k').to('up_arrow'),
-    map('l').to('right_arrow'),
-    map('y').to('home'),
-    map('u').to('page_down'),
-    map('i').to('page_up'),
-    map('o').to('end'),
+  duoLayer('s', 'd', 'movement').condition(...condSkipKeyboards).manipulators([
+    map('h', '??').to('left_arrow'),
+    map('j', '??').to('down_arrow'),
+    map('k', '??').to('up_arrow'),
+    map('l', '??').to('right_arrow'),
+    map('y', '??').to('home'),
+    map('u', '??').to('page_down'),
+    map('i', '??').to('page_up'),
+    map('o', '??').to('end'),
+    map('n', '??').to('left_arrow', 'left_option'),
+    map('.', '??').to('right_arrow', 'left_option'),
   ]),
-  rule('sticky shift').manipulators([
+  rule('sticky shift').condition(...condSkipKeyboards).manipulators([
     map('left_shift').toIfAlone(toStickyModifier('left_shift')).to('left_shift'),
     map('right_shift').toIfAlone(toStickyModifier('right_shift')).to('right_shift')
   ]),
-  simlayer('slash', 'symbol').manipulators([
-    map('x').to('9'),
-    map('c').to('0'),
-    map('s').to('['),
-    map('d').to(']'),
-    map('w').to(','),
-    map('e').to('.'),
-    map('a').to('hyphen'),
-    map('f').to('equal_sign'),
-    map('z').to('semicolon'),
-    map('spacebar').toStickyModifier('left_shift').to('left_shift'),
-  ]),
-  duoLayer('x', 'c').manipulators([
-    map(',').toPaste('<<'),
-    map('.').toPaste('>>'),
-    map('k').toPaste('<= '),
-    map('l').toPaste('>= '),
-    map('m').toPaste('->'),
-    map('i').toPaste('&& '),
-    map('o').toPaste('|| '),
-    map('u').toPaste('+= '),
-    map('y').toPaste('-= '),
-    map('j').toPaste('*= '),
-    map('/').toPaste('/= '),
-    map(';').toPaste('::'),
+  duoLayer('l', 'k').condition(...condSkipKeyboards).manipulators([
+
+    map('`', ['command']).to$('~/bin/sendkeys.js "\\`\\`\\`"'),
+    map('1', ['command']).to$('~/bin/sendkeys.js "!="'),
+    map('5', ['command']).to$('~/bin/sendkeys.js "%="'),
+    map('`', ['shift', 'command']).to$('~/bin/sendkeys.js "~~~"'),
+    map('1', ['shift', 'command']).to$('~/bin/sendkeys.js "!!"'),
+    map('5', ['shift', 'command']).to$('~/bin/sendkeys.js "%%"'),
+
+    map('q', {optional: 'shift'}).to('quote'),
+    map('w', {optional: 'shift'}).to(','),
+    map('e', {optional: 'shift'}).to('.'),
+    map('r', {optional: 'shift'}).to('7'),
+    map('t', {optional: 'shift'}).to('backslash'),
+    map('q', ['command']).to$('~/bin/sendkeys.js "\'\'\'"'),
+    map('w', ['command']).to$('~/bin/sendkeys.js "<="'),
+    map('e', ['command']).to$('~/bin/sendkeys.js ">="'),
+    map('r', ['command']).to$('~/bin/sendkeys.js "&="'),
+    map('t', ['command']).to$('~/bin/sendkeys.js "|="'),
+    map('q', ['shift', 'command']).to$('~/bin/sendkeys.js "\\"\\"\\""'),
+    map('w', ['shift', 'command']).to$('~/bin/sendkeys.js "<<"'),
+    map('e', ['shift', 'command']).to$('~/bin/sendkeys.js ">>"'),
+    map('r', ['shift', 'command']).to$('~/bin/sendkeys.js "&&"'),
+    map('t', ['shift', 'command']).to$('~/bin/sendkeys.js "||"'),
+
+    map('a', {optional: 'shift'}).to('-'),
+    map('s', {optional: 'shift'}).to('['),
+    map('d', {optional: 'shift'}).to(']'),
+    map('f', {optional: 'shift'}).to('='),
+    map('g', {optional: 'shift'}).to('/'),
+    map('a', ['command']).to$('~/bin/sendkeys.js "-="'),
+    map('s', ['command']).to$('~/bin/sendkeys.js "__"'),
+    map('d', ['command']).to$('~/bin/sendkeys.js "=="'),
+    map('f', ['command']).to$('~/bin/sendkeys.js "+="'),
+    map('g', ['command']).to$('~/bin/sendkeys.js "/="'),
+    map('a', ['shift', 'command']).to$('~/bin/sendkeys.js "--"'),
+    map('d', ['shift', 'command']).to$('~/bin/sendkeys.js "==="'),
+    map('f', ['shift', 'command']).to$('~/bin/sendkeys.js "++"'),
+    map('g', ['shift', 'command']).to$('~/bin/sendkeys.js "//"'),
+
+    map('z', {optional: 'shift'}).to(';'),
+    map('x', {optional: 'shift'}).to('9'),
+    map('c', {optional: 'shift'}).to('0'),
+    map('v', {optional: 'shift'}).to('8'),
+    map('z', ['command']).to$('~/bin/sendkeys.js ";;"'),
+    map('x', ['command']).to$('~/bin/sendkeys.js "^="'),
+    map('c', ['command']).to$('~/bin/sendkeys.js "->"'),
+    map('v', ['command']).to$('~/bin/sendkeys.js "*="'),
+    map('z', ['shift', 'command']).to$('~/bin/sendkeys.js "::"'),
+    map('c', ['shift', 'command']).to$('~/bin/sendkeys.js "=>"'),
+    map('v', ['shift', 'command']).to$('~/bin/sendkeys.js "**"'),
+
+    map('b').to('delete_or_backspace'),
+    map('j', '??').to('right_shift'),
   ])
 ], {
   'simlayer.threshold_milliseconds': 150,

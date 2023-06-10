@@ -2457,6 +2457,17 @@
                   {
                     "key_code": "escape"
                   }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ]
               },
               {
@@ -2472,6 +2483,17 @@
                 "to_if_alone": [
                   {
                     "key_code": "return_or_enter"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
@@ -2489,6 +2511,17 @@
                   {
                     "key_code": "backslash"
                   }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ]
               },
               {
@@ -2499,6 +2532,17 @@
                 "to": [
                   {
                     "key_code": "left_option"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
@@ -2516,6 +2560,17 @@
                   {
                     "key_code": "tab"
                   }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ]
               }
             ]
@@ -2528,10 +2583,10 @@
                 "from": {
                   "simultaneous": [
                     {
-                      "key_code": "z"
+                      "key_code": "s"
                     },
                     {
-                      "key_code": "x"
+                      "key_code": "d"
                     }
                   ],
                   "simultaneous_options": {
@@ -2560,12 +2615,28 @@
                       "value": 1
                     }
                   }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "h"
+                  "key_code": "h",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2577,13 +2648,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j"
+                  "key_code": "j",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2595,13 +2680,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "k"
+                  "key_code": "k",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2613,13 +2712,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "l"
+                  "key_code": "l",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2631,13 +2744,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "y"
+                  "key_code": "y",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2649,13 +2776,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "u"
+                  "key_code": "u",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2667,13 +2808,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "i"
+                  "key_code": "i",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2685,13 +2840,27 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "o"
+                  "key_code": "o",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
                 },
                 "to": [
                   {
@@ -2703,6 +2872,85 @@
                     "type": "variable_if",
                     "name": "movement",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": [
+                      "left_option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "movement",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": [
+                      "left_option"
+                    ]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "movement",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               }
@@ -2727,6 +2975,17 @@
                   {
                     "key_code": "left_shift"
                   }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ]
               },
               {
@@ -2745,734 +3004,40 @@
                   {
                     "key_code": "right_shift"
                   }
+                ],
+                "conditions": [
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
                 ]
               }
             ]
           },
           {
-            "description": "Simlayer - symbol",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "9"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "0"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "open_bracket"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "close_bracket"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "period"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "equal_sign"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "z",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "semicolon"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "spacebar",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "sticky_modifier": {
-                      "left_shift": "toggle"
-                    }
-                  },
-                  {
-                    "key_code": "left_shift"
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "symbol",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "9"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "x"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "0"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "c"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "open_bracket"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "s"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "close_bracket"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "d"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "comma"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "w"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "period"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "e"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "a"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "equal_sign"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "f"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "key_code": "semicolon"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "z"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              },
-              {
-                "type": "basic",
-                "parameters": {
-                  "basic.simultaneous_threshold_milliseconds": 150
-                },
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "symbol",
-                      "value": 1
-                    }
-                  },
-                  {
-                    "sticky_modifier": {
-                      "left_shift": "toggle"
-                    }
-                  },
-                  {
-                    "key_code": "left_shift"
-                  }
-                ],
-                "from": {
-                  "simultaneous": [
-                    {
-                      "key_code": "slash"
-                    },
-                    {
-                      "key_code": "spacebar"
-                    }
-                  ],
-                  "simultaneous_options": {
-                    "detect_key_down_uninterruptedly": true,
-                    "key_down_order": "strict",
-                    "key_up_order": "strict_inverse",
-                    "key_up_when": "any",
-                    "to_after_key_up": [
-                      {
-                        "set_variable": {
-                          "name": "symbol",
-                          "value": 0
-                        }
-                      }
-                    ]
-                  },
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "description": "Layer - duo-layer-x-c",
+            "description": "Layer - duo-layer-l-k",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
                   "simultaneous": [
                     {
-                      "key_code": "x"
+                      "key_code": "l"
                     },
                     {
-                      "key_code": "c"
+                      "key_code": "k"
                     }
                   ],
                   "simultaneous_options": {
                     "to_after_key_up": [
                       {
                         "set_variable": {
-                          "name": "duo-layer-x-c",
+                          "name": "duo-layer-l-k",
                           "value": 0
                         }
                       }
@@ -3490,225 +3055,1566 @@
                 "to": [
                   {
                     "set_variable": {
-                      "name": "duo-layer-x-c",
+                      "name": "duo-layer-l-k",
                       "value": 1
                     }
                   }
-                ]
-              },
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "comma"
-                },
-                "to": [
-                  {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"<<\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
-                  }
                 ],
                 "conditions": [
                   {
-                    "type": "variable_if",
-                    "name": "duo-layer-x-c",
-                    "value": 1
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "period"
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \">>\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "shell_command": "~/bin/sendkeys.js \"\\`\\`\\`\""
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "k"
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"<= \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "shell_command": "~/bin/sendkeys.js \"!=\""
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "l"
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \">= \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "shell_command": "~/bin/sendkeys.js \"%=\""
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "m"
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"->\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "shell_command": "~/bin/sendkeys.js \"~~~\""
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "i"
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"&& \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "shell_command": "~/bin/sendkeys.js \"!!\""
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "o"
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"|| \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "shell_command": "~/bin/sendkeys.js \"%%\""
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "u"
+                  "key_code": "q",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"+= \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "key_code": "quote"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "y"
+                  "key_code": "w",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"-= \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "key_code": "comma"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "j"
+                  "key_code": "e",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"*= \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "key_code": "period"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "slash"
+                  "key_code": "r",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"/= \"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "key_code": "7"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               },
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "semicolon"
+                  "key_code": "t",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
                 },
                 "to": [
                   {
-                    "shell_command": "osascript -e '\nset prev to the clipboard\nset the clipboard to \"::\"\ntell application \"System Events\"\n  keystroke \"v\" using command down\n  delay 0.1\nend tell\nset the clipboard to prev'"
+                    "key_code": "backslash"
                   }
                 ],
                 "conditions": [
                   {
                     "type": "variable_if",
-                    "name": "duo-layer-x-c",
+                    "name": "duo-layer-l-k",
                     "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"'''\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"<=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \">=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"&=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"|=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"\\\"\\\"\\\"\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"<<\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \">>\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"&&\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"||\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "slash"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"-=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"__\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"==\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"+=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"/=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"--\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"===\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"++\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"//\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "semicolon"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "9"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "0"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "optional": [
+                      "shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "8"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \";;\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"^=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"->\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"*=\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "z",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"::\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"=>\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "v",
+                  "modifiers": {
+                    "mandatory": [
+                      "shift",
+                      "command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "~/bin/sendkeys.js \"**\""
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "b"
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_shift"
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "duo-layer-l-k",
+                    "value": 1
+                  },
+                  {
+                    "type": "device_unless",
+                    "identifiers": [
+                      {
+                        "vendor_id": 12951,
+                        "product_id": 6505
+                      }
+                    ]
                   }
                 ]
               }
@@ -3790,7 +4696,7 @@
             "product_id": 18804,
             "vendor_id": 12951
           },
-          "ignore": false,
+          "ignore": true,
           "manipulate_caps_lock_led": true,
           "simple_modifications": [],
           "treat_as_built_in_keyboard": false

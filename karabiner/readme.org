@@ -1,6 +1,7 @@
 #+title: Readme
 * Table of content :TOC:
 - [[#application][Application]]
+  - [[#layers][Layers]]
 - [[#gnu-stow][Gnu stow]]
 - [[#tagging][Tagging]]
 
@@ -13,47 +14,90 @@ Using karabiner.ts to manage profile. It's easier to implement complext rule.
 the limitation is that it only generate complex rule, and since karabiner elements only allow chaining rules between simple rule and complex rules,
 so I can only modify a key for once, it's not possible to swap key then apply complex rule on the swapped keys.
 
-| Layer   | Keybindings                    | Description                                       |
-|---------+--------------------------------+---------------------------------------------------|
-|         | caps -> LCTL_T(ESC)            | left ctrl if held, esc if tapped                  |
-|         | enter -> RCTL_T(enter)         | righ ctrl if held, enter if tapped                |
-|         | right option -> left option    | workaround, the default right option is altgr key |
-|         | tab -> LALT_T(tab)             | left alt if held, tab if tapped                   |
-|         | backslash -> LALT_T(backslash) | left alt if held, backslash if tapped             |
-|         | shift -> sticky shift          | sticky shift if tapped                            |
-| move    | hold down z + c                | mode prefix keys                                  |
-| move    | h                              | left                                              |
-| move    | j                              | down                                              |
-| move    | k                              | up                                                |
-| move    | l                              | right                                             |
-| move    | y                              | home                                              |
-| move    | u                              | page up                                           |
-| move    | i                              | page down                                         |
-| move    | o                              | end                                               |
-| symbol  | hold down /                    | mode prefix key                                   |
-| symbol  | space                          | shift if hold, sticky shift if tapped             |
-| symbol  | x                              | 9                                                 |
-| symbol  | c                              | 0                                                 |
-| symbol  | s                              | [                                                 |
-| symbol  | d                              | ]                                                 |
-| symbol  | w                              | ,                                                 |
-| symbol  | e                              | .                                                 |
-| symbol  | a                              | -                                                 |
-| symbol  | f                              | =                                                 |
-| symbol  | z                              | ;                                                 |
-| snippet | hold down x + c                | mode prefix                                       |
-| snippet | ,                              | '<<'                                              |
-| snippet | .                              | '>>'                                              |
-| snippet | k                              | '<='                                              |
-| snippet | l                              | '>='                                              |
-| snippet | m                              | '->'                                              |
-| snippet | i                              | '&&'                                              |
-| snippet | o                              | '\vert\vert'                                      |
-| snippet | u                              | '+='                                              |
-| snippet | y                              | '-='                                              |
-| snippet | j                              | '*='                                              |
-| snippet | /                              | '/='                                              |
-| snippet | ;                              | '::'                                              |
+** Layers
+
+Most of the keybindings follow ergodox ez layout.
+
+*** Default
+
+| Keybindings                    | Description                                       |
+|--------------------------------+---------------------------------------------------|
+| caps -> LCTL_T(ESC)            | left ctrl if held, esc if tapped                  |
+| enter -> RCTL_T(enter)         | righ ctrl if held, enter if tapped                |
+| right option -> left option    | workaround, the default right option is altgr key |
+| tab -> LALT_T(tab)             | left alt if held, tab if tapped                   |
+| backslash -> LALT_T(backslash) | left alt if held, backslash if tapped             |
+| shift -> sticky shift          | sticky shift if tapped                            |
+
+*** Moves
+
+| Keybindings     | Description         |
+|-----------------+---------------------|
+| hold down s + d | mode prefix keys    |
+| h               | left                |
+| j               | down                |
+| k               | up                  |
+| l               | right               |
+| y               | home                |
+| u               | page up             |
+| i               | page down           |
+| o               | end                 |
+| n               | left option + left  |
+| .               | left option + right |
+
+*** Symbols and snippets
+
+| Keybindings     | Description     |
+|-----------------+-----------------|
+| hold down l + k | mode prefix key |
+| j               | right shift     |
+| b               | backspace       |
+| q               | ' (")           |
+| w               | , (<)           |
+| e               | . (>)           |
+| r               | 7 (&)           |
+| t               | \ (\vert)       |
+| a               | - (+)           |
+| s               | [ ({)           |
+| d               | ] (})           |
+| f               | = (+)           |
+| g               | / (?)           |
+| z               | ; (:)           |
+| x               | 9 (()           |
+| c               | 0 ())           |
+| v               | 8 (*)           |
+| cmd - `         | ```             |
+| cmd - 1         | !=              |
+| cmd - 5         | %=              |
+| cmd + shift - ` | \~~~            |
+| cmd + shift - 1 | !!              |
+| cmd + shift - 5 | %%              |
+| cmd - q         | '''             |
+| cmd - w         | <=              |
+| cmd - e         | >=              |
+| cmd - r         | &=              |
+| cmd - t         | \vert=          |
+| cmd + shift - q | """             |
+| cmd + shift - w | <<              |
+| cmd + shift - e | >>              |
+| cmd + shift - r | &&              |
+| cmd + shift - t | \vert\vert      |
+| cmd - a         | -=              |
+| cmd - s         | __              |
+| cmd - d         | \==             |
+| cmd - f         | +=              |
+| cmd - g         | /=              |
+| cmd + shift - a | --              |
+| cmd + shift - d | \===            |
+| cmd + shift - f | ++              |
+| cmd + shift - g | //              |
+| cmd - z         | ;;              |
+| cmd - x         | ^=              |
+| cmd - c         | ->              |
+| cmd - v         | *=              |
+| cmd + shift - z | ::              |
+| cmd + shift - c | =>              |
+| cmd + shift - v | **              |
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
