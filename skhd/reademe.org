@@ -9,12 +9,12 @@ key bindings.
 
 [[https://github.com/koekeishiya/skhd][github]]
 
-| Keybinding | Description                                            |
-|------------+--------------------------------------------------------|
-| fn-w       | Active yabai mode                                      |
-| hyper-m    | Active yabai mode                                      |
-| hyper-n    | Active yabai space mode                                |
-| hyper-b    | Active yabai monitor mode                        |
+| Keybinding | Description                                         |
+|------------+-----------------------------------------------------|
+| fn-w       | Active yabai mode                                   |
+| hyper-j    | Active yabai mode                                   |
+| hyper-k    | Active yabai space mode                             |
+| hyper-l    | Active yabai monitor mode                           |
 | f2         | Switch keyboard input between ABC and Chinese input |
 
 * skhdrc
@@ -184,9 +184,9 @@ key bindings.
 
 # mode switch
 default < fn - w ; yabai # fn - w
-default < hyper - m ; yabai
-default < hyper - n ; yabai_space
-default < hyper - b ; yabai_monitor
+default < hyper - j ; yabai
+default < hyper - k ; yabai_space
+default < hyper - l ; yabai_monitor
 yabai, yabai_window_misc < escape; default
 yabai_space < escape; default
 yabai_monitor < escape; default
