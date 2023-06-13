@@ -224,9 +224,6 @@ def guake(title_pattern: str, topmost: bool, grid: str):
 
     if guake_window["has-focus"]:
         subprocess.check_call(
-            shlex.split(f'yabai -m window {guake_window["id"]} --toggle border')
-        )
-        subprocess.check_call(
             shlex.split(f'yabai -m window --minimize {guake_window["id"]}')
         )
         subprocess.check_call(shlex.split(f"yabai -m window --focus recent"))
@@ -240,9 +237,6 @@ def guake(title_pattern: str, topmost: bool, grid: str):
             )
             subprocess.check_call(
                 shlex.split(f'yabai -m window {guake_window["id"]} --grid {grid}')
-            )
-            subprocess.check_call(
-                shlex.split(f'yabai -m window {guake_window["id"]} --toggle border')
             )
 
         subprocess.check_call(
