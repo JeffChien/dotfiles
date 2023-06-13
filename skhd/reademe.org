@@ -12,7 +12,10 @@ key bindings.
 | Keybinding | Description                                            |
 |------------+--------------------------------------------------------|
 | fn-w       | Active yabai mode                                      |
-| f2         | Switch keyboard input between Dvorak and Chinese input |
+| hyper-m    | Active yabai mode                                      |
+| hyper-n    | Active yabai space mode                                |
+| hyper-b    | Active yabai monitor mode                        |
+| f2         | Switch keyboard input between ABC and Chinese input |
 
 * skhdrc
 :PROPERTIES:
@@ -181,6 +184,9 @@ key bindings.
 
 # mode switch
 default < fn - w ; yabai # fn - w
+default < hyper - m ; yabai
+default < hyper - n ; yabai_space
+default < hyper - b ; yabai_monitor
 yabai, yabai_window_misc < escape; default
 yabai_space < escape; default
 yabai_monitor < escape; default
@@ -286,7 +292,6 @@ yabai_space < backspace    ; yabai
 yabai_space < h : ~/bin/yabai-helper focus "space/@/-1"
 yabai_space < l : ~/bin/yabai-helper focus "space/@/1"
 
-## TODO, allowing cycle through spaces
 yabai_space < shift - h    : ~/bin/yabai-helper throw "window/@" "space/@/-1" --follow
 yabai_space < shift - l    : ~/bin/yabai-helper throw "window/@" "space/@/1" --follow
 yabai_space < ctrl + shift - h    : ~/bin/yabai-helper throw "window/@" "space/@/-1"
