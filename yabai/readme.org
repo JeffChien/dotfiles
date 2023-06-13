@@ -85,7 +85,7 @@ yabai -m config external_bar all:0:$SPACEBAR_HEIGHT
 yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
-yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add label="Apple System" app="(System Preferences|System Information|System Settings)" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
@@ -98,11 +98,10 @@ yabai -m rule --add label="Digital Color Meter" app="Digital Color Meter" manage
 yabai -m rule --add label="Guake" app="iTerm2" title="^Guake.*" manage=off grid="20:20:0:15:20:5" sticky=on border=off mouse_follows_focus=off
 yabai -m rule --add label="mpv-bundle" app="mpv-bundle" manage=off
 yabai -m rule --add label="IINA" app="IINA" manage=off
-yabai -m rule --add label="Karabiner" app="Karabiner-Elements" manage=off
+yabai -m rule --add label="Karabiner" app="^Karabiner-" manage=off
 yabai -m rule --add label="UTM" app="UTM" manage=off
-yabai -m rule --add label="Modal" app="Vorta" manage=off
-yabai -m rule --add label="Modal" app="Karabiner-EventViewer" manage=off
-yabai -m rule --add label="Modal" app="Alfred Preferences" manage=off
+yabai -m rule --add label="Vorta" app="Vorta" manage=off
+yabai -m rule --add label="Alfred" app="Alfred Preferences" manage=off
 
 # ===== Signals ================================
 #+end_src
