@@ -49,6 +49,17 @@ Most of the keybindings follow ergodox ez layout.
 | n               | left option + left  |
 | .               | left option + right |
 
+*** Combos
+
+| Keybindings | Description             |
+|-------------+-------------------------|
+| e s         | ( if held, 9 if tapped  |
+| i l         | ) if held, 0 if tapped  |
+| e f         | { if held, [ if tapped  |
+| i j         | } if held, ] if tapped  |
+| x c         | _ if held, - if tapped  |
+| , .         | + if held, \= if tapped |
+
 *** Symbols and snippets
 
 | Keybindings              | Description                               |

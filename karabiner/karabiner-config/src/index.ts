@@ -1,8 +1,12 @@
 import {
   duoLayer,
   ifDevice,
+  ifVar,
   map,
+  mapSimultaneous,
   rule,
+  toKey,
+  toSetVar,
   toStickyModifier,
   writeToProfile,
 } from 'karabiner.ts'
@@ -11,7 +15,6 @@ const ifErgoDoxEz = ifDevice({ vendor_id: 12951, product_id: 18804 });
 const condSkipKeyboards = [
   ifErgoDoxEz.unless()
 ];
-
 
 // ! Change '--dry-run' to your Karabiner-Elements Profile name.
 // (--dry-run print the config json into console)
@@ -33,6 +36,14 @@ writeToProfile('ts', [
     map('left_option', '??').to('left_option', ['left_command']),
     map('left_control', '??').to('left_control', ['left_command', 'left_option']),
     map('right_control', '??').to('right_control', ['left_command', 'left_option']),
+  ]),
+  rule('combo').condition(...condSkipKeyboards).manipulators([
+    mapSimultaneous(['e', 's']).modifiers(undefined, 'shift').toIfAlone('9').toIfHeldDown('9', 'shift'),
+    mapSimultaneous(['i', 'l']).modifiers(undefined, 'shift').toIfAlone('0').toIfHeldDown('0', 'shift'),
+    mapSimultaneous(['e', 'f']).modifiers(undefined, 'shift').toIfAlone('[').toIfHeldDown('[', 'shift'),
+    mapSimultaneous(['i', 'j']).modifiers(undefined, 'shift').toIfAlone(']').toIfHeldDown(']', 'shift'),
+    mapSimultaneous(['x', 'c']).modifiers(undefined, 'shift').toIfAlone('-').toIfHeldDown('-', 'shift'),
+    mapSimultaneous([',', '.']).modifiers(undefined, 'shift').toIfAlone('=').toIfHeldDown('=', 'shift'),
   ]),
   duoLayer('s', 'd', 'movement').condition(...condSkipKeyboards).manipulators([
     map('h', '??').to('left_arrow'),
@@ -106,11 +117,11 @@ writeToProfile('ts', [
     map('j', '??').to('right_shift'),
     map('m', '??').to('right_command', ['left_option']),
     map('h', '??').to('right_command', ['left_option', 'right_shift']),
-  ])
+  ]),
 ], {
-  'simlayer.threshold_milliseconds': 150,
-  'duo_layer.threshold_milliseconds': 150,
-  'basic.to_if_alone_timeout_milliseconds': 175,
-  'basic.to_if_held_down_threshold_milliseconds': 100,
-  'basic.to_delayed_action_delay_milliseconds': 175,
+  'simlayer.threshold_milliseconds': 100,
+  'duo_layer.threshold_milliseconds': 100,
+  'basic.to_if_alone_timeout_milliseconds': 125,
+  'basic.to_if_held_down_threshold_milliseconds': 175,
+  'basic.to_delayed_action_delay_milliseconds': 200,
 })
