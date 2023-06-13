@@ -24,11 +24,15 @@ writeToProfile('ts', [
 
   rule('Key mapping').condition(...condSkipKeyboards).manipulators([
     // config key mappings
-    map('caps_lock').toIfHeldDown('left_control').toIfAlone('escape'),
-    map('return_or_enter').toIfHeldDown('right_control').toIfAlone('return_or_enter'),
-    map('backslash').toIfHeldDown('left_option').toIfAlone('backslash'),
-    map('right_option').to('left_option'),
-    map('tab').toIfHeldDown('left_option').toIfAlone('tab')
+    map('caps_lock', '??').toIfHeldDown('left_control').toIfAlone('escape'),
+    map('return_or_enter', '??').toIfHeldDown('right_control').toIfAlone('return_or_enter'),
+    map('backslash', '??').toIfHeldDown('left_option').toIfAlone('backslash'),
+    map('tab', '??').toIfHeldDown('left_option').toIfAlone('tab'),
+    // map('right_option').to('left_option'),
+    map('right_option', '??').to('left_option', ['left_command']),
+    map('left_option', '??').to('left_option', ['left_command']),
+    map('left_control', '??').to('left_control', ['left_command', 'left_option']),
+    map('right_control', '??').to('right_control', ['left_command', 'left_option']),
   ]),
   duoLayer('s', 'd', 'movement').condition(...condSkipKeyboards).manipulators([
     map('h', '??').to('left_arrow'),
@@ -55,11 +59,11 @@ writeToProfile('ts', [
     map('1', ['shift', 'command', 'left_option']).to$('~/bin/sendkeys.js "!!"'),
     map('5', ['shift', 'command', 'left_option']).to$('~/bin/sendkeys.js "%%"'),
 
-    map('q', {optional: 'shift'}).to('quote'),
-    map('w', {optional: 'shift'}).to(','),
-    map('e', {optional: 'shift'}).to('.'),
-    map('r', {optional: 'shift'}).to('7'),
-    map('t', {optional: 'shift'}).to('backslash'),
+    map('q', { optional: 'shift' }).to('quote'),
+    map('w', { optional: 'shift' }).to(','),
+    map('e', { optional: 'shift' }).to('.'),
+    map('r', { optional: 'shift' }).to('7'),
+    map('t', { optional: 'shift' }).to('backslash'),
     map('q', ['command', 'left_option']).to$('~/bin/sendkeys.js "\'\'\'"'),
     map('w', ['command', 'left_option']).to$('~/bin/sendkeys.js "<="'),
     map('e', ['command', 'left_option']).to$('~/bin/sendkeys.js ">="'),
@@ -71,11 +75,11 @@ writeToProfile('ts', [
     map('r', ['shift', 'command', 'left_option']).to$('~/bin/sendkeys.js "&&"'),
     map('t', ['shift', 'command', 'left_option']).to$('~/bin/sendkeys.js "||"'),
 
-    map('a', {optional: 'shift'}).to('-'),
-    map('s', {optional: 'shift'}).to('['),
-    map('d', {optional: 'shift'}).to(']'),
-    map('f', {optional: 'shift'}).to('='),
-    map('g', {optional: 'shift'}).to('/'),
+    map('a', { optional: 'shift' }).to('-'),
+    map('s', { optional: 'shift' }).to('['),
+    map('d', { optional: 'shift' }).to(']'),
+    map('f', { optional: 'shift' }).to('='),
+    map('g', { optional: 'shift' }).to('/'),
     map('a', ['command', 'left_option']).to$('~/bin/sendkeys.js "-="'),
     map('s', ['command', 'left_option']).to$('~/bin/sendkeys.js "__"'),
     map('d', ['command', 'left_option']).to$('~/bin/sendkeys.js "=="'),
@@ -86,10 +90,10 @@ writeToProfile('ts', [
     map('f', ['shift', 'command', 'left_option']).to$('~/bin/sendkeys.js "++"'),
     map('g', ['shift', 'command', 'left_option']).to$('~/bin/sendkeys.js "//"'),
 
-    map('z', {optional: 'shift'}).to(';'),
-    map('x', {optional: 'shift'}).to('9'),
-    map('c', {optional: 'shift'}).to('0'),
-    map('v', {optional: 'shift'}).to('8'),
+    map('z', { optional: 'shift' }).to(';'),
+    map('x', { optional: 'shift' }).to('9'),
+    map('c', { optional: 'shift' }).to('0'),
+    map('v', { optional: 'shift' }).to('8'),
     map('z', ['command', 'left_option']).to$('~/bin/sendkeys.js ";;"'),
     map('x', ['command', 'left_option']).to$('~/bin/sendkeys.js "^="'),
     map('c', ['command', 'left_option']).to$('~/bin/sendkeys.js "->"'),
@@ -101,7 +105,7 @@ writeToProfile('ts', [
     map('b', '??').to('delete_or_backspace'),
     map('j', '??').to('right_shift'),
     map('m', '??').to('right_command', ['left_option']),
-    map('n', '??').to('right_command', ['left_option', 'right_shift']),
+    map('h', '??').to('right_command', ['left_option', 'right_shift']),
   ])
 ], {
   'simlayer.threshold_milliseconds': 150,

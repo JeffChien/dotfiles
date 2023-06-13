@@ -28,6 +28,10 @@ Most of the keybindings follow ergodox ez layout.
 | tab -> LALT_T(tab)             | left alt if held, tab if tapped                   |
 | backslash -> LALT_T(backslash) | left alt if held, backslash if tapped             |
 | shift -> sticky shift          | sticky shift if tapped                            |
+| right option                   | left option + left command                        |
+| left option                    | left option + left command                        |
+| left control                   | left option + left command + left control         |
+| right control                  | left option + left command + right control        |
 
 *** Moves
 
@@ -53,7 +57,7 @@ Most of the keybindings follow ergodox ez layout.
 | j                        | right shift                               |
 | b                        | backspace                                 |
 | m                        | right command + left option               |
-| n                        | right command + left option + right shift |
+| h                        | right command + left option + right shift |
 | q                        | ' (")                                     |
 | w                        | , (<)                                     |
 | e                        | . (>)                                     |
