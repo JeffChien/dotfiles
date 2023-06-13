@@ -68,7 +68,7 @@ Most of the keybindings follow ergodox ez layout.
 | j                        | right shift                               |
 | b                        | backspace                                 |
 | m                        | right command + left option               |
-| h                        | right command + left option + right shift |
+| ;                        | right command + left option + right shift |
 | q                        | ' (")                                     |
 | w                        | , (<)                                     |
 | e                        | . (>)                                     |

@@ -116,7 +116,7 @@ writeToProfile('ts', [
     map('b', '??').to('delete_or_backspace'),
     map('j', '??').to('right_shift'),
     map('m', '??').to('right_command', ['left_option']),
-    map('h', '??').to('right_command', ['left_option', 'right_shift']),
+    map(';', '??').to('right_command', ['left_option', 'right_shift']),
   ]),
 ], {
   'simlayer.threshold_milliseconds': 100,
