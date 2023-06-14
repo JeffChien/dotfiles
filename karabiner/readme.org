@@ -32,6 +32,7 @@ Most of the keybindings follow ergodox ez layout.
 | left option                    | left option + left command                        |
 | left control                   | left option + left command + left control         |
 | right control                  | left option + left command + right control        |
+| backspace                      | option + backspace if held, backspace if tapped   |
 
 *** Moves
 
@@ -51,14 +52,18 @@ Most of the keybindings follow ergodox ez layout.
 
 *** Combos
 
-| Keybindings | Description             |
-|-------------+-------------------------|
-| e s         | ( if held, 9 if tapped  |
-| i l         | ) if held, 0 if tapped  |
-| e f         | { if held, [ if tapped  |
-| i j         | } if held, ] if tapped  |
-| x c         | _ if held, - if tapped  |
-| , .         | + if held, \= if tapped |
+| Keybindings | Description                                     |
+|-------------+-------------------------------------------------|
+| e s         | ( if held, 9 if tapped                          |
+| i l         | ) if held, 0 if tapped                          |
+| e f         | { if held, [ if tapped                          |
+| i j         | } if held, ] if tapped                          |
+| x c         | _ if held, - if tapped                          |
+| , .         | + if held, \= if tapped                         |
+| j ;         | sticky right shift                              |
+| a f         | sticky left shift                               |
+| t y         | option + del if held, del if tapped             |
+| g h         | option + backspace if held, backspace if tapped |
 
 *** Symbols and snippets
 
