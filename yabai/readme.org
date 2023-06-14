@@ -102,6 +102,7 @@ yabai -m rule --add label="Karabiner" app="^Karabiner-" manage=off
 yabai -m rule --add label="UTM" app="UTM" manage=off
 yabai -m rule --add label="Vorta" app="Vorta" manage=off
 yabai -m rule --add label="Alfred" app="Alfred Preferences" manage=off
+yabai -m rule --add label="Preview modal" app="Preview" title="\.(png|jpg|svg)$" manage=off
 
 # ===== Signals ================================
 #+end_src
