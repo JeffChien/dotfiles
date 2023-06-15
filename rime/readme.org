@@ -42,6 +42,28 @@ patch:
 patch:
   menu:
     alternative_select_keys: "SDFWER"
+  translator/spelling_hints: 4  # 詞中最多有幾個字才顯示拼音提示
+#+end_src
+
+
+小鶴雙拼注音反查
+#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"double_pinyin_flypy.custom.yaml"))
+patch:
+  schema/dependencies:
+    - bopomofo
+  reverse_lookup:
+    dictionary: terra_pinyin
+    prism: bopomofo
+    prefix: "`"
+    suffix: "'"
+    tips: 〔注音〕
+    preedit_format:
+      - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/- 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+    comment_format:
+      __include: double_pinyin_flypy.schema:/speller/algebra
+
+  recognizer/patterns/reverse_lookup: "`[-,.;/a-z0-9]*'?$"
+  abc_segmentor/extra_tags: []
 #+end_src
 
 ** Archive
