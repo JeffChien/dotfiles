@@ -36,8 +36,25 @@ patch:
     page_size: 6
   key_binder:
     bindings:
-      __patch:
-        - key_bindings:/paging_with_brackets
+    # movement
+    ## emacs style
+    - { when: composing, accept: Control+p, send: Up }
+    - { when: composing, accept: Control+n, send: Down }
+    - { when: composing, accept: Control+b, send: KP_Left }
+    - { when: composing, accept: Control+f, send: Right }
+    - { when: composing, accept: Alt+b, send: Left }
+    - { when: composing, accept: Alt+f, send: Shift+Right }
+    - { when: composing, accept: Control+a, send: Home }
+    - { when: composing, accept: Control+e, send: End }
+    - { when: composing, accept: Control+d, send: Delete }
+    - { when: composing, accept: Control+k, send: Shift+Delete }
+    - { when: composing, accept: Control+h, send: BackSpace }
+    - { when: composing, accept: Alt+BackSpace, send: Shift+BackSpace } # delete a word
+    - { when: composing, accept: Control+g, send: Escape }
+    ## paging
+    - { when: has_menu, accept: Tab, send: Down }
+    - { when: has_menu, accept: Shift+Tab, send: Up }
+
 #+end_src
 
 ** Input methods
@@ -70,6 +87,12 @@ patch:
 
   recognizer/patterns/reverse_lookup: "`[-,.;/a-z0-9]*'?$"
   abc_segmentor/extra_tags: []
+
+  editor/bindings:
+    # space: commit_composition #使用 fluency_editor 時開啟
+    Return: confirm #使用 express_editor 時開啟
+    KP_Enter: confirm #使用 express_editor 時開啟
+    Shift+Return: commit_script_text # 輸入變換後上屏
 #+end_src
 
 ** Archive
