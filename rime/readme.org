@@ -34,10 +34,15 @@ patch:
     - schema: double_pinyin_flypy
   menu:
     page_size: 6
+  key_binder:
+    bindings:
+      __patch:
+        - key_bindings:/paging_with_brackets
 #+end_src
 
 ** Input methods
 
+*** bopomofo_tw.custom.yaml
 #+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"bopomofo_tw.custom.yaml"))
 patch:
   menu:
@@ -45,6 +50,7 @@ patch:
   translator/spelling_hints: 4  # 詞中最多有幾個字才顯示拼音提示
 #+end_src
 
+*** double_pinyin_flypy.custom.yaml
 
 小鶴雙拼注音反查
 #+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"double_pinyin_flypy.custom.yaml"))
