@@ -125,7 +125,7 @@ writeToProfile('ts', [
 ], {
   'simlayer.threshold_milliseconds': 125,
   'duo_layer.threshold_milliseconds': 125,
-  'basic.to_if_alone_timeout_milliseconds': 125,
-  'basic.to_if_held_down_threshold_milliseconds': 175,
+  'basic.to_if_alone_timeout_milliseconds': 115,
+  'basic.to_if_held_down_threshold_milliseconds': 115,
   'basic.to_delayed_action_delay_milliseconds': 200,
 })
