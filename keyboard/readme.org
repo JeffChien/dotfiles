@@ -1,0 +1,34 @@
+#+title: Readme
+* Table of content :TOC:
+- [[#keyboard-layout][Keyboard layout]]
+  - [[#macos][MacOS]]
+- [[#gnu-stow][Gnu stow]]
+- [[#tagging][Tagging]]
+
+* Keyboard layout
+:PROPERTIES:
+:header-args: :tangle no :mkdirp yes
+:END:
+
+** MacOS
+Option key to send special symbols is not a feature I need. All I need is the traditional Alt key, macos allows us to change option key to escape key to kind of a workaround but it is not a perfect solution.
+
+thanks to this [[https://stackoverflow.com/a/16019737][thread]], we can create a custom keyboard input source to remove all optional key symbols with this [[http://wordherd.com/keyboards/][site]].
+
+* Gnu stow
+#+begin_src pattern :tangle .stow-local-ignore
+#+end_src
+
+#+begin_src sh :results silent
+stow -v1 -t ~ -d assets/Darwin/ .
+#+end_src
+
+#+begin_src sh :results silent
+stow -t ~ -D -d assets/Darwin/ .
+#+end_src
+
+* Tagging
+#+begin_src tag :tangle TAGS
+linux
+darwin
+#+end_src
