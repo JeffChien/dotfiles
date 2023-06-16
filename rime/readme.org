@@ -106,8 +106,8 @@ patch:
   speller/alphabet: "1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347"
   speller/initials: "1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz["
   speller/algebra/@last: "xlit|bpmfdtnlgkhjqxZCSrzcsiuvaoeEAIOUMNKGR12345|1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347|"
-  translator/preedit_format/@0: "xlit|1\'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
-  all_bpm/preedit_format/@0: "xlit|1\'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+  translator/preedit_format/@0: "xlit|1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+  all_bpm/preedit_format/@0: "xlit|1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
   menu/alternative_select_keys: "UHETON"
 #+end_src
 
