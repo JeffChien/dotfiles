@@ -71,23 +71,23 @@ Most of the keybindings follow ergodox ez layout.
 |--------------------------+-------------------------------------------|
 | hold down l + k          | mode prefix key                           |
 | j                        | right shift                               |
-| b                        | backspace                                 |
 | m                        | right command + left option               |
 | ;                        | right command + left option + right shift |
 | q                        | ' (")                                     |
 | w                        | , (<)                                     |
 | e                        | . (>)                                     |
-| r                        | 7 (&)                                     |
+| r                        | / (?)                                     |
 | t                        | \ (\vert)                                 |
-| a                        | - (+)                                     |
+| a                        | = (+)                                     |
 | s                        | [ ({)                                     |
 | d                        | ] (})                                     |
-| f                        | = (+)                                     |
-| g                        | / (?)                                     |
+| f                        | - (+)                                     |
+| g                        | 7 (&)                                     |
 | z                        | ; (:)                                     |
 | x                        | 9 (()                                     |
 | c                        | 0 ())                                     |
 | v                        | 8 (*)                                     |
+| b                        | 6 (^)                                     |
 | cmd + option - `         | ```                                       |
 | cmd + option - 1         | !=                                        |
 | cmd + option - 5         | %=                                        |
@@ -97,26 +97,26 @@ Most of the keybindings follow ergodox ez layout.
 | cmd + option - q         | '''                                       |
 | cmd + option - w         | <=                                        |
 | cmd + option - e         | >=                                        |
-| cmd + option - r         | &=                                        |
+| cmd + option - r         | /=                                        |
 | cmd + option - t         | \vert=                                    |
 | cmd + option + shift - q | """                                       |
 | cmd + option + shift - w | <<                                        |
 | cmd + option + shift - e | >>                                        |
-| cmd + option + shift - r | &&                                        |
+| cmd + option + shift - r | //                                        |
 | cmd + option + shift - t | \vert\vert                                |
-| cmd + option - a         | -=                                        |
+| cmd + option - a         | +=                                        |
 | cmd + option - s         | __                                        |
 | cmd + option - d         | \==                                       |
-| cmd + option - f         | +=                                        |
-| cmd + option - g         | /=                                        |
-| cmd + option + shift - a | --                                        |
+| cmd + option - f         | -=                                        |
+| cmd + option - g         | &=                                        |
+| cmd + option + shift - a | ++                                        |
 | cmd + option + shift - d | \===                                      |
-| cmd + option + shift - f | ++                                        |
-| cmd + option + shift - g | //                                        |
+| cmd + option + shift - f | --                                        |
+| cmd + option + shift - g | &&                                        |
 | cmd + option - z         | ;;                                        |
-| cmd + option - x         | ^=                                        |
 | cmd + option - c         | ->                                        |
 | cmd + option - v         | *=                                        |
+| cmd + option - b         | ^=                                        |
 | cmd + option + shift - z | ::                                        |
 | cmd + option + shift - c | =>                                        |
 | cmd + option + shift - v | **                                        |
