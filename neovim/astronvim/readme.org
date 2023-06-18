@@ -143,9 +143,34 @@ local maps = {
         },
         -- tables with the `name` key will be registered with which-key if it's installed
         -- this is useful for naming menus
-        ["<leader>b"] = {name = "Buffers"}
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<leader>fr"] = { function() require("telescope.builtin").oldfiles() end, desc = "Find recent files" },
+        ["<leader>fR"] = { function() require("telescope.builtin").registers() end, desc = "Find registers" },
+        ["<leader>fo"] = false,
+        ["<leader>bb"] = { function() require("telescope.builtin").buffers() end, desc = "Find buffers" },
+        ["<leader>bn"] = { function() vim.cmd.bnext() end, desc = "Next buffer" },
+        ["<leader>bp"] = { function() vim.cmd.bprevious() end, desc = "Previous buffer" },
+        ["<leader>bd"] = { function() vim.cmd.bdelete() end, desc = "Kill buffer" },
+        ["<leader>bN"] = { function() vim.cmd.enew() end, desc = "New file" },
+
+        ["<leader>w"] = {name = "Windows", desc = "Windows"},
+        ["<leader>wh"] = {function() vim.cmd.wincmd("h") end, desc = "Window left"},
+        ["<leader>wj"] = {function() vim.cmd.wincmd("j") end, desc = "Window down"},
+        ["<leader>wk"] = {function() vim.cmd.wincmd("k") end, desc = "Window up"},
+        ["<leader>wl"] = {function() vim.cmd.wincmd("l") end, desc = "Window right"},
+        ["<leader>wH"] = {function() vim.cmd.wincmd("H") end, desc = "Move window left"},
+        ["<leader>wJ"] = {function() vim.cmd.wincmd("J") end, desc = "Move window down"},
+        ["<leader>wK"] = {function() vim.cmd.wincmd("K") end, desc = "Move window up"},
+        ["<leader>wL"] = {function() vim.cmd.wincmd("L") end, desc = "Move window right"},
+        ["<leader>w="] = {function() vim.cmd.wincmd("=") end, desc = "Balance"},
+        ["<leader>ww"] = {function() vim.cmd.wincmd("w") end, desc = "Next window"},
+        ["<leader>wW"] = {function() vim.cmd.wincmd("W") end, desc = "Previous window"},
+        ["<leader>wo"] = {function() vim.cmd.wincmd("o") end, desc = "Enlarge, close other windows"},
+        ["<leader>wc"] = {function() vim.cmd.wincmd("c") end, desc = "Close current window"},
+        ["<leader>wd"] = {function() vim.cmd.wincmd("c") end, desc = "Close current window"},
+        ["<leader>ws"] = {function() vim.cmd.wincmd("s") end, desc = "Horizontal split"},
+        ["<leader>wv"] = {function() vim.cmd.wincmd("v") end, desc = "Vertical split"},
     },
     i = {
         ["<C-a>"] = {"<C-o>^", desc = "To the beginning of line"},
