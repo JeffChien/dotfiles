@@ -32,6 +32,7 @@ patch:
     - schema: bopomofo_tw
     - schema: luna_pinyin_tw
     - schema: double_pinyin_flypy
+    - schema: array30
   menu:
     page_size: 6
   key_binder:
