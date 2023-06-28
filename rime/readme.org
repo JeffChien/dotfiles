@@ -76,8 +76,19 @@ patch:
   schema/dependencies:
     - bopomofo
 
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    - name: ascii_punct
+      states: [ 。，, ．， ]
+    - name: zh_hant_tw
+      reset: 1
+
   engine/filters:
-    - simplifier
+    - simplifier@zh_hant_tw
     - uniquifier
     - reverse_lookup_filter@reverse_lookup_flypy
 
@@ -93,6 +104,11 @@ patch:
     - punct_translator
     - script_translator
     - script_translator@reverse_lookup
+
+  zh_hant_tw:
+    option_name: zh_hant_tw
+    opencc_config: t2tw.json
+    tips: none
 
   reverse_lookup:
     tag: reverse_lookup
