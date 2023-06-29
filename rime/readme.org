@@ -5,6 +5,7 @@
   - [[#defaultcustomyaml][default.custom.yaml]]
   - [[#input-methods][Input methods]]
   - [[#archive][Archive]]
+  - [[#helpful-documents][Helpful documents]]
 - [[#gnu-stow][Gnu stow]]
   - [[#macos][MacOS]]
   - [[#linux][Linux]]
@@ -181,6 +182,12 @@ patch:
   all_bpm/preedit_format/@0: "xlit|1'a;2,oq.ejpuk5yixfdbghm8ctw9rnv0lsz[ 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
   menu/alternative_select_keys: "UHETON"
 #+end_src
+** Helpful documents
+[[https://github.com/rime/home/wiki/RimeWithSchemata][Basic guide]]
+[[https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md][Schema.yaml definition]]
+[[https://github.com/rime/home/wiki/Configuration][How to write patch file]]
+[[https://github.com/rime/home/wiki][wiki]]
+[[https://www.educative.io/blog/advanced-yaml-syntax-cheatsheet][Anchor and alias in yaml]]
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
