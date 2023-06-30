@@ -245,9 +245,11 @@ translator:
   encode_commit_history: true
   max_phrase_length: 5
   preedit_format:
-    - "xlit|abcdefghijklmnopqrstuvwxyz;|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言禾|"
+    - 'xlit|;|；'
+    - 'xform/^([a-z；]*)$/$1\t（\U$1\E）/'
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ；|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；|"
   comment_format:
-    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言禾～|"
+    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
   disable_user_dict_for_patterns:
     - "^z.*$"
     - "^yyy.*$"
@@ -268,7 +270,8 @@ reverse_lookup_newcj:
   overwrite_comment: yes
   dictionary: newcj
   comment_format:
-    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言禾～|"
+    - 'xform/([a-z;]+)/【$1】/'
+    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
 
 simplifier:
   tips: all
