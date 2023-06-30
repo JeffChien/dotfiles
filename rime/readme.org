@@ -219,16 +219,19 @@ engine:
     - matcher
     - abc_segmentor
     - affix_segmentor@method_bopomofo
+    - affix_segmentor@lookup_bopomofo
     - punct_segmentor
     - fallback_segmentor
   translators:
     - punct_translator
     - script_translator@method_bopomofo
+    - table_translator@lookup_bopomofo
     - table_translator
   filters:
     - simplifier
     - uniquifier
     - reverse_lookup_filter@reverse_lookup_newcj
+    - reverse_lookup_filter@reverse_lookup_bopomofo
     - single_char_filter
 
 speller:
@@ -254,12 +257,19 @@ translator:
     - "^z.*$"
     - "^yyy.*$"
 
+lookup_bopomofo:
+  __include: /translator
+  tag: lookup_bopomofo
+  prefix: "`2"
+  suffix: "'"
+  tips: 〔反查讀音〕
+
 method_bopomofo:
   tag: method_bopomofo
   dictionary: terra_pinyin
   enable_completion: true
   prism: bopomofo
-  prefix: "`"
+  prefix: "`1"
   suffix: "'"
   tips: 〔注音〕
   preedit_format:
@@ -272,6 +282,40 @@ reverse_lookup_newcj:
   comment_format:
     - 'xform/([a-z;]+)/【$1】/'
     - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
+
+reverse_lookup_bopomofo:
+  tags: [lookup_bopomofo]
+  dictionary: terra_pinyin
+  overwrite_comment: true  # 覆蓋其他提示
+  comment_format:
+    - "xform/e?r5$/er5/"
+    - "xform/iu/iou/"
+    - "xform/ui/uei/"
+    - "xform/ong/ung/"
+    - "xform/yi?/i/"
+    - "xform/wu?/u/"
+    - "xform/iu/v/"
+    - "xform/([jqx])u/$1v/"
+    - "xform/([iuv])n/$1en/"
+    - "xform/zh/Z/"
+    - "xform/ch/C/"
+    - "xform/sh/S/"
+    - "xform/ai/A/"
+    - "xform/ei/I/"
+    - "xform/ao/O/"
+    - "xform/ou/U/"
+    - "xform/ang/K/"
+    - "xform/eng/G/"
+    - "xform/an/M/"
+    - "xform/en/N/"
+    - "xform/er/R/"
+    - "xform/eh/E/"
+    - "xform/([iv])e/$1E/"
+    - "xform/1//"
+    - "xlit|bpmfdtnlgkhjqxZCSrzcsiuvaoeEAIOUMNKGR2345|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙|"
+    - "xform/ /} {/"
+    - "xform/^/ {"
+    - "xform/$/}/"
 
 simplifier:
   tips: all
@@ -286,7 +330,8 @@ recognizer:
   import_preset: default
   patterns:
     punct: '^/([0-9]0?|[A-Za-z]+)$'
-    method_bopomofo: "`[-,.;/a-z0-9]*'?$"
+    method_bopomofo: "`1[-,.;/a-z0-9]*'?$"
+    lookup_bopomofo: "`2[;a-z0-9]*'?$"
 #+end_src
 
 ** Archive
