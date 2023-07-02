@@ -1,0 +1,35 @@
+# Rime schema
+# encoding: utf-8
+
+__include: flypy_luna.schema:/
+
+schema:
+  schema_id: flypy_quick5
+  name: 小鶴雙拼+速成
+  version: "0.0.1"
+  author:
+    - double pinyin layout by 鶴
+    - Rime schema by Jeff Chien <jeffchien13@gmail.com>
+  description: |
+    小鶴雙拼加速成補助方案
+  dependencies:
+    - bopomofo_tw
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+  algebra:
+    - derive/^(..).+$/$1/
+
+translator:
+  dictionary: flypy_quick5
+  prism: flypy_quick5
+  preedit_format: []
+
+reverse_lookup_flypy:
+  tags: [translator_bopomofo_tw]
+  dictionary: flypy_quick5
+  comment_format: []
+
+__patch:
+  - flypy_quick5.custom:/patch?

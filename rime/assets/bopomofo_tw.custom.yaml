@@ -1,0 +1,4 @@
+patch:
+  menu:
+    alternative_select_keys: "SDFWER"
+  translator/spelling_hints: 4  # 詞中最多有幾個字才顯示拼音提示

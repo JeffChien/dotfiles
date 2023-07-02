@@ -1,0 +1,167 @@
+# Rime schema settings
+# encoding: utf-8
+# 自由大新倉頡
+
+schema:
+  schema_id: newcj
+  name: 自由大新倉頡
+  version: "0.0.1"
+  author:
+    - 自由大新倉頡
+  description: |
+    自由大新倉頡
+  dependencies:
+    - bopomofo
+
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: [ 中文, 西文 ]
+  - name: full_shape
+    states: [ 半角, 全角 ]
+  - name: simplification
+    states: [ 漢字, 汉字 ]
+  - name: extended_charset
+    states: [ 常用, 增廣 ]
+  - name: ascii_punct
+    states: [ 。，, ．， ]
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - affix_segmentor@method_bopomofo
+    - affix_segmentor@lookup_bopomofo
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - script_translator@method_bopomofo
+    - table_translator@lookup_bopomofo
+    - table_translator@fixed
+    - table_translator
+  filters:
+    - simplifier
+    - uniquifier
+    - reverse_lookup_filter@reverse_lookup_newcj
+    - reverse_lookup_filter@reverse_lookup_bopomofo
+    - single_char_filter
+
+speller:
+  alphabet: zyxwvutsrqponmlkjihgfedcba;
+  delimiter: " '"
+  auto_select: true
+  max_code_length: 4
+
+translator:
+  dictionary: newcj
+  enable_charset_filter: true
+  enable_sentence: true
+  enable_encoder: true
+  encode_commit_history: true
+  enable_user_dict: true
+  max_phrase_length: 5
+  preedit_format:
+    - 'xlit|;|；'
+    - 'xform/^([a-z；]*)$/$1\t（\U$1\E）/'
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ；|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；|"
+  comment_format:
+    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+    - "^yyy.*$"
+
+fixed:
+  __include: /translator
+  enable_charset_filter: false
+  enable_sentence: false
+  enable_encoder: false
+  encode_commit_history: false
+  enable_user_dict: false
+  initial_quality: 100000
+
+lookup_bopomofo:
+  __include: /translator
+  tag: lookup_bopomofo
+  prefix: "`2"
+  suffix: "'"
+  tips: 〔反查讀音〕
+
+method_bopomofo:
+  tag: method_bopomofo
+  dictionary: terra_pinyin
+  enable_completion: true
+  prism: bopomofo
+  prefix: "`1"
+  suffix: "'"
+  tips: 〔注音〕
+  preedit_format:
+    - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/- 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+
+reverse_lookup_newcj:
+  tags: [method_bopomofo]
+  overwrite_comment: yes
+  dictionary: newcj
+  comment_format:
+    - 'xform/([a-z;]+)/【$1】/'
+    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
+
+reverse_lookup_bopomofo:
+  tags: [lookup_bopomofo]
+  dictionary: terra_pinyin
+  overwrite_comment: true  # 覆蓋其他提示
+  comment_format:
+    - "xform/e?r5$/er5/"
+    - "xform/iu/iou/"
+    - "xform/ui/uei/"
+    - "xform/ong/ung/"
+    - "xform/yi?/i/"
+    - "xform/wu?/u/"
+    - "xform/iu/v/"
+    - "xform/([jqx])u/$1v/"
+    - "xform/([iuv])n/$1en/"
+    - "xform/zh/Z/"
+    - "xform/ch/C/"
+    - "xform/sh/S/"
+    - "xform/ai/A/"
+    - "xform/ei/I/"
+    - "xform/ao/O/"
+    - "xform/ou/U/"
+    - "xform/ang/K/"
+    - "xform/eng/G/"
+    - "xform/an/M/"
+    - "xform/en/N/"
+    - "xform/er/R/"
+    - "xform/eh/E/"
+    - "xform/([iv])e/$1E/"
+    - "xform/1//"
+    - "xlit|bpmfdtnlgkhjqxZCSrzcsiuvaoeEAIOUMNKGR2345|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙|"
+    - "xform/ /} {/"
+    - "xform/^/ {"
+    - "xform/$/}/"
+
+simplifier:
+  tips: all
+
+punctuator:
+  import_preset: symbols
+
+key_binder:
+  import_preset: default
+
+recognizer:
+  import_preset: default
+  patterns:
+    punct: '^/([0-9]0?|[A-Za-z]+)$'
+    method_bopomofo: "`1[-,.;/a-z0-9]*'?$"
+    lookup_bopomofo: "`2[;a-z0-9]*'?$"

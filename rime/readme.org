@@ -27,141 +27,25 @@ Use [[https://github.com/rime/plum][東風破]] to install other input methods.
 
 ** default.custom.yaml
 
-#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"default.custom.yaml"))
-patch:
-  schema_list:
-    - schema: bopomofo_tw
-    - schema: luna_pinyin_tw
-    - schema: double_pinyin_flypy
-    - schema: newcj
-  menu:
-    page_size: 6
-  key_binder:
-    bindings:
-    # movement
-    ## emacs style
-    - { when: composing, accept: Control+p, send: Up }
-    - { when: composing, accept: Control+n, send: Down }
-    - { when: composing, accept: Control+b, send: KP_Left }
-    - { when: composing, accept: Control+f, send: Right }
-    - { when: composing, accept: Alt+b, send: Left }
-    - { when: composing, accept: Alt+f, send: Shift+Right }
-    - { when: composing, accept: Control+a, send: Home }
-    - { when: composing, accept: Control+e, send: End }
-    - { when: composing, accept: Control+d, send: Delete }
-    - { when: composing, accept: Control+k, send: Shift+Delete }
-    - { when: composing, accept: Control+h, send: BackSpace }
-    - { when: composing, accept: Alt+BackSpace, send: Shift+BackSpace } # delete a word
-    - { when: composing, accept: Control+g, send: Escape }
-    ## paging
-    - { when: has_menu, accept: Tab, send: Down }
-    - { when: has_menu, accept: Shift+Tab, send: Up }
-
-#+end_src
-
 ** Input methods
+*** 注音 (bopomofo_tw)
+*** 小鶴雙拼注音
+Modify too many parts, so create 3 versions.
+**** flypy_luna
+The base version.
 
-*** bopomofo_tw.custom.yaml
-#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"bopomofo_tw.custom.yaml"))
-patch:
-  menu:
-    alternative_select_keys: "SDFWER"
-  translator/spelling_hints: 4  # 詞中最多有幾個字才顯示拼音提示
-#+end_src
+使用朙月拼音字碼表
 
-*** double_pinyin_flypy.custom.yaml
+**** flypy_self
 
-小鶴雙拼注音反查
-#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"double_pinyin_flypy.custom.yaml"))
-patch:
-  schema/dependencies:
-    - bopomofo
+使用自己轉換的字碼表
+Python's regex module works very differently with rime's regex pattern, I made some changes to cope with it, I haven't found any mistakes yet, we will see.
 
-  switches:
-    - name: ascii_mode
-      reset: 0
-      states: [ 中文, 西文 ]
-    - name: full_shape
-      states: [ 半角, 全角 ]
-    - name: ascii_punct
-      states: [ 。，, ．， ]
-    - name: zh_hant_tw
-      reset: 1
+**** flypy_quick5
+雙拼有音形方案，但形是用簡體字，官方也只給出 binary 檔案，不給完整碼表。
+[[https://github.com/functoreality/rime-flypy-zrmfast/tree/master][rime-flypy-zrmfast]] 給出了一個類似的簡體方案。
 
-  engine/filters:
-    - simplifier@zh_hant_tw
-    - uniquifier
-    - reverse_lookup_filter@reverse_lookup_flypy
-
-  engine/segmentors:
-    - ascii_segmentor
-    - matcher
-    - abc_segmentor
-    - affix_segmentor@reverse_lookup
-    - punct_segmentor
-    - fallback_segmentor
-
-  engine/translators:
-    - punct_translator
-    - script_translator
-    - script_translator@reverse_lookup
-
-  zh_hant_tw:
-    option_name: zh_hant_tw
-    opencc_config: t2tw.json
-    tips: none
-
-  reverse_lookup:
-    tag: reverse_lookup
-    dictionary: terra_pinyin
-    enable_completion: true
-    prism: bopomofo
-    prefix: "`"
-    suffix: "'"
-    tips: 〔注音〕
-    preedit_format:
-      - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/- 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
-
-  reverse_lookup_flypy:
-    tags: [reverse_lookup]
-    overwrite_comment: true
-    dictionary: luna_pinyin
-    comment_format:
-    - xform/iu/Q/
-    - xform/ei/W/
-    - xform/uan/R/
-    - xform/[uv]e/T/
-    - xform/un/Y/
-    - xform/sh/U/
-    - xform/ch/I/
-    - xform/zh/V/
-    - xform/uo/O/
-    - xform/ie/P/
-    - xform/i?ong/S/
-    - xform/ing|uai/K/
-    - xform/ai/D/
-    - xform/eng/G/
-    - xform/en/F/
-    - xform/[iu]ang/L/
-    - xform/ang/H/
-    - xform/ian/M/
-    - xform/an/J/
-    - xform/ou/Z/
-    - xform/iao/N/
-    - xform/[iu]a/X/
-    - xform/ao/C/
-    - xform/ui/V/
-    - xform/in/B/
-    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
-
-  recognizer/patterns/reverse_lookup: "`[-,.;/a-z0-9]*'?$"
-
-  editor/bindings:
-    # space: commit_composition #使用 fluency_editor 時開啟
-    Return: confirm #使用 express_editor 時開啟
-    KP_Enter: confirm #使用 express_editor 時開啟
-    Shift+Return: commit_script_text # 輸入變換後上屏
-#+end_src
+想起了速成也是用兩碼，兩個加在一起好像很可以，有多了一個理由學倉頡了。
 
 **** Limitations
 I would like to enable ~spelling_hints~ for phrase reverse lookup, but it is not support yet, only the first character will apply the filter rules. [[https://github.com/rime/home/issues/298][issue]]
@@ -171,168 +55,8 @@ I would like to enable ~spelling_hints~ for phrase reverse lookup, but it is not
 https://github.com/rime/rime-array
 I really like the rules but like many people has said, it is not ergonomic, use pinky fingers quite often and some common characters have to tap with the same finger multiple times in the same column.
 
-
-*** newcj (大新倉頡)
+*** 大新倉頡 (newcj)
 https://github.com/Joey-Li/Newcj_rime
-
-#+begin_src yaml :tangle (org-sbe helper.org.resolve-path (path $"newcj.schema.yaml"))
-# Rime schema settings
-# encoding: utf-8
-# 自由大新倉頡
-
-schema:
-  schema_id: newcj
-  name: 自由大新倉頡
-  version: "0.0.1"
-  author:
-    - 自由大新倉頡
-  description: |
-    自由大新倉頡
-  dependencies:
-    - bopomofo
-
-switches:
-  - name: ascii_mode
-    reset: 0
-    states: [ 中文, 西文 ]
-  - name: full_shape
-    states: [ 半角, 全角 ]
-  - name: simplification
-    states: [ 漢字, 汉字 ]
-  - name: extended_charset
-    states: [ 常用, 增廣 ]
-  - name: ascii_punct
-    states: [ 。，, ．， ]
-
-engine:
-  processors:
-    - ascii_composer
-    - recognizer
-    - key_binder
-    - speller
-    - punctuator
-    - selector
-    - navigator
-    - express_editor
-  segmentors:
-    - ascii_segmentor
-    - matcher
-    - abc_segmentor
-    - affix_segmentor@method_bopomofo
-    - affix_segmentor@lookup_bopomofo
-    - punct_segmentor
-    - fallback_segmentor
-  translators:
-    - punct_translator
-    - script_translator@method_bopomofo
-    - table_translator@lookup_bopomofo
-    - table_translator
-  filters:
-    - simplifier
-    - uniquifier
-    - reverse_lookup_filter@reverse_lookup_newcj
-    - reverse_lookup_filter@reverse_lookup_bopomofo
-    - single_char_filter
-
-speller:
-  alphabet: zyxwvutsrqponmlkjihgfedcba;
-  delimiter: " '"
-  auto_select: true
-  max_code_length: 4
-
-translator:
-  dictionary: newcj
-  enable_charset_filter: true
-  enable_sentence: true
-  enable_encoder: true
-  encode_commit_history: true
-  max_phrase_length: 5
-  preedit_format:
-    - 'xlit|;|；'
-    - 'xform/^([a-z；]*)$/$1\t（\U$1\E）/'
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ；|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；|"
-  comment_format:
-    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
-  disable_user_dict_for_patterns:
-    - "^z.*$"
-    - "^yyy.*$"
-
-lookup_bopomofo:
-  __include: /translator
-  tag: lookup_bopomofo
-  prefix: "`2"
-  suffix: "'"
-  tips: 〔反查讀音〕
-
-method_bopomofo:
-  tag: method_bopomofo
-  dictionary: terra_pinyin
-  enable_completion: true
-  prism: bopomofo
-  prefix: "`1"
-  suffix: "'"
-  tips: 〔注音〕
-  preedit_format:
-    - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/- 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
-
-reverse_lookup_newcj:
-  tags: [method_bopomofo]
-  overwrite_comment: yes
-  dictionary: newcj
-  comment_format:
-    - 'xform/([a-z;]+)/【$1】/'
-    - "xlit|abcdefghijklmnopqrstuvwxyz;~|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜言；～|"
-
-reverse_lookup_bopomofo:
-  tags: [lookup_bopomofo]
-  dictionary: terra_pinyin
-  overwrite_comment: true  # 覆蓋其他提示
-  comment_format:
-    - "xform/e?r5$/er5/"
-    - "xform/iu/iou/"
-    - "xform/ui/uei/"
-    - "xform/ong/ung/"
-    - "xform/yi?/i/"
-    - "xform/wu?/u/"
-    - "xform/iu/v/"
-    - "xform/([jqx])u/$1v/"
-    - "xform/([iuv])n/$1en/"
-    - "xform/zh/Z/"
-    - "xform/ch/C/"
-    - "xform/sh/S/"
-    - "xform/ai/A/"
-    - "xform/ei/I/"
-    - "xform/ao/O/"
-    - "xform/ou/U/"
-    - "xform/ang/K/"
-    - "xform/eng/G/"
-    - "xform/an/M/"
-    - "xform/en/N/"
-    - "xform/er/R/"
-    - "xform/eh/E/"
-    - "xform/([iv])e/$1E/"
-    - "xform/1//"
-    - "xlit|bpmfdtnlgkhjqxZCSrzcsiuvaoeEAIOUMNKGR2345|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙|"
-    - "xform/ /} {/"
-    - "xform/^/ {"
-    - "xform/$/}/"
-
-simplifier:
-  tips: all
-
-punctuator:
-  import_preset: symbols
-
-key_binder:
-  import_preset: default
-
-recognizer:
-  import_preset: default
-  patterns:
-    punct: '^/([0-9]0?|[A-Za-z]+)$'
-    method_bopomofo: "`1[-,.;/a-z0-9]*'?$"
-    lookup_bopomofo: "`2[;a-z0-9]*'?$"
-#+end_src
 
 ** Archive
 *** Dvorak mapping
@@ -365,11 +89,13 @@ patch:
 Install dotfile
 #+begin_src sh :results silent
 stow -v1 -t ~/Library/Rime .build
+stow -v1 -t ~/Library/Rime assets
 #+end_src
 
 Uninstall dotfile
 #+begin_src sh :results silent
 stow -t ~/Library/Rime -D .build
+stow -t ~/Library/Rime -D assets
 #+end_src
 
 ** Linux
@@ -378,11 +104,13 @@ stow -t ~/Library/Rime -D .build
 Install dotfile
 #+begin_src sh :results silent
 stow -v1 -t ~/.config/ibus/rime .build
+stow -v1 -t ~/.config/ibus/rime assets
 #+end_src
 
 Uninstall dotfile
 #+begin_src sh :results silent
 stow -t ~/.config/ibus/rime -D .build
+stow -t ~/.config/ibus/rime -D assets
 #+end_src
 
 *** fcitx
@@ -390,11 +118,13 @@ stow -t ~/.config/ibus/rime -D .build
 Install dotfile
 #+begin_src sh :results silent
 stow -v1 -t ~/.local/share/fcitx5/rime .build
+stow -v1 -t ~/.local/share/fcitx5/rime assets
 #+end_src
 
 Uninstall dotfile
 #+begin_src sh :results silent
 stow -t ~/.local/share/fcitx5/rime -D .build
+stow -t ~/.local/share/fcitx5/rime -D assets
 #+end_src
 
 * Tagging

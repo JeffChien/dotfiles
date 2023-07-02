@@ -1,0 +1,88 @@
+patch:
+  schema/dependencies:
+    - bopomofo
+
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    - name: ascii_punct
+      states: [ 。，, ．， ]
+    - name: zh_hant_tw
+      reset: 1
+
+  engine/filters:
+    - simplifier@zh_hant_tw
+    - uniquifier
+    - reverse_lookup_filter@reverse_lookup_flypy
+
+  engine/segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - affix_segmentor@reverse_lookup
+    - punct_segmentor
+    - fallback_segmentor
+
+  engine/translators:
+    - punct_translator
+    - script_translator
+    - script_translator@reverse_lookup
+
+  zh_hant_tw:
+    option_name: zh_hant_tw
+    opencc_config: t2tw.json
+    tips: none
+
+  reverse_lookup:
+    tag: reverse_lookup
+    dictionary: terra_pinyin
+    enable_completion: true
+    prism: bopomofo
+    prefix: "`"
+    suffix: "'"
+    tips: 〔注音〕
+    preedit_format:
+      - "xlit|1qaz2wsxedcrfv5tgbyhnujm8ik,9ol.0p;/- 6347'|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˉˊˇˋ˙ |"
+
+  reverse_lookup_flypy:
+    tags: [reverse_lookup]
+    overwrite_comment: true
+    dictionary: luna_pinyin
+    comment_format:
+    - xform/iu/Q/
+    - xform/ei/W/
+    - xform/[uv]e/T/
+    - xform/un/Y/
+    - xform/sh/U/
+    - xform/ch/I/
+    - xform/zh/V/
+    - xform/uo/O/
+    - xform/ie/P/
+    - xform/i?ong/S/
+    - xform/ing|uai/K/
+    - xform/ai/D/
+    - xform/eng/G/
+    - xform/en/F/
+    - xform/[iu]ang/L/
+    - xform/uan/R/
+    - xform/ang/H/
+    - xform/ian/M/
+    - xform/an/J/
+    - xform/ou/Z/
+    - xform/iao/N/
+    - xform/[iu]a/X/
+    - xform/ao/C/
+    - xform/ui/V/
+    - xform/in/B/
+    - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
+
+  recognizer/patterns/reverse_lookup: "`[-,.;/a-z0-9]*'?$"
+
+  editor/bindings:
+    # space: commit_composition #使用 fluency_editor 時開啟
+    Return: confirm #使用 express_editor 時開啟
+    KP_Enter: confirm #使用 express_editor 時開啟
+    Shift+Return: commit_script_text # 輸入變換後上屏
