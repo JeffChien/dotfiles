@@ -3,7 +3,7 @@
 
 ---
 name: flypy_self_phrase
-version: "2023.07.02"
+version: "2023.07.03"
 sort: by_weight
 ...
 
@@ -60,7 +60,7 @@ sort: by_weight
 一地胡拿	yi di hu na
 一地裏	yi di li
 一報還一報	yi bc hr yi bc
-一塊石頭落了地	yi k ui tz lo le di
+一塊石頭落了地	yi kk ui tz lo le di
 一字長蛇陣	yi zi ih ue vf
 一宿	yi xq
 一尺還他十寸	yi ii hr ta ui cy
@@ -517,7 +517,7 @@ sort: by_weight
 不忒	bu te
 不忘溝壑	bu wh gz he
 不忘溝壑	bu wh gz ho
-不快樂	bu k le
+不快樂	bu kk le
 不恁麼	bu nf me
 不恁麼	bu rf me
 不愆	bu qm
@@ -752,7 +752,7 @@ sort: by_weight
 不忒	fz te
 不忘溝壑	fz wh gz he
 不忘溝壑	fz wh gz ho
-不快樂	fz k le
+不快樂	fz kk le
 不恁麼	fz nf me
 不恁麼	fz rf me
 不愆	fz qm
@@ -987,7 +987,7 @@ sort: by_weight
 不忒	fu te
 不忘溝壑	fu wh gz he
 不忘溝壑	fu wh gz ho
-不快樂	fu k le
+不快樂	fu kk le
 不恁麼	fu nf me
 不恁麼	fu rf me
 不愆	fu qm
@@ -1230,7 +1230,7 @@ sort: by_weight
 中的	vs de
 中的	vs di
 中祕書	vs mi uu
-中秋快樂	vs qq k le
+中秋快樂	vs qq kk le
 中籤率	vs qm lv
 中美地峽	vs mw di xx
 中胚層	vs pw cg
@@ -1302,14 +1302,14 @@ sort: by_weight
 乍暖還寒	va nr hr hj
 乍熟	va uu
 乏地	fa di
-乖戾	k li
-乖舛	k ir
-乖覺	k jt
-乖覺可喜	k jt ke xi
-乖角	k jn
-乖調	k dn
-乖謬	k mq
-乖離率	k li lv
+乖戾	gk li
+乖舛	gk ir
+乖覺	gk jt
+乖覺可喜	gk jt ke xi
+乖角	gk jn
+乖調	gk dn
+乖謬	gk mq
+乖離率	gk li lv
 乘傳	ig vr
 乘僞行詐	ig ww xk va
 乘勝逐北	ig ug vu bo
@@ -1478,7 +1478,7 @@ sort: by_weight
 乾股	gj gu
 乾肥	gj fw
 乾脆	gj cv
-乾脆爽快	gj cv ul k
+乾脆爽快	gj cv ul kk
 乾花	gj hx
 乾芻	gj iu
 乾苔	gj td
@@ -1639,7 +1639,7 @@ sort: by_weight
 乾股	qm gu
 乾肥	qm fw
 乾脆	qm cv
-乾脆爽快	qm cv ul k
+乾脆爽快	qm cv ul kk
 乾花	qm hx
 乾芻	qm iu
 乾苔	qm td
@@ -2161,7 +2161,7 @@ sort: by_weight
 仇敵	iz di
 仇殺	iz ua
 仇疙瘩	iz ge da
-仇者快	iz ve k
+仇者快	iz ve kk
 仇英	iz yk
 仇視	iz ui
 仇隙	iz xi
@@ -2178,7 +2178,7 @@ sort: by_weight
 仇敵	qq di
 仇殺	qq ua
 仇疙瘩	qq ge da
-仇者快	qq ve k
+仇者快	qq ve kk
 仇英	qq yk
 仇視	qq ui
 仇隙	qq xi
@@ -2576,7 +2576,7 @@ sort: by_weight
 伯魚	bo yu
 估價行	gu jx hh
 伴宿	bj su
-伶俐乖覺	lk li k jt
+伶俐乖覺	lk li gk jt
 伸剖	uf pz
 伸長	uf ih
 伺便	ci bm
@@ -2787,7 +2787,7 @@ sort: by_weight
 佝僂	kz lz
 佝僂病	kz lz bk
 你哦	ni oo
-你快樂	ni k le
+你快樂	ni kk le
 你長我短	ni ih wo dr
 佣鈿	ys dm
 佩弦	pw xm
@@ -3014,7 +3014,7 @@ sort: by_weight
 俯角	fu jn
 俱樂部	jv le bu
 俱樂部	ju le bu
-俳佪	pd k
+俳佪	pd hk
 俶擾	iu rc
 俶爾	iu er
 俶裝	iu vl
@@ -3153,7 +3153,7 @@ sort: by_weight
 偢采	iz cd
 偢問	qq wf
 偢采	qq cd
-健康快樂	jm kh k le
+健康快樂	jm kh kk le
 健康成長	jm kh ig vh
 健行	jm xk
 偪仂	bi le
@@ -3521,7 +3521,7 @@ sort: by_weight
 先天缺陷	xm tm qt xm
 先怎麼栽	xm zf mo zd
 先憂後樂	xm yz hz le
-先盛後衰	xm ug hz k
+先盛後衰	xm ug hz uk
 先知先覺	xm vi xm jt
 先行	xm xk
 先行官	xm xk gr
@@ -3536,7 +3536,7 @@ sort: by_weight
 光了了	gl ln ln
 光大銀行	gl da yb hh
 光宅	gl ve
-光怪陸離	gl k lu li
+光怪陸離	gl gk lu li
 光撻撻	gl ta ta
 光榮榜	gl rs bh
 光纖	gl xm
@@ -3592,9 +3592,9 @@ sort: by_weight
 兜剿	dz jn
 兜底	dz de
 兜底	dz di
-兜率天	dz k tm
-兜率天宮	dz k tm gs
-兜率宮	dz k gs
+兜率天	dz uk tm
+兜率天宮	dz uk tm gs
+兜率宮	dz uk gs
 入地	ri di
 入地無門	ri di wu mf
 入射角	ri ue jn
@@ -3759,7 +3759,7 @@ sort: by_weight
 公石	gs dj
 公示行爲	gs ui xk ww
 公立學校	gs li xt xn
-公筷母匙	gs k mu ii
+公筷母匙	gs kk mu ii
 公羊傳	gs yh vr
 公衆參與	gs vs cj yv
 公衆參與	gs vs cj yu
@@ -4013,7 +4013,7 @@ sort: by_weight
 凹陷	yc xm
 凹面鏡	yc mm jk
 出不了	iu bu ln
-出乖露醜	iu k lz iz
+出乖露醜	iu gk lz iz
 出人頭地	iu rf tz di
 出什麼	iu uf me
 出公差	iu gs id
@@ -4582,8 +4582,8 @@ sort: by_weight
 動脈血	ds md xt
 動脈輸血	ds md uu xp
 動脈輸血	ds md uu xt
-勗率	xv k
-勗率	xu k
+勗率	xv uk
+勗率	xu uk
 勝似	ug si
 勝地	ug di
 勝朝	ug ic
@@ -6760,7 +6760,7 @@ sort: by_weight
 喉長氣短	hz ih qi dr
 喋喋便便	dp dp pm pm
 喋囁	dp np
-喎斜	k xp
+喎斜	kk xp
 喎斜	wd xp
 喑嗚叱吒	yb wu ii va
 喑噁叱吒	yb wu ii va
@@ -7080,13 +7080,13 @@ sort: by_weight
 嘗鼎一臠	ih dk yi lr
 嘚啵	dd bo
 嘚啵	de bo
-嘬嘬	k k
-嘬嚃	k ta
-嘬炙	k vi
-嘬嘬	zv k
+嘬嘬	ik ik
+嘬嚃	ik ta
+嘬炙	ik vi
+嘬嘬	zv ik
 嘬嚃	zv ta
 嘬炙	zv vi
-嘬嘬	zo k
+嘬嘬	zo ik
 嘬嚃	zo ta
 嘬炙	zo vi
 嘲哳	ic va
@@ -7188,9 +7188,9 @@ sort: by_weight
 噱頭	jt tz
 噱頭	xt tz
 噲伍	hv wu
-噲噲	hv k
-噲伍	k wu
-噲噲	k k
+噲噲	hv kk
+噲伍	kk wu
+噲噲	kk kk
 噴射泵	ff ue bg
 噴薄	ff bo
 噴薄欲出	ff bo yv iu
@@ -7625,7 +7625,7 @@ sort: by_weight
 地域性	de yu xk
 地域觀念	de yu gr nm
 地基	de ji
-地塊	de k
+地塊	de kk
 地塹	de qm
 地壘	de lw
 地大物博	de da wu bo
@@ -7929,7 +7929,7 @@ sort: by_weight
 地域性	di yu xk
 地域觀念	di yu gr nm
 地基	di ji
-地塊	di k
+地塊	di kk
 地塹	di qm
 地壘	di lw
 地大物博	di da wu bo
@@ -8164,7 +8164,7 @@ sort: by_weight
 坡地	po di
 坤角	ky jt
 坤軸	ky vz
-坦率	tj k
+坦率	tj uk
 坦露	tj lz
 坯子	pw zi
 坯布	pw bu
@@ -8531,11 +8531,16 @@ sort: by_weight
 壓軸戲	ya vz xi
 壓迫性潰瘍	ya po xk kv yh
 壝埒	ww le
-壞坯子	k pw zi
-壞疽	k jv
-壞疽	k ju
-壞血病	k xp bk
-壞血病	k xt bk
+壞坯子	gk pw zi
+壞疽	gk jv
+壞疽	gk ju
+壞血病	gk xp bk
+壞血病	gk xt bk
+壞坯子	hk pw zi
+壞疽	hk jv
+壞疽	hk ju
+壞血病	hk xp bk
+壞血病	hk xt bk
 壟斷行業	ls dr hh ye
 壤地	rh di
 壯猷	vl yz
@@ -8717,7 +8722,7 @@ sort: by_weight
 大洋盆地	da yh pf di
 大流行病	da lq xk bk
 大溪地	da xi di
-大煠八塊	da ye ba k
+大煠八塊	da ye ba kk
 大熟	da uu
 大猷	da yz
 大獃	da dd
@@ -8808,7 +8813,7 @@ sort: by_weight
 大陸政策	da lu vg ce
 大陸斜坡	da lu xp po
 大陸會議	da lu hv yi
-大陸板塊	da lu bj k
+大陸板塊	da lu bj kk
 大陸架	da lu jx
 大陸棉	da lu mm
 大陸棚	da lu pg
@@ -8913,7 +8918,7 @@ sort: by_weight
 大洋盆地	dd yh pf di
 大流行病	dd lq xk bk
 大溪地	dd xi di
-大煠八塊	dd ye ba k
+大煠八塊	dd ye ba kk
 大熟	dd uu
 大猷	dd yz
 大獃	dd dd
@@ -9004,7 +9009,7 @@ sort: by_weight
 大陸政策	dd lu vg ce
 大陸斜坡	dd lu xp po
 大陸會議	dd lu hv yi
-大陸板塊	dd lu bj k
+大陸板塊	dd lu bj kk
 大陸架	dd lu jx
 大陸棉	dd lu mm
 大陸棚	dd lu pg
@@ -9109,7 +9114,7 @@ sort: by_weight
 大洋盆地	td yh pf di
 大流行病	td lq xk bk
 大溪地	td xi di
-大煠八塊	td ye ba k
+大煠八塊	td ye ba kk
 大熟	td uu
 大猷	td yz
 大獃	td dd
@@ -9200,7 +9205,7 @@ sort: by_weight
 大陸政策	td lu vg ce
 大陸斜坡	td lu xp po
 大陸會議	td lu hv yi
-大陸板塊	td lu bj k
+大陸板塊	td lu bj kk
 大陸架	td lu jx
 大陸棉	td lu mm
 大陸棚	td lu pg
@@ -9254,7 +9259,7 @@ sort: by_weight
 天塌了有地接着	tm ta le yz di jp ve
 天塌地陷	tm ta di xm
 天大地大	tm da di da
-天奇地怪	tm qi di k
+天奇地怪	tm qi di gk
 天姥山	tm mu uj
 天官賜福	tm gr ci fu
 天官賜福	tm gr si fu
@@ -9359,8 +9364,8 @@ sort: by_weight
 太陽地	tv yh di
 夫妻無隔宿之仇	fu qi wu ge su vi iz
 夫差	fu id
-夬夬	k k
-夬夬	jt k
+夬夬	gk gk
+夬夬	jt gk
 夭娜	ac no
 夭疽	ac jv
 夭疽	ac ju
@@ -11276,10 +11281,10 @@ sort: by_weight
 希伯來書	xi bo ld uu
 希斯汀禮拜堂	xi si tk li bd th
 希行	xi xk
-帑廥	nu k
+帑廥	nu kk
 帑藏	nu zh
 帑項	nu xl
-帑廥	th k
+帑廥	th kk
 帑藏	th zh
 帑項	th xl
 帕德嫩神廟	pa de nf uf mn
@@ -11687,7 +11692,7 @@ sort: by_weight
 弧角	hu jn
 弩箭離絃	nu jm li xm
 弭棹	mi vc
-弭節徘徊	mi jp pd k
+弭節徘徊	mi jp pd hk
 張僧繇	vh sg yz
 張家長李家短	vh jx ih li jx dr
 張弓挾矢	vh gs xp ui
@@ -11984,7 +11989,7 @@ sort: by_weight
 徇地	xy di
 徇行	xy xk
 很嚴重	hf yj vs
-很快樂	hf k le
+很快樂	hf kk le
 很熟	hf uu
 很薄	hf bc
 很重	hf vs
@@ -11992,8 +11997,8 @@ sort: by_weight
 很長	hf ih
 很長時間	hf ih ui jm
 徉徜	yh ih
-徊徨	k hl
-徊翔	k xl
+徊徨	hk hl
+徊翔	hk xl
 徊徨	hv hl
 徊翔	hv xl
 律藏	lv zh
@@ -12142,8 +12147,8 @@ sort: by_weight
 得用	di ys
 得票率	di pn lv
 得雋	di jy
-徘徊	pd k
-徘徊歧路	pd k qi lu
+徘徊	pd hk
+徘徊歧路	pd hk qi lu
 徙宅忘妻	tu ve wh qi
 徙宅忘妻	xi ve wh qi
 徜徉	ih yh
@@ -12339,12 +12344,12 @@ sort: by_weight
 忠告	vs gu	0%
 忠言奇謀	vs yj qi mo
 忨愒	wj kd
-快快樂樂	k k le le
-快樂	k le
-快樂丸	k le wj
-快樂主義	k le vu yi
-快速增長	k su zg vh
-快騎	k ji
+快快樂樂	kk kk le le
+快樂	kk le
+快樂丸	kk le wj
+快樂主義	kk le vu yi
+快速增長	kk su zg vh
+快騎	kk ji
 忭懽	bm hr
 忭躍	bm yt
 忸忸怩怩	nq nq ni ni
@@ -12454,11 +12459,11 @@ sort: by_weight
 怨天怨地	yr tm yr di
 怨懣	yr mf
 怨艾	yr yi
-怪模怪樣	k mu k yh
-怪着	k vc
-怪着	k ve
-怪腔怪調	k ql k dn
-怪譎	k jt
+怪模怪樣	gk mu gk yh
+怪着	gk vc
+怪着	gk ve
+怪腔怪調	gk ql gk dn
+怪譎	gk jt
 怫然不悅	fw rj bu yt
 怫然變色	fw rj bm se
 怫異	fw yi
@@ -12806,13 +12811,13 @@ sort: by_weight
 愛遠惡近	ai yr wu jb
 愜心	qp xb
 愜意	qp yi
-愜懷	qp k
+愜懷	qp hk
 愜氣	qp qi
 愜當	qp dh
 愜貼	qp tp
 愜心	xx xb
 愜意	xx yi
-愜懷	xx k
+愜懷	xx hk
 愜氣	xx qi
 愜當	xx dh
 愜貼	xx tp
@@ -13004,10 +13009,10 @@ sort: by_weight
 懲羹吹齏	ig gg iv ji
 懵然未覺	mg rj ww jt
 懶覺	lj jn
-懷寶夜行	k bc ye xk
-懷惡不悛	k ee bu qr
-懷鉛提槧	k qm ti qm
-懷鉛握槧	k qm wo qm
+懷寶夜行	hk bc ye xk
+懷惡不悛	hk ee bu qr
+懷鉛提槧	hk qm ti qm
+懷鉛握槧	hk qm wo qm
 懸揣	xr ir
 懸液劑	xr ye ji
 懸濁液	xr vo ye
@@ -13059,7 +13064,7 @@ sort: by_weight
 戎行	rs hh
 成不了	ig bu ln
 成功率	ig gs lv
-成本會計	ig bf k ji
+成本會計	ig bf kk ji
 成活率	ig ho lv
 成熟	ig uu
 成熟度	ig uu du
@@ -13606,7 +13611,7 @@ sort: by_weight
 披帛	pw bo
 披心	pw xb
 披心腹	pw xb fu
-披懷	pw k
+披懷	pw hk
 披房	pw fh
 披拂	pw fu
 披掛	pw gx
@@ -13696,7 +13701,7 @@ sort: by_weight
 披帛	pi bo
 披心	pi xb
 披心腹	pi xb fu
-披懷	pi k
+披懷	pi hk
 披房	pi fh
 披拂	pi fu
 披掛	pi gx
@@ -13778,7 +13783,7 @@ sort: by_weight
 抱廈廳	bc xx tk
 抱朴	bc pu
 抱朴子	bc pu zi
-抱槧懷鉛	bc qm k qm
+抱槧懷鉛	bc qm hk qm
 抱蔓摘瓜	bc mj vd gx
 抱角牀	bc jn il
 抱關擊柝	bc gr ji to
@@ -13966,9 +13971,9 @@ sort: by_weight
 拏空	nu ks
 拏雲	nu yy
 拏雲攫石	nu yy jt ui
-拐彎抹角	k wj mo jn
-拐裨子	k pi zi
-拐角	k jn
+拐彎抹角	gk wj mo jn
+拐裨子	gk pi zi
+拐角	gk jn
 拑制	gj vi
 拑口	gj kz
 拑制	qm vi
@@ -14257,10 +14262,10 @@ sort: by_weight
 拽扎	ye va
 拽欛扶犁	ye ba fu li
 拽耙扶犁	ye pa fu li
-拽布披麻	k bu pi ma
-拽扎	k va
-拽欛扶犁	k ba fu li
-拽耙扶犁	k pa fu li
+拽布披麻	vk bu pi ma
+拽扎	vk va
+拽欛扶犁	vk ba fu li
+拽耙扶犁	vk pa fu li
 拾人涕唾	ue rf ti to
 拾掇	ue do
 拾級	ue ji
@@ -14445,8 +14450,8 @@ sort: by_weight
 捨我其誰	ue wo qi uw
 捨短取長	ue dr qv ih
 捨短取長	ue dr qu ih
-捨車保帥	ue jv bc k
-捨車保帥	ue ju bc k
+捨車保帥	ue jv bc uk
+捨車保帥	ue ju bc uk
 捫參歷井	mf uf li jk
 捫隙發罅	mf xi fa xx
 捭闔	bd he
@@ -14575,7 +14580,7 @@ sort: by_weight
 掖縣	yi xm
 掖門	yi mf
 掘強	jt jl
-掙䦟	vg k
+掙䦟	vg ik
 掙扎	vg va
 掛牌匯率	gx pd hv lv
 掛角	gx jn
@@ -14760,9 +14765,9 @@ sort: by_weight
 揠苗助長	ya mn vu vh
 握拳透爪	wo qr tz vc
 握拳透爪	wo qr tz vx
-握槧懷鉛	wo qm k qm
+握槧懷鉛	wo qm hk qm
 握髮吐哺	wo fa tu bu
-揣度	k do
+揣度	ik do
 揣度	ir do
 揩乾	ka gj
 揩抹	ka mo
@@ -14864,7 +14869,7 @@ sort: by_weight
 搆隙	gz xi
 搊彈詞	iz tj ci
 搋麪	ii mm
-搋麪	k mm
+搋麪	ik mm
 搋麪	di mm
 損害賠償	sy hd pw ih
 損者三樂	sy ve sj yc
@@ -14962,8 +14967,8 @@ sort: by_weight
 摒除	bk iu
 摒棄	pk qi
 摒除	pk iu
-摔角	k jn
-摔馬杓	k ma uc
+摔角	uk jn
+摔馬杓	uk ma uc
 摘伏發隱	vd fu fa yb
 摘奸發伏	vd jm fa fu
 摘山煮海	vd uj vu hd
@@ -15662,7 +15667,7 @@ sort: by_weight
 敲擊音樂	qn ji yb yt
 整合行銷傳播	vg he xk xn ir bo
 整地	vg di
-整躬率物	vg gs k wu
+整躬率物	vg gs uk wu
 敵愾	di kd
 敵愾同仇	di kd ts iz
 敵酋	di qq
@@ -15786,7 +15791,7 @@ sort: by_weight
 斯賓塞	si bb se
 新大陸	xb da lu
 新天地	xb tm di
-新年快樂	xb nm k le
+新年快樂	xb nm kk le
 新廈	xb xx
 新朝	xb ic
 新沐者必彈冠	xb mu ve bi tj gr
@@ -16104,7 +16109,7 @@ sort: by_weight
 晨昏定省	if hy dk xk
 晨鳧	if fu
 普及率	pu ji lv
-普天率土	pu tm k tu
+普天率土	pu tm uk tu
 普通地圖	pu ts di tu
 普陀洛伽山	pu to lo qp uj
 景寧畬族自治縣	jk nk ue zu zi vi xm
@@ -16570,27 +16575,27 @@ sort: by_weight
 會計覈算	hv ji he sr
 會計部	hv ji bu
 會長	hv vh
-會咽軟骨	k yj rr gu
-會審公廨	k uf gs xp
-會弁	k bm
-會撮	k zv
-會稽	k ji
-會稽之恥	k ji vi ii
-會稽山	k ji uj
-會計	k ji
-會計制度	k ji vi du
-會計報表	k ji bc bn
-會計學	k ji xt
-會計室	k ji ui
-會計師	k ji ui
-會計年度	k ji nm du
-會計法	k ji fa
-會計準則	k ji vy ze
-會計簿	k ji bu
-會計系	k ji xi
-會計覈算	k ji he sr
-會計部	k ji bu
-會長	k vh
+會咽軟骨	kk yj rr gu
+會審公廨	kk uf gs xp
+會弁	kk bm
+會撮	kk zv
+會稽	kk ji
+會稽之恥	kk ji vi ii
+會稽山	kk ji uj
+會計	kk ji
+會計制度	kk ji vi du
+會計報表	kk ji bc bn
+會計學	kk ji xt
+會計室	kk ji ui
+會計師	kk ji ui
+會計年度	kk ji nm du
+會計法	kk ji fa
+會計準則	kk ji vy ze
+會計簿	kk ji bu
+會計系	kk ji xi
+會計覈算	kk ji he sr
+會計部	kk ji bu
+會長	kk vh
 月利率	rz li lv
 月地雲階	rz di yy jp
 月夕花朝	rz xi hx vc
@@ -17697,8 +17702,8 @@ sort: by_weight
 棄甲曳兵	qi jx yi bk
 棄短取長	qi dr qv ih
 棄短取長	qi dr qu ih
-棄車保帥	qi jv bc k
-棄車保帥	qi ju bc k
+棄車保帥	qi jv bc uk
+棄車保帥	qi ju bc uk
 棉纖維	mm xm ww
 棉花店着火	mm hx dm vc ho
 棉薄之力	mm bo vi li
@@ -17915,7 +17920,7 @@ sort: by_weight
 榮譽榜	rs yv bh
 榮譽榜	rs yu bh
 榱題	cv ti
-榱題	k ti
+榱題	uk ti
 榴彈	lq dj
 榴彈炮	lq dj pc
 榴霰彈	lq xm dj
@@ -18490,9 +18495,9 @@ sort: by_weight
 樂隊	yt dv
 樂音	yt yb
 樂風	yt fg
-樊噲	fj k
+樊噲	fj kk
 樊於期	fj wu qi
-樊噲	pj k
+樊噲	pj kk
 樊於期	pj wu qi
 樓車	lz ie
 樓車	lz jv
@@ -18666,9 +18671,9 @@ sort: by_weight
 檜木	hv mu
 檜柏	hv bd
 檜柏	hv bo
-檜木	k mu
-檜柏	k bd
-檜柏	k bo
+檜木	kk mu
+檜柏	kk bd
+檜柏	kk bo
 檠天架海	jk tm jx hd
 檠天架海	qk tm jx hd
 檢察長	jm ia vh
@@ -18857,7 +18862,7 @@ sort: by_weight
 正着	vg vc
 正視繩行	vg ui ug xk
 正覺	vg jt
-正身率下	vg uf k xx
+正身率下	vg uf uk xx
 正鵠	vg gu
 此仆彼起	ci pu bi qi
 此地	ci di
@@ -18882,7 +18887,7 @@ sort: by_weight
 歪打正着	wd da vg vc
 歪行貨	wd hh ho
 歲寒松柏	sv hj ss bo
-歲會	sv k
+歲會	sv kk
 歲月崢嶸	sv yt vg rs
 歲朘月耗	sv jr yt hc
 歲朝	sv vc
@@ -19518,7 +19523,7 @@ sort: by_weight
 沉痾	if ee
 沉着	if vo
 沉着應戰	if vo yk vj
-沉着痛快	if vo ts k
+沉着痛快	if vo ts kk
 沉酣	if hj
 沉重	if vs
 沉重寡言	if vs gx yj
@@ -19577,9 +19582,9 @@ sort: by_weight
 沒志行	mw vi xk
 沒忽的	mw hu di
 沒感覺	mw gj jt
-沒揣地	mw k de
-沒揣的	mw k de
-沒揣的	mw k di
+沒揣地	mw ik de
+沒揣的	mw ik de
+沒揣的	mw ik di
 沒撩沒亂	mw ln mo lr
 沒撻煞	mw ta ua
 沒收	mw uz
@@ -19676,9 +19681,9 @@ sort: by_weight
 沒志行	mo vi xk
 沒忽的	mo hu di
 沒感覺	mo gj jt
-沒揣地	mo k de
-沒揣的	mo k de
-沒揣的	mo k di
+沒揣地	mo ik de
+沒揣的	mo ik de
+沒揣的	mo ik di
 沒撩沒亂	mo ln mo lr
 沒撻煞	mo ta ua
 沒收	mo uz
@@ -19758,7 +19763,7 @@ sort: by_weight
 沬血	mo xt
 沬血	ww xt
 沮喪	jv sh
-沮壞	jv k
+沮壞	jv hk
 沮撓	jv nc
 沮水	jv uv
 沮洳	jv ru
@@ -19770,7 +19775,7 @@ sort: by_weight
 沮遏	jv ee
 沮駭	jv hd
 沮喪	ju sh
-沮壞	ju k
+沮壞	ju hk
 沮撓	ju nc
 沮水	ju uv
 沮洳	ju ru
@@ -19782,7 +19787,7 @@ sort: by_weight
 沮遏	ju ee
 沮駭	ju hd
 沮喪	zu sh
-沮壞	zu k
+沮壞	zu hk
 沮撓	zu nc
 沮水	zu uv
 沮洳	zu ru
@@ -19904,16 +19909,16 @@ sort: by_weight
 泊位	bo ww
 泊岸	bo aj
 泊岸	bo an
-泊懷	bo k
-泊秦淮	bo qb k
+泊懷	bo hk
+泊秦淮	bo qb hk
 泊舟	bo vz
 泊船	bo ir
 泊車	bo ie
 泊位	po ww
 泊岸	po aj
 泊岸	po an
-泊懷	po k
-泊秦淮	po qb k
+泊懷	po hk
+泊秦淮	po qb hk
 泊舟	po vz
 泊船	po ir
 泊車	po ie
@@ -20493,10 +20498,10 @@ sort: by_weight
 淫心慝行	yb xb te xk
 淫液	yb ye
 淫潦	yb lc
-淮北枳	k bw vi
-淮南桔	k nj jv
-淮南桔	k nj ju
-淮枳	k vi
+淮北枳	hk bw vi
+淮南桔	hk nj jv
+淮南桔	hk nj ju
+淮枳	hk vi
 淰淰	nm nm
 淰淰	uf nm
 深仇大恨	uf iz da hf
@@ -20585,10 +20590,10 @@ sort: by_weight
 清馨	qk xb
 減削	jm xt
 減煠	jm va
-渠率	jv k
-渠率	ju k
-渠率	qv k
-渠率	qu k
+渠率	jv uk
+渠率	ju uk
+渠率	qv uk
+渠率	qu uk
 渣滓	va zi
 渤海鎖鑰	bo hd so yc
 渤潏	bo jt
@@ -20619,7 +20624,7 @@ sort: by_weight
 游僧攢住持	yz sg cr vu ii
 游徼	yz jn
 游心騁目	yz xb ig mu
-游目騁懷	yz mu ig k
+游目騁懷	yz mu ig hk
 游說	yz uv
 渾不似	gy bu si
 渾似	gy si
@@ -21803,14 +21808,14 @@ sort: by_weight
 牧畜	mu xv
 牧畜	mu xu
 牧養納畜	mu yh na iu
-物盛則衰	wu ug ze k
+物盛則衰	wu ug ze uk
 物論沸騰	wu ly fw tg
 物議沸騰	wu yi fw tg
 物阜民安	wu fu mb aj
 物阜民安	wu fu mb an
 物阜民熙	wu fu mb xi
 物阜民豐	wu fu mb fg
-物盛則衰	vi ug ze k
+物盛則衰	vi ug ze uk
 物論沸騰	vi ly fw tg
 物議沸騰	vi yi fw tg
 物阜民安	vi fu mb aj
@@ -21934,23 +21939,23 @@ sort: by_weight
 狙公	jv gs
 狙擊	jv ji
 狙殺	jv ua
-狙獪	jv k
+狙獪	jv kk
 狙詐	jv va
 狙伺	ju si
 狙公	ju gs
 狙擊	ju ji
 狙殺	ju ua
-狙獪	ju k
+狙獪	ju kk
 狙詐	ju va
 狙伺	zu si
 狙公	zu gs
 狙擊	zu ji
 狙殺	zu ua
-狙獪	zu k
+狙獪	zu kk
 狙詐	zu va
 狠愎自用	hf bi zi ys
 狠戾	hf li
-狡獪	jn k
+狡獪	jn kk
 狴犴	bi aj
 狴犴	bi an
 狸狌	li ug
@@ -22016,7 +22021,7 @@ sort: by_weight
 猼且	pc ju
 猾伯	hx bo
 猾賊	hx ze
-猿穴壞山	yr xt k uj
+猿穴壞山	yr xt gk uj
 獃串了皮	ad ir le pi
 獃事	ad ui
 獃人	ad rf
@@ -22112,9 +22117,9 @@ sort: by_weight
 獮猴	xm hz
 獯鬻	xy yv
 獯鬻	xy yu
-獲利率	k li lv
-獲戾	k li
-獲鹿縣	k lu xm
+獲利率	hk li lv
+獲戾	hk li
+獲鹿縣	hk lu xm
 獲利率	ho li lv
 獲戾	ho li
 獲鹿縣	ho lu xm
@@ -22162,7 +22167,7 @@ sort: by_weight
 率爾成章	lv er ig vh
 率爾操觚	lv er cc gu
 率獸食人	lv uz ui rf
-率率	lv k
+率率	lv uk
 率由舊則	lv yz jq ze
 率由舊章	lv yz jq vh
 率皆	lv jp
@@ -22173,34 +22178,34 @@ sort: by_weight
 率領	lv lk
 率馬以驥	lv ma yi ji
 率高	lv gc
-率以爲常	k yi ww ih
-率低	k di
-率先	k xm
-率同	k ts
-率土之濱	k tu vi bb
-率土同慶	k tu ts qk
-率土宅心	k tu vd xb
-率土歸心	k tu gv xb
-率師	k ui
-率性	k xk
-率更	k gg
-率然	k rj
-率爲	k ww
-率爾	k er
-率爾成章	k er ig vh
-率爾操觚	k er cc gu
-率獸食人	k uz ui rf
-率率	k k
-率由舊則	k yz jq ze
-率由舊章	k yz jq vh
-率皆	k jp
-率直	k vi
-率真	k vf
-率達	k da
-率隊	k dv
-率領	k lk
-率馬以驥	k ma yi ji
-率高	k gc
+率以爲常	uk yi ww ih
+率低	uk di
+率先	uk xm
+率同	uk ts
+率土之濱	uk tu vi bb
+率土同慶	uk tu ts qk
+率土宅心	uk tu vd xb
+率土歸心	uk tu gv xb
+率師	uk ui
+率性	uk xk
+率更	uk gg
+率然	uk rj
+率爲	uk ww
+率爾	uk er
+率爾成章	uk er ig vh
+率爾操觚	uk er cc gu
+率獸食人	uk uz ui rf
+率率	uk uk
+率由舊則	uk yz jq ze
+率由舊章	uk yz jq vh
+率皆	uk jp
+率直	uk vi
+率真	uk vf
+率達	uk da
+率隊	uk dv
+率領	uk lk
+率馬以驥	uk ma yi ji
+率高	uk gc
 率以爲常	uo yi ww ih
 率低	uo di
 率先	uo xm
@@ -22218,7 +22223,7 @@ sort: by_weight
 率爾成章	uo er ig vh
 率爾操觚	uo er cc gu
 率獸食人	uo uz ui rf
-率率	uo k
+率率	uo uk
 率由舊則	uo yz jq ze
 率由舊章	uo yz jq vh
 率皆	uo jp
@@ -22547,7 +22552,7 @@ sort: by_weight
 生張熟魏	ug vh uz ww
 生息蕃庶	ug xi fj uu
 生態地位	ug td di ww
-生日快樂	ug ri k le
+生日快樂	ug ri kk le
 生有地	ug yz di
 生朝	ug vc
 生死簿	ug si bu
@@ -22975,12 +22980,12 @@ sort: by_weight
 疏浚	uu jy
 疏濬	uu jy
 疏瀹	uu yt
-疏率	uu k
+疏率	uu uk
 疏財重義	uu cd vs yi
 疏浚	su jy
 疏濬	su jy
 疏瀹	su yt
-疏率	su k
+疏率	su uk
 疏財重義	su cd vs yi
 疑似	yi si
 疑信參半	yi xb cj bj
@@ -23265,7 +23270,7 @@ sort: by_weight
 百沸湯	bd fw th
 百濯香	bd vo xl
 百無一長	bd wu yi ih
-百獸率舞	bd uz k wu
+百獸率舞	bd uz uk wu
 百盛	bd ug
 百舍重繭	bd ue is jm
 百舍重趼	bd ue is jm
@@ -23288,7 +23293,7 @@ sort: by_weight
 百沸湯	bo fw th
 百濯香	bo vo xl
 百無一長	bo wu yi ih
-百獸率舞	bo uz k wu
+百獸率舞	bo uz uk wu
 百盛	bo ug
 百舍重繭	bo ue is jm
 百舍重趼	bo ue is jm
@@ -23406,7 +23411,7 @@ sort: by_weight
 盍簪	gd zj
 盍簪	he zj
 盎格魯撒克遜人	ah ge lu sa ke sy rf
-盛不忘衰	ig bu wh k
+盛不忘衰	ig bu wh uk
 盛世	ig ui
 盛事	ig ui
 盛京	ig jk
@@ -23419,12 +23424,12 @@ sort: by_weight
 盛器	ig qi
 盛夏	ig xx
 盛大	ig da
-盛宣懷	ig xr k
+盛宣懷	ig xr hk
 盛宴	ig yj
 盛年	ig nm
 盛德不泯	ig de bu mb
 盛德遺範	ig de yi fj
-盛必慮衰	ig bi lv k
+盛必慮衰	ig bi lv uk
 盛怒	ig nu
 盛情	ig qk
 盛情難卻	ig qk nj qt
@@ -23436,7 +23441,7 @@ sort: by_weight
 盛服	ig fu
 盛果期	ig go qi
 盛極一時	ig ji yi ui
-盛極必衰	ig ji bi k
+盛極必衰	ig ji bi uk
 盛殮	ig lm
 盛氣	ig qi
 盛氣凌人	ig qi lk rf
@@ -23455,12 +23460,12 @@ sort: by_weight
 盛舉	ig ju
 盛著	ig vu
 盛行	ig xk
-盛衰	ig k
-盛衰利害	ig k li hd
-盛衰榮枯	ig k rs ku
-盛衰榮辱	ig k rs ru
-盛衰相乘	ig k xl ig
-盛衰興廢	ig k xk fw
+盛衰	ig uk
+盛衰利害	ig uk li hd
+盛衰榮枯	ig uk rs ku
+盛衰榮辱	ig uk rs ru
+盛衰相乘	ig uk xl ig
+盛衰興廢	ig uk xk fw
 盛裝	ig vl
 盛譽	ig yv
 盛譽	ig yu
@@ -23473,7 +23478,7 @@ sort: by_weight
 盛飾嚴裝	ig ui yj vl
 盛饌	ig vr
 盛鬋	ig jm
-盛不忘衰	ug bu wh k
+盛不忘衰	ug bu wh uk
 盛世	ug ui
 盛事	ug ui
 盛京	ug jk
@@ -23486,12 +23491,12 @@ sort: by_weight
 盛器	ug qi
 盛夏	ug xx
 盛大	ug da
-盛宣懷	ug xr k
+盛宣懷	ug xr hk
 盛宴	ug yj
 盛年	ug nm
 盛德不泯	ug de bu mb
 盛德遺範	ug de yi fj
-盛必慮衰	ug bi lv k
+盛必慮衰	ug bi lv uk
 盛怒	ug nu
 盛情	ug qk
 盛情難卻	ug qk nj qt
@@ -23503,7 +23508,7 @@ sort: by_weight
 盛服	ug fu
 盛果期	ug go qi
 盛極一時	ug ji yi ui
-盛極必衰	ug ji bi k
+盛極必衰	ug ji bi uk
 盛殮	ug lm
 盛氣	ug qi
 盛氣凌人	ug qi lk rf
@@ -23522,12 +23527,12 @@ sort: by_weight
 盛舉	ug ju
 盛著	ug vu
 盛行	ug xk
-盛衰	ug k
-盛衰利害	ug k li hd
-盛衰榮枯	ug k rs ku
-盛衰榮辱	ug k rs ru
-盛衰相乘	ug k xl ig
-盛衰興廢	ug k xk fw
+盛衰	ug uk
+盛衰利害	ug uk li hd
+盛衰榮枯	ug uk rs ku
+盛衰榮辱	ug uk rs ru
+盛衰相乘	ug uk xl ig
+盛衰興廢	ug uk xk fw
 盛裝	ug vl
 盛譽	ug yv
 盛譽	ug yu
@@ -23588,7 +23593,7 @@ sort: by_weight
 直捷了當	vi jp ln dh
 直接了當	vi jp ln dh
 直效行銷	vi xn xk xn
-直率	vi k
+直率	vi uk
 直着	vi vo
 直節勁氣	vi jp jk qi
 直行	vi xk
@@ -23616,7 +23621,7 @@ sort: by_weight
 相機行事	xl ji xk ui
 相熟	xl uu
 相狎	xl xx
-相率	xl k
+相率	xl uk
 相着	xl vo
 相稱	xl if
 相稱	xl ig
@@ -23688,7 +23693,7 @@ sort: by_weight
 真情流露	vf qk lq lu
 真溶液	vf rs ye
 真溶液	vf rs yi
-真率	vf k
+真率	vf uk
 真空泵	vf ks bg
 真贗	vf yj
 真鯛	vf dn
@@ -24009,7 +24014,7 @@ sort: by_weight
 睡虎地秦簡	uv hu di qb jm
 睡覺前	uv jn qm
 睡長覺	uv ih jn
-督率	du k
+督率	du uk
 督緝	du ji
 督緝	du qi
 睪丸	gc wj
@@ -24529,12 +24534,12 @@ sort: by_weight
 禪讓	uj rh
 禬禳	gv rh
 禬禳	hv rh
-禮壞樂崩	li k yt bg
-禮壞樂缺	li k yt qt
-禮崩樂壞	li bg yt k
+禮壞樂崩	li hk yt bg
+禮壞樂缺	li hk yt qt
+禮崩樂壞	li bg yt hk
 禮廢樂崩	li fw yt bg
 禮樂	li yt
-禮樂崩壞	li yt bg k
+禮樂崩壞	li yt bg hk
 禮樂爲鉤	li yt ww gz
 禮聘	li pb
 禮行貨	li xk ho
@@ -24596,7 +24601,7 @@ sort: by_weight
 秦吉了	qb ji ln
 秦朝	qb ic
 秦檜	qb hv
-秦檜	qb k
+秦檜	qb kk
 秦王破陣樂	qb wh po vf yt
 秦艽	qb jn
 秧秧蹌蹌	yh yh ql ql
@@ -24707,7 +24712,7 @@ sort: by_weight
 種畜	vs iu
 稱心	if xb
 稱心如意	if xb ru yi
-稱心快意	if xb k yi
+稱心快意	if xb kk yi
 稱心滿志	if xb mj vi
 稱心滿意	if xb mj yi
 稱意	if yi
@@ -24718,7 +24723,7 @@ sort: by_weight
 稱願	if yr
 稱心	ig xb
 稱心如意	ig xb ru yi
-稱心快意	ig xb k yi
+稱心快意	ig xb kk yi
 稱心滿志	ig xb mj vi
 稱心滿意	ig xb mj yi
 稱意	ig yi
@@ -24996,7 +25001,7 @@ sort: by_weight
 箾韶	xt uc
 節儉力行	jp jm li xk
 節儉躬行	jp jm gs xk
-節日快樂	jp ri k le
+節日快樂	jp ri kk le
 節行瑰奇	jp xk gv qi
 節角	jp jn
 篇什	pm ui
@@ -25080,7 +25085,7 @@ sort: by_weight
 粔籹	jv nv
 粔籹	ju nv
 粗樂	cu yt
-粗率	cu k
+粗率	cu uk
 粗糙	cu cc
 粗肋草	cu le cc
 粗胚	cu pw
@@ -25207,7 +25212,7 @@ sort: by_weight
 紅尾伯勞	gs ww bo lc
 紅榜	gs bh
 紅檜	gs gv
-紅檜	gs k
+紅檜	gs kk
 紅毛番	gs mc fj
 紅線傳	gs xm vr
 紅苕	gs uc
@@ -25224,7 +25229,7 @@ sort: by_weight
 紅尾伯勞	hs ww bo lc
 紅榜	hs bh
 紅檜	hs gv
-紅檜	hs k
+紅檜	hs kk
 紅毛番	hs mc fj
 紅線傳	hs xm vr
 紅苕	hs uc
@@ -25287,7 +25292,7 @@ sort: by_weight
 素藉	su ji
 素行	su xk
 素行不良	su xk bu ll
-素隱行怪	su yb xk k
+素隱行怪	su yb xk gk
 素面朝天	su mm ic tm
 素馨	su xk
 紡縳	fh vr
@@ -25296,7 +25301,7 @@ sort: by_weight
 索米長安	so mi ih an
 索還	so hr
 索還債款	so hr vd kr
-索隱行怪	so yb xk k
+索隱行怪	so yb xk gk
 紫塞	zi sd
 紫花地丁	zi hx di dk
 紫菀	zi wj
@@ -25428,7 +25433,7 @@ sort: by_weight
 絮聒	xu gx
 統括	ts gx
 統括	ts ko
-統率	ts k
+統率	ts uk
 統計地圖	ts ji di tu
 絲瓜絡	si gx lc
 絲竹樂	si vu yt
@@ -25449,7 +25454,7 @@ sort: by_weight
 經幢	jk il
 經濟地理學	jk ji di li xt
 經濟增長	jk ji zg vh
-經濟怪獸	jk ji k iz
+經濟怪獸	jk ji gk iz
 經濟成長	jk ji ig vh
 經濟成長率	jk ji ig vh lv
 經濟運行	jk ji yy xk
@@ -25613,8 +25618,8 @@ sort: by_weight
 縑緗黃卷	qm xl hl jr
 縗墨	cv mo
 縗絰	cv dp
-縗墨	k mo
-縗絰	k dp
+縗墨	uk mo
+縗絰	uk dp
 縠紋	gu wf
 縠紋	hu wf
 縣圃	xm pu
@@ -25946,7 +25951,7 @@ sort: by_weight
 罪逆深重	zv ni uf vs
 罫紙	gx vi
 罫紙	hx vi
-置之死地而後快	vi vi si di er hz k
+置之死地而後快	vi vi si di er hz kk
 置之死地而後生	vi vi si di er hz ug
 置地	vi di
 置足之地	vi zu vi di
@@ -26035,8 +26040,8 @@ sort: by_weight
 羚羊掛角	lk yh gx jn
 羞惡	xq wu
 羞惡之心	xq wu vi xb
-羞與噲伍	xq yv k wu
-羞與噲伍	xq yu k wu
+羞與噲伍	xq yv kk wu
+羞與噲伍	xq yu kk wu
 羞靨	xq ye
 羣從	qy cs
 羣從	qy zs
@@ -26301,7 +26306,7 @@ sort: by_weight
 聖朝	ug ic
 聖樂	ug yt
 聖經賢傳	ug jk xm vr
-聖誕快樂	ug dj k le
+聖誕快樂	ug dj kk le
 聖露西亞	ug lu xi ya
 聘任	pb rf
 聘任制	pb rf vi
@@ -26345,7 +26350,7 @@ sort: by_weight
 聯調	lm tn
 聯軸器	lm vz qi
 聰了	cs ln
-聰明乖覺	cs mk k jt
+聰明乖覺	cs mk gk jt
 聲名狼藉	ug mk lh ji
 聲喏	ug re
 聲樂	ug yt
@@ -26545,7 +26550,7 @@ sort: by_weight
 能賺	ng vr
 脅從	xp cs
 脅從	xp zs
-脆快了當	cv k ln dh
+脆快了當	cv kk ln dh
 脆怯	cv qp
 脆薄	cv bo
 脈脈	md mo
@@ -26629,7 +26634,7 @@ sort: by_weight
 腦貧血	nc pb xp
 腦貧血	nc pb xt
 腦鑿子	nc zc zi
-腫噲	vs k
+腫噲	vs kk
 腳不沾地	jn bu vj di
 腳不點地	jn bu dm di
 腳勁	jn jb
@@ -26709,8 +26714,8 @@ sort: by_weight
 膽驚心顫	dj jk xb vj
 膾不厭細	hv bu yj xi
 膾炙人口	hv vi rf kz
-膾不厭細	k bu yj xi
-膾炙人口	k vi rf kz
+膾不厭細	kk bu yj xi
+膾炙人口	kk vi rf kz
 膿血	ng xp
 膿血債	ng xp vd
 膿血	ng xt
@@ -26798,7 +26803,7 @@ sort: by_weight
 自覺遵守	zi jt zy uz
 自賊	zi ze
 自足自給	zi zu zi ji
-自鄶以下	zi k yi xx
+自鄶以下	zi kk yi xx
 自重	zi vs
 自體輸血	zi ti uu xp
 自體輸血	zi ti uu xt
@@ -26836,11 +26841,11 @@ sort: by_weight
 舄奕	xp yi
 舄鹵	xp lu
 與世長辭	yv ui ih ci
-與噲爲伍	yv k ww wu
+與噲爲伍	yv kk ww wu
 與民偕樂	yv mb xp le
 與民同樂	yv mb ts le
 與世長辭	yu ui ih ci
-與噲爲伍	yu k ww wu
+與噲爲伍	yu kk ww wu
 與民偕樂	yu mb xp le
 與民同樂	yu mb ts le
 興嗟	xk jp
@@ -26987,22 +26992,22 @@ sort: by_weight
 良馬見鞭影而行	ll ma jm bm yk er xk
 色子	se zi
 色彈	se dj
-色衰愛弛	se k ad ui
-色衰愛弛	se k ai ui
+色衰愛弛	se uk ad ui
+色衰愛弛	se uk ai ui
 色覺	se jt
 色調	se dn
 色長	se vh
 色子	ud zi
 色彈	ud dj
-色衰愛弛	ud k ad ui
-色衰愛弛	ud k ai ui
+色衰愛弛	ud uk ad ui
+色衰愛弛	ud uk ai ui
 色覺	ud jt
 色調	ud dn
 色長	ud vh
 色子	ue zi
 色彈	ue dj
-色衰愛弛	ue k ad ui
-色衰愛弛	ue k ai ui
+色衰愛弛	ue uk ad ui
+色衰愛弛	ue uk ai ui
 色覺	ue jt
 色調	ue dn
 色長	ue vh
@@ -27263,9 +27268,9 @@ sort: by_weight
 草檄	cc xi
 草滿囹圄	cc mj lk yv
 草滿囹圄	cc mj lk yu
-草率	cc k
-草率將事	cc k jl ui
-草率收兵	cc k uz bk
+草率	cc uk
+草率將事	cc uk jl ui
+草率收兵	cc uk uz bk
 草紇繨	cc ge da
 草芥	cc jp
 草草了事	cc cc ln ui
@@ -27698,7 +27703,7 @@ sort: by_weight
 葉一茜	ue yi qm
 葉公好龍	ue gs hc ls
 葉名琛	ue mk if
-葉塊繁殖	ue k fj vi
+葉塊繁殖	ue kk fj vi
 葉子菸	ue zi yj
 葉尼塞河	ue ni se he
 葉盛蘭	ue ug lj
@@ -27709,7 +27714,7 @@ sort: by_weight
 葉一茜	ye yi qm
 葉公好龍	ye gs hc ls
 葉名琛	ye mk if
-葉塊繁殖	ye k fj vi
+葉塊繁殖	ye kk fj vi
 葉子菸	ye zi yj
 葉尼塞河	ye ni se he
 葉盛蘭	ye ug lj
@@ -27826,7 +27831,7 @@ sort: by_weight
 蒪苴	po jv
 蒪苴	po ju
 蒯通	jk ts
-蒯通	k ts
+蒯通	kk ts
 蒲隆地	pu ls di
 蒲隆地共和國	pu ls di gs he go
 蒲鞵	pu xp
@@ -27866,9 +27871,9 @@ sort: by_weight
 蓮花樂	lm hx le
 蓮花落	lm hx lc
 蓴科	iy ke
-蓴羹鱸膾	iy gg lu k
+蓴羹鱸膾	iy gg lu kk
 蓴科	vr ke
-蓴羹鱸膾	vr gg lu k
+蓴羹鱸膾	vr gg lu kk
 蓼科	ln ke
 蓼花	ln hx
 蓼莪	ln ee
@@ -28270,7 +28275,7 @@ sort: by_weight
 藉甚	ji uf
 藉端	ji dr
 藉箸代籌	ji vu dd iz
-藉草枕塊	ji cc vf k
+藉草枕塊	ji cc vf kk
 藉藉	ji ji
 藉詞	ji ci
 藉助	jp vu
@@ -28284,7 +28289,7 @@ sort: by_weight
 藉甚	jp uf
 藉端	jp dr
 藉箸代籌	jp vu dd iz
-藉草枕塊	jp cc vf k
+藉草枕塊	jp cc vf kk
 藉藉	jp ji
 藉詞	jp ci
 藋粱	di ll
@@ -28306,7 +28311,7 @@ sort: by_weight
 藏品	ch pb
 藏器待時	ch qi dd ui
 藏在	ch zd
-藏垢懷恥	ch gz k ii
+藏垢懷恥	ch gz hk ii
 藏垢納污	ch gz na wu
 藏奸	ch jm
 藏嬌	ch jn
@@ -28374,7 +28379,7 @@ sort: by_weight
 藏品	zh pb
 藏器待時	zh qi dd ui
 藏在	zh zd
-藏垢懷恥	zh gz k ii
+藏垢懷恥	zh gz hk ii
 藏垢納污	zh gz na wu
 藏奸	zh jm
 藏嬌	zh jn
@@ -28823,8 +28828,8 @@ sort: by_weight
 蟄陷	vi xm
 蟄雷	vi lw
 蟊賊	mc ze
-蟋蟀	xi k
-蟋蟀草	xi k cc
+蟋蟀	xi uk
+蟋蟀草	xi uk cc
 蟑螂	vh lh
 蟛螖	pg hx
 蟠虯紋	pj qq wf
@@ -29757,7 +29762,7 @@ sort: by_weight
 衣錦還鄉	yi jb hr xl
 衣食住行	yi ui vu xk
 表揭	bn jp
-表率	bn k
+表率	bn uk
 表識	bn vi
 表露	bn lu
 衾枕之樂	qb vf vi le
@@ -29785,11 +29790,11 @@ sort: by_weight
 被肩	bw jm
 被虐待狂	bw nt dd kl
 被褐	bw he
-被褐懷寶	bw he k bc
-被褐懷玉	bw he k yv
-被褐懷玉	bw he k yu
-被褐懷珠	bw he k vu
-被褐懷金	bw he k jb
+被褐懷寶	bw he hk bc
+被褐懷玉	bw he hk yv
+被褐懷玉	bw he hk yu
+被褐懷珠	bw he hk vu
+被褐懷金	bw he hk jb
 被褐藏輝	bw he ch hv
 被頭散髮	bw tz sj fa
 被髮	bw fa
@@ -29809,11 +29814,11 @@ sort: by_weight
 被肩	pi jm
 被虐待狂	pi nt dd kl
 被褐	pi he
-被褐懷寶	pi he k bc
-被褐懷玉	pi he k yv
-被褐懷玉	pi he k yu
-被褐懷珠	pi he k vu
-被褐懷金	pi he k jb
+被褐懷寶	pi he hk bc
+被褐懷玉	pi he hk yv
+被褐懷玉	pi he hk yu
+被褐懷珠	pi he hk vu
+被褐懷金	pi he hk jb
 被褐藏輝	pi he ch hv
 被頭散髮	pi tz sj fa
 被髮	pi fa
@@ -30204,8 +30209,8 @@ sort: by_weight
 親家老爺	qb jx lc ye
 親房	qb fh
 親爹	qb dp
-親率	qb k
-親痛仇快	qb ts iz k
+親率	qb uk
+親痛仇快	qb ts iz kk
 親翁	qb wg
 親著	qb vu
 親太太	qk td td
@@ -30219,8 +30224,8 @@ sort: by_weight
 親家老爺	qk jx lc ye
 親房	qk fh
 親爹	qk dp
-親率	qk k
-親痛仇快	qk ts iz k
+親率	qk uk
+親痛仇快	qk ts iz kk
 親翁	qk wg
 親著	qk vu
 覬倖	ji xk
@@ -30555,7 +30560,7 @@ sort: by_weight
 訃音	fu yb
 計功行賞	ji gs xk uh
 計日而俟	ji ri er si
-計會	ji k
+計會	ji kk
 計稟	ji bk
 計簿	ji bu
 計行慮義	ji xk lv yi
@@ -30653,12 +30658,12 @@ sort: by_weight
 詩書禮樂	ui uu li yt
 詩讖	ui if
 詩酒朋儕	ui jq pg id
-詭怪奇譎	gv k qi jt
+詭怪奇譎	gv gk qi jt
 詭戾	gv li
 詭祕	gv mi
 詭譎	gv jt
 詭譎多變	gv jt do bm
-詭譎怪誕	gv jt k dj
+詭譎怪誕	gv jt gk dj
 詭譎無行	gv jt wu xk
 詰問	ji wf
 詰屈	ji qv
@@ -31023,7 +31028,7 @@ sort: by_weight
 調風弄月	dn fg ns yt
 調風月	dn fg yt
 調風變俗	dn fg bm su
-調風貼怪	dn fg tp k
+調風貼怪	dn fg tp gk
 調養	dn yh
 調養生息	dn yh ug xi
 調駐	dn vu
@@ -31205,7 +31210,7 @@ sort: by_weight
 調風弄月	tn fg ns yt
 調風月	tn fg yt
 調風變俗	tn fg bm su
-調風貼怪	tn fg tp k
+調風貼怪	tn fg tp gk
 調養	tn yh
 調養生息	tn yh ug xi
 調駐	tn vu
@@ -31403,7 +31408,7 @@ sort: by_weight
 謾天謾地	mj tm mj di
 謾罵叫囂	mj ma jn xn
 譁囂	hx xn
-譎怪之談	jv k vi tj
+譎怪之談	jv gk vi tj
 譎而不正	jv er bu vg
 譎詐	jv va
 譎詭	jv gv
@@ -31411,7 +31416,7 @@ sort: by_weight
 譎諫	jv jm
 譎譬	jv pi
 譎辭	jv ci
-譎怪之談	ju k vi tj
+譎怪之談	ju gk vi tj
 譎而不正	ju er bu vg
 譎詐	ju va
 譎詭	ju gv
@@ -31419,7 +31424,7 @@ sort: by_weight
 譎諫	ju jm
 譎譬	ju pi
 譎辭	ju ci
-譎怪之談	jt k vi tj
+譎怪之談	jt gk vi tj
 譎而不正	jt er bu vg
 譎詐	jt va
 譎詭	jt gv
@@ -31636,7 +31641,7 @@ sort: by_weight
 財多勢重	cd do ui vs
 財多命殆	cd do mk dd
 財政部長	cd vg bu vh
-財會	cd k
+財會	cd kk
 財長	cd vh
 貢獻率	gs xm lv
 貢禹彈冠	gs yv tj gr
@@ -31772,7 +31777,7 @@ sort: by_weight
 賈人	gu rf
 賈人渡河	gu rf du he
 賈似道	gu si dc
-賈儈	gu k
+賈儈	gu kk
 賈儒商秀	gu ru uh xq
 賈利	gu li
 賈勇	gu ys
@@ -31786,7 +31791,7 @@ sort: by_weight
 賈人	jx rf
 賈人渡河	jx rf du he
 賈似道	jx si dc
-賈儈	jx k
+賈儈	jx kk
 賈儒商秀	jx ru uh xq
 賈利	jx li
 賈勇	jx ys
@@ -31904,7 +31909,7 @@ sort: by_weight
 賺取	vr qv
 賺取	vr qu
 賺哄	vr hs
-賺外快	vr wd k
+賺外快	vr wd kk
 賺大錢	vr da qm
 賺弄	vr ns
 賺得	vr de
@@ -31920,7 +31925,7 @@ sort: by_weight
 賺取	zr qv
 賺取	zr qu
 賺哄	zr hs
-賺外快	zr wd k
+賺外快	zr wd kk
 賺大錢	zr da qm
 賺弄	zr ns
 賺得	zr de
@@ -32394,7 +32399,7 @@ sort: by_weight
 躩躍	jt yt
 躪藉	lb jp
 身家調查	jr jx dn ia
-身懷六甲	jr k lu jx
+身懷六甲	jr hk lu jx
 身段勻稱	jr dr yy if
 身毒	jr du
 身無擇行	jr wu ze xk
@@ -32404,7 +32409,7 @@ sort: by_weight
 身陷縲絏	jr xm lw xp
 身體力行	jr ti li xk
 身家調查	uf jx dn ia
-身懷六甲	uf k lu jx
+身懷六甲	uf hk lu jx
 身段勻稱	uf dr yy if
 身毒	uf du
 身無擇行	uf wu ze xk
@@ -32413,7 +32418,7 @@ sort: by_weight
 身長	uf ih
 身陷縲絏	uf xm lw xp
 身體力行	uf ti li xk
-躬先表率	gs xm bn k
+躬先表率	gs xm bn uk
 躬耕樂道	gs gg le dc
 躬自菲薄	gs zi fw bo
 躬行	gs xk
@@ -32627,7 +32632,7 @@ sort: by_weight
 輕徭薄稅	qk yc bo uv
 輕徭薄賦	qk yc bo fu
 輕浪浮薄	qk lh fu bo
-輕率	qk k
+輕率	qk uk
 輕生重義	qk ug vs yi
 輕薄	qk bo
 輕薄無知	qk bo wu vi
@@ -33085,7 +33090,7 @@ sort: by_weight
 過屠門而大嚼	go tu mf er da jt
 過得着	go de vc
 過晌	go uh
-過盛必衰	go ug bi k
+過盛必衰	go ug bi uk
 過重	go vs
 過長	go ih
 過隙	go xi
@@ -33228,10 +33233,10 @@ sort: by_weight
 還席	hd xi
 還帳	hd vh
 還得	hd dw
-還得快	hd dw k
+還得快	hd dw kk
 還得起	hd dw qi
 還得	hd de
-還得快	hd de k
+還得快	hd de kk
 還得起	hd de qi
 還忌	hd ji
 還性	hd xk
@@ -33303,10 +33308,10 @@ sort: by_weight
 還席	hr xi
 還帳	hr vh
 還得	hr dw
-還得快	hr dw k
+還得快	hr dw kk
 還得起	hr dw qi
 還得	hr de
-還得快	hr de k
+還得快	hr de kk
 還得起	hr de qi
 還忌	hr ji
 還性	hr xk
@@ -33378,10 +33383,10 @@ sort: by_weight
 還席	xr xi
 還帳	xr vh
 還得	xr dw
-還得快	xr dw k
+還得快	xr dw kk
 還得起	xr dw qi
 還得	xr de
-還得快	xr de k
+還得快	xr de kk
 還得起	xr de qi
 還忌	xr ji
 還性	xr xk
@@ -35712,7 +35717,7 @@ sort: by_weight
 門檻	mf kj
 門檻條款	mf kj tn kr
 門簿	mf bu
-門衰祚薄	mf k zo bo
+門衰祚薄	mf uk zo bo
 門鈸	mf ba
 門鎗	mf ql
 門隙	mf xi
@@ -36135,7 +36140,7 @@ sort: by_weight
 陰曹地府	aj cc di fu
 陰沈	aj if
 陰沈沈	aj if if
-陰盛陽衰	aj ug yh k
+陰盛陽衰	aj ug yh uk
 陰調	aj dn
 陰識	aj vi
 陰賊	aj ze
@@ -36154,7 +36159,7 @@ sort: by_weight
 陰曹地府	an cc di fu
 陰沈	an if
 陰沈沈	an if if
-陰盛陽衰	an ug yh k
+陰盛陽衰	an ug yh uk
 陰調	an dn
 陰識	an vi
 陰賊	an ze
@@ -36173,7 +36178,7 @@ sort: by_weight
 陰曹地府	yb cc di fu
 陰沈	yb if
 陰沈沈	yb if if
-陰盛陽衰	yb ug yh k
+陰盛陽衰	yb ug yh uk
 陰調	yb dn
 陰識	yb vi
 陰賊	yb ze
@@ -36297,7 +36302,7 @@ sort: by_weight
 陸陸續續	lq lu xu xv
 陸陸續續	lq lu xu xu
 陸離	lq li
-陸離光怪	lq li gl k
+陸離光怪	lq li gl gk
 陸離斑駁	lq li bj bo
 陸雲	lq yy
 陸風	lq fg
@@ -36356,7 +36361,7 @@ sort: by_weight
 陸陸續續	lu lu xu xv
 陸陸續續	lu lu xu xu
 陸離	lu li
-陸離光怪	lu li gl k
+陸離光怪	lu li gl gk
 陸離斑駁	lu li bj bo
 陸雲	lu yy
 陸風	lu fg
@@ -36444,8 +36449,8 @@ sort: by_weight
 隘路	ga lu
 隘險	ga xm
 隙地	qi di
-隙大牆壞	qi da ql k
-隙大而牆壞	qi da er ql k
+隙大牆壞	qi da ql hk
+隙大而牆壞	qi da er ql hk
 隙宇	qi yv
 隙宇	qi yu
 隙縫	qi fg
@@ -36453,8 +36458,8 @@ sort: by_weight
 隙駒	qi jv
 隙駒	qi ju
 隙地	xi di
-隙大牆壞	xi da ql k
-隙大而牆壞	xi da er ql k
+隙大牆壞	xi da ql hk
+隙大而牆壞	xi da er ql hk
 隙宇	xi yv
 隙宇	xi yu
 隙縫	xi fg
@@ -36570,7 +36575,7 @@ sort: by_weight
 雜廁	za ci
 雜沓	za ta
 雜糅	za rz
-雜膾	za k
+雜膾	za kk
 雜著	za vu
 雞尸牛從	ji ui nq cs
 雞尸牛從	ji ui nq zs
@@ -37301,7 +37306,7 @@ sort: by_weight
 飛也似的	fw ye si de
 飛地	fw di
 飛彈	fw dj
-飛彈快艇	fw dj k tk
+飛彈快艇	fw dj kk tk
 飛撾	fw vx
 飛書走檄	fw uu zz xi
 飛書馳檄	fw uu ii xi
@@ -37567,7 +37572,7 @@ sort: by_weight
 駁犖	bo lo
 駁詰	bo jp
 駃騠	jt ti
-駃騠	k ti
+駃騠	kk ti
 駐劄	vu va
 駐劄國	vu va go
 駐地	vu di
@@ -37575,11 +37580,11 @@ sort: by_weight
 駐紮	vu va
 駐防地	vu fh di
 駑駘	nu td
-駔儈	ch k
+駔儈	ch kk
 駔子	ch zi
-駔儈	zh k
+駔儈	zh kk
 駔子	zh zi
-駔儈	zu k
+駔儈	zu kk
 駔子	zu zi
 駕輕就熟	jx qk jq uu
 駕長	jx vh
@@ -37598,7 +37603,7 @@ sort: by_weight
 駪駪	xm uf
 騁兇騁勢	ig xs ig ui
 騁強背理	ig ql bw li
-騁懷	ig k
+騁懷	ig hk
 騁望	ig wh
 騁目	ig mu
 騁能	ig ng
@@ -37608,7 +37613,7 @@ sort: by_weight
 騁騖	ig wu
 騁兇騁勢	pb xs ig ui
 騁強背理	pb ql bw li
-騁懷	pb k
+騁懷	pb hk
 騁望	pb wh
 騁目	pb mu
 騁能	pb ng
@@ -37835,7 +37840,7 @@ sort: by_weight
 鬢角	bb jn
 鬥勁	dz jb
 鬥地主	dz di vu
-鬥蟋蟀	dz xi k
+鬥蟋蟀	dz xi uk
 鬧垓垓	nc gd gd
 鬩牆	dz ql
 鬩牆之禍	dz ql vi ho
@@ -38004,7 +38009,7 @@ sort: by_weight
 鱣舍	uj ue
 鱣堂	vj th
 鱣舍	vj ue
-鱸鱠	lu k
+鱸鱠	lu kk
 鳥人	dn rf
 鳥散魚潰	dn sj yv kv
 鳥散魚潰	dn sj yu kv
@@ -38054,7 +38059,7 @@ sort: by_weight
 鳩僭鵲巢	jq jm qt ic
 鳩形鵠面	jq xk hu mm
 鳩摩羅什	jq mo lo ui
-鳩率	jq k
+鳩率	jq uk
 鳳冠霞帔	fg gr xx pw
 鳳泊鸞飄	fg bo lr pn
 鳳爪	fg vc
@@ -38645,10 +38650,10 @@ sort: by_weight
 龍無雲而不行	ls wu yy er bu xk
 龍爪	ls vc
 龍爪書	ls vc uu
-龍爪槐	ls vc k
+龍爪槐	ls vc hk
 龍爪	ls vx
 龍爪書	ls vx uu
-龍爪槐	ls vx k
+龍爪槐	ls vx hk
 龍眼乾	ls yj gj
 龍藏	ls zh
 龍藏寺碑	ls zh si bw

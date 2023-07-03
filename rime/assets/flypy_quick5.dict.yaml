@@ -28,7 +28,7 @@
 
 ---
 name: flypy_quick5
-version: "2023.07.02"
+version: "2023.07.03"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:

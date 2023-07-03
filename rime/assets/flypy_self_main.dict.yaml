@@ -282,7 +282,7 @@ sort: by_weight
 㔚	jp
 㔜	ba
 㔝	ll
-㔞	k
+㔞	kk
 㔠	he
 㔠	xx
 㔡	bp
@@ -345,7 +345,7 @@ sort: by_weight
 㕛	xu
 㕜	ui
 㕞	ux
-㕟	k
+㕟	kk
 㕟	kv
 㕠	ul
 㕡	ho
@@ -601,7 +601,7 @@ sort: by_weight
 㙓	kv
 㙔	hj
 㙔	ww
-㙕	k
+㙕	kk
 㙗	ww
 㙘	yc
 㙙	ls
@@ -835,7 +835,7 @@ sort: by_weight
 㜰	yt
 㜱	vi
 㜲	yk
-㜳	k
+㜳	hk
 㜴	mg
 㜵	nn
 㜶	wj
@@ -1034,7 +1034,7 @@ sort: by_weight
 㟱	yc
 㟲	yr
 㟳	li
-㟴	k
+㟴	kk
 㟵	gh
 㟶	yr
 㟷	da
@@ -1083,7 +1083,7 @@ sort: by_weight
 㠟	li
 㠠	lv
 㠡	nn
-㠢	k
+㠢	hk
 㠣	li
 㠥	lw
 㠥	lv
@@ -1556,7 +1556,7 @@ sort: by_weight
 㧒	yv
 㧒	yu
 㧓	gx
-㧔	k
+㧔	gk
 㧕	lq
 㧖	ee
 㧗	ji
@@ -1567,7 +1567,7 @@ sort: by_weight
 㧙	bp
 㧚	wa
 㧜	lp
-㧟	k
+㧟	kk
 㧡	hd
 㧢	yb
 㧣	vu
@@ -1774,7 +1774,7 @@ sort: by_weight
 㪐	lu
 㪑	ye
 㪒	ni
-㪓	k
+㪓	ik
 㪔	sj
 㪕	dn
 㪖	lu
@@ -1783,7 +1783,7 @@ sort: by_weight
 㪙	ke
 㪚	sj
 㪛	vf
-㪜	k
+㪜	ik
 㪜	do
 㪝	lm
 㪞	mc
@@ -2262,7 +2262,7 @@ sort: by_weight
 㱫	lj
 㱬	ww
 㱭	dr
-㱮	k
+㱮	kk
 㱯	ad
 㱯	ai
 㱰	zd
@@ -2325,7 +2325,7 @@ sort: by_weight
 㲠	mc
 㲡	nd
 㲢	bm
-㲤	k
+㲤	uk
 㲥	th
 㲦	hj
 㲧	sc
@@ -2754,7 +2754,7 @@ sort: by_weight
 㹞	ya
 㹞	yb
 㹟	jt
-㹟	k
+㹟	kk
 㹠	ty
 㹡	xr
 㹢	ga
@@ -3094,7 +3094,7 @@ sort: by_weight
 㾨	ai
 㾨	qi
 㾨	yi
-㾩	k
+㾩	gk
 㾪	ug
 㾫	pm
 㾭	vz
@@ -3399,7 +3399,7 @@ sort: by_weight
 䂬	gs
 䂭	qn
 䂮	lt
-䂯	k
+䂯	gk
 䂰	la
 䂱	rv
 䂲	fa
@@ -3408,7 +3408,7 @@ sort: by_weight
 䂴	yj
 䂵	gs
 䂶	jp
-䂷	k
+䂷	gk
 䂸	go
 䂹	so
 䂺	ke
@@ -3480,8 +3480,9 @@ sort: by_weight
 䃳	lp
 䃴	vu
 䃵	nn
-䃶	k
+䃶	gk
 䃶	gv
+䃶	hk
 䃷	yk
 䃸	jb
 䃹	lj
@@ -3816,7 +3817,7 @@ sort: by_weight
 䈘	ci
 䈙	vz
 䈚	td
-䈛	k
+䈛	kk
 䈜	qb
 䈝	xv
 䈝	xu
@@ -3837,7 +3838,7 @@ sort: by_weight
 䈪	xi
 䈫	na
 䈬	pu
-䈭	k
+䈭	hk
 䈭	sz
 䈮	jv
 䈮	ju
@@ -3988,7 +3989,7 @@ sort: by_weight
 䊺	hu
 䊻	gj
 䊼	ii
-䊽	k
+䊽	gk
 䊽	jt
 䊾	mu
 䊿	bo
@@ -4585,14 +4586,14 @@ sort: by_weight
 䓏	fu
 䓐	iy
 䓑	pk
-䓒	k
+䓒	kk
 䓓	iz
 䓕	to
 䓖	qs
 䓗	cs
 䓘	gc
 䓘	jq
-䓙	k
+䓙	gk
 䓙	kx
 䓚	cu
 䓚	qv
@@ -5669,7 +5670,7 @@ sort: by_weight
 䢣	yc
 䢤	uu
 䢥	yj
-䢦	k
+䢦	uk
 䢧	ln
 䢨	cs
 䢨	zs
@@ -5949,7 +5950,7 @@ sort: by_weight
 䦡	hr
 䦢	ko
 䦣	fu
-䦤	k
+䦤	ik
 䦥	xm
 䦦	qb
 䦧	dz
@@ -5972,7 +5973,7 @@ sort: by_weight
 䦴	yi
 䦵	ni
 䦶	vg
-䦷	k
+䦷	ik
 䦹	ui
 䦺	dk
 䦻	zi
@@ -6460,7 +6461,7 @@ sort: by_weight
 䭙	jb
 䭚	il
 䭛	dj
-䭝	k
+䭝	kk
 䭞	yi
 䭟	ye
 䭠	jm
@@ -6609,7 +6610,7 @@ sort: by_weight
 䯢	mo
 䯣	gv
 䯣	kv
-䯤	k
+䯤	kk
 䯥	aj
 䯥	an
 䯥	qi
@@ -6962,7 +6963,7 @@ sort: by_weight
 䴚	gh
 䴛	xn
 䴜	wd
-䴝	k
+䴝	ik
 䴞	di
 䴟	hr
 䴠	yc
@@ -7262,7 +7263,7 @@ sort: by_weight
 乔	jn	0%
 乔	qn	100%
 乕	hu
-乖	k
+乖	gk
 乗	ig
 乗	ug
 乘	ig	99.46%
@@ -7549,7 +7550,7 @@ sort: by_weight
 伙	ho
 会	gv	0%
 会	hv	99.98%
-会	k	0.02%
+会	kk	0.02%
 伛	kz
 伛	yv
 伛	yu
@@ -7666,7 +7667,7 @@ sort: by_weight
 佥	qm
 佧	ka
 佩	pw
-佪	k
+佪	hk
 佪	hv
 佫	ge
 佫	he
@@ -7749,7 +7750,7 @@ sort: by_weight
 侧	ce	99.69%
 侧	vd	0.18%
 侨	qn
-侩	k
+侩	kk
 侪	id
 侫	nk
 侬	ns
@@ -7904,7 +7905,7 @@ sort: by_weight
 倞	jk
 倞	ll
 借	jp
-倠	k
+倠	hk
 倠	hv
 倠	xv
 倠	xu
@@ -8205,7 +8206,7 @@ sort: by_weight
 儆	jk
 儇	hr
 儇	xr
-儈	k
+儈	kk
 儉	jm
 儊	iu
 儋	dj
@@ -8500,7 +8501,7 @@ sort: by_weight
 凵	qv
 凵	qu
 凶	xs
-凷	k
+凷	kk
 凸	dp	0%
 凸	gu	1%
 凸	tu	99%
@@ -8684,7 +8685,7 @@ sort: by_weight
 劈	pi
 劉	lq
 劊	gv
-劊	k
+劊	kk
 劋	cc
 劋	jn
 劋	zc
@@ -8959,7 +8960,7 @@ sort: by_weight
 卙	ji
 博	bo
 卛	lv
-卛	k
+卛	uk
 卛	uo
 卜	bo	0%
 卜	bu	100%
@@ -9140,7 +9141,7 @@ sort: by_weight
 双	ul
 反	fj
 収	uz
-叏	k
+叏	gk
 叏	jt
 叐	bo
 发	fa
@@ -9174,7 +9175,7 @@ sort: by_weight
 另	lk
 叧	go
 叧	kx
-叧	k
+叧	kk
 叨	dc	98.85%
 叨	tc	1.15%
 叩	kz
@@ -9475,7 +9476,7 @@ sort: by_weight
 咯	ge	2.04%
 咯	ka	0%
 咯	lo	3.22%
-咰	k
+咰	uk
 咰	xy
 咱	za	1%
 咱	zj	99%
@@ -9487,7 +9488,7 @@ sort: by_weight
 咴	hv
 咵	kx
 咶	gx
-咶	k
+咶	hk
 咶	ue
 咷	tc
 咸	xm
@@ -9498,7 +9499,7 @@ sort: by_weight
 咻	xu
 咼	go
 咼	kx
-咼	k
+咼	kk
 咽	yj	88.56%
 咽	ye	11.44%
 咾	lc
@@ -9534,7 +9535,7 @@ sort: by_weight
 哕	hv
 哖	nm
 哗	hx
-哙	k
+哙	kk
 哚	do
 哛	ff
 哜	ji
@@ -9790,7 +9791,7 @@ sort: by_weight
 喋	dp
 喌	vz
 喍	id
-喎	k
+喎	kk
 喎	wd
 喏	no	96.02%
 喏	re	3.98%
@@ -10016,7 +10017,7 @@ sort: by_weight
 嘩	hx
 嘪	md
 嘫	rj
-嘬	k	1.47%
+嘬	ik	1.47%
 嘬	zv	0%
 嘬	zo	98.53%
 嘭	pg
@@ -10130,7 +10131,7 @@ sort: by_weight
 噱	jt	10%
 噱	xt	80%
 噲	hv
-噲	k
+噲	kk
 噳	yv
 噳	yu
 噴	ff	0%
@@ -10347,7 +10348,7 @@ sort: by_weight
 圠	ya
 圡	tu
 圢	tk
-圣	k	0%
+圣	gk	0%
 圣	ku	100%
 圣	ug	0%
 圤	pu
@@ -10410,7 +10411,7 @@ sort: by_weight
 坍	tj
 坎	kj
 坏	bw	0%
-坏	k	0%
+坏	hk	0%
 坏	pw	100%
 坏	pi	5%
 坐	zo
@@ -10422,7 +10423,7 @@ sort: by_weight
 坔	di
 坕	jk
 坖	ji
-块	k
+块	kk
 坘	ii
 坘	di
 坙	jk
@@ -10737,7 +10738,7 @@ sort: by_weight
 塈	ji
 塈	xi
 塉	ji
-塊	k
+塊	kk
 塋	yk
 塌	ta
 塍	ig
@@ -10894,7 +10895,8 @@ sort: by_weight
 壈	lj
 壉	jv
 壉	ju
-壊	k
+壊	gk
+壊	hk
 壋	dh
 壌	rh
 壍	qm
@@ -10921,7 +10923,8 @@ sort: by_weight
 壛	yj
 壜	tj
 壝	ww
-壞	k	100%
+壞	gk	0%
+壞	hk	100%
 壟	ls
 壠	ls
 壡	rv
@@ -11011,7 +11014,7 @@ sort: by_weight
 太	td	100%
 太	tv	0%
 夫	fu
-夬	k
+夬	gk
 夬	jt
 夭	ac	0%
 夭	ao	0%
@@ -11749,7 +11752,7 @@ sort: by_weight
 孅	xm
 孆	yk
 孇	ul
-孈	k
+孈	uk
 孈	xi
 孉	jr
 孉	qr
@@ -11794,7 +11797,7 @@ sort: by_weight
 孪	vj
 孫	sy	100%
 孫	xy	0%
-孬	k	0%
+孬	hk	0%
 孬	nc	100%
 孭	mp
 孮	cs
@@ -12597,7 +12600,7 @@ sort: by_weight
 巙	nc
 巚	yj
 巛	ir
-巜	k
+巜	kk
 川	ir
 州	vz
 巟	hl
@@ -12649,7 +12652,7 @@ sort: by_weight
 市	ui
 布	bu
 帄	dk
-帅	k
+帅	uk
 帆	fj
 帇	np
 师	ui
@@ -12685,7 +12688,7 @@ sort: by_weight
 帣	dn
 帣	jr
 帤	ru
-帥	k	100%
+帥	uk	100%
 帥	uo	0%
 带	dd
 帧	vg
@@ -12937,8 +12940,9 @@ sort: by_weight
 廢	fw
 廣	gl
 廤	ku
-廥	k
+廥	gk
 廥	hv
+廥	kk
 廦	bi
 廦	pi
 廧	ql
@@ -13142,7 +13146,7 @@ sort: by_weight
 徇	xy
 很	hf
 徉	yh
-徊	k	88.24%
+徊	hk	88.24%
 徊	hv	11.76%
 律	lv
 後	hz
@@ -13269,7 +13273,7 @@ sort: by_weight
 忩	cs
 忪	ss	100%
 忪	vs	0%
-快	k
+快	kk
 忬	uu
 忭	bm
 忮	vi
@@ -13299,7 +13303,7 @@ sort: by_weight
 忾	xi
 忿	ff
 怀	fu	100%
-怀	k	0%
+怀	hk	0%
 态	td
 怂	ss
 怃	wu
@@ -13359,7 +13363,7 @@ sort: by_weight
 性	xk
 怨	yr
 怩	ni
-怪	k
+怪	gk
 怫	fw	50%
 怫	fu	50%
 怫	bw
@@ -13429,7 +13433,7 @@ sort: by_weight
 恝	qi
 恞	yi
 恟	xs
-恠	k
+恠	gk
 恡	lb
 恢	hv
 恣	ci
@@ -13917,7 +13921,7 @@ sort: by_weight
 懍	lb
 懎	se
 懏	jy
-懐	k
+懐	hk
 懑	mf
 懒	lj
 懓	ad
@@ -13966,7 +13970,7 @@ sort: by_weight
 懴	ij
 懵	mg
 懶	lj
-懷	k
+懷	hk
 懸	xr
 懹	rh
 懺	ij
@@ -14284,7 +14288,7 @@ sort: by_weight
 拎	lk
 拏	na
 拏	nu
-拐	k
+拐	gk
 拑	gj
 拑	qm
 拒	jv
@@ -14352,7 +14356,7 @@ sort: by_weight
 拻	hv
 拼	pb
 拽	ye	0.18%
-拽	k	99.82%
+拽	vk	99.82%
 拾	ue	0.10%
 拾	ui	99.90%
 拿	na
@@ -14667,7 +14671,7 @@ sort: by_weight
 揠	ya
 握	wo
 揢	ke
-揣	k	100%
+揣	ik	100%
 揣	ir	0%
 揤	ji
 揤	jp
@@ -14718,7 +14722,7 @@ sort: by_weight
 搉	qt
 搊	iz
 搋	ii
-搋	k
+搋	ik
 搋	di
 搌	vj
 損	sy
@@ -14825,7 +14829,7 @@ sort: by_weight
 摒	bk
 摒	pk
 摓	fg
-摔	k
+摔	uk
 摕	di
 摕	tu
 摖	ia
@@ -15014,7 +15018,7 @@ sort: by_weight
 擐	hr
 擑	jp
 擒	qb
-擓	k
+擓	kk
 擔	dj
 擕	xi
 擕	xp
@@ -15381,7 +15385,8 @@ sort: by_weight
 旛	fj
 旜	dj
 旜	vj
-旝	k
+旝	gk
+旝	kk
 旞	sv
 旟	yv
 旟	yu
@@ -15755,7 +15760,7 @@ sort: by_weight
 朂	xu
 會	gv	0%
 會	hv	99.98%
-會	k	0.02%
+會	kk	0.02%
 朄	yb
 朅	jp
 朅	qp
@@ -15975,7 +15980,7 @@ sort: by_weight
 枲	xi
 枳	ji
 枳	vi
-枴	k
+枴	gk
 枵	xn
 枵	xq
 架	jx
@@ -16070,7 +16075,7 @@ sort: by_weight
 柷	vu
 柸	pw
 柹	ui
-柺	k
+柺	gk
 査	ia
 査	va
 柼	yc
@@ -16606,7 +16611,7 @@ sort: by_weight
 榰	qi
 榰	vi
 榱	cv
-榱	k
+榱	uk
 榲	wu
 榳	tk
 榴	lq
@@ -16639,7 +16644,7 @@ sort: by_weight
 槎	ia
 槏	jm
 槏	qm
-槐	k
+槐	hk
 槑	mw
 槒	xv
 槒	xu
@@ -16888,7 +16893,7 @@ sort: by_weight
 檛	vx
 檜	gv
 檜	hv
-檜	k
+檜	kk
 檝	ji
 檞	jp
 檞	xp
@@ -16993,7 +16998,7 @@ sort: by_weight
 櫭	jp
 櫮	ee
 櫯	su
-櫰	k
+櫰	hk
 櫱	np
 櫲	yv
 櫲	yu
@@ -17081,7 +17086,7 @@ sort: by_weight
 欱	xx
 欲	yv
 欲	yu
-欳	k
+欳	kk
 欳	yv
 欳	yu
 欴	lh
@@ -17102,7 +17107,7 @@ sort: by_weight
 欻	xu
 欻	yj
 欼	ii
-欼	k
+欼	ik
 欽	qb
 款	kr
 欿	kj
@@ -17816,7 +17821,7 @@ sort: by_weight
 浊	vo
 测	ce
 浌	fa
-浍	k
+浍	kk
 济	ji
 浏	lq
 浐	ij
@@ -18017,7 +18022,7 @@ sort: by_weight
 淬	cv
 淭	qv
 淭	qu
-淮	k
+淮	hk
 淯	yv
 淯	yu
 淰	nm
@@ -18582,7 +18587,7 @@ sort: by_weight
 澬	zi
 澭	ys
 澮	hv
-澮	k
+澮	kk
 澯	cj
 澰	lm
 澱	dm
@@ -18736,7 +18741,7 @@ sort: by_weight
 瀡	sv
 瀢	ww
 瀣	xp
-瀤	k
+瀤	hk
 瀥	gc
 瀥	hc
 瀦	vu
@@ -18872,7 +18877,7 @@ sort: by_weight
 炓	ln
 炔	gv
 炔	jt
-炔	k
+炔	kk
 炔	qt
 炕	kh
 炖	dy
@@ -19653,7 +19658,7 @@ sort: by_weight
 独	du
 狭	xx
 狮	ui
-狯	k
+狯	kk
 狰	vg
 狱	yv
 狱	yu
@@ -19813,7 +19818,7 @@ sort: by_weight
 獨	du
 獩	hv
 獪	hv
-獪	k
+獪	kk
 獫	xm
 獬	xp
 獭	ta
@@ -19822,7 +19827,7 @@ sort: by_weight
 獯	xy
 獰	nk
 獱	bm
-獲	k	0%
+獲	hk	0%
 獲	ho	100%
 獳	nz
 獴	mg
@@ -19849,7 +19854,7 @@ sort: by_weight
 玅	xr
 玆	zi
 率	lv	94.01%
-率	k	5.99%
+率	uk	5.99%
 率	uo	0%
 玈	lu
 玉	yv
@@ -20233,7 +20238,7 @@ sort: by_weight
 璭	yy
 璮	tj
 璯	hv
-璯	k
+璯	kk
 環	hr
 璱	se
 璲	sv
@@ -20380,7 +20385,7 @@ sort: by_weight
 甦	su
 甧	uf
 用	ys
-甩	k
+甩	uk
 甪	lu
 甫	fu
 甬	ys
@@ -20707,7 +20712,7 @@ sort: by_weight
 瘡	il
 瘢	bj
 瘣	hv
-瘣	k
+瘣	kk
 瘣	lw
 瘤	lq
 瘥	id	50%
@@ -20761,8 +20766,9 @@ sort: by_weight
 癍	bj
 癎	xm
 癏	gr
-癐	k
+癐	gk
 癐	gv
+癐	kk
 癑	ng
 癑	ns
 癒	yv
@@ -21226,7 +21232,7 @@ sort: by_weight
 瞹	ad
 瞹	ai
 瞺	hv
-瞺	k
+瞺	kk
 瞻	vj
 瞼	jm	100%
 瞼	lm	0%
@@ -22437,7 +22443,7 @@ sort: by_weight
 筴	jx
 筵	yj
 筶	gc
-筷	k
+筷	kk
 筸	gj
 筸	hj
 筹	iz
@@ -22457,7 +22463,7 @@ sort: by_weight
 箆	bi
 箇	ge
 箈	ii
-箉	k
+箉	gk
 箊	yv
 箊	yu
 箋	jm
@@ -23268,7 +23274,7 @@ sort: by_weight
 縖	hd
 縖	xx
 縗	cv
-縗	k
+縗	uk
 縘	ji
 縘	xi
 縙	rs
@@ -23325,7 +23331,7 @@ sort: by_weight
 繁	fj	99.86%
 繁	po	0.14%
 繂	lv
-繂	k
+繂	uk
 繃	bg
 繄	yi
 繅	sc
@@ -23949,7 +23955,7 @@ sort: by_weight
 耯	ho
 耰	yz
 耱	mo
-耲	k
+耲	hk
 耳	er
 耴	ve
 耵	dk
@@ -24240,7 +24246,7 @@ sort: by_weight
 脉	md	95.29%
 脉	mo	4.71%
 脊	ji
-脍	k
+脍	kk
 脎	sa
 脏	zh
 脐	qi
@@ -24421,7 +24427,7 @@ sort: by_weight
 膔	lu
 膕	go
 膖	ph
-膗	k
+膗	ik
 膗	cv
 膘	bn
 膙	jl
@@ -24473,7 +24479,7 @@ sort: by_weight
 膼	vx
 膽	dj
 膾	hv
-膾	k
+膾	kk
 膿	ng	0%
 膿	ns	100%
 臀	dm	0%
@@ -24566,7 +24572,7 @@ sort: by_weight
 臾	yv
 臾	yu
 臿	ia
-舀	k	0%
+舀	kk	0%
 舀	wd	0%
 舀	yc	100%
 舁	yv
@@ -25122,7 +25128,7 @@ sort: by_weight
 莳	ui
 莴	wo
 莶	xm
-获	k
+获	hk
 获	ho
 莸	yz
 莹	yk
@@ -25449,7 +25455,7 @@ sort: by_weight
 蒮	yv
 蒮	yu
 蒯	jk
-蒯	k
+蒯	kk
 蒰	pj
 蒱	pu
 蒲	pu
@@ -25964,13 +25970,13 @@ sort: by_weight
 蘷	kv
 蘸	jn	0%
 蘸	vj	100%
-蘹	k
+蘹	hk
 蘺	li
 蘻	ji
 蘻	xi
 蘼	mi
 蘽	lw
-蘾	k
+蘾	hk
 蘿	lo
 虀	ji
 虁	kv
@@ -26495,7 +26501,7 @@ sort: by_weight
 螽	vs
 螾	yb
 螿	jl
-蟀	k
+蟀	uk
 蟀	uo
 蟁	wf
 蟂	jn
@@ -26716,7 +26722,7 @@ sort: by_weight
 衮	gy
 衯	ff
 衰	cv	0.59%
-衰	k	99.41%
+衰	uk	99.41%
 衱	ji
 衱	jp
 衲	na
@@ -26969,7 +26975,7 @@ sort: by_weight
 褟	ta
 褠	gz
 褡	da
-褢	k
+褢	hk
 褣	rs
 褤	yr
 褥	ru
@@ -26990,7 +26996,7 @@ sort: by_weight
 褯	jp
 褯	xi
 褰	qm
-褱	k
+褱	hk
 褲	ku
 褳	lm
 褴	lj
@@ -27570,7 +27576,7 @@ sort: by_weight
 諗	nm
 諗	uf
 諘	bn
-諙	k
+諙	hk
 諙	hy
 諚	pm
 諛	yv
@@ -28593,7 +28599,7 @@ sort: by_weight
 跨	kx
 跨	ka
 跩	ui
-跩	k
+跩	vk
 跪	gv
 跫	qs
 跬	kv
@@ -28666,7 +28672,7 @@ sort: by_weight
 踜	lg
 踝	go	0%
 踝	hx	0%
-踝	k	100%
+踝	hk	100%
 踞	jv
 踞	ju
 踟	ii
@@ -28708,7 +28714,7 @@ sort: by_weight
 踷	va
 踸	if
 踸	uf
-踹	k	100%
+踹	ik	100%
 踹	ir	0%
 踹	ur	0%
 踺	jm
@@ -29545,7 +29551,7 @@ sort: by_weight
 郍	no
 郎	lh
 郏	jx
-郐	k
+郐	kk
 郑	vg
 郓	yy
 郔	yj
@@ -29674,7 +29680,7 @@ sort: by_weight
 鄵	cc
 鄵	zc
 鄶	hv
-鄶	k
+鄶	kk
 鄷	fg
 鄸	mg
 鄹	zz
@@ -31975,7 +31981,7 @@ sort: by_weight
 顟	lc
 顟	ln
 顠	pn
-顡	k
+顡	vk
 顢	mj
 顢	pj
 顣	cu
@@ -32408,7 +32414,7 @@ sort: by_weight
 駁	bo
 駂	bc
 駃	jt
-駃	k
+駃	kk
 駄	do
 駄	to
 駅	yi
@@ -32834,7 +32840,7 @@ sort: by_weight
 鬞	ns
 鬟	hr
 鬠	hv
-鬠	k
+鬠	kk
 鬠	ko
 鬠	zg
 鬡	nk
@@ -33232,7 +33238,7 @@ sort: by_weight
 鱞	hr
 鱟	hz
 鱠	hv
-鱠	k
+鱠	kk
 鱡	ze
 鱢	sc
 鱣	uj
@@ -33296,7 +33302,7 @@ sort: by_weight
 鲗	zw
 鲗	ze
 鲘	hz
-鲙	k
+鲙	kk
 鲚	ji
 鲛	jn
 鲜	xm
@@ -34475,7 +34481,7 @@ sort: by_weight
 𠌠	yc
 𠌪	iz
 𠌪	tc
-𠌭	k
+𠌭	uk
 𠌮	ve
 𠌯	li
 𠌰	gd
@@ -34756,7 +34762,7 @@ sort: by_weight
 𠛒	gx
 𠛓	lq
 𠛔	ii
-𠛕	k
+𠛕	gk
 𠛖	ir
 𠛘	li
 𠛙	cu
@@ -34787,7 +34793,7 @@ sort: by_weight
 𠜉	jq
 𠜋	iz
 𠜎	xm
-𠜐	k
+𠜐	kk
 𠜑	dv
 𠜖	lo
 𠜗	xi
@@ -34842,7 +34848,7 @@ sort: by_weight
 𠞤	li
 𠞧	mi
 𠞩	ii
-𠞩	k
+𠞩	uk
 𠞬	gy
 𠞭	lz
 𠞮	il
@@ -34970,7 +34976,7 @@ sort: by_weight
 𠣫	uc
 𠣬	sy
 𠣰	du
-𠣲	k
+𠣲	kk
 𠣳	pc
 𠣺	bc
 𠣾	fu
@@ -35033,7 +35039,7 @@ sort: by_weight
 𠦨	lr
 𠦪	hu
 𠦫	ji
-𠦬	k
+𠦬	gk
 𠦲	ph
 𠧀	vu
 𠧅	bi
@@ -35555,7 +35561,7 @@ sort: by_weight
 𠽲	pj
 𠽵	yv
 𠽵	yu
-𠽶	k
+𠽶	ik
 𠽶	io
 𠽶	cv
 𠽷	za
@@ -35785,7 +35791,7 @@ sort: by_weight
 𡇵	dh
 𡇶	he
 𡇷	td
-𡇸	k
+𡇸	gk
 𡇺	yv
 𡇺	yu
 𡇼	ya
@@ -35890,7 +35896,7 @@ sort: by_weight
 𡌦	fw
 𡌩	da
 𡌩	ta
-𡌪	k
+𡌪	gk
 𡌭	do
 𡌲	gv
 𡌴	vi
@@ -36049,7 +36055,7 @@ sort: by_weight
 𡖣	yb
 𡖤	ij
 𡖧	vi
-𡖪	k
+𡖪	gk
 𡖫	no
 𡖬	uf
 𡖯	su
@@ -36110,7 +36116,7 @@ sort: by_weight
 𡙭	zv
 𡙶	yj
 𡚁	bi
-𡚅	k
+𡚅	kk
 𡚇	yj
 𡚈	ww
 𡚊	hr
@@ -36356,7 +36362,7 @@ sort: by_weight
 𡧥	hu
 𡧦	hg
 𡧨	vu
-𡧩	k
+𡧩	gk
 𡧭	gv
 𡧹	dd
 𡧼	bb
@@ -36824,7 +36830,7 @@ sort: by_weight
 𡼻	dv
 𡼼	ic
 𡼽	yb
-𡼾	k
+𡼾	kk
 𡼿	ku
 𡽁	zv
 𡽂	gu
@@ -37442,10 +37448,10 @@ sort: by_weight
 𢔴	yu
 𢔶	de
 𢔶	dw
-𢕅	k
+𢕅	uk
 𢕋	yr
 𢕎	vh
-𢕑	k
+𢕑	uk
 𢕓	iu
 𢕔	vh
 𢕕	sj
@@ -37727,7 +37733,7 @@ sort: by_weight
 𢢚	kd
 𢢜	ye
 𢢞	ji
-𢢞	k
+𢢞	kk
 𢢞	qi
 𢢹	xs
 𢣉	yi
@@ -38052,7 +38058,7 @@ sort: by_weight
 𢲷	sz
 𢲸	lu
 𢲼	dp
-𢲽	k
+𢲽	ik
 𢲾	bi
 𢲿	vu
 𢳀	ma
@@ -38101,7 +38107,8 @@ sort: by_weight
 𢵌	dv
 𢵥	zc
 𢵧	jm
-𢶀	k
+𢶀	ik
+𢶀	vk
 𢶃	fj
 𢶅	ue
 𢶇	qs
@@ -38111,7 +38118,7 @@ sort: by_weight
 𢶍	sa
 𢶍	za
 𢶑	nn
-𢶒	k
+𢶒	gk
 𢶓	cv
 𢶡	jn
 𢶡	qn
@@ -38288,7 +38295,7 @@ sort: by_weight
 𢾎	iy
 𢾐	uc
 𢾑	yj
-𢾒	k
+𢾒	kk
 𢾔	yt
 𢾦	qi
 𢾧	vg
@@ -38764,7 +38771,7 @@ sort: by_weight
 𣘘	uf
 𣘘	vf
 𣘙	bh
-𣘚	k
+𣘚	uk
 𣘛	dz
 𣘝	qm
 𣘞	hj
@@ -38847,7 +38854,7 @@ sort: by_weight
 𣛶	ua
 𣛷	vj
 𣛸	ze
-𣛹	k
+𣛹	ik
 𣛹	ir
 𣛺	qi
 𣛻	dp
@@ -38912,7 +38919,7 @@ sort: by_weight
 𣟆	ln
 𣟇	xn
 𣟈	iv
-𣟉	k
+𣟉	hk
 𣟊	nn
 𣟋	qm
 𣟌	li
@@ -39054,7 +39061,7 @@ sort: by_weight
 𣤊	la
 𣤋	lz
 𣤌	ii
-𣤌	k
+𣤌	ik
 𣤌	io
 𣤎	yz
 𣤖	ti
@@ -39226,7 +39233,7 @@ sort: by_weight
 𣩱	ke
 𣩴	jl
 𣩷	su
-𣩹	k
+𣩹	hk
 𣩺	yv
 𣩺	yu
 𣩽	rh
@@ -39252,7 +39259,7 @@ sort: by_weight
 𣪹	qt
 𣫀	gu
 𣫈	hu
-𣫉	k
+𣫉	kk
 𣫌	gz
 𣫎	su
 𣫐	iz
@@ -39430,7 +39437,7 @@ sort: by_weight
 𣱼	dc
 𣱽	vf
 𣲀	uj
-𣲂	k
+𣲂	ik
 𣲄	jq
 𣲊	ke
 𣲋	ii
@@ -39458,7 +39465,7 @@ sort: by_weight
 𣲶	nq
 𣲷	ni
 𣲽	rs
-𣲾	k
+𣲾	gk
 𣳀	vi
 𣳃	ji
 𣳜	fj
@@ -39538,7 +39545,7 @@ sort: by_weight
 𣸉	da
 𣸊	yb
 𣸋	qr
-𣸎	k
+𣸎	hk
 𣸏	na
 𣸐	za
 𣸒	ti
@@ -39607,7 +39614,7 @@ sort: by_weight
 𣼟	lu
 𣼠	yj
 𣼦	ze
-𣼧	k
+𣼧	uk
 𣽅	go
 𣽆	vu
 𣽈	ru
@@ -39667,7 +39674,7 @@ sort: by_weight
 𤀝	yu
 𤀣	hr
 𤀤	uj
-𤀤	k
+𤀤	uk
 𤀤	so
 𤀦	la
 𤀨	dz
@@ -40151,7 +40158,7 @@ sort: by_weight
 𤜁	an
 𤜂	gv
 𤜂	ww
-𤜄	k
+𤜄	hk
 𤜇	vj
 𤜉	yk
 𤜊	ge
@@ -40296,7 +40303,7 @@ sort: by_weight
 𤠛	hl
 𤠝	co
 𤠟	ta
-𤠠	k
+𤠠	uk
 𤠪	fu
 𤠫	li
 𤠭	ue
@@ -40835,7 +40842,7 @@ sort: by_weight
 𤸦	ij
 𤸪	ii
 𤸫	yy
-𤸬	k
+𤸬	uk
 𤸮	su
 𤸯	sh
 𤸱	ee
@@ -40878,7 +40885,7 @@ sort: by_weight
 𤹵	dv
 𤹷	dc
 𤹸	qi
-𤺀	k
+𤺀	uk
 𤺃	jn
 𤺃	xn
 𤺃	yc
@@ -41533,7 +41540,7 @@ sort: by_weight
 𥑅	kg
 𥑇	dp
 𥑈	tk
-𥑋	k
+𥑋	gk
 𥑎	qs
 𥑏	ui
 𥑐	jx
@@ -41550,7 +41557,7 @@ sort: by_weight
 𥑪	nc
 𥑫	kj
 𥑯	du
-𥑰	k
+𥑰	gk
 𥑱	qs
 𥑳	rs
 𥑴	yi
@@ -41926,7 +41933,7 @@ sort: by_weight
 𥢧	yi
 𥢮	hx
 𥢲	ig
-𥢶	k
+𥢶	kk
 𥢷	dh
 𥢸	ge
 𥢹	xp
@@ -43042,7 +43049,7 @@ sort: by_weight
 𦏤	vi
 𦏥	yj
 𦏦	gc
-𦏨	k
+𦏨	hk
 𦏮	qr
 𦏱	id
 𦏱	yh
@@ -43192,7 +43199,7 @@ sort: by_weight
 𦔠	pd
 𦔥	ui
 𦔥	yi
-𦔦	k
+𦔦	kk
 𦔩	bn
 𦔩	pc
 𦔫	ii
@@ -43700,7 +43707,7 @@ sort: by_weight
 𦧢	tp
 𦧤	tp
 𦧥	ta
-𦧬	k
+𦧬	hk
 𦧮	jx
 𦧯	qi
 𦧱	ta
@@ -43827,7 +43834,7 @@ sort: by_weight
 𦫮	mb
 𦫯	xy
 𦫰	mg
-𦫳	k
+𦫳	gk
 𦫶	jn
 𦫻	gd
 𦬁	cd
@@ -43879,7 +43886,7 @@ sort: by_weight
 𦭼	bi
 𦭼	pn
 𦮁	jn
-𦮃	k
+𦮃	gk
 𦮃	kx
 𦮅	mo
 𦮐	xi
@@ -43979,7 +43986,7 @@ sort: by_weight
 𦳈	bi
 𦳈	pi
 𦳊	ui
-𦳋	k
+𦳋	kk
 𦳌	ji
 𦳏	va
 𦳐	na
@@ -44517,7 +44524,7 @@ sort: by_weight
 𧉮	yi
 𧉲	li
 𧊄	gv
-𧊅	k
+𧊅	gk
 𧊇	dd
 𧊇	de
 𧊏	gd
@@ -44614,9 +44621,9 @@ sort: by_weight
 𧍁	xp
 𧍂	xn
 𧍃	fw
-𧍒	k
+𧍒	ik
 𧍒	ir
-𧍓	k
+𧍓	uk
 𧍔	yc
 𧍕	jt
 𧍖	nk
@@ -44913,7 +44920,7 @@ sort: by_weight
 𧗹	xm
 𧗹	xb
 𧗼	hv
-𧗿	k
+𧗿	uk
 𧘂	is
 𧘃	hh
 𧘈	ln
@@ -45022,7 +45029,7 @@ sort: by_weight
 𧜔	xp
 𧜚	vi
 𧜞	mj
-𧜠	k
+𧜠	uk
 𧜡	ke
 𧜣	dn
 𧜤	yi
@@ -45606,13 +45613,13 @@ sort: by_weight
 𧱬	yu
 𧱰	vo
 𧱲	xi
-𧱳	k
+𧱳	hk
 𧱴	mk
 𧱵	th
 𧱹	pu
 𧱻	mi
 𧱼	mj
-𧱾	k
+𧱾	gk
 𧲀	qm
 𧲂	lb
 𧲃	mb
@@ -45706,7 +45713,7 @@ sort: by_weight
 𧴖	ww
 𧴗	ys
 𧴙	nc
-𧴚	k
+𧴚	gk
 𧴠	li
 𧴢	xb
 𧴣	yj
@@ -46209,7 +46216,7 @@ sort: by_weight
 𨄗	kh
 𨄚	ql
 𨄛	li
-𨄮	k
+𨄮	uk
 𨄯	yv
 𨄯	yu
 𨄰	vh
@@ -46790,7 +46797,7 @@ sort: by_weight
 𨛓	ls
 𨛔	fz
 𨛕	yz
-𨛖	k
+𨛖	kk
 𨛜	xl
 𨛡	yy
 𨛣	qb
@@ -47020,7 +47027,7 @@ sort: by_weight
 𨣂	gs
 𨣃	lc
 𨣄	hx
-𨣅	k
+𨣅	ik
 𨣇	jm
 𨣈	kv
 𨣍	ue
@@ -48116,7 +48123,7 @@ sort: by_weight
 𩋾	xt
 𩋿	mw
 𩌃	gv
-𩌃	k
+𩌃	hk
 𩌄	iz
 𩌄	vz
 𩌆	so
@@ -48607,7 +48614,7 @@ sort: by_weight
 𩘮	ao
 𩘯	tr
 𩘰	su
-𩘱	k
+𩘱	uk
 𩘳	yv
 𩘳	yu
 𩘵	fg
@@ -48842,7 +48849,7 @@ sort: by_weight
 𩟨	ho
 𩟫	io
 𩟭	ls
-𩟮	k
+𩟮	hk
 𩟰	to
 𩟳	yv
 𩟳	yu
@@ -49060,7 +49067,7 @@ sort: by_weight
 𩦢	yv
 𩦢	yu
 𩦤	ji
-𩦱	k
+𩦱	kk
 𩦲	zs
 𩦹	xm
 𩦺	mg
@@ -49607,7 +49614,7 @@ sort: by_weight
 𩶤	xm
 𩶥	hs
 𩶥	hv
-𩶦	k
+𩶦	gk
 𩶧	jq
 𩶩	mu
 𩶫	ru
@@ -50175,7 +50182,7 @@ sort: by_weight
 𪊆	ji
 𪊇	gj
 𪊇	tj
-𪊉	k
+𪊉	hk
 𪊍	si
 𪊐	fu
 𪊕	pi
@@ -50760,7 +50767,7 @@ sort: by_weight
 𫍲	xn
 𫏋	jt
 𫐄	yt
-𫐆	k
+𫐆	kk
 𫐉	lk
 𫐐	ni
 𫐓	bu
@@ -50815,7 +50822,7 @@ sort: by_weight
 嚡	hd
 囎	zf
 囖	lo
-圦	k
+圦	kk
 圷	xx
 圸	uj
 垊	mb

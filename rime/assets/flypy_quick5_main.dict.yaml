@@ -3,7 +3,7 @@
 
 ---
 name: flypy_quick5_main
-version: "2023.07.02"
+version: "2023.07.03"
 sort: by_weight
 ...
 
@@ -284,7 +284,7 @@ sort: by_weight
 㔚	jphs
 㔜	babs
 㔝	llms
-㔞	khs
+㔞	kkhs
 㔠	heas
 㔠	xxas
 㔡	bphs
@@ -348,7 +348,7 @@ sort: by_weight
 㕛	xuee
 㕜	uile
 㕞	uxse
-㕟	kye
+㕟	kkye
 㕟	kvye
 㕠	ulie
 㕡	hoye
@@ -606,7 +606,7 @@ sort: by_weight
 㙓	kvgg
 㙔	hjgq
 㙔	wwgq
-㙕	kgb
+㙕	kkgb
 㙗	wwgv
 㙘	ycgv
 㙙	lseg
@@ -840,7 +840,7 @@ sort: by_weight
 㜰	ytvd
 㜱	vivc
 㜲	ykvv
-㜳	kvv
+㜳	hkvv
 㜴	mgvu
 㜵	nnvv
 㜶	wjvi
@@ -1040,7 +1040,7 @@ sort: by_weight
 㟱	ycuf
 㟲	yruf
 㟳	liud
-㟴	kui
+㟴	kkui
 㟵	ghum
 㟶	yruf
 㟷	daur
@@ -1091,7 +1091,7 @@ sort: by_weight
 㠟	liue
 㠠	lvut
 㠡	nnuv
-㠢	kuv
+㠢	hkuv
 㠣	lium
 㠥	lwug
 㠥	lvug
@@ -1572,7 +1572,7 @@ sort: by_weight
 㧒	yvqc
 㧒	yuqc
 㧓	gxqo
-㧔	kqh
+㧔	gkqh
 㧕	lqql
 㧖	eeqn
 㧗	jiqp
@@ -1583,7 +1583,7 @@ sort: by_weight
 㧙	bpqh
 㧚	waqn
 㧜	lpqb
-㧟	kqs
+㧟	kkqs
 㧡	hdqo
 㧢	ybqk
 㧣	vuqd
@@ -1792,7 +1792,7 @@ sort: by_weight
 㪐	luie
 㪑	yeke
 㪒	nihe
-㪓	khe
+㪓	ikhe
 㪔	sjde
 㪕	dnye
 㪖	lune
@@ -1803,7 +1803,7 @@ sort: by_weight
 㪙	kewk
 㪚	sjtk
 㪛	vfte
-㪜	kue
+㪜	ikue
 㪜	doue
 㪝	lmde
 㪞	mcae
@@ -2284,7 +2284,7 @@ sort: by_weight
 㱫	ljmf
 㱬	wwmv
 㱭	drme
-㱮	kmo
+㱮	kkmo
 㱯	admt
 㱯	aimt
 㱰	zdmj
@@ -2347,7 +2347,7 @@ sort: by_weight
 㲠	mcju
 㲡	nddu
 㲢	bmiu
-㲤	kyu
+㲤	ukyu
 㲥	thiu
 㲦	hjju
 㲧	schi
@@ -2781,7 +2781,7 @@ sort: by_weight
 㹞	yakl
 㹞	ybkl
 㹟	jtkk
-㹟	kkk
+㹟	kkkk
 㹠	tyku
 㹡	xrki
 㹢	gakr
@@ -3126,7 +3126,7 @@ sort: by_weight
 㾨	aikr
 㾨	qikr
 㾨	yikr
-㾩	kkp
+㾩	gkkp
 㾪	ugku
 㾫	pmkb
 㾭	vzkf
@@ -3432,7 +3432,7 @@ sort: by_weight
 䂬	gsmr
 䂭	qnmk
 䂮	ltqr
-䂯	kmg
+䂯	gkmg
 䂰	lamn
 䂱	rvmu
 䂲	fagr
@@ -3441,7 +3441,7 @@ sort: by_weight
 䂴	yjmr
 䂵	gsmo
 䂶	jpms
-䂷	kmp
+䂷	gkmp
 䂸	gomm
 䂹	somf
 䂺	kemd
@@ -3513,8 +3513,9 @@ sort: by_weight
 䃳	lpmv
 䃴	vuma
 䃵	nnmv
-䃶	kmv
+䃶	gkmv
 䃶	gvmv
+䃶	hkmv
 䃷	ykmv
 䃸	jbmm
 䃹	ljmw
@@ -3851,7 +3852,7 @@ sort: by_weight
 䈘	cihi
 䈙	vzhi
 䈚	tdhp
-䈛	khe
+䈛	kkhe
 䈜	qbhe
 䈝	xvhb
 䈝	xuhb
@@ -3872,7 +3873,7 @@ sort: by_weight
 䈪	xihb
 䈫	nahb
 䈬	puhb
-䈭	khi
+䈭	hkhi
 䈭	szhi
 䈮	jvhr
 䈮	juhr
@@ -4023,7 +4024,7 @@ sort: by_weight
 䊺	huvm
 䊻	gjvo
 䊼	iivm
-䊽	kvk
+䊽	gkvk
 䊽	jtvk
 䊾	muvd
 䊿	bovo
@@ -4623,14 +4624,14 @@ sort: by_weight
 䓏	futr
 䓐	iytu
 䓑	pktt
-䓒	ktw
+䓒	kktw
 䓓	izti
 䓕	totu
 䓖	qsts
 䓗	cstp
 䓘	gctr
 䓘	jqtr
-䓙	ktp
+䓙	gktp
 䓙	kxtp
 䓚	cutm
 䓚	qvtm
@@ -5729,7 +5730,7 @@ sort: by_weight
 䢣	ycyr
 䢤	uuyd
 䢥	yjyu
-䢦	kyj
+䢦	ukyj
 䢧	lnyh
 䢨	csyo
 䢨	zsyo
@@ -6012,7 +6013,7 @@ sort: by_weight
 䦡	hrar
 䦢	koai
 䦣	fuar
-䦤	kae
+䦤	ikae
 䦥	xmad
 䦦	qbac
 䦧	dzau
@@ -6035,7 +6036,7 @@ sort: by_weight
 䦴	yiaj
 䦵	niab
 䦶	vgld
-䦷	klg
+䦷	iklg
 䦹	uinj
 䦺	dknn
 䦻	zind
@@ -6527,7 +6528,7 @@ sort: by_weight
 䭙	jboa
 䭚	ilog
 䭛	djok
-䭝	koa
+䭝	kkoa
 䭞	yioj
 䭟	yeod
 䭠	jmoc
@@ -6679,7 +6680,7 @@ sort: by_weight
 䯢	moib
 䯣	gvbc
 䯣	kvbc
-䯤	kba
+䯤	kkba
 䯥	ajbf
 䯥	anbf
 䯥	qibf
@@ -7035,7 +7036,7 @@ sort: by_weight
 䴚	ghyn
 䴛	xnyb
 䴜	wdyi
-䴝	kye
+䴝	ikye
 䴞	diyg
 䴟	hrii
 䴠	ycik
@@ -7363,7 +7364,7 @@ sort: by_weight
 乔	jnhl	0%
 乔	qnhl	100%
 乕	huhb
-乖	khp
+乖	gkhp
 乗	ight
 乗	ught
 乘	ighp	99.46%
@@ -7722,7 +7723,7 @@ sort: by_weight
 伙	hoof
 会	gvoi	0%
 会	hvoi	99.98%
-会	koi	0.02%
+会	kkoi	0.02%
 伛	kzok
 伛	yvok
 伛	yuok
@@ -7849,7 +7850,7 @@ sort: by_weight
 佥	qmom
 佧	kaoy
 佩	pwob
-佪	kor
+佪	hkor
 佪	hvor
 佫	geor
 佫	heor
@@ -7940,7 +7941,7 @@ sort: by_weight
 侧	ceon	99.69%
 侧	vdon	0.18%
 侨	qnol
-侩	koi
+侩	kkoi
 侪	idol
 侫	nkov
 侬	nsov
@@ -8107,11 +8108,11 @@ sort: by_weight
 倞	jkof
 倞	llof
 借	jpoa
-倠	kog
+倠	hkog
 倠	hvog
 倠	xvog
 倠	xuog
-倠	kxg
+倠	hkxg
 倠	hvxg
 倠	xvxg
 倠	xuxg
@@ -8424,7 +8425,7 @@ sort: by_weight
 儆	jkok
 儇	hrov
 儇	xrov
-儈	koa
+儈	kkoa
 儉	jmoo
 儊	iuoo
 儋	djor
@@ -8763,7 +8764,7 @@ sort: by_weight
 凵	qvxl
 凵	quxl
 凶	xsuk
-凷	kug
+凷	kkug
 凸	dpbs	0%
 凸	gubs	1%
 凸	tubs	99%
@@ -8984,7 +8985,7 @@ sort: by_weight
 劈	pish
 劉	lqhn
 劊	gvon
-劊	kon
+劊	kkon
 劋	ccrn
 劋	jnrn
 劋	zcrn
@@ -9298,7 +9299,7 @@ sort: by_weight
 卙	jitj
 博	boji
 卛	lvvj
-卛	kvj
+卛	ukvj
 卛	uovj
 卜	boy	0%
 卜	buy	100%
@@ -9504,9 +9505,9 @@ sort: by_weight
 双	ulxe
 反	fjhe
 収	uzve
-叏	kde
+叏	gkde
 叏	jtde
-叏	kxe
+叏	gkxe
 叏	jtxe
 叐	bohe
 叐	boxe
@@ -9544,10 +9545,10 @@ sort: by_weight
 另	lkrs
 叧	gorh
 叧	kxrh
-叧	krh
+叧	kkrh
 叧	goxh
 叧	kxxh
-叧	kxh
+叧	kkxh
 叨	dcrh	98.85%
 叨	tcrh	1.15%
 叩	kzrl
@@ -9871,7 +9872,7 @@ sort: by_weight
 咯	gerr	2.04%
 咯	karr	0%
 咯	lorr	3.22%
-咰	kra
+咰	ukra
 咰	xyra
 咱	zaru	1%
 咱	zjru	99%
@@ -9884,7 +9885,7 @@ sort: by_weight
 咴	hvrf
 咵	kxrs
 咶	gxrr
-咶	krr
+咶	hkrr
 咶	uerr
 咷	tcro
 咸	xmir
@@ -9895,7 +9896,7 @@ sort: by_weight
 咻	xurd
 咼	gobr
 咼	kxbr
-咼	kbr
+咼	kkbr
 咽	yjrk	88.56%
 咽	yerk	11.44%
 咾	lcrp
@@ -9933,7 +9934,7 @@ sort: by_weight
 哕	hvri
 哖	nmrq
 哗	hxrj
-哙	kri
+哙	kkri
 哚	dord
 哛	ffrh
 哜	jirl
@@ -10228,7 +10229,7 @@ sort: by_weight
 喌	vzrl
 喍	idrd
 喍	idxd
-喎	krr
+喎	kkrr
 喎	wdrr
 喏	norr	96.02%
 喏	rerr	3.98%
@@ -10470,7 +10471,7 @@ sort: by_weight
 嘩	hxrj
 嘪	mdrc
 嘫	rjrf
-嘬	kre	1.47%
+嘬	ikre	1.47%
 嘬	zvre	0%
 嘬	zore	98.53%
 嘭	pgrh
@@ -10589,7 +10590,7 @@ sort: by_weight
 噱	jtro	10%
 噱	xtro	80%
 噲	hvra
-噲	kra
+噲	kkra
 噳	yvrk
 噳	yurk
 噴	ffrc	0%
@@ -10827,7 +10828,7 @@ sort: by_weight
 圡	tugi
 圡	tuxi
 圢	tkgn
-圣	keg	0%
+圣	gkeg	0%
 圣	kueg	100%
 圣	ugeg	0%
 圤	pugy
@@ -10895,7 +10896,7 @@ sort: by_weight
 坍	tjgy
 坎	kjgo
 坏	bwgf	0%
-坏	kgf	0%
+坏	hkgf	0%
 坏	pwgf	100%
 坏	pigf	5%
 坐	zoog
@@ -10909,7 +10910,7 @@ sort: by_weight
 坔	dixg
 坕	jkhg
 坖	jimg
-块	kgk
+块	kkgk
 坘	iigm
 坘	digm
 坙	jkmg
@@ -11246,7 +11247,7 @@ sort: by_weight
 塈	jiag
 塈	xiag
 塉	jigb
-塊	kgi
+塊	kkgi
 塋	ykfg
 塌	tagm
 塍	igbg
@@ -11417,7 +11418,8 @@ sort: by_weight
 壈	ljgd
 壉	jvgo
 壉	jugo
-壊	kgv
+壊	gkgv
+壊	hkgv
 壋	dhgw
 壌	rhgv
 壍	qmeg
@@ -11447,7 +11449,8 @@ sort: by_weight
 壛	yjgx
 壜	tjgi
 壝	wwgc
-壞	kgv	100%
+壞	gkgv	0%
+壞	hkgv	100%
 壟	lsyg
 壠	lsgp
 壡	rvyg
@@ -11551,7 +11554,7 @@ sort: by_weight
 太	tdki	100%
 太	tvki	0%
 夫	fuqo
-夬	kdk
+夬	gkdk
 夬	jtdk
 夭	achk	0%
 夭	aohk	0%
@@ -12347,7 +12350,7 @@ sort: by_weight
 孅	xmvm
 孆	ykvv
 孇	ulve
-孈	kvb
+孈	ukvb
 孈	xivb
 孉	jrvg
 孉	qrvg
@@ -12394,7 +12397,7 @@ sort: by_weight
 孪	vjyd
 孫	synf	100%
 孫	xynf	0%
-孬	kmd	0%
+孬	hkmd	0%
 孬	ncmd	100%
 孭	mpnc
 孮	csnf
@@ -13306,8 +13309,8 @@ sort: by_weight
 巚	yjxk
 巛	irvv
 巛	irxv
-巜	kvv
-巜	kxv
+巜	kkvv
+巜	kkxv
 川	irll
 州	vzil
 巟	hlyu
@@ -13367,7 +13370,7 @@ sort: by_weight
 市	uiyb
 布	bukb
 帄	dkln
-帅	klb
+帅	uklb
 帆	fjli
 帇	nplb
 帇	npxb
@@ -13407,7 +13410,7 @@ sort: by_weight
 帣	dnfb
 帣	jrfb
 帤	ruvb
-帥	khb	100%
+帥	ukhb	100%
 帥	uohb	0%
 带	ddtb
 帧	vglo
@@ -13677,8 +13680,9 @@ sort: by_weight
 廢	fwie
 廣	glic
 廤	kuip
-廥	kia
+廥	gkia
 廥	hvia
+廥	kkia
 廦	biij
 廦	piij
 廧	qliw
@@ -13912,7 +13916,7 @@ sort: by_weight
 徇	xyha
 很	hfhv
 徉	yhhq
-徊	khr	88.24%
+徊	hkhr	88.24%
 徊	hvhr	11.76%
 律	lvhq
 後	hzhe
@@ -14052,7 +14056,7 @@ sort: by_weight
 忩	cscp
 忪	sspi	100%
 忪	vspi	0%
-快	kpk
+快	kkpk
 忬	uupn
 忬	uuxn
 忭	bmpy
@@ -14086,7 +14090,7 @@ sort: by_weight
 忾	xixn
 忿	ffcp
 怀	fupf	100%
-怀	kpf	0%
+怀	hkpf	0%
 态	tdkp
 怂	ssop
 怂	ssxp
@@ -14151,7 +14155,7 @@ sort: by_weight
 性	xkpm
 怨	yrnp
 怩	nipp
-怪	kpg
+怪	gkpg
 怫	fwpn	50%
 怫	fupn	50%
 怫	bwpn
@@ -14229,7 +14233,7 @@ sort: by_weight
 恝	qixp
 恞	yipn
 恟	xspk
-恠	kpg
+恠	gkpg
 恡	lbpi
 恢	hvpf
 恣	ciip
@@ -14763,8 +14767,8 @@ sort: by_weight
 懍	lbpd
 懎	sepw
 懏	jyps
-懐	kpv
-懐	kxv
+懐	hkpv
+懐	hkxv
 懑	mfep
 懑	mfxp
 懒	ljpo
@@ -14820,7 +14824,7 @@ sort: by_weight
 懴	ijpm
 懵	mgpu
 懶	ljpc
-懷	kpv
+懷	hkpv
 懸	xrbp
 懹	rhpv
 懺	ijpm
@@ -15213,8 +15217,8 @@ sort: by_weight
 拎	lkqi
 拏	navq
 拏	nuvq
-拐	kqs
-拐	kqh
+拐	gkqs
+拐	gkqh
 拑	gjqm
 拑	qmqm
 拒	jvqs
@@ -15288,7 +15292,7 @@ sort: by_weight
 拼	pbqt
 拼	pbqj
 拽	yeqp	0.18%
-拽	kqp	99.82%
+拽	vkqp	99.82%
 拾	ueqr	0.10%
 拾	uiqr	99.90%
 拿	naoq
@@ -15633,7 +15637,7 @@ sort: by_weight
 揠	yaqv
 握	woqg
 揢	keqr
-揣	kqb	100%
+揣	ikqb	100%
 揣	irqb	0%
 揤	jiql
 揤	jpql
@@ -15686,10 +15690,10 @@ sort: by_weight
 搉	qtqg
 搊	izqu
 搋	iiqn
-搋	kqn
+搋	ikqn
 搋	diqn
 搋	iiqu
-搋	kqu
+搋	ikqu
 搋	diqu
 搌	vjqv
 損	syqc
@@ -15806,7 +15810,7 @@ sort: by_weight
 摒	bkxj
 摒	pkxj
 摓	fgqj
-摔	kqj
+摔	ukqj
 摕	diqb
 摕	tuqb
 摖	iaqf
@@ -16015,8 +16019,8 @@ sort: by_weight
 擐	hrqv
 擑	jpqi
 擒	qbqb
-擓	kqg
-擓	kxg
+擓	kkqg
+擓	kkxg
 擔	djqr
 擕	xiqs
 擕	xpqs
@@ -16407,7 +16411,8 @@ sort: by_weight
 旛	fjyw
 旜	djym
 旜	vjym
-旝	kya
+旝	gkya
+旝	kkya
 旞	svyo
 旟	yvyc
 旟	yuyc
@@ -16833,7 +16838,7 @@ sort: by_weight
 朂	xuas
 會	gvoa	0%
 會	hvoa	99.98%
-會	koa	0.02%
+會	kkoa	0.02%
 朄	yblf
 朅	jpgv
 朅	qpgv
@@ -17080,7 +17085,7 @@ sort: by_weight
 枲	xiid
 枳	jidc
 枳	vidc
-枴	kdh
+枴	gkdh
 枵	xnds
 枵	xqds
 架	jxkd
@@ -17187,7 +17192,7 @@ sort: by_weight
 柷	vudu
 柸	pwdm
 柹	uidh
-柺	kds
+柺	gkds
 査	iadm
 査	vadm
 柼	ycdc
@@ -17768,9 +17773,9 @@ sort: by_weight
 榰	qida
 榰	vida
 榱	cvdv
-榱	kdv
+榱	ukdv
 榱	cvxv
-榱	kxv
+榱	ukxv
 榲	wudt
 榳	tkdg
 榴	lqdw
@@ -17806,7 +17811,7 @@ sort: by_weight
 槎	iadm
 槏	jmdc
 槏	qmdc
-槐	kdi
+槐	hkdi
 槑	mwrd
 槒	xvdw
 槒	xudw
@@ -18077,7 +18082,7 @@ sort: by_weight
 檛	vxxb
 檜	gvda
 檜	hvda
-檜	kda
+檜	kkda
 檝	jidi
 檞	jpdq
 檞	xpdq
@@ -18189,7 +18194,7 @@ sort: by_weight
 櫭	jpdm
 櫮	eedr
 櫯	sudd
-櫰	kdv
+櫰	hkdv
 櫱	npud
 櫲	yvdo
 櫲	yudo
@@ -18296,10 +18301,10 @@ sort: by_weight
 欱	xxoo
 欲	yvco
 欲	yuco
-欳	kyo
+欳	kkyo
 欳	yvyo
 欳	yuyo
-欳	kxo
+欳	kkxo
 欳	yvxo
 欳	yuxo
 欴	lhio
@@ -18320,7 +18325,7 @@ sort: by_weight
 欻	xufo
 欻	yjfo
 欼	iieo
-欼	keo
+欼	ikeo
 欽	qbco
 款	krgo
 欿	kjno
@@ -19126,7 +19131,7 @@ sort: by_weight
 浊	voei
 测	ceen
 浌	faei
-浍	kei
+浍	kkei
 济	jiel
 浏	lqen
 浐	ijeh
@@ -19342,8 +19347,8 @@ sort: by_weight
 淬	cvej
 淭	qved
 淭	qued
-淮	keg
-淮	kxg
+淮	hkeg
+淮	hkxg
 淯	yveb
 淯	yueb
 淰	nmep
@@ -19949,7 +19954,7 @@ sort: by_weight
 澬	ziec
 澭	yseg
 澮	hvea
-澮	kea
+澮	kkea
 澯	cjed
 澰	lmeo
 澱	dmee
@@ -20115,7 +20120,7 @@ sort: by_weight
 瀡	sveb
 瀢	wwec
 瀣	xpem
-瀤	kev
+瀤	hkev
 瀥	gceb
 瀥	hceb
 瀥	gcxb
@@ -20268,11 +20273,11 @@ sort: by_weight
 炓	lnfj
 炔	gvfk
 炔	jtfk
-炔	kfk
+炔	kkfk
 炔	qtfk
 炔	gvxk
 炔	jtxk
-炔	kxk
+炔	kkxk
 炔	qtxk
 炕	khfn
 炖	dyfu
@@ -21124,7 +21129,7 @@ sort: by_weight
 独	duki
 狭	xxkt
 狮	uikb
-狯	kki
+狯	kkki
 狰	vgkd
 狱	yvkk
 狱	yukk
@@ -21294,7 +21299,7 @@ sort: by_weight
 獨	duki
 獩	hvkh
 獪	hvka
-獪	kka
+獪	kkka
 獫	xmko
 獬	xpkq
 獭	tako
@@ -21303,7 +21308,7 @@ sort: by_weight
 獯	xykf
 獰	nkkn
 獱	bmkc
-獲	kke	0%
+獲	hkke	0%
 獲	hoke	100%
 獳	nzkb
 獴	mgko
@@ -21331,7 +21336,7 @@ sort: by_weight
 玅	xryh
 玆	ziyi
 率	lvyj	94.01%
-率	kyj	5.99%
+率	ukyj	5.99%
 率	uoyj	0%
 玈	luyv
 玉	yvmi
@@ -21738,7 +21743,7 @@ sort: by_weight
 璭	yymj
 璮	tjmm
 璯	hvma
-璯	kma
+璯	kkma
 環	hrmv
 璱	semh
 璲	svmo
@@ -21894,7 +21899,7 @@ sort: by_weight
 甦	summ
 甧	ufhb
 用	ysbq
-甩	kbu
+甩	ukbu
 甪	luhq
 甫	fuib
 甬	ysnq
@@ -22249,7 +22254,7 @@ sort: by_weight
 瘡	ilkr
 瘢	bjke
 瘣	hvki
-瘣	kki
+瘣	kkki
 瘣	lwki
 瘤	lqkw
 瘥	idkm	50%
@@ -22305,8 +22310,9 @@ sort: by_weight
 癍	bjkg
 癎	xmka
 癏	grkv
-癐	kka
+癐	gkka
 癐	gvka
+癐	kkka
 癑	ngkv
 癑	nskv
 癒	yvkp
@@ -22796,7 +22802,7 @@ sort: by_weight
 瞹	adbe
 瞹	aibe
 瞺	hvba
-瞺	kba
+瞺	kkba
 瞻	vjbr
 瞼	jmbo	100%
 瞼	lmbo	0%
@@ -24073,7 +24079,7 @@ sort: by_weight
 筵	yjhm
 筵	yjhv
 筶	gchr
-筷	khk
+筷	kkhk
 筸	gjhj
 筸	hjhj
 筹	izhi
@@ -24093,7 +24099,7 @@ sort: by_weight
 箆	bihp
 箇	gehr
 箈	iihr
-箉	khs
+箉	gkhs
 箊	yvhy
 箊	yuhy
 箋	jmhi
@@ -24967,7 +24973,7 @@ sort: by_weight
 縖	hdvr
 縖	xxvr
 縗	cvvv
-縗	kvv
+縗	ukvv
 縘	jivk
 縘	xivk
 縙	rsvj
@@ -25032,7 +25038,7 @@ sort: by_weight
 繁	fjof	99.86%
 繁	poof	0.14%
 繂	lvvj
-繂	kvj
+繂	ukvj
 繃	bgvb
 繄	yisf
 繄	yixi
@@ -25690,7 +25696,7 @@ sort: by_weight
 耯	hoqe
 耰	yzqe
 耱	moqr
-耲	kqv
+耲	hkqv
 耳	ersj
 耴	vesu
 耵	dksn
@@ -26018,7 +26024,7 @@ sort: by_weight
 脉	mdbe	95.29%
 脉	mobe	4.71%
 脊	jifb
-脍	kbi
+脍	kkbi
 脎	sabd
 脎	saxd
 脏	zhbg
@@ -26212,9 +26218,9 @@ sort: by_weight
 膔	lubp
 膕	gobm
 膖	phbj
-膗	kbg
+膗	ikbg
 膗	cvbg
-膗	kxo
+膗	ikxo
 膗	cvxo
 膘	bnbf
 膙	jlbi
@@ -26270,7 +26276,7 @@ sort: by_weight
 膼	vxbb
 膽	djbr
 膾	hvba
-膾	kba
+膾	kkba
 膿	ngbv	0%
 膿	nsbv	100%
 臀	dmsb	0%
@@ -26371,7 +26377,7 @@ sort: by_weight
 臾	yvho
 臾	yuho
 臿	iahx
-舀	kbx	0%
+舀	kkbx	0%
 舀	wdbx	0%
 舀	ycbx	100%
 舁	yvht
@@ -27003,7 +27009,7 @@ sort: by_weight
 莴	wotb
 莶	xmtm
 莶	xmxm
-获	ktk
+获	hktk
 获	hotk
 莸	yztu
 莹	ykti
@@ -27362,9 +27368,9 @@ sort: by_weight
 蒮	yvtg
 蒮	yutg
 蒯	jktn
-蒯	ktn
+蒯	kktn
 蒯	jkxn
-蒯	kxn
+蒯	kkxn
 蒰	pjte
 蒱	putb
 蒲	putb
@@ -27947,13 +27953,13 @@ sort: by_weight
 蘸	vjtf	100%
 蘸	jnxf	0%
 蘸	vjxf	100%
-蘹	ktv
+蘹	hktv
 蘺	litg
 蘻	jitf
 蘻	xitf
 蘼	mity
 蘽	lwtd
-蘾	ktv
+蘾	hktv
 蘿	lotg
 虀	jitm
 虁	kvte
@@ -28515,7 +28521,7 @@ sort: by_weight
 螾	yblc
 螾	ybxm
 螿	jlvi
-蟀	klj
+蟀	uklj
 蟀	uolj
 蟁	wfri
 蟂	jnld
@@ -28741,7 +28747,7 @@ sort: by_weight
 衮	gyyv
 衯	fflh
 衰	cvyv	0.59%
-衰	kyv	99.41%
+衰	ukyv	99.41%
 衱	jile
 衱	jple
 衲	nalb
@@ -29009,7 +29015,7 @@ sort: by_weight
 褟	talm
 褠	gzlb
 褡	dalr
-褢	kyv
+褢	hkyv
 褣	rslr
 褤	yrlv
 褥	ruli
@@ -29032,8 +29038,8 @@ sort: by_weight
 褯	jplb
 褯	xilb
 褰	qmjv
-褱	kyv
-褱	kxv
+褱	hkyv
+褱	hkxv
 褲	kulj
 褳	lmlj
 褴	ljlt
@@ -29667,7 +29673,7 @@ sort: by_weight
 諗	nmyp
 諗	ufyp
 諘	bnyv
-諙	kya
+諙	hkya
 諙	hyya
 諚	pmyo
 諛	yvyo
@@ -30736,7 +30742,7 @@ sort: by_weight
 跨	kxrs
 跨	kars
 跩	uirp
-跩	krp
+跩	vkrp
 跪	gvru
 跫	qsmo
 跬	kvrg
@@ -30809,7 +30815,7 @@ sort: by_weight
 踜	lgre
 踝	gord	0%
 踝	hxrd	0%
-踝	krd	100%
+踝	hkrd	100%
 踞	jvrr
 踞	jurr
 踟	iirr
@@ -30853,7 +30859,7 @@ sort: by_weight
 踷	vara
 踸	ifrv
 踸	ufrv
-踹	krb	100%
+踹	ikrb	100%
 踹	irrb	0%
 踹	urrb	0%
 踺	jmrq
@@ -31738,8 +31744,8 @@ sort: by_weight
 郍	nohl
 郎	lhil
 郏	jxkl
-郐	kol
-郐	kxl
+郐	kkol
+郐	kkxl
 郑	vgtl
 郑	vgxl
 郓	yybl
@@ -31892,7 +31898,7 @@ sort: by_weight
 鄵	ccrl
 鄵	zcrl
 鄶	hvol
-鄶	kol
+鄶	kkol
 鄷	fgtl
 鄷	fgxl
 鄸	mgtl
@@ -34320,8 +34326,8 @@ sort: by_weight
 顟	lnsc
 顠	pnmc
 顠	pnxb
-顡	kyc
-顡	kxb
+顡	vkyc
+顡	vkxb
 顢	mjtc
 顢	pjtc
 顢	mjxb
@@ -34781,7 +34787,7 @@ sort: by_weight
 駁	bosk
 駂	bcpf
 駃	jtsk
-駃	ksk
+駃	kksk
 駄	dosi
 駄	tosi
 駅	yiso
@@ -35221,7 +35227,7 @@ sort: by_weight
 鬞	nssv
 鬟	hrsv
 鬠	hvsa
-鬠	ksa
+鬠	kksa
 鬠	kosa
 鬠	zgsa
 鬡	nksn
@@ -35644,7 +35650,7 @@ sort: by_weight
 鱞	hrnv
 鱟	hzhf
 鱠	hvna
-鱠	kna
+鱠	kkna
 鱡	zenj
 鱢	scnd
 鱣	ujnm
@@ -35712,7 +35718,7 @@ sort: by_weight
 鲗	zwnn
 鲗	zenn
 鲘	hznr
-鲙	kni
+鲙	kkni
 鲚	jinl
 鲛	jnnk
 鲜	xmnq
@@ -36928,7 +36934,7 @@ sort: by_weight
 嚡	hdrg
 囎	zfra
 囖	lorg
-圦	kgo
+圦	kkgo
 圷	xxgy
 圸	ujgu
 圸	ujxu
