@@ -28,7 +28,8 @@ xform/(.)un$/$1Y/
 xform/(.)uo$/$1O/
 xform/(.)ie$/$1P/
 xform/(.)i?ong$/$1S/
-xform/(.)ing$|(.)uai$/$1K/
+xform/(.)ing$/$1K/
+xform/(.)uai$/$1K/
 xform/(.)ai$/$1D/
 xform/(.)en$/$1F/
 xform/(.)eng$/$1G/
@@ -145,3 +146,6 @@ def luna_to_flypy():
 
     with open('flypy_self_phrase.dict.yaml', 'w+') as f:
         dump_table(luna_table, [], is_a_phrase, f)
+
+#%%
+luna_to_flypy()
