@@ -3,6 +3,7 @@
 - [[#application][Application]]
 - [[#custom-configs][Custom configs]]
   - [[#input-methods][Input methods]]
+  - [[#other-platform][Other platform]]
   - [[#archive][Archive]]
   - [[#helpful-documents][Helpful documents]]
   - [[#helpful-discussion][Helpful discussion]]
@@ -70,6 +71,13 @@ https://github.com/Joey-Li/Newcj_rime
 
 *** 嘸蝦米 (liur)
 https://github.com/hsuanyi-chou/rime-liur
+** Other platform
+*** Android
+[[https://github.com/osfans/trime][同文輸入法]]
+
+push configs to "/sdcard/rime/" and hit deploy, the first time will take about 1 minutes.
+
+trime.yaml can be modified with the same rime config rules.
 
 ** Archive
 *** Dvorak mapping
