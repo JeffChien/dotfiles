@@ -15,6 +15,16 @@
 
 Use [[https://github.com/rime/plum][東風破]] to install other input methods.
 
+共享資料夾
+【中州韻】 /usr/share/rime-data/
+【小狼毫】 "安裝目錄\data"
+【鼠鬚管】 "/Library/Input Methods/Squirrel.app/Contents/SharedSupport/"
+
+用戶資料夾
+【中州韻】 ~/.config/ibus/rime/ （0.9.1 以下版本爲 ~/.ibus/rime/；fcitx5 为 ~/.local/share/fcitx5/rime/）
+【小狼毫】 %APPDATA%\Rime
+【鼠鬚管】 ~/Library/Rime/
+
 * Custom configs
 :PROPERTIES:
 :header-args: :mkdirp yes
