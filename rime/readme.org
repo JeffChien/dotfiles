@@ -6,6 +6,7 @@
   - [[#input-methods][Input methods]]
   - [[#archive][Archive]]
   - [[#helpful-documents][Helpful documents]]
+  - [[#helpful-discussion][Helpful discussion]]
 - [[#gnu-stow][Gnu stow]]
   - [[#macos][MacOS]]
   - [[#linux][Linux]]
@@ -47,6 +48,8 @@ Python's regex module works very differently with rime's regex pattern, I made s
 
 想起了速成也是用兩碼，兩個加在一起好像很可以，有多了一個理由學倉頡了。
 
+[[https://github.com/JACKCHAN000/Rime-Quick5-Setup/tree/main][rime quick5]], 速成現成的字碼表，不然就要自己如 [[https://github.com/rime/rime-quick/blob/3fe5911ba608cb2df1b6301b76ad1573bd482a76/quick5.schema.yaml#L56][Rime 官方速成]] 取頭取尾。
+
 **** Limitations
 I would like to enable ~spelling_hints~ for phrase reverse lookup, but it is not support yet, only the first character will apply the filter rules. [[https://github.com/rime/home/issues/298][issue]]
 
@@ -57,6 +60,9 @@ I really like the rules but like many people has said, it is not ergonomic, use 
 
 *** 大新倉頡 (newcj)
 https://github.com/Joey-Li/Newcj_rime
+
+*** 嘸蝦米 (liur)
+https://github.com/hsuanyi-chou/rime-liur
 
 ** Archive
 *** Dvorak mapping
@@ -79,6 +85,10 @@ patch:
 [[https://github.com/rime/home/wiki/Configuration][How to write patch file]]
 [[https://github.com/rime/home/wiki][wiki]]
 [[https://www.educative.io/blog/advanced-yaml-syntax-cheatsheet][Anchor and alias in yaml]]
+
+** Helpful discussion
+[[https://github.com/rime/squirrel/issues/607#issuecomment-995045505][issue 607]], encode_commit_history, max_phrase_length, enable_encoder
+[[https://github.com/rime/home/issues/9#issuecomment-528171971][issue 9]], workaround for allowing user phrases and fixed position of words using 2 translator with different ~initial_quality~
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
