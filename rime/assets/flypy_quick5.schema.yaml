@@ -6,7 +6,7 @@ __include: flypy_luna.schema:/
 schema:
   schema_id: flypy_quick5
   name: 小鶴雙拼+速成
-  version: "0.0.1"
+  version: "0.0.2"
   author:
     - double pinyin layout by 鶴
     - Rime schema by Jeff Chien <jeffchien13@gmail.com>
@@ -20,8 +20,11 @@ speller:
   delimiter: " '"
   algebra:
     - derive/^(..).+$/$1/
+    # this is a very aggresive pattern, sometimes need to type ' to help rime to correctly pick candidate. or just comment it.
+    - derive/^(...).+$/$1/
 
 translator:
+  spelling_hints: 4
   dictionary: flypy_quick5
   prism: flypy_quick5
   preedit_format: []
