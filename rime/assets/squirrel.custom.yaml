@@ -1,0 +1,82 @@
+patch:
+  style/color_scheme: MaybeWeHaveHug
+
+  # Whether to display preedit text in target app's input box or not 
+  ## true: target app
+  ## false: squirrel popup
+  style/inline_preedit: false #true
+
+  # 文字字體
+  style/font_face: Hannotate TC, Noto Sans CJK TC
+
+  # 字體大小
+  style/font_point: 21 #21
+
+  # 外框圓角
+  style/corner_radius: 9
+  
+  # 字與上下邊框的高度差                      
+  style/border_height: 5
+  
+  # 字與左右邊框的寬度差                       
+  style/border_width: 5
+  
+  # 基線調整                      
+  style/base_offset: -3  
+
+  # https://github.com/Ponpon55837/Squirrel/blob/master/.gitbook/assets/unknown-9.jpeg
+  preset_color_schemes/MaybeWeHaveHug:
+    name: 也許我們都應該被包圍
+    author: upfloor5
+    color_space: display_p3                   # 使用p3廣色域顯色
+    border_color: '0x3F331E'                  # 邊框顏色
+    hilited_corner_radius: 0                  # 候選字圓角
+    back_color: '0x3F331E'
+    text_color: '0x7070EC'
+    hilited_text_color: '0x7070EC'
+    hilited_back_color: '0x3F331E'
+    hilited_candidate_text_color: '0xD5CECF'
+    hilited_candidate_back_color: '0x7C46C2'
+    hilited_candidate_label_color: '0xF8E9F9'
+    hilited_comment_text_color: '0xFDE8F6'
+    candidate_text_color: '0x8B927E'
+    label_color: '0x536746'
+    comment_text_color: '0x9C8BEB'
+
+  # https://github.com/Ponpon55837/Squirrel/blob/master/.gitbook/assets/unknown-6.jpeg
+  preset_color_schemes/DarkMode:
+    name: 夜間模式
+    author: upfloor5
+    color_space: display_p3                # 使用p3廣色域顯色
+    border_color: '0x3E2313'                  # 邊框顏色
+    hilited_corner_radius: 0                  # 候選字圓角
+    back_color: '0x372215'
+    text_color: '0xCECEB5'
+    hilited_text_color: '0xCECEB5'
+    hilited_back_color: '0x372215'
+    hilited_candidate_text_color: '0xD5CECF'
+    hilited_candidate_back_color: '0x3E2313'
+    hilited_candidate_label_color: '0x7BB8D1'
+    hilited_comment_text_color: '0xD7E4EC'
+    candidate_text_color: '0x536746'
+    label_color: '0x8B927E'
+    comment_text_color: '0x43794E'
+
+  # https://github.com/Ponpon55837/Squirrel/blob/master/.gitbook/assets/Unknown-1%20(7).jpeg
+  preset_color_schemes/GreenWorld:
+    name: 天地草綠
+    author: upfloor5
+    color_space: display_p3                   # 使用p3廣色域顯色
+    border_color: '0xCECEB5'                  # 邊框顏色
+    hilited_corner_radius: 0                  # 候選字圓角
+    back_color: '0x53451E'
+    text_color: '0xD58865'
+    hilited_text_color: '0xD58865'
+    hilited_back_color: '0x53451E'
+    hilited_candidate_text_color: '0x76672C'
+    hilited_candidate_back_color: '0xCECEB5'
+    hilited_candidate_label_color: '0x3E2313'
+    hilited_comment_text_color: '0xC2BB89'
+    candidate_text_color: '0x8B8B8B'
+    label_color: '0x939BAE'
+    comment_text_color: '0x536433'

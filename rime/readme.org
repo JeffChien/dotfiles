@@ -2,7 +2,6 @@
 * Table of content :TOC:
 - [[#application][Application]]
 - [[#custom-configs][Custom configs]]
-  - [[#defaultcustomyaml][default.custom.yaml]]
   - [[#input-methods][Input methods]]
   - [[#archive][Archive]]
   - [[#helpful-documents][Helpful documents]]
@@ -25,8 +24,6 @@ Use [[https://github.com/rime/plum][東風破]] to install other input methods.
 | Variable | Value   | Description           |
 |----------+---------+-----------------------|
 | basedir  | .build/ | dotfile target folder |
-
-** default.custom.yaml
 
 ** Input methods
 *** 注音 (bopomofo_tw)
@@ -85,6 +82,7 @@ patch:
 [[https://github.com/rime/home/wiki/Configuration][How to write patch file]]
 [[https://github.com/rime/home/wiki][wiki]]
 [[https://www.educative.io/blog/advanced-yaml-syntax-cheatsheet][Anchor and alias in yaml]]
+[[https://github.com/Ponpon55837/Squirrel/tree/master][squirrel styling]]
 
 ** Helpful discussion
 [[https://github.com/rime/squirrel/issues/607#issuecomment-995045505][issue 607]], encode_commit_history, max_phrase_length, enable_encoder
