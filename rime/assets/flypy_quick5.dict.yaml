@@ -28,10 +28,19 @@
 
 ---
 name: flypy_quick5
-version: "2023.07.03"
+version: "2023.07.04"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:
   - flypy_quick5_main
   - flypy_quick5_phrase
 ...
+
+裏	liyv	1000
+裡	lilg	10000
+着	vetu	1500
+着	vctu	1000
+著	veta	15000
+著	vcta	10000
+爲	wwbf	1000
+為	wwif	10000
