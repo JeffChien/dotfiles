@@ -52,16 +52,14 @@ engine:
     - table_translator
   filters:
     - simplifier
-    - uniquifier
     - reverse_lookup_filter@reverse_lookup_newcj
     - reverse_lookup_filter@reverse_lookup_bopomofo
     - single_char_filter
+    - uniquifier
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba;
   delimiter: " '"
-  auto_select: true
-  max_code_length: 4
 
 translator:
   dictionary: newcj
@@ -80,6 +78,7 @@ translator:
   disable_user_dict_for_patterns:
     - "^z.*$"
     - "^yyy.*$"
+  initial_quality: 5
 
 fixed:
   __include: /translator
@@ -88,7 +87,7 @@ fixed:
   enable_encoder: false
   encode_commit_history: false
   enable_user_dict: false
-  initial_quality: 100000
+  initial_quality: 1
 
 lookup_bopomofo:
   __include: /translator
