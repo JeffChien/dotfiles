@@ -105,6 +105,8 @@ patch:
 ** Helpful discussion
 [[https://github.com/rime/squirrel/issues/607#issuecomment-995045505][issue 607]], encode_commit_history, max_phrase_length, enable_encoder
 [[https://github.com/rime/home/issues/9#issuecomment-528171971][issue 9]], workaround for allowing user phrases and fixed position of words using 2 translator with different ~initial_quality~
+[[https://github.com/rime/home/issues/14][issue 14]], how doese weight in dictionary be calculated.
+[[https://github.com/rime/home/issues/322][issue 322]], priority related to symbol variants, a workaround to cope with opencc translation.
 
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
