@@ -33,8 +33,8 @@ engine:
     - punctuator
     - selector
     - navigator
-      #- express_editor
-    - fluency_editor # 語句流
+    - express_editor
+    #- fluency_editor # 語句流
   segmentors:
     - ascii_segmentor
     - matcher
