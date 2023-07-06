@@ -7,7 +7,7 @@ patch:
   style/inline_preedit: false #true
 
   # 文字字體
-  style/font_face: Hannotate TC, Noto Sans CJK TC
+  style/font_face: Menlo, Hannotate TC, Hannotate SC, Noto Sans CJK TC, Noto Sans CJK SC, Noto Sans CJK JP, Noto Sans CJK KR
 
   # 字體大小
   style/font_point: 21 #21
