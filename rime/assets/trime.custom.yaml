@@ -16,6 +16,7 @@ patch:
   preset_keys/Keyboard_others: {label: '⌨', send: Eisu_toggle, select: other_keyboards}
 
   preset_keyboards/qwerty0/keys/@40: {click: Keyboard_others, long_click: Keyboard_default}
+  preset_keyboards/qwerty0/keys/@43: {click: space, long_click: Menu, width: 30}
 
   preset_keyboards/other_keyboards:
     name: 其他鍵盤
@@ -186,6 +187,5 @@ patch:
     #row 4
     - {click: Keyboard_others, long_click: Keyboard_default, width: 10}
     - {click: ",", long_click: .}
-    - {click: Mode_switch, long_click: Menu, width: 10}
-    - {click: space, width: 50}
+    - {click: space, long_click: Menu, width: 60}
     - {click: Return, composing: Return1, long_click: CommitComment, width: 20}
