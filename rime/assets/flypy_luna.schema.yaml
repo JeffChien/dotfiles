@@ -103,8 +103,7 @@ reverse_lookup_flypy:
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
-  delimiter: "'"
-  use_space: true
+  delimiter: " '"
   algebra:
     - erase/^xx$/
     - derive/^([jqxy])u$/$1v/
