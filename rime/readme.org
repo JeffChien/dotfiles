@@ -77,7 +77,19 @@ https://github.com/hsuanyi-chou/rime-liur
 
 push configs to "/sdcard/rime/" and hit deploy, the first time will take about 1 minutes.
 
-trime.yaml can be modified with the same rime config rules.
+trime.yaml can be modified with the same rime config, [[https://github.com/osfans/trime/wiki/trime.yaml%E8%A9%B3%E8%A7%A3][trime.yaml explaination]]
+
+**** Custom keyboards
+3.2.9 is the one I currently use that works.
+
+***** TODOs [0/4]
+- [ ] add flypy keyboard
+- [ ] add flypy + quick5 keyboard
+- [ ] keyboard shortcuts should be the same in all different keyboards.
+  - Arrows
+  - Home/End/PageUp/PageDown
+  - SelectAll/Copy/Paste/Cut
+- [ ] reverse lookup
 
 ** Archive
 *** Dvorak mapping
