@@ -17,7 +17,6 @@ schema:
 
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
-  delimiter: " '"
   algebra:
     - derive/^(..).+$/$1/
     # this is a very aggresive pattern, sometimes need to type ' to help rime to correctly pick candidate. or just comment it.
