@@ -1,0 +1,138 @@
+# Rime schema settings
+# encoding: utf-8
+
+patch:
+  # disable pingyin mixing along with cangjie
+  abc_segmentor:
+
+  # disable pingyin config
+  reverse_lookup:
+
+  schema/dependencies:
+    - bopomofo_tw
+
+  switches/@2:
+    options: [zh_hant, zh_hans, zh_hant_tw]
+    states: ["傳統漢字", "简化字", "台灣字形"]
+    reset: 2
+
+  engine:
+    processors:
+      - ascii_composer
+      - recognizer
+      - key_binder
+      - speller
+      - punctuator
+      - selector
+      - navigator
+      - express_editor
+    segmentors:
+      - ascii_segmentor
+      - matcher
+      - abc_segmentor
+      - affix_segmentor@translator_cangjie5_bopomofo_tw
+      - affix_segmentor@translator_bopomofo_tw
+      - punct_segmentor
+      - fallback_segmentor
+    translators:
+      - punct_translator
+      - table_translator@translator_cangjie5_bopomofo_tw
+      - script_translator@translator_bopomofo_tw
+      - table_translator@translator_fixed
+      - table_translator
+    filters:
+      - simplifier@zh_hans
+      - simplifier@zh_hant_tw
+      - reverse_lookup_filter@reverse_lookup_cangjie5
+      - reverse_lookup_filter@reverse_lookup_bopomofo_tw
+      - single_char_filter
+      - uniquifier
+
+  zh_hans:
+    option_name: zh_hans
+    opencc_config: t2s.json
+    tips: all
+
+  zh_hant_tw:
+    option_name: zh_hant_tw
+    opencc_config: t2tw.json
+    tips: none
+
+  speller/delimiter: " '"
+
+  # main translator
+  translator:
+    __include: cangjie5.schema:/translator
+    enable_user_dict: false
+    enable_sentence: false
+    enable_encoder: false
+    enable_charset_filter: true
+    encode_commit_history: false
+    enable_completion: true
+    initial_quality: 1000
+
+  translator_fixed:
+    __include: /patch/translator
+    enable_encoder: true
+    enable_user_dict: true
+    initial_quality: 100
+
+  translator_cangjie5_bopomofo_tw:
+    __include: /patch/translator
+    tag: translator_cangjie5_bopomofo_tw
+    prefix: "`p"
+    suffix: "'"
+    tips: 〔反查讀音〕
+
+  translator_bopomofo_tw:
+    __include: bopomofo_tw.schema:/translator
+    tag: translator_bopomofo_tw
+    enable_completion: true
+    prefix: "`b"
+    suffix: "'"
+    tips: 〔注音〕
+
+  reverse_lookup_cangjie5:
+    tags: [translator_bopomofo_tw]
+    dictionary: cangjie5
+    overwrite_comment: true
+    comment_format:
+      __include: patch/translator/comment_format
+      __append:
+        - xform|([^ ]+)|【$1】|
+
+  reverse_lookup_bopomofo_tw:
+    tags: [translator_cangjie5_bopomofo_tw]
+    dictionary: terra_pinyin
+    overwrite_comment: true
+    comment_format:
+      - "xform/e?r5$/er5/"
+      - "xform/iu/iou/"
+      - "xform/ui/uei/"
+      - "xform/ong/ung/"
+      - "xform/yi?/i/"
+      - "xform/wu?/u/"
+      - "xform/iu/v/"
+      - "xform/([jqx])u/$1v/"
+      - "xform/([iuv])n/$1en/"
+      - "xform/zh/Z/"
+      - "xform/ch/C/"
+      - "xform/sh/S/"
+      - "xform/ai/A/"
+      - "xform/ei/I/"
+      - "xform/ao/O/"
+      - "xform/ou/U/"
+      - "xform/ang/K/"
+      - "xform/eng/G/"
+      - "xform/an/M/"
+      - "xform/en/N/"
+      - "xform/er/R/"
+      - "xform/eh/E/"
+      - "xform/([iv])e/$1E/"
+      - "xform/1//"
+      - "xlit|bpmfdtnlgkhjqxZCSrzcsiuvaoeEAIOUMNKGR2345|ㄅㄆㄇㄈㄉㄊㄋㄌㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄧㄨㄩㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦˊˇˋ˙|"
+      - "xform/([^ ]+)/【$1】/"
+
+  recognizer/patterns/reverse_lookup:
+  recognizer/patterns/translator_bopomofo_tw: "`b[-,.;/a-z0-9]*'?$"
+  recognizer/patterns/translator_cangjie5_bopomofo_tw: "`p[a-z]*'?$"

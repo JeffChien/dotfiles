@@ -69,6 +69,9 @@ I really like the rules but like many people has said, it is not ergonomic, use 
 *** 大新倉頡 (newcj)
 https://github.com/Joey-Li/Newcj_rime
 
+sadly, I think I'm gonna abandon it because my majsor IME is flypy+quick5, newcj is base on cangjie version 3, If I keep using it I may encounter some inconsistency. Also I only use cangjie for phonetic lookup, I have no plan to master it for speed.
+
+*** 倉頡5 (cangjie5)
 *** 嘸蝦米 (liur)
 https://github.com/hsuanyi-chou/rime-liur
 ** Other platform
