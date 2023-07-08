@@ -4,7 +4,7 @@
 schema:
   schema_id: flypy_luna
   name: 小鶴雙拼/朙月字碼表
-  version: "0.0.3"
+  version: "0.0.4"
   author:
     - double pinyin layout by 鶴
     - Rime schema by Jeff Chien <jeffchien13@gmail.com>
@@ -236,6 +236,26 @@ templates:
       - "xform/(^|[ '])u/$1sh/"
       - xform/([jqxy])v/$1u/
       - xform/([nl])v/$1ü/
+  # for some symbol that can work along, append _ to indicate those cases.
+  luna_underscore_fix:
+    preedit_format:
+      - xform/(?<![a-z])ui/ui_/
+      - xform/zhi/zh_/
+      - xform/chi/ch_/
+      - xform/shi/sh_/
+      - xform/yu/yu_/
+      - xform/(?<![a-z])wu/wu_/
+      - xform/(?<![a-z])ao/ao_/
+      - xform/(?<![a-z])ou/ou_/
+      - xform/(?<![a-z])er/er_/
+      - xform/(?<![a-z])ai/ai_/
+      - xform/(?<![a-z])ei/ei_/
+      - xform/(?<![a-z])aa/a_/
+      - xform/(?<![a-z])oo/o_/
+      - xform/(?<![a-z])ee/e_/
+      - xform/((?<![a-z])[rszcy])i/$1_/
+      - xform/((?<![a-z])[ae])n/$1n_/
+
   luna_2_bopomofo:
     # input: full pinyin, output: ㄅㄆㄇ
     preedit_format:
@@ -269,6 +289,9 @@ templates:
     preedit_format:
       __include: /templates/flypy_2_luna/preedit_format
       __append:
+        __include: /templates/luna_underscore_fix/preedit_format
+    __patch: # this is a hack to merge 2 additional lists...
+      preedit_format/+:
         __include: /templates/luna_2_bopomofo/preedit_format
 
 translator:
