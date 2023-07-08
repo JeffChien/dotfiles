@@ -6,7 +6,7 @@ __include: flypy_luna.schema:/
 schema:
   schema_id: flypy_quick5
   name: 小鶴雙拼+速成
-  version: "0.0.2"
+  version: "0.0.3"
   author:
     - double pinyin layout by 鶴
     - Rime schema by Jeff Chien <jeffchien13@gmail.com>
@@ -22,56 +22,33 @@ speller:
     # this is a very aggresive pattern, sometimes need to type ' to help rime to correctly pick candidate. or just comment it.
     - derive/^(...).+$/$1/
 
+templates:
+  quick5:
+    preedit_format:
+      - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
+      - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+    comment_format:
+      - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
+      - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+
 translator:
   spelling_hints: 4
   dictionary: flypy_quick5
   prism: flypy_quick5
   preedit_format: 
-    - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
-    - xform/([bpmfdtnljqx])n/$1iao/
-    - xform/(\w)g/$1eng/
-    - xform/(\w)q/$1iu/
-    - xform/(\w)w/$1ei/
-    - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-    - xform/(\w)t/$1ve/
-    - xform/(\w)y/$1un/
-    - xform/([dtnlgkhvuirzcs])o/$1uo/
-    - xform/(\w)p/$1ie/
-    - xform/([jqx])s/$1iong/
-    - xform/(\w)s/$1ong/
-    - xform/(\w)d/$1ai/
-    - xform/(\w)f/$1en/
-    - xform/(\w)h/$1ang/
-    - xform/(\w)j/$1an/
-    - xform/([gkhvuirzcs])k/$1uai/
-    - xform/(\w)k/$1ing/
-    - xform/([jqxnl])l/$1iang/
-    - xform/(\w)l/$1uang/
-    - xform/(\w)z/$1ou/
-    - xform/([gkhvuirzcs])x/$1ua/
-    - xform/(\w)x/$1ia/
-    - xform/(\w)c/$1ao/
-    - xform/([dtgkhvuirzcs])v/$1ui/
-    - xform/(\w)b/$1in/
-    - xform/(\w)m/$1ian/
-    - xform/([aoe])\1(\w)/$1$2/
-    - "xform/(^|[ '])v/$1zh/"
-    - "xform/(^|[ '])i/$1ch/"
-    - "xform/(^|[ '])u/$1sh/"
-    - xform/([jqxy])v/$1u/
-    - xform/([nl])v/$1ü/
+    __include: templates/quick5/preedit_format
   comment_format:
-    - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+    __include: templates/quick5/comment_format
+  __patch:
+    preedit_format/+:
+      __include: flypy_luna.schema:/templates/flypy_2_bopomofo/preedit_format
 
 reverse_lookup_flypy:
   tags: [translator_bopomofo_tw]
   overwrite_comment: true
   dictionary: flypy_quick5
   comment_format:
-    - 'xform/((?<=[a-z]{2})[a-z]{1,2})/\U$1\E/'
-    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+    __include: templates/quick5/comment_format
 
 __patch:
   - flypy_quick5.custom:/patch?

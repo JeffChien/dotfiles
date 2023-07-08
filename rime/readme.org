@@ -40,6 +40,9 @@ Use [[https://github.com/rime/plum][東風破]] to install other input methods.
 *** 注音 (bopomofo_tw)
 *** 小鶴雙拼注音
 Modify too many parts, so create 3 versions.
+
+打字輸入顯示改用注音符號，感覺好像還可以
+
 **** flypy_luna
 The base version.
 
