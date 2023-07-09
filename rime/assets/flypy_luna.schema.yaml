@@ -243,7 +243,7 @@ templates:
       - xform/zhi/zh_/
       - xform/chi/ch_/
       - xform/shi/sh_/
-      - xform/yu(?!e)/yu_/
+      - xform/yu(?!e|an)/yu_/
       - xform/(?<![a-z])wu/wu_/
       - xform/(?<![a-z])ao/ao_/
       - xform/(?<![a-z])ou/ou_/
