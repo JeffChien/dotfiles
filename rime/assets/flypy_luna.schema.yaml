@@ -243,18 +243,20 @@ templates:
       - xform/zhi/zh_/
       - xform/chi/ch_/
       - xform/shi/sh_/
-      - xform/yu/yu_/
+      - xform/yu(?!e)/yu_/
       - xform/(?<![a-z])wu/wu_/
       - xform/(?<![a-z])ao/ao_/
       - xform/(?<![a-z])ou/ou_/
       - xform/(?<![a-z])er/er_/
       - xform/(?<![a-z])ai/ai_/
       - xform/(?<![a-z])ei/ei_/
+      - xform/(?<![a-z])eh/eh_/
       - xform/(?<![a-z])aa/a_/
       - xform/(?<![a-z])oo/o_/
       - xform/(?<![a-z])ee/e_/
       - xform/((?<![a-z])[rszcy])i/$1_/
-      - xform/((?<![a-z])[ae])n/$1n_/
+      - xform/((?<![a-z])[ae])n(\w)?/$1n$2_/
+        #- xform/((?<![a-z])[ae])n/$1n_/
 
   luna_2_bopomofo:
     # input: full pinyin, output: ㄅㄆㄇ
