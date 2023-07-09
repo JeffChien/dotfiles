@@ -254,9 +254,9 @@ templates:
       - xform/(?<![a-z])aa/a_/
       - xform/(?<![a-z])oo/o_/
       - xform/(?<![a-z])ee/e_/
-      - xform/((?<![a-z])[rszcy])i/$1_/
+      - xform/(?<![a-z])yi(?!ng?)/y_/
+      - xform/((?<![a-z])[rszc])i/$1_/
       - xform/((?<![a-z])[ae])n(\w)?/$1n$2_/
-        #- xform/((?<![a-z])[ae])n/$1n_/
 
   luna_2_bopomofo:
     # input: full pinyin, output: ㄅㄆㄇ
