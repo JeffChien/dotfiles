@@ -217,7 +217,7 @@ templates:
       - xform/(\w)s/$1ong/
       - xform/(\w)d/$1ai/
       - xform/(\w)f/$1en/
-      - xform/(\w)h/$1ang/
+      - xform/([^e])h/$1ang/
       - xform/(\w)j/$1an/
       - xform/([gkhvuirzcs])k/$1uai/
       - xform/(\w)k/$1ing/
