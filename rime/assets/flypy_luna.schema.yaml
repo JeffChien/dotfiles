@@ -4,7 +4,7 @@
 schema:
   schema_id: flypy_luna
   name: 小鶴雙拼/朙月字碼表
-  version: "0.0.4"
+  version: "0.0.5"
   author:
     - double pinyin layout by 鶴
     - Rime schema by Jeff Chien <jeffchien13@gmail.com>
@@ -204,59 +204,63 @@ templates:
   flypy_2_luna:
     # input: flypy, output: full pingyin
     preedit_format:
-      - xform/([bpmfdtnljqx])n/$1iao/
-      - xform/(\w)g/$1eng/
-      - xform/(\w)q/$1iu/
-      - xform/(\w)w/$1ei/
-      - xform/([dtnlgkhjqxyvuirzcs])r/$1uan/
-      - xform/(\w)t/$1ve/
-      - xform/(\w)y/$1un/
-      - xform/([dtnlgkhvuirzcs])o/$1uo/
-      - xform/(\w)p/$1ie/
-      - xform/([jqx])s/$1iong/
-      - xform/(\w)s/$1ong/
-      - xform/(\w)d/$1ai/
-      - xform/(\w)f/$1en/
-      - xform/([^e])h/$1ang/
-      - xform/(\w)j/$1an/
-      - xform/([gkhvuirzcs])k/$1uai/
-      - xform/(\w)k/$1ing/
-      - xform/([jqxnl])l/$1iang/
-      - xform/(\w)l/$1uang/
-      - xform/(\w)z/$1ou/
-      - xform/([gkhvuirzcs])x/$1ua/
-      - xform/(\w)x/$1ia/
-      - xform/(\w)c/$1ao/
-      - xform/([dtgkhvuirzcs])v/$1ui/
-      - xform/(\w)b/$1in/
-      - xform/(\w)m/$1ian/
-      - xform/([aoe])\1(\w)/$1$2/
-      - "xform/(^|[ '])v/$1zh/"
-      - "xform/(^|[ '])i/$1ch/"
-      - "xform/(^|[ '])u/$1sh/"
+      - xform/([bpmfdtnljqx])n/$1IAO/
+      - xform/eg/ENG/
+      - xform/(\w)g/$1ENG/
+      - xform/(\w)q/$1IU/
+      - xform/(\w)w/$1EI/
+      - xform/([dtnlgkhjqxyvuirzcs])r/$1UAN/
+      - xform/(\w)t/$1VE/
+      - xform/(\w)y/$1UN/
+      - xform/([dtnlgkhvuirzcs])o/$1UO/
+      - xform/(\w)p/$1IE/
+      - xform/([jqx])s/$1IONG/
+      - xform/(\w)s/$1ONG/
+      - xform/ad/AI/
+      - xform/(\w)d/$1AI/
+      - xform/(\w)f/$1EN/
+      - xform/ah/ANG/
+      - xform/eh/EH/
+      - xform/(\w)h/$1ANG/
+      - xform/aj/AN/
+      - xform/(\w)j/$1AN/
+      - xform/([gkhvuirzcs])k/$1UAI/
+      - xform/(\w)k/$1ING/
+      - xform/([jqxnl])l/$1IANG/
+      - xform/(\w)l/$1UANG/
+      - xform/(\w)z/$1OU/
+      - xform/([gkhvuirzcs])x/$1UA/
+      - xform/(\w)x/$1IA/
+      - xform/ac/AO/
+      - xform/(\w)c/$1AO/
+      - xform/([dtgkhvuirzcs])v/$1UI/
+      - xform/(\w)b/$1IN/
+      - xform/(\w)m/$1IAN/
+      - xform/([aoe])\1(\w)/\U$1\E$2/
+      - "xform/(^|[ '])v/$1ZH/"
+      - "xform/(^|[ '])i/$1CH/"
+      - "xform/(^|[ '])u/$1SH/"
+      - xform/(.)/\L$1\E/
       - xform/([jqxy])v/$1u/
       - xform/([nl])v/$1ü/
   # for some symbol that can work along, append _ to indicate those cases.
   luna_underscore_fix:
     preedit_format:
-      - xform/(?<![a-z])ui/ui_/
-      - xform/zhi/zh_/
-      - xform/chi/ch_/
-      - xform/shi/sh_/
-      - xform/yu(?!e|an)/yu_/
-      - xform/(?<![a-z])wu/wu_/
-      - xform/(?<![a-z])ao/ao_/
-      - xform/(?<![a-z])ou/ou_/
-      - xform/(?<![a-z])er/er_/
-      - xform/(?<![a-z])ai/ai_/
-      - xform/(?<![a-z])ei/ei_/
-      - xform/(?<![a-z])eh/eh_/
-      - xform/(?<![a-z])aa/a_/
-      - xform/(?<![a-z])oo/o_/
-      - xform/(?<![a-z])ee/e_/
-      - xform/(?<![a-z])yi(?!ng?)/y_/
-      - xform/((?<![a-z])[rszc])i/$1_/
-      - xform/((?<![a-z])[ae])n(\w)?/$1n$2_/
+      - xform/(?<![a-z])ui/UI_/
+      - xform/(zh|ch|sh)i/\U$1\E_/
+      - xform/yu(?!e|an)/YU_/
+      - xform/(?<![a-z])wu/WU_/
+      - xform/(?<![a-z])ao/AO_/
+      - xform/(?<![a-z])ou/OU_/
+      - xform/(?<![a-z])er/ER_/
+      - xform/(?<![a-z])ai/AI_/
+      - xform/(?<![a-z])ei/EI_/
+      - xform/(?<![a-z])eh/EH_/
+      - xform/([aoe])\1/\U$1\E_/
+      - xform/(?<![a-z])yi(?!ng?)/Y_/
+      - xform/((?<![a-z])[rszc])i/\U$1\E_/
+      - xform/((?<![a-z])[ae])n(\w)?/\U$1n\E$2_/
+      - xform/(.)/\L$1\E/
 
   luna_2_bopomofo:
     # input: full pinyin, output: ㄅㄆㄇ
