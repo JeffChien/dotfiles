@@ -248,7 +248,7 @@ templates:
     preedit_format:
       - xform/(?<![a-z])ui/UI_/
       - xform/(zh|ch|sh)i/\U$1\E_/
-      - xform/yu(?!e|an)/YU_/
+      - xform/yu(?!e|an|n)/YU_/
       - xform/(?<![a-z])wu/WU_/
       - xform/(?<![a-z])ao/AO_/
       - xform/(?<![a-z])ou/OU_/
