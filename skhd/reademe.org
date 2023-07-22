@@ -387,6 +387,7 @@ default < fn + shift - 0 : \
 ## defalut mode
 default < f2  : [[ `im-select` = "org.unknown.keylayout.ABC-altkey" ]] && im-select im.rime.inputmethod.Squirrel.Hant || im-select org.unknown.keylayout.ABC-altkey
 default < f12 : ~/bin/yabai-helper guake --topmost --grid "20:20:0:15:20:5" '^Guake'
+default < cmd + shift - e : ~/bin/yabai-helper guake --topmost --grid "2:3:2:1:1:1" '^nvALT'
 #+end_src
 
 * Gnu stow
