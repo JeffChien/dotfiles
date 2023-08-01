@@ -136,12 +136,14 @@ Install dotfile
 #+begin_src sh :results silent
 stow -v1 -t ~/Library/Rime .build
 stow -v1 -t ~/Library/Rime assets
+stow -v1 -t ~/Library/Rime -d submodules rime-flypyquick5
 #+end_src
 
 Uninstall dotfile
 #+begin_src sh :results silent
 stow -t ~/Library/Rime -D .build
 stow -t ~/Library/Rime -D assets
+stow -t ~/Library/Rime -d submodules -D rime-flypyquick5
 #+end_src
 
 ** Linux
@@ -151,12 +153,14 @@ Install dotfile
 #+begin_src sh :results silent
 stow -v1 -t ~/.config/ibus/rime .build
 stow -v1 -t ~/.config/ibus/rime assets
+stow -v1 -t ~/.config/ibus/rime -d submodules rime-flypyquick5
 #+end_src
 
 Uninstall dotfile
 #+begin_src sh :results silent
 stow -t ~/.config/ibus/rime -D .build
 stow -t ~/.config/ibus/rime -D assets
+stow -t ~/.config/ibus/rime -d submodules -D rime-flypyquick5
 #+end_src
 
 *** fcitx
@@ -165,12 +169,14 @@ Install dotfile
 #+begin_src sh :results silent
 stow -v1 -t ~/.local/share/fcitx5/rime .build
 stow -v1 -t ~/.local/share/fcitx5/rime assets
+stow -v1 -t ~/.local/share/fcitx5/rime -d submodules rime-flypyquick5
 #+end_src
 
 Uninstall dotfile
 #+begin_src sh :results silent
 stow -t ~/.local/share/fcitx5/rime -D .build
 stow -t ~/.local/share/fcitx5/rime -D assets
+stow -t ~/.local/share/fcitx5/rime -d submodules -D rime-flypyquick5
 #+end_src
 
 * Tagging

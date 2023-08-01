@@ -13,3 +13,6 @@
 [submodule "awesome/.config/awesome/blingbling"]
 	path = awesome/.config/awesome/blingbling
 	url = git@github.com:JeffChien/blingbling.git
+[submodule "rime/submodules/rime-flypyquick5"]
+	path = rime/submodules/rime-flypyquick5
+	url = git@github.com:JeffChien/rime-flypyquick5.git
