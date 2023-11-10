@@ -5,6 +5,8 @@ patch:
     - schema: flypy_quick5
     - schema: cangjie5
     - schema: quick5
+    - schema: japanese
+    # - schema: double_pinyin_flypy
   menu:
     page_size: 5
   key_binder:
