@@ -460,7 +460,11 @@ This package is extremely important for GUI and deamonized emacs
 #+begin_src emacs-lisp
 (use-package company
   :ensure t
-  :hook ((after-init . 'global-company-mode))
+
+  ;;;;; this line stop working after upgrade to emacs v29
+  ;; :hook ((after-init . 'global-company-mode))
+
+  :hook (prog-mode . company-mode)
   :custom
   (company-files-exclusions '(".git/" ".DS_Store"))
   :config
