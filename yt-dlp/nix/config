@@ -1,0 +1,6 @@
+-f 'bestvideo[height<=720][ext=webm]+bestaudio/best[height<=720][ext=webm]'
+
+# multi-threaded fragment downloads for m3u8/mpd videos
+-N 4
+
+--user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36'

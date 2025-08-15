@@ -1,0 +1,63 @@
+[user]
+    name = JChien
+    email = jeffchien13@gmail.com
+
+[core]
+    autocrlf = false
+    filemode = false
+    deltaBaseCacheLimit = 1G
+	fsmonitor = false
+    pager = delta
+    excludesFile = ~/.config/git/ignore
+
+[color]
+    ui = auto
+
+[diff]
+    tool = nvimdiff
+    guitool = kdiff3
+    colorMoved = default
+
+[difftool]
+    prompt = true
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+    tool = nvimdiff
+    guitool = kdiff3
+
+[mergetool]
+    prompt = true
+    trustExitCode = false
+
+[mergetool "nvimdiff"]
+    trustExitCode = false
+    cmd = "nvim -d \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c 'wincmd J | wincmd ='"
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[credential]
+    helper = cache --timeout=3600
+
+[push]
+    default = current
+
+[rebase]
+    autosquash = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[add.interactive]
+  useBuiltin = false
+
+[delta]
+  navigate = true # n for next diff section
+  light = false
+  side-by-side = true
+
+[include]
+    path = ~/.work.gitconfig
