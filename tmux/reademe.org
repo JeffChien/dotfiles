@@ -5,31 +5,32 @@
 * Table of contents :TOC@3:
 - [[#tmux][tmux]]
 - [[#config][config]]
-  - [[#before][before]]
-    - [[#packages][packages]]
-    - [[#options][options]]
-  - [[#after][after]]
-    - [[#key-bindings][key-bindings]]
-    - [[#the-very-end][the very end]]
+  - [[#config-for-tmux][config for tmux]]
+    - [[#before][before]]
+    - [[#after][after]]
+  - [[#config-for-tmux-plugins][config for tmux plugins]]
+    - [[#which-key][which-key]]
 - [[#gnu-stow][Gnu stow]]
 - [[#tagging][Tagging]]
 
 * tmux
 [[https://github.com/tmux/tmux][tmux]] is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
 * config
-:PROPERTIES:
-:header-args: :tangle (org-sbe helper.org.resolve-path (path $"tmux.conf")) :mkdirp yes
-:END:
 
 #+NAME: variables
-| Variable | Value               | Description           |
-|----------+---------------------+-----------------------|
-| basedir  | .build/.config/tmux/ | dotfile target folder |
+| Variable    | Value                     | Description           |
+|-------------+---------------------------+-----------------------|
+| basedir     | .build/.config/tmux/      | dotfile target folder |
+| plugins_dir | .build/.tmux-3rd-plugins/ | tmux plugin folder    |
 
 One of the plugin makes truecolor disabled, I had to put the truecolor xterm setting at the very end to override it. TODO, find the plugin.
 
-** before
-*** packages
+** config for tmux
+:PROPERTIES:
+:header-args: :tangle (org-sbe helper.org.resolve-path (path $"tmux.conf")) :mkdirp yes
+:END:
+*** before
+**** packages
 managed by [[https://github.com/tmux-plugins/tpm][TPM]]
 #+begin_src conf
 # TMUX_PLUGIN_MANAGER_PATH is needed
@@ -44,9 +45,10 @@ set -g @plugin 'jimeh/tmux-themepack'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
 set -g @plugin 'fcsonline/tmux-thumbs'
 set -g @plugin 'roosta/tmux-fuzzback'
+set -g @plugin 'alexwforsythe/tmux-which-key'
 #+end_src
 
-*** options
+**** options
 #+begin_src conf
 # don't spawn login shell, becaulse it has been set by terminal emulator.
 set -g default-command "$SHELL"
@@ -84,8 +86,8 @@ set -g mode-keys vi
 
 set -g word-separators ' @(){}'
 #+end_src
-**** themes
-***** [[https://draculatheme.com/tmux][dracula theme]]
+***** themes
+****** [[https://draculatheme.com/tmux][dracula theme]]
 #+begin_src conf
 set -g @plugin 'dracula/tmux'
 
@@ -109,7 +111,7 @@ set -g @dracula-plugins "cpu-usage ram-usage"
 set -g @dracula-cpu-display-load true
 #+end_src
 
-***** nested remote tmux(disabled)
+****** nested remote tmux(disabled)
 this is old config, haven't migrate to new one, just leave here without tangle.
 the idea is to use F12 shift control between local and remote and use different theme to distinguish environments.
 
@@ -145,8 +147,8 @@ bind -T off F12 \
 
 #+end_src
 
-** after
-*** key-bindings
+*** after
+**** key-bindings
 - global
     | FROM          | DESCRIPTION                              | KEY                    |
     |---------------+------------------------------------------+------------------------|
@@ -233,7 +235,7 @@ bind -T copy-mode-vi WheelUpPane       select-pane \; send-keys -X -N 2 scroll-u
 bind -T copy-mode-vi WheelDownPane     select-pane \; send-keys -X -N 2 scroll-down
 bind -T copy-mode-vi v send -X begin-selection
 #+end_src
-*** the very end
+**** the very end
 #+begin_src conf
 
 set -g default-terminal "screen-256color"
@@ -242,6 +244,339 @@ set -ga terminal-overrides ",xterm-256color*:Tc"
 
 run-shell "$TMUX_PLUGIN_MANAGER_PATH/tpm/tpm"
 #+end_src
+
+** config for tmux plugins
+*** which-key
+**** menu
+#+name: menu-panes
+#+begin_src yaml
+menu:
+  - name: Back
+    key: BSpace
+    command: 'show-wk-menu #{@wk_menu_root}'
+  - separator: true
+  - name: Last
+    key: tab
+    command: lastp
+  - name: Choose
+    key: p
+    command: displayp -d 0
+  - separator: true
+  - name: Left
+    key: h
+    command: selectp -L
+    transient: true
+  - name: Down
+    key: j
+    command: selectp -D
+    transient: true
+  - name: Up
+    key: k
+    command: selectp -U
+    transient: true
+  - name: Right
+    key: l
+    command: selectp -R
+    transient: true
+  - separator: true
+  - name: Zoom
+    key: z
+    command: resizep -Z
+  - name: +Resize
+    key: r
+    menu:
+      - name: Back
+        key: BSpace
+        command: 'show-wk-menu #{@wk_menu_panes}'
+      - separator: true
+      - name: Left
+        key: h
+        command: resizep -L
+        transient: true
+      - name: Down
+        key: j
+        command: resizep -D
+        transient: true
+      - name: Up
+        key: k
+        command: resizep -U
+        transient: true
+      - name: Right
+        key: l
+        command: resizep -R
+        transient: true
+      - name: Left more
+        key: H
+        command: resizep -L 10
+        transient: true
+      - name: Down more
+        key: J
+        command: resizep -D 10
+        transient: true
+      - name: Up more
+        key: K
+        command: resizep -U 10
+        transient: true
+      - name: Right more
+        key: L
+        command: resizep -R 10
+        transient: true
+  - name: Swap left
+    key: H
+    command: swapp -t "{left-of}"
+  - name: Swap down
+    key: J
+    command: swapp -t "{down-of}"
+  - name: Swap up
+    key: K
+    command: swapp -t "{up-of}"
+  - name: Swap right
+    key: L
+    command: swapp -t "{right-of}"
+  - name: Break
+    key: "!"
+    command: break-pane
+  - separator: true
+  - name: Mark
+    key: m
+    command: selectp -m
+  - name: Unmark
+    key: M
+    command: selectp -M
+  - name: Capture
+    key: C
+    command: capture-pane
+  - name: Respawn pane
+    key: R
+    macro: restart-pane
+  - name: Kill
+    key: X
+    command: 'confirm -p "Kill pane #P? (y/n)" killp'
+#+end_src
+
+#+name: menu-windows
+#+begin_src yaml
+menu:
+  - name: Back
+    key: BSpace
+    command: 'show-wk-menu #{@wk_menu_root}'
+  - separator: true
+  - name: Last
+    key: tab
+    command: last-window
+  - name: Choose
+    key: w
+    command: choose-tree -Zw
+  - name: Previous
+    key: p
+    command: previous-window
+  - name: Next
+    key: n
+    command: next-window
+  - name: New
+    key: c
+    command: "neww -c #{pane_current_path}"
+  - separator: true
+  - name: +Layout
+    key: l
+    menu:
+      - name: Back
+        key: BSpace
+        command: 'show-wk-menu #{@wk_menu_windows}'
+      - separator: true
+      - name: Next
+        key: l
+        command: nextl
+        transient: true
+      - name: Tiled
+        key: t
+        command: selectl tiled
+        transient: true
+      - name: Horizontal
+        key: h
+        command: selectl even-horizontal
+        transient: true
+      - name: Vertical
+        key: v
+        command: selectl even-vertical
+        transient: true
+      - name: Horizontal main
+        key: H
+        command: selectl main-horizontal
+        transient: true
+      - name: Vertical main
+        key: V
+        command: selectl main-vertical
+        transient: true
+  - name: Split horizontal
+    key: /
+    command: "splitw -h -c #{pane_current_path}"
+  - name: Split vertical
+    key: "-"
+    command: "splitw -v -c #{pane_current_path}"
+  - name: Rotate
+    key: o
+    command: rotatew
+    transient: true
+  - name: Rotate reverse
+    key: O
+    command: rotatew -D
+    transient: true
+  - separator: true
+  - name: Rename
+    key: R
+    command: command-prompt -I "#W" "renamew -- \"%%\""
+  - name: Kill
+    key: X
+    command: 'confirm -p "Kill window #W? (y/n)" killw'
+#+end_src
+
+#+name: menu-client
+#+begin_src yaml
+menu:
+  - name: Back
+    key: BSpace
+    command: 'show-wk-menu #{@wk_menu_root}'
+  - separator: true
+  - name: Choose
+    key: c
+    command: choose-client -Z
+  - name: Last
+    key: l
+    command: switchc -l
+  - name: Previous
+    key: p
+    command: switchc -p
+  - name: Next
+    key: n
+    command: switchc -n
+  - separator: true
+  - name: Refresh
+    key: R
+    command: refresh
+  - name: +Plugins
+    key: P
+    menu:
+      - name: Install
+        key: i
+        command:
+          run-shell $TMUX_PLUGIN_MANAGER_PATH/tpm/bindings/install_plugins
+      - name: Update
+        key: u
+        command:
+          run-shell $TMUX_PLUGIN_MANAGER_PATH/tpm/bindings/update_plugins
+      - name: Clean
+        key: c
+        command:
+          run-shell $TMUX_PLUGIN_MANAGER_PATH/tpm/bindings/clean_plugins
+  - name: Detach
+    key: D
+    command: detach
+  - name: Suspend
+    key: Z
+    command: suspendc
+  - separator: true
+  - name: Reload config
+    key: r
+    macro: reload-config
+  - name: Customize
+    key: ","
+    command: customize-mode -Z
+#+end_src
+**** scaffold
+:PROPERTIES:
+:header-args: :tangle (org-sbe helper.org.resolve-path (vardir 'plugins_dir) (path $"tmux-which-key/config.yaml")) :mkdirp yes
+:END:
+
+#+begin_src yaml :noweb yes
+# yaml-language-server: $schema=config.schema.yaml
+command_alias_start_index: 200
+keybindings:
+  # root_table: C-Space
+  root_table: C-M-Space
+  prefix_table: Space
+title:
+  style: align=centre,bold
+  prefix: tmux
+  prefix_style: fg=green,align=centre,bold
+position:
+  x: R
+  y: P
+custom_variables:
+  - name: log_info
+    value: "#[fg=green,italics] [info]#[default]#[italics]"
+macros:
+  - name: reload-config
+    commands:
+      - display "#{log_info} Loading config... "
+      - source-file $HOME/.tmux.conf
+      - display -p "\n\n... Press ENTER to continue"
+  - name: restart-pane
+    commands:
+      - display "#{log_info} Restarting pane"
+      - "respawnp -k -c #{pane_current_path}"
+items:
+  - name: Run
+    key: space
+    command: command-prompt
+  - name: Last window
+    key: tab
+    command: last-window
+  - name: Last pane
+    key: "`"
+    command: last-pane
+  - separator: true
+  - name: +Windows
+    key: w
+    <<menu-windows>>
+  - name: +Panes
+    key: p
+    <<menu-panes>>
+  - name: +Buffers
+    key: b
+    menu:
+      - name: Back
+        key: BSpace
+        command: 'show-wk-menu #{@wk_menu_root}'
+      - separator: true
+      - name: Choose
+        key: b
+        command: choose-buffer -Z
+      - name: Copy
+        key: c
+        command: copy-mode
+      - name: List
+        key: l
+        command: lsb
+      - name: Paste
+        key: p
+        command: pasteb
+  - name: +Sessions
+    key: s
+    menu:
+      - name: Back
+        key: BSpace
+        command: 'show-wk-menu #{@wk_menu_root}'
+      - separator: true
+      - name: Choose
+        key: s
+        command: choose-tree -Zs
+      - name: New
+        key: N
+        command: new
+      - name: Rename
+        key: r
+        command: rename
+  - name: +Client
+    key: C
+    <<menu-client>>
+  - separator: true
+  - name: +Keys
+    key: "?"
+    command: list-keys -N
+#+end_src
+
+
 * Gnu stow
 #+begin_src pattern :tangle .stow-local-ignore
 #+end_src
