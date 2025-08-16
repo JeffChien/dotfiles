@@ -163,7 +163,7 @@ case "$OS_NAME" in
 
     # ALIAS
     zinit ice wait'2' lucid if'[[ -x "/usr/libexec/java_home" ]]'
-    zinit snippet "$HOME/.config/zsh/lib/java.zsh"
+    zinit snippet "$HOME/dotfiles/zsh/nix/lib/java.zsh"
   ;;
   Linux)
     # disable ctrl-s stop terminal feature {{{
