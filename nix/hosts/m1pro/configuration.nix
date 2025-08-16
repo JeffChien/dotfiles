@@ -9,6 +9,8 @@
     ../../modules/homebrew/configuration.nix
   ];
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   users.users.jchien = {
     name = "jchien";
     home = "/Users/jchien";
