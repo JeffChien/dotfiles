@@ -70,5 +70,8 @@ in
     ".config/karabiner" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/karabiner/nix";
     };
+    ".config/zsh" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/zsh/nix/zinit-fancy";
+    };
   };
 }

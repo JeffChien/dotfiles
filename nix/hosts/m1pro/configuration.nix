@@ -47,6 +47,13 @@
     iina
     iterm2
     skimpdf
+    fzf
+    ripgrep
+    fd
+    bat
+    eza
+    vivid
+    kubectx
   ];
   homebrew = {
     enable = true;
@@ -58,6 +65,7 @@
 
   # Enable alternative shell support in nix-darwin.
   programs.zsh.enable = true;
+  programs.zsh.enableGlobalCompInit = false; # deplay compinit, this prevent generating unwanted zcompdump file.
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
