@@ -73,5 +73,8 @@ in
     ".config/zsh" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/zsh/nix/zinit-fancy";
     };
+    ".config/nvim" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/neovim/astronvim/nix";
+    };
   };
 }
