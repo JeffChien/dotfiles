@@ -11,15 +11,6 @@ _fzf_compgen_dir() {
   fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
-
-#### fasd + fzf
-# fasd & fzf change directory - jump using `fasd` if given argument, filter output of `fasd` using `fzf` else
-z() {
-    [ $# -gt 0 ] && fasd_cd -d "$*" && return
-    local dir
-    dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
-}
-
 #### git + fzf
 # fco - checkout git branch/tag
 fco() {
@@ -63,8 +54,8 @@ bd() {
 	  pdir=$(dirname "$pdir")
 	  candidates+=("$pdir")
   done
-  choice=$(printf "%s\n" "${candidates[@]}" | fzf --height 40% --reverse)
-  if [[ "$choice" != "" ]]; then
-    builtin cd "$choice"
-  fi
+  choice=$(printf "%s\n" "${candidates[@]}" | 
+    fzf --height 40% --reverse --preview 'ls --color=always {}'
+  )
+  [[ -n "$choice" ]] && builtin cd "$choice"
 }

@@ -58,9 +58,21 @@
     kubectx
     mpv-unwrapped
     rsync
+    newt # for whiptail
+    broot
+    yazi
+    zoxide
+    moreutils # for vipe
   ];
   homebrew = {
     enable = true;
+    brews = [
+      "coreutils"
+      "gnu-sed"
+      "gnu-getopt"
+      "gnu-tar"
+      "findutils"
+    ];
     casks = [ ];
   };
 
