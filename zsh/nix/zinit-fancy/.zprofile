@@ -4,11 +4,10 @@
 # typeset -TUx PATH path : # T: define, U: unique, x: auto export, ':' is the same as default value, can be remove here.
 typeset -Ux path
 path=(
-    "$HOME/.local/bin"
-    "$HOME/bin"
-    "$HOME/.poetry/bin"
-    /snap/bin
     /opt/homebrew/bin
+    /opt/homebrew/sbin
+    /run/current-system/sw/bin
+    /snap/bin
     /usr/local/sbin
     /usr/local/bin
     /usr/sbin
@@ -16,24 +15,18 @@ path=(
     /sbin
     /bin)
 
-export OS_NAME=`uname`
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+VISUAL=vi
+MANPAGER=less
 
 # Default derminal editor, EDITOR is a fallback option.
 if (( $+commands[nvim] )); then
     VISUAL='nvim'
+    MANPAGER='nvim +Man!'
 elif (( $+commands[vim] )); then
     VISUAL='vim'
-else
-    VISUAL='less'
 fi
 
 export VISUAL
 export EDITOR="$VISUAL"
-
-if (( $+commands[nvim] )); then
-    export MANPAGER='nvim +Man!'
-else
-    export MANPAGER='less'
-fi
+export MANPAGER
+export OS_NAME=`uname`

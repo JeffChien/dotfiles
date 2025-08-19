@@ -14,9 +14,17 @@
 
 
 fpath=(
+    "$HOME/dotfiles/zsh/nix/completions"
     "$XDG_DATA_HOME/zsh/completions"
     /usr/local/share/zsh/site-functions
-    "${fpath[@]}"
+    $fpath
+)
+
+path=(
+    "$HOME/bin"
+    "$HOME/.poetry/bin"
+    "$HOME/.local/bin"
+    $path
 )
 
 HISTFILE="$XDG_DATA_HOME/zsh/.zhistory"       # The path to the history file.
@@ -136,8 +144,11 @@ export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux-3rd-plugins"
 zinit ice wait'2' lucid atclone'./bin/install_plugins'
 zinit light tmux-plugins/tpm
 
-export ASDF_DATA_DIR="$HOME/.asdf"
+ASDF_DATA_DIR="$HOME/.asdf"
+if [[ -d $ASDF_DATA_DIR ]]; then
+    export ASDF_DATA_DIR
 path=("$ASDF_DATA_DIR/shims" $path)
+fi
 asdf_update_java_home() {
   JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
   export JAVA_HOME;
@@ -145,33 +156,26 @@ asdf_update_java_home() {
 
 # autolight -U add-zsh-hook
 # add-zsh-hook precmd asdf_update_java_home
-
-if (( $+commands[kubectl] )); then
-    other_confs=$(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -)
-    if [[ ! -z "$other_confs" ]]; then
-        export KUBECONFIG="$HOME/.kube/config:${other_confs}"
-    fi
-
+typeset -Ux kubeconfig=( "$HOME/.kube/config" )
+if [[ -d "$HOME/.kube/config.d" ]]; then
+    other_confs=($(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -))
+    kubeconfig=($other_confs $kubeconfig)
     path=("$HOME/.krew/bin" $path)
 fi
 
 if (( $+commands[spark-submit] )); then
     SPARK_HOME="/opt/homebrew/opt/apache-spark/libexec"
-    [[ -d "$SPARK_HOME" ]] && export SPARK_HOME
+if [[ -d "$SPARK_HOME" ]]; then
+    export SPARK_HOME
 fi
 
-if (( $+commands[node] )); then
-    # npm pachage
-    export NPM_PACKAGES="${HOME}/.npm-packages"
-    export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-    path=("$NPM_PACKAGES/bin" $path)
-
-    if (( $+commands[pnpm] )); then
+NPM_PACKAGES="${HOME}/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/node_modules:$NODE_PATH"
         export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-        [[ -d "$PNPM_HOME" ]] || mkdir -p "$PNPM_HOME"
-        path=("$PNPM_HOME" $path)
-    fi
-fi
+path=(
+    "$PNPM_HOME"
+    "$NPM_PACKAGES/bin"
+    $path)
 
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
