@@ -88,7 +88,6 @@ bd() {
 #   - fzf: Fuzzy finder (https://github.com/junegunn/fzf)
 #   - bat: Syntax highlighting (https://github.com/sharkdp/bat)
 #   - zoxide: Directory jumper (https://github.com/ajeetdsouza/zoxide)
-#   - ifne: Conditional pipeline execution (from moreutils)
 #
 edit_with_zoxide() {
     local context="$1"
@@ -106,7 +105,7 @@ edit_with_zoxide() {
         fi
     else
         # Handle when an context is provided
-        lines=($(zoxide query -l "$context" | ifne xargs -I {} fd ${fd_opts} ${query:-.} {} | ifne fzf ${fzf_opts}))
+        lines=($(zoxide query -l "$context" | xargs -I {} fd ${fd_opts} ${query:-.} {} | fzf ${fzf_opts} -0 -1))
         line_count="${#lines[@]}"
 
         if [ -n "$lines" ] && [ "$line_count" -eq 1 ]; then
