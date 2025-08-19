@@ -108,8 +108,8 @@ if (( $+commands[fd] )); then
     export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always --maxdepth=3'
 fi
 
-zinit ice wait'1' lucid
-zinit snippet "$HOME/dotfiles/zsh/nix/lib/fzf.zsh"
+zinit ice wait'0' lucid id-as"snippect-local-fuzzy-select"
+zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
 
 ## Quick cd solution
 # Be nice to the disk, just don't use babarot/enhancd, it rewrite entire large log directory log every time
@@ -147,7 +147,7 @@ zinit light tmux-plugins/tpm
 ASDF_DATA_DIR="$HOME/.asdf"
 if [[ -d $ASDF_DATA_DIR ]]; then
     export ASDF_DATA_DIR
-path=("$ASDF_DATA_DIR/shims" $path)
+    path=("$ASDF_DATA_DIR/shims" $path)
 fi
 asdf_update_java_home() {
   JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
@@ -163,15 +163,14 @@ if [[ -d "$HOME/.kube/config.d" ]]; then
     path=("$HOME/.krew/bin" $path)
 fi
 
-if (( $+commands[spark-submit] )); then
-    SPARK_HOME="/opt/homebrew/opt/apache-spark/libexec"
+SPARK_HOME="/opt/homebrew/opt/apache-spark/libexec"
 if [[ -d "$SPARK_HOME" ]]; then
     export SPARK_HOME
 fi
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/node_modules:$NODE_PATH"
-        export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 path=(
     "$PNPM_HOME"
     "$NPM_PACKAGES/bin"
@@ -180,9 +179,6 @@ path=(
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 path=("$CARGO_HOME/bin" $path)
-if (( ! $+commands[rustup] )); then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
 
 if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
@@ -239,8 +235,10 @@ function make_alias() {
     alias please='sudo $(fc -ln -1)' # sudo the last command
     alias mkdir='mkdir -p'
     alias cd='builtin cd'
-    alias ..='cd ..'
-    alias cd-='bd'
+    alias cdd='br -pf --max-depth=2'
+    alias bdd='cdd ../../'
+    alias ezo='edit_with_zoxide'
+    alias fman='fuzzy_man'
     (( $+commands[bat] )) && alias cat='bat --paging=never --theme="ansi" --style=numbers,changes'
     if (( $+commands[coreutils] )); then
         alias cp='coreutils cp'
