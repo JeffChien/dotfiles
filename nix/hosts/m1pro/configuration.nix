@@ -63,6 +63,11 @@
     yazi
     zoxide
     moreutils # for vipe
+    asdf
+    direnv
+    pipx
+    uv
+    pnpm
   ];
   homebrew = {
     enable = true;

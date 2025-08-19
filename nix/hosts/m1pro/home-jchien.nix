@@ -76,5 +76,9 @@ in
     ".config/nvim" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/neovim/astronvim/nix";
     };
+    ".config/broot/conf.hjson" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/broot/nix/conf.hjson";
+      force = true;
+    };
   };
 }
