@@ -1,1 +1,10 @@
+# The configuration can be reloaded at runtime by pressing ctrl+shift+, (Linux) or cmd+shift+, (macOS).
+
 macos-option-as-alt = true
+font-family = Iosevka Nerd Font Mono
+font-size = 19
+theme = Dracula+
+mouse-hide-while-typing = true
+mouse-scroll-multiplier=3
+background-opacity=0.90
+background-blur=true
