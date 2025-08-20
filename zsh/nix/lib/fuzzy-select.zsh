@@ -149,14 +149,13 @@ function fuzzy_man() {
     res=$(fd "${fd_pattern}" "${fd_working_dir}" --older ${update_day_gt})
     if [[ -n $res ]]; then
         print "cached list too old, regenerating..."
-        # check man man for section definition
-        apropos -s 1:5:8 . | sort | uniq >! ${cache_file}
+        apropos -s 1:5:8 . | sort | uniq >! ${cache_file} # check man man(1) for section definition
     fi
-    raw_candidate=$(fzf -q "${queries}" -0 -1 < ${cache_file})
-    if [[ "$raw_candidate" =~ '^([a-zA-Z_\-]+)\(([0-9]+)\)[[:space:]]+.*' ]]; then
+    # limit the fuzzy query to first field of a line
+    raw_candidate=$(fzf -q "${queries}" -d '(\) )' --nth 1 -0 -1 < ${cache_file})
+    if [[ "$raw_candidate" =~ '^([a-zA-Z_\-]+)\(([0-9]+)\)[[:space:],]+.*' ]]; then
         man_file=${match[1]}
         section=${match[2]}
-
         man "$section" "$man_file"
     fi
 }

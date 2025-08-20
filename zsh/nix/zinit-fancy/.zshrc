@@ -21,6 +21,7 @@ fpath=(
 )
 
 path=(
+    "$HOME/.lmstudio/bin"
     "$HOME/bin"
     "$HOME/.poetry/bin"
     "$HOME/.local/bin"
