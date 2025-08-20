@@ -80,5 +80,8 @@ in
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/broot/nix/conf.hjson";
       force = true;
     };
+    ".hammerspoon" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/hammerspoon/nix";
+    };
   };
 }

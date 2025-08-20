@@ -78,7 +78,9 @@
       "gnu-tar"
       "findutils"
     ];
-    casks = [ ];
+    casks = [
+      "hammerspoon"
+    ];
   };
 
   # Necessary for using flakes on this system.
