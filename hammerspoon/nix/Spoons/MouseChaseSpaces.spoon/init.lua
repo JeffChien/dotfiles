@@ -12,7 +12,7 @@ M.license = "MIT - https://opensource.org/licenses/MIT"
 M.logger = hs.logger.new("MouseChaseSpaces")
 
 local option = {
-    space_settle_delay = 0.35 -- Time in seconds for macOS to fully settle on the new space.
+    space_settle_delay = 0.5 -- Time in seconds for macOS to fully settle on the new space.
 }
 
 local spacesList = {}

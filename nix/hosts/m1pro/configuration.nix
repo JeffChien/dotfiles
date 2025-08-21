@@ -38,6 +38,7 @@
     # k8s
     k9s
     kubectl
+    kustomize
 
     # secret
     age
