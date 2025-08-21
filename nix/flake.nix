@@ -27,6 +27,9 @@
       ...
     }:
     {
+      # Necessary for using flakes on this system.
+      nix.settings.experimental-features = "nix-command flakes";
+
       # automatically gc
       nix.autoOptimiseStore = true;
       nix.gc.automatic = true;
@@ -44,8 +47,18 @@
 
       time.timeZone = "Asia/Taipei";
 
-      # linux devices
-      nixosConfigurations = { };
+      # none-nixos linux devices
+      homeConfigurations = let 
+          system = "x86_64-linux";
+          pkgs=nixpkgs.legacyPackages.${system};
+      in {
+        jarvis = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./hosts/jarvis/home-jchien.nix
+          ];
+        };
+      };
 
       # mac devices
       darwinConfigurations = {

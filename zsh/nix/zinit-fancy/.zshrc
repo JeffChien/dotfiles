@@ -24,6 +24,7 @@ path=(
     "$HOME/.lmstudio/bin"
     "$HOME/bin"
     "$HOME/.poetry/bin"
+    "$HOME"/.nix-profile/bin/
     "$HOME/.local/bin"
     $path
 )
@@ -185,14 +186,6 @@ if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
 fi
 
-path=(
-    "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
-    "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    $path)
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-    zsh-defer -t1 source "$(code --locate-shell-integration-path zsh)"
-fi
-
 # OS related
 case "$OS_NAME" in
   Darwin)
@@ -206,6 +199,16 @@ case "$OS_NAME" in
     # ALIAS
     zinit ice wait'2' lucid if'[[ -x "/usr/libexec/java_home" ]]'
     zinit snippet "$HOME/dotfiles/zsh/nix/lib/java.zsh"
+
+    # vscode os related
+    path=(
+        "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
+        "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+        $path)
+    if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+        zsh-defer -t1 source "$(code --locate-shell-integration-path zsh)"
+    fi
+
   ;;
   Linux)
     # disable ctrl-s stop terminal feature {{{

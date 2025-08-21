@@ -14,6 +14,7 @@ in
   # paths it should manage.
 
   home.username = "jchien";
+  home.homeDirectory = "/home/${config.home.username}";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -25,7 +26,42 @@ in
   # changes in each release.
   home.stateVersion = "25.05";
 
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    nixfmt
+    nixd
+
+    # editor
+    vim
+    neovim
+
+    # git
+    git
+    lazygit
+
+    # secret
+    age
+    sops
+
+    fzf
+    ripgrep
+    fd
+    bat
+    eza
+    vivid
+    rsync
+    newt # for whiptail
+    broot
+    yazi
+    zoxide
+    moreutils # for vipe
+    asdf
+    direnv
+    pipx
+    uv
+    pnpm
+    aria2
+    zsh
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -37,38 +73,14 @@ in
     ".config/git" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/git/nix";
     };
-    ".config/tig" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/tig/nix";
-    };
     ".config/alacritty" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/alacritty/nix";
-    };
-    ".config/yt-dlp" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/yt-dlp/nix";
-    };
-    ".config/yabai" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/yabai/nix";
     };
     ".config/wezterm" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/wezterm/nix";
     };
-    ".config/streamlink" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/streamlink/nix";
-    };
-    ".config/spacebar" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/spacebar/nix";
-    };
-    ".config/skhd" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/skhd/nix";
-    };
-    ".config/lf" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/lf/nix";
-    };
     ".config/tmux" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/tmux/nix";
-    };
-    ".config/karabiner" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/karabiner/nix";
     };
     ".config/zsh" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/zsh/nix/zinit-fancy";
@@ -80,15 +92,9 @@ in
     ".config/nvim" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/neovim/astronvim/nix";
     };
-    ".config/ghostty" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/ghostty/nix";
-    };
     ".config/broot/conf.hjson" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/broot/nix/conf.hjson";
       force = true;
-    };
-    ".hammerspoon" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/hammerspoon/nix";
     };
   };
 }

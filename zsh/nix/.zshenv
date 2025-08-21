@@ -1,5 +1,5 @@
 
-source ${HOME}/.osenv
+[[ -f ${HOME}/.osenv ]] && source ${HOME}/.osenv
 
 if [ -n "$ZSH_ENV_NAME" ]; then
   export ZDOTDIR="$HOME/.config/zsh/$ZSH_ENV_NAME"
