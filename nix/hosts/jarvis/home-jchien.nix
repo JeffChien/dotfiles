@@ -61,6 +61,9 @@ in
     pnpm
     aria2
     zsh
+    podman
+    podman-compose
+    podman-tui
   ];
 
   # Let Home Manager install and manage itself.
