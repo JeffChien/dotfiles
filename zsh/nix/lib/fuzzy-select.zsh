@@ -146,9 +146,9 @@ function fuzzy_man() {
     # check if update is needed
     local fd_pattern=$(basename "$cache_file")
     local fd_working_dir=$(dirname "$cache_file")
-    res=$(fd "${fd_pattern}" "${fd_working_dir}" --older ${update_day_gt})
-    if [[ -n $res ]]; then
-        print "cached list too old, regenerating..."
+    res=$(fd "${fd_pattern}" "${fd_working_dir}" --newer ${update_day_gt})
+    if [[ -z $res ]]; then
+        print "cached list too old or missing, regenerating..."
         apropos -s 1:5:8 . | sort | uniq >! ${cache_file} # check man man(1) for section definition
     fi
     # limit the fuzzy query to first field of a line
