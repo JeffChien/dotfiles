@@ -8,6 +8,7 @@ path=(
     /opt/homebrew/sbin
     /run/current-system/sw/bin
     /snap/bin
+    /usr/local/cuda/bin
     /usr/local/sbin
     /usr/local/bin
     /usr/sbin

@@ -24,7 +24,7 @@ path=(
     "$HOME/.lmstudio/bin"
     "$HOME/bin"
     "$HOME/.poetry/bin"
-    "$HOME"/.nix-profile/bin/
+    "$HOME"/.nix-profile/bin
     "$HOME/.local/bin"
     $path
 )
