@@ -251,6 +251,7 @@ function make_alias() {
     alias bdd='cdd ../../'
     alias ezo='edit_with_zoxide'
     alias fman='fuzzy_man'
+    alias pvcp='pv < $1 > $2'
     (( $+commands[bat] )) && alias cat='bat --paging=never --theme="ansi" --style=numbers,changes'
     if (( $+commands[coreutils] )); then
         alias cp='coreutils cp'

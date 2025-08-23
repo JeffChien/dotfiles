@@ -69,6 +69,7 @@
     pipx
     uv
     pnpm
+    pv
   ];
   homebrew = {
     enable = true;
