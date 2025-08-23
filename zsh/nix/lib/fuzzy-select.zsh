@@ -159,3 +159,118 @@ function fuzzy_man() {
         man "$section" "$man_file"
     fi
 }
+
+# Fuzzy path finder for zsh line editing
+#
+# Provides interactive file and directory selection using fd and fzf.
+# Integrates with zsh's line editor to insert selected paths into the current command line.
+#
+# Usage:
+#   _my_fuzzy_path_finder [filetype] [depth]
+#
+# Arguments:
+#   filetype - Type of items to find: 'f' for files (default), 'd' for directories
+#   depth    - Maximum directory depth to search (default: 3)
+#
+# Features:
+#   - Uses fd for fast file discovery with .git exclusion
+#   - Provides fzf interface with syntax highlighting via bat
+#   - Automatically detects if user typed a directory path
+#   - Supports fuzzy searching across directory structures
+#   - Integrates seamlessly with zsh line buffer
+#
+# Key behavior:
+#   - If last argument ends with '/', treats it as directory to search in
+#   - Otherwise uses argument as fuzzy search query
+#   - Replaces last argument with selected path(s)
+#
+# Dependencies:
+#   - fd: Fast file finder (https://github.com/sharkdp/fd)
+#   - fzf: Fuzzy finder (https://github.com/junegunn/fzf)
+#   - bat: Syntax highlighter (https://github.com/sharkdp/bat)
+#
+function _my_fuzzy_path_finder() {
+    local filetype="${1:-f}"
+    local depth="${2:-3}"
+    local last_args=${LBUFFER##* }
+    local dir=''
+    local query=''
+    local fzf_preview_cmd='bat -n --color=always --line-range :500 {}'
+    if [[ "$filetype" == "d" ]]; then
+      fzf_preview_cmd='ls -F --color=always {}'
+    fi
+    local fzf_opts=(--height=70% --preview="$fzf_preview_cmd" -1 -0 -m)
+    if [[ ${last_args[-1]} == '/' ]]; then
+        dir=${last_args/\~/${HOME}}
+    else
+        query=${last_args}
+    fi
+    candidates=`fd --type ${filetype} --hidden --follow --exclude .git --color=always --maxdepth=${depth} "" $dir | fzf -q "$query" ${fzf_opts} | xargs`
+    if [[ -n "$candidates" ]]; then
+        LBUFFER="${LBUFFER% *} $candidates"
+    fi
+}
+zle -N _my_fuzzy_path_finder
+
+# Ctrl-T file finder widget for zsh
+#
+# Interactive file selection widget triggered by Ctrl-T key binding.
+# Opens fuzzy file finder and prepends $EDITOR to selected file for editing.
+#
+# Usage:
+#   Press Ctrl-T in zsh prompt to activate
+#
+# Behavior:
+#   - Opens interactive file finder in current directory tree
+#   - If command line is empty, prepends $EDITOR to selected file
+#   - If command line has content, just inserts the selected file path
+#   - Uses _my_fuzzy_path_finder with file type 'f' and depth 3
+#
+# Key binding:
+#   Ctrl-T (configurable via zsh key bindings)
+#
+# Integration:
+#   - Works with zsh line editor (zle)
+#   - Resets prompt after selection
+#
+function _ctrl_t_file() {
+    local cmd=${BUFFER# *}
+    zle _my_fuzzy_path_finder -- f 3
+    if [[ -z $cmd ]]; then
+        LBUFFER="${EDITOR} ${LBUFFER# }"
+    fi
+    zle reset-prompt
+}
+zle -N _ctrl_t_file
+
+# Alt-C directory changer widget for zsh
+#
+# Interactive directory selection widget triggered by Alt-C key binding.
+# Opens fuzzy directory finder and changes to selected directory.
+#
+# Usage:
+#   Press Alt-C in zsh prompt to activate
+#
+# Behavior:
+#   - Opens interactive directory finder in current directory tree
+#   - If command line is empty, creates 'cd' command with selected directory
+#   - If command line has content, just inserts the selected directory path
+#   - Uses _my_fuzzy_path_finder with directory type 'd' and depth 3
+#
+# Key binding:
+#   Alt-C (configurable via zsh key bindings)
+#
+# Integration:
+#   - Works with zsh line editor (zle)
+#   - Resets prompt after selection
+#   - Changes working directory when used with empty command line
+#
+function _alt_c_dir() {
+    local cmd=${BUFFER# *}
+    zle _my_fuzzy_path_finder -- d 3
+    if [[ -z $cmd ]]; then
+        LBUFFER="cd ${LBUFFER# }"
+    fi
+    zle reset-prompt
+}
+zle -N _alt_c_dir

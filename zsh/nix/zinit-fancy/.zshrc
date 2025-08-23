@@ -92,8 +92,8 @@ WORDCHARS=${WORDCHARS//[\/]}
 
 zinit ice wait'0' lucid depth"1" atload"source shell/key-bindings.zsh; source shell/completion.zsh"
 zinit light junegunn/fzf
-# [ctrl/cmd] + t, file menu
-# [ctrl/cmd] + r, history menu
+# ctrl + t, file menu
+# ctrl + r, history menu
 # [alt/escape] + c, directory menu
 
 zinit ice lucid wait'1' depth"1"
@@ -104,11 +104,10 @@ zinit light Aloxaf/fzf-tab
 
 export FZF_DEFAULT_OPTS="--ansi --multi --height=40%"
 export FZF_CTRL_T_OPTS="--preview 'bat {} -r 1:32 --color=always'"
-export FZF_ALT_C_OPTS="--preview 'ls -F --color=always {}'"
-if (( $+commands[fd] )); then
-    export FZF_CTRL_T_COMMAND='fd --type f --hidden --follow --exclude .git --color=always --maxdepth=3'
-    export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git --color=always --maxdepth=3'
-fi
+
+export FZF_DEFAULT_OPTS="--ansi --multi --height=40%"
+export FZF_CTRL_T_COMMAND='' # don't use fzf's keybinding
+export FZF_ALT_C_COMMAND='' # don't use fzf's keybinding
 
 zinit ice wait'0' lucid id-as"snippect-local-fuzzy-select"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
@@ -125,7 +124,9 @@ zinit ice wait'0' lucid if'[[ -e $XDG_CONFIG_HOME/broot/launcher/bash/br ]]'
 zinit snippet "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 
 function after_aichat() {
+    # alt + \ , send messsage to aichat -e "<message>"
     bindkey -M main '\e\\' _aichat_zsh
+    bindkey -M vicmd '\e\\' _aichat_zsh
     bindkey -M viins '\e\\' _aichat_zsh
 }
 zinit ice wait'2' lucid if'[[ -n "$commands[aichat]" ]]' id-as'snippet-aichat-zsh' atload'after_aichat'
@@ -296,6 +297,12 @@ function zsh_style_setup() {
 
     zstyle ':completion:*' file-sort modification
 }; zsh-defer -t1 zsh_style_setup
+
+# use my implementations of fzf ctrl-t and alt-c functions.
+for keymap in emacs viins vicmd; do
+    bindkey -M $keymap '^T' _ctrl_t_file
+    bindkey -M $keymap '\ec' _alt_c_dir
+done
 
 zpcompinit
 zpcdreplay
