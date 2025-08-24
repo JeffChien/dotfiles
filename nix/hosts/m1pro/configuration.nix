@@ -72,6 +72,7 @@
     pnpm
     pv
     pam-reattach # mac only
+    rustup
   ];
   homebrew = {
     enable = true;
