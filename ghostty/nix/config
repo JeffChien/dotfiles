@@ -8,3 +8,13 @@ mouse-hide-while-typing = true
 mouse-scroll-multiplier=3
 background-opacity=0.90
 background-blur=true
+
+# these 2 fixes the issue of the terminal not open on the same position.
+window-save-state = always
+quit-after-last-window-closed=true
+
+quick-terminal-position=bottom
+quick-terminal-animation-duration=0
+quick-terminal-autohide=false
+
+keybind = global:cmd+grave_accent=toggle_quick_terminal
