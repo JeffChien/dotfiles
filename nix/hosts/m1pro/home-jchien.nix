@@ -90,5 +90,8 @@ in
     ".hammerspoon" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/hammerspoon/nix";
     };
+    ".config/fd" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/fd/nix";
+    };
   };
 }

@@ -100,5 +100,8 @@ in
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/broot/nix/conf.hjson";
       force = true;
     };
+    ".config/fd" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/fd/nix";
+    };
   };
 }
