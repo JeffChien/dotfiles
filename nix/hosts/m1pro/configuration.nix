@@ -10,6 +10,7 @@
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
 
   users.users.jchien = {
     name = "jchien";
@@ -70,6 +71,7 @@
     uv
     pnpm
     pv
+    pam-reattach # mac only
   ];
   homebrew = {
     enable = true;
