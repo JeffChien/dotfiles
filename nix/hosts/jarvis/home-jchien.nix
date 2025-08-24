@@ -93,8 +93,8 @@ in
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/zsh/nix/.zshenv";
       force = true;
     };
-    ".config/nvim" = {
-      source = mkOutOfStoreSymlink "${dotfilesDirectory}/neovim/astronvim/nix";
+    ".config/nvim-lazy" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/neovim/lazyvim/nix";
     };
     ".config/broot/conf.hjson" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/broot/nix/conf.hjson";
