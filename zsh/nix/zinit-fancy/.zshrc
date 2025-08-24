@@ -248,8 +248,8 @@ function make_alias() {
     alias please='sudo $(fc -ln -1)' # sudo the last command
     alias mkdir='mkdir -p'
     alias cd='builtin cd'
-    alias cdd='br -pf --max-depth=2'
-    alias bdd='cdd ../../'
+    alias cdd='br -pf -h --max-depth=3'
+    alias bdd='cdd ../../../'
     alias ezo='edit_with_zoxide'
     alias fman='fuzzy_man'
     alias pvcp='pv < $1 > $2'
