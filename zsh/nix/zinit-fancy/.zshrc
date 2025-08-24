@@ -48,6 +48,7 @@ setopt HIST_REDUCE_BLANKS  # Remove superfluous blanks before recording entry.
 export ZCOMPCACHE="$XDG_CACHE_HOME/zsh/compcache"
 export ZSH_COMPDUMP="$XDG_CACHE_HOME/zsh/zcompdump"
 export ZSH_SESSIONS_DIR="$XDG_DATA_HOME/zsh/sessions"
+export NVIM_APPNAME="nvim-lazy"
 
 typeset -A ZINIT
 ZINIT[ZCOMPDUMP_PATH]="$ZSH_COMPDUMP"
