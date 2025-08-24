@@ -113,6 +113,9 @@ export FZF_ALT_C_COMMAND='' # don't use fzf's keybinding
 zinit ice wait'0' lucid id-as"snippect-local-fuzzy-select"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
 
+zinit ice wait'0' lucid id-as"snippect-local-ai"
+zinit snippet "$HOME/dotfiles/zsh/nix/lib/ai.zsh"
+
 ## Quick cd solution
 # Be nice to the disk, just don't use babarot/enhancd, it rewrite entire large log directory log every time
 # we use it.
