@@ -257,21 +257,14 @@ function make_alias() {
     alias ezo='edit_with_zoxide'
     alias fman='fuzzy_man'
     alias pvcp='pv < $1 > $2'
-    (( $+commands[bat] )) && alias cat='bat --paging=never --theme="ansi" --style=numbers,changes'
-    if (( $+commands[coreutils] )); then
-        alias cp='coreutils cp'
-        alias mv='coreutils mv'
-        alias tac='coreutils tac'
-        alias head='coreutils head'
-        alias tail='coreutils tail'
-        alias date='coreutils date'
-        alias df='coreutils df'
-        alias du='coreutils du'
-        alias sort='coreutils sort'
-        alias realpath='coreutils realpath'
+
+    # replace core commands with GNU version provided by coreutils
+    if [[ $OS_NAME == "Darwin" ]]; then
+        local cmds=(cp mp cat tac head tail date df du sort realpath find sed awk)
+        for cmd in ${cmds}; do
+            (( $+commands[$cmd] )) && alias $cmd="g$cmd"
+        done
     fi
-    (( $+commands[gfind] )) && alias find='gfind'
-    (( $+commands[gsed] )) && alias sed='gsed'
 }; make_alias
 
 function zsh_style_setup() {
