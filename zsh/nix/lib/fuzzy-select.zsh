@@ -205,9 +205,16 @@ function _my_fuzzy_path_finder() {
     else
         query=${last_args}
     fi
-    candidates=`fd --type ${filetype} --hidden --follow --exclude .git --color=always --maxdepth=${depth} "" $dir | fzf -q "$query" ${fzf_opts} | xargs`
-    if [[ -n "$candidates" ]]; then
-        LBUFFER="${LBUFFER% *} $candidates"
+    candidates=()
+    while IFS= read -r candidate; do
+        [[ -n $candidate ]] && candidates+=("${(q)candidate}")
+    done <<< $(fd --type ${filetype} --hidden --follow --exclude .git --color=always --maxdepth=${depth} "" $dir | fzf -q "$query" ${fzf_opts})
+    if (( ${#candidates} )); then
+        if [[ $BUFFER != ${LBUFFER% *} ]]; then
+            LBUFFER="${LBUFFER% *} ${candidates}"
+        else
+            LBUFFER="${candidates}"
+        fi
     fi
 }
 zle -N _my_fuzzy_path_finder
@@ -236,7 +243,7 @@ zle -N _my_fuzzy_path_finder
 function _ctrl_t_file() {
     local cmd=${BUFFER# *}
     zle _my_fuzzy_path_finder -- f 3
-    if [[ -z $cmd ]]; then
+    if [[ -z $cmd && -n $LBUFFER ]]; then
         LBUFFER="${EDITOR} ${LBUFFER# }"
     fi
     zle reset-prompt
@@ -268,7 +275,7 @@ zle -N _ctrl_t_file
 function _alt_c_dir() {
     local cmd=${BUFFER# *}
     zle _my_fuzzy_path_finder -- d 3
-    if [[ -z $cmd ]]; then
+    if [[ -z $cmd && -n $LBUFFER ]]; then
         LBUFFER="cd ${LBUFFER# }"
     fi
     zle reset-prompt
