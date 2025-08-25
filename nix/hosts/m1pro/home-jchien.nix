@@ -93,5 +93,8 @@ in
     ".config/fd" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/fd/nix";
     };
+    ".config/yazi" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/yazi/nix";
+    };
   };
 }
