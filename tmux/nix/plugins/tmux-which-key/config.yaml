@@ -333,4 +333,4 @@ items:
   - separator: true
   - name: +Keys
     key: "?"
-    command: run-shell "tmux list-keys -N | fzf"
+    command: popup "tmux list-keys -N | less"

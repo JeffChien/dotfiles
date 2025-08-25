@@ -74,6 +74,7 @@ zinit snippet "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 
 zinit ice if'[[ -f "$ZDOTDIR/.p10k.zsh" ]]'
 zinit snippet "$ZDOTDIR/.p10k.zsh"
+typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
 
 # auto suggestion conflicts with history-search-multi-word
 zinit ice wait'2' lucid depth"1"; zinit light zsh-users/zsh-autosuggestions
