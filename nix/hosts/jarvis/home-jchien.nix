@@ -65,6 +65,7 @@ in
     podman-compose
     podman-tui
     pv
+    gum
   ];
 
   # Let Home Manager install and manage itself.

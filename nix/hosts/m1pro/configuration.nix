@@ -73,6 +73,7 @@
     pv
     pam-reattach # mac only
     rustup
+    gum
   ];
   homebrew = {
     enable = true;
