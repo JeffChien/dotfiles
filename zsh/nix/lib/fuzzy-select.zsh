@@ -111,6 +111,9 @@ edit_with_zoxide() {
         if [ -n "$lines" ] && [ "$line_count" -eq 1 ]; then
             # looks for the exact ones and opens it
             file="$lines"
+            folder_name="${file:h}"
+            zoxide add "${folder_name}" # make zoxide aware of the new directory
+            $EDITOR "$file"
             $EDITOR "$file"
         else
             echo "No matches found." >&2
