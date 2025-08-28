@@ -86,6 +86,7 @@
     ];
     casks = [
       "hammerspoon"
+      "nikitabobko/tap/aerospace"
     ];
   };
 

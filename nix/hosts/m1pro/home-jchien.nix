@@ -96,5 +96,8 @@ in
     ".config/yazi" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/yazi/nix";
     };
+    ".config/aerospace" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/aerospace/nix";
+    };
   };
 }
