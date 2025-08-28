@@ -142,6 +142,8 @@ function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSER
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
   ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+
+  bindkey -M viins '^[^?' backward-kill-word # alt + backtab
 }
 zinit ice wait'0' lucid depth=1
 zinit light jeffreytse/zsh-vi-mode
@@ -302,5 +304,7 @@ for keymap in emacs viins vicmd; do
     bindkey -M $keymap '\ec' _alt_c_dir
 done
 
-zpcompinit
-zpcdreplay
+function final() {
+    zpcompinit
+    zpcdreplay
+}; zsh-defer -t 2.5 final
