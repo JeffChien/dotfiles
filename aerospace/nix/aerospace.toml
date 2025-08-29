@@ -61,6 +61,10 @@ automatically-unhide-macos-hidden-apps = true
     outer.top =        0
     outer.right =      0
 
+[[on-window-detected]]
+    if.window-title-regex-substring = ' - modal'
+    run = ['layout floating']  # The callback itself
+
 [workspace-to-monitor-force-assignment]
     1 = 'built-in'
     2 = 'built-in'

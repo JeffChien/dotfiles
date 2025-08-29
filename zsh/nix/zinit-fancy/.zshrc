@@ -16,6 +16,7 @@
 fpath=(
     "$HOME/dotfiles/zsh/nix/completions"
     "$XDG_DATA_HOME/zsh/completions"
+    /opt/homebrew/share/zsh/site-functionqs
     /usr/local/share/zsh/site-functions
     $fpath
 )
@@ -116,6 +117,9 @@ zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
 
 zinit ice wait'0' lucid id-as"snippect-local-ai"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/ai.zsh"
+
+zinit ice wait'0' lucid id-as"snippect-local-utils"
+zinit snippet "$HOME/dotfiles/zsh/nix/lib/utils.zsh"
 
 ## Quick cd solution
 # Be nice to the disk, just don't use babarot/enhancd, it rewrite entire large log directory log every time
@@ -259,7 +263,8 @@ function make_alias() {
     alias bdd='cdd ../../../'
     alias ezo='edit_with_zoxide'
     alias fman='fuzzy_man'
-    alias pvcp='pv < $1 > $2'
+    alias aff='_aerospace_find_window'
+    alias pvcp='_pv_as_cp'
 
     # replace core commands with GNU version provided by coreutils
     if [[ $OS_NAME == "Darwin" ]]; then

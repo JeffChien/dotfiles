@@ -82,4 +82,8 @@ function exportIfAny () {
   eval "$cmd"
 }
 
+function _pv_as_cp () {
+  pv < $1 > $2
+}
+
 # vim: fdm=marker

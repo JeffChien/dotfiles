@@ -16,5 +16,6 @@ quit-after-last-window-closed=true
 quick-terminal-position=bottom
 quick-terminal-animation-duration=0
 quick-terminal-autohide=false
+quick-terminal-screen =  mouse
 
 keybind = global:cmd+grave_accent=toggle_quick_terminal

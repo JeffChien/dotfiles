@@ -284,3 +284,10 @@ function _alt_c_dir() {
     zle reset-prompt
 }
 zle -N _alt_c_dir
+
+function _aerospace_find_window() {
+    local wid=$(aerospace list-windows --all | gum filter | awk '{print $1}')
+    if (( ${#wid} )); then
+      aerospace focus --window-id $wid
+    fi
+}
