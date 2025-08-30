@@ -54,8 +54,8 @@ automatically-unhide-macos-hidden-apps = true
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 0
-    inner.vertical =   0
+    inner.horizontal = 10
+    inner.vertical =   10
     outer.left =       0
     outer.bottom =     0
     outer.top =        0
@@ -118,19 +118,16 @@ automatically-unhide-macos-hidden-apps = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
     esc = ['reload-config', 'mode layer1']
+    enter = 'mode main'
     r = ['flatten-workspace-tree', 'mode layer1'] # reset layout
     backspace = ['close-all-windows-but-current', 'mode layer1']
 
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode layer1']
 
-    alt-shift-h = ['join-with left', 'mode layer1']
-    alt-shift-j = ['join-with down', 'mode layer1']
-    alt-shift-k = ['join-with up', 'mode layer1']
-    alt-shift-l = ['join-with right', 'mode layer1']
-
 [mode.layer1.binding]
     esc = 'mode main'
+    enter = 'mode main'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     cmd-semicolon = 'mode service'
@@ -151,6 +148,11 @@ automatically-unhide-macos-hidden-apps = true
     shift-j = 'move down'
     shift-k = 'move up'
     shift-l = 'move right'
+
+    alt-shift-h = 'join-with left'
+    alt-shift-j = 'join-with down'
+    alt-shift-k = 'join-with up'
+    alt-shift-l = 'join-with right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#resize
     minus = 'resize smart -50'
@@ -179,6 +181,6 @@ automatically-unhide-macos-hidden-apps = true
     shift-v = 'move-node-to-workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-tab = 'workspace-back-and-forth'
+    alt-tab = 'exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth'
     tab = ['''exec-and-forget aerospace list-windows --all | choose | awk '{print $1}' | xargs aerospace focus --window-id''',
         'mode main']
