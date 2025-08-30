@@ -83,6 +83,7 @@
       "gnu-getopt"
       "gnu-tar"
       "findutils"
+      "choose-gui"
     ];
     casks = [
       "hammerspoon"

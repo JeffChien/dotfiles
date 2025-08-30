@@ -38,7 +38,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 automatically-unhide-macos-hidden-apps = true
 
 [exec.env-vars]
-    PATH = '${HOME}/.nix-profile/bin:${PATH}'
+    PATH = '${HOME}/.nix-profile/bin:/opt/homebrew/bin:${PATH}'
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -180,3 +180,5 @@ automatically-unhide-macos-hidden-apps = true
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
+    tab = ['''exec-and-forget aerospace list-windows --all | choose | awk '{print $1}' | xargs aerospace focus --window-id''',
+        'mode main']
