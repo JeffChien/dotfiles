@@ -3265,6 +3265,14 @@
                         "vendor_id": 12951
                     },
                     "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true
                 }
             ],
             "name": "ts",
