@@ -1,0 +1,46 @@
+#|
+
+    service 
+    ```
+    sudo cp com.example.kanata-edx.plist to /Library/launchdaemon
+    sudo launchctl load com.example.kanata-edx
+    sudo launchctl start com.example.kanata-edx
+    ```
+    https://jtroo.github.io/config.html
+|#
+
+
+(defcfg
+    process-unmapped-keys yes
+)
+
+(defsrc
+    a s d f j k l ;
+)
+
+(defvar
+  tap-repress-timeout   200
+  hold-timeout  200
+)
+
+(defalias
+    lgui-mod (tap-hold $tap-repress-timeout $hold-timeout a lmet)
+    rgui-mod (tap-hold $tap-repress-timeout $hold-timeout ; rmet)
+    lalt-mod (tap-hold $tap-repress-timeout $hold-timeout s lalt)
+    ralt-mod (tap-hold $tap-repress-timeout $hold-timeout l ralt)
+    lshft-mod (tap-hold $tap-repress-timeout $hold-timeout d lshft)
+    rshft-mod (tap-hold $tap-repress-timeout $hold-timeout k rshft)
+    lctl-mod (tap-hold $tap-repress-timeout $hold-timeout f lctl)
+    rctl-mod (tap-hold $tap-repress-timeout $hold-timeout j rctl)
+)
+
+(deflayermap (base-layer)
+ a @lgui-mod
+ s @lalt-mod
+ d @lshft-mod
+ f @lctl-mod
+ j @rctl-mod
+ k @rshft-mod
+ l @ralt-mod
+ ; @rgui-mod
+)

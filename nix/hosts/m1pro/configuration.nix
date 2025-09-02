@@ -74,6 +74,7 @@
     pam-reattach # mac only
     rustup
     gum
+    kanata
   ];
   homebrew = {
     enable = true;
