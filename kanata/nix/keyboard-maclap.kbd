@@ -13,13 +13,11 @@
 (defcfg
     process-unmapped-keys yes
     macos-dev-names-include (
-        "ErgoDox EZ Shine"
+        "Apple Internal Keyboard / Trackpad"
     )
 )
 
-(defsrc
-    a s d f j k l ;
-)
+(defsrc)
 
 (defvar
   tap-repress-timeout   200
@@ -46,4 +44,6 @@
  k @rshft-mod
  l @ralt-mod
  ; @rgui-mod
+ caps esc
+ 
 )
