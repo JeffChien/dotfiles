@@ -29,21 +29,41 @@
     rgui-mod (tap-hold $tap-repress-timeout $hold-timeout ; rmet)
     lalt-mod (tap-hold $tap-repress-timeout $hold-timeout s lalt)
     ralt-mod (tap-hold $tap-repress-timeout $hold-timeout l ralt)
-    lshft-mod (tap-hold $tap-repress-timeout $hold-timeout d lshft)
-    rshft-mod (tap-hold $tap-repress-timeout $hold-timeout k rshft)
-    lctl-mod (tap-hold $tap-repress-timeout $hold-timeout f lctl)
-    rctl-mod (tap-hold $tap-repress-timeout $hold-timeout j rctl)
+    lshft-mod (tap-hold $tap-repress-timeout $hold-timeout f lshft)
+    rshft-mod (tap-hold $tap-repress-timeout $hold-timeout j rshft)
+    lctl-mod (tap-hold $tap-repress-timeout $hold-timeout d lctl)
+    rctl-mod (tap-hold $tap-repress-timeout $hold-timeout k rctl)
 )
 
 (deflayermap (base-layer)
  a @lgui-mod
  s @lalt-mod
- d @lshft-mod
- f @lctl-mod
- j @rctl-mod
- k @rshft-mod
+ d @lctl-mod
+ f @lshft-mod
+ j @rshft-mod
+ k @rctl-mod
  l @ralt-mod
  ; @rgui-mod
  caps esc
- 
+ spc (tap-hold $tap-repress-timeout $hold-timeout spc (layer-while-held numbers-symbols-layer))
+)
+
+(deflayermap (numbers-symbols-layer)
+    q grv
+    w 7
+    e 8
+    r 9 
+    t 0
+
+    a min
+    s 4
+    d 5
+    f 6
+    g eql
+    
+    z bksl
+    x 1
+    c 2
+    v 3
+    b apo
 )
