@@ -181,6 +181,6 @@ automatically-unhide-macos-hidden-apps = true
     shift-v = 'move-node-to-workspace 9'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-tab = 'exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth'
+    alt-tab = ['exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth', 'mode main']
     tab = ['''exec-and-forget aerospace list-windows --all | choose | awk '{print $1}' | xargs aerospace focus --window-id''',
         'mode main']

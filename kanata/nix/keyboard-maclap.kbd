@@ -50,8 +50,8 @@
  spc (tap-hold $tap-repress-timeout $hold-timeout spc (layer-while-held numbers-symbols-layer))
  v (tap-hold $tap-repress-timeout $hold-timeout v @hyper-mod)
  c (tap-hold $tap-repress-timeout $hold-timeout c @meh-mod)
- n (tap-hold $tap-repress-timeout $hold-timeout n @hyper-mod)
- m (tap-hold $tap-repress-timeout $hold-timeout m @meh-mod)
+ m (tap-hold $tap-repress-timeout $hold-timeout n @hyper-mod)
+ , (tap-hold $tap-repress-timeout $hold-timeout m @meh-mod)
 )
 
 (deflayermap (numbers-symbols-layer)
