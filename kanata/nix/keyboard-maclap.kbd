@@ -33,6 +33,8 @@
     rshft-mod (tap-hold $tap-repress-timeout $hold-timeout j rshft)
     lctl-mod (tap-hold $tap-repress-timeout $hold-timeout d lctl)
     rctl-mod (tap-hold $tap-repress-timeout $hold-timeout k rctl)
+    meh-mod (multi lctl lalt lshft)
+    hyper-mod (multi lmet lctl lalt lshft)
 )
 
 (deflayermap (base-layer)
@@ -46,6 +48,10 @@
  ; @rgui-mod
  caps esc
  spc (tap-hold $tap-repress-timeout $hold-timeout spc (layer-while-held numbers-symbols-layer))
+ v (tap-hold $tap-repress-timeout $hold-timeout v @hyper-mod)
+ c (tap-hold $tap-repress-timeout $hold-timeout c @meh-mod)
+ n (tap-hold $tap-repress-timeout $hold-timeout n @hyper-mod)
+ m (tap-hold $tap-repress-timeout $hold-timeout m @meh-mod)
 )
 
 (deflayermap (numbers-symbols-layer)
