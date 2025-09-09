@@ -85,10 +85,13 @@
       "gnu-tar"
       "findutils"
       "choose-gui"
+      "proxychains-ng"
     ];
     casks = [
       "hammerspoon"
       "nikitabobko/tap/aerospace"
+      "raycast"
+      "leader-key"
     ];
   };
 

@@ -66,6 +66,7 @@ in
     podman-tui
     pv
     gum
+    proxychains-ng
   ];
 
   # Let Home Manager install and manage itself.
