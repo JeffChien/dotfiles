@@ -15,6 +15,7 @@
     macos-dev-names-include (
         "Apple Internal Keyboard / Trackpad"
     )
+    concurrent-tap-hold yes
 )
 
 (defsrc)
@@ -72,4 +73,8 @@
     c 2
     v 3
     b apo
+)
+
+(defchordsv2
+  (j i) esc 50 first-release ()
 )
