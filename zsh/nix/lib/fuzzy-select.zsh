@@ -46,20 +46,6 @@ fcoc_preview() {
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
-# backward cd
-bd() {
-  candidates=()
-  pdir="$(pwd)"
-  while [[ "$pdir" != "/" ]]; do
-	  pdir=$(dirname "$pdir")
-	  candidates+=("$pdir")
-  done
-  choice=$(printf "%s\n" "${candidates[@]}" | 
-    fzf --height 40% --reverse --preview 'ls --color=always {}'
-  )
-  [[ -n "$choice" ]] && builtin cd "$choice"
-}
-
 # edit_with_zoxide - Easy file finder and opener
 #
 # A smart file finder that combines fd (fast find), fzf (fuzzy finder), and zoxide (directory jumper)
@@ -119,47 +105,6 @@ edit_with_zoxide() {
             echo "No matches found." >&2
             return 1
         fi
-    fi
-}
-
-
-# Interactive man page search and viewer using fzf
-#
-# Usage: fuzzy_man [query...]
-#
-# Features:
-# - Caches man page listings for faster access
-# - Automatically regenerates cache after 10 days
-# - Searches man pages from sections 1, 5, and 8
-# - Opens selected man page in the system man viewer
-#
-# Examples:
-#   fuzzy_man ls        # Search for man pages containing "ls"
-#   fuzzy_man git       # Search for git-related man pages
-#   fuzzy_man           # Browse all avaie man pages
-function fuzzy_man() {
-    local queries=${@}
-    local cache_file=${XDG_CACHE_HOME}/manlist.dump
-    # s,m,h,d
-    local update_day_gt="90d"
-
-    local man_file=""
-    local section="1"
-
-    # check if update is needed
-    local fd_pattern=$(basename "$cache_file")
-    local fd_working_dir=$(dirname "$cache_file")
-    res=$(fd "${fd_pattern}" "${fd_working_dir}" --newer ${update_day_gt})
-    if [[ -z $res ]]; then
-        print "cached list too old or missing, regenerating..."
-        apropos -s 1:5:8 . | sort | uniq >! ${cache_file} # check man man(1) for section definition
-    fi
-    # limit the fuzzy query to first field of a line
-    raw_candidate=$(fzf -q "${queries}" -d '(\) )' --nth 1 -0 -1 < ${cache_file})
-    if [[ "$raw_candidate" =~ '^([a-zA-Z_\-]+)\(([0-9]+)\)[[:space:],]+.*' ]]; then
-        man_file=${match[1]}
-        section=${match[2]}
-        man "$section" "$man_file"
     fi
 }
 

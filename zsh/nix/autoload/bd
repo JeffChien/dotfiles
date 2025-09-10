@@ -1,0 +1,13 @@
+# backward cd
+bd() {
+  candidates=()
+  pdir="${1:-$PWD}"
+  while [[ "$pdir" != "/" ]]; do
+	  pdir=$(dirname "$pdir")
+	  candidates+=("$pdir")
+  done
+  choice=$(printf "%s\n" "${candidates[@]}" | 
+    fzf --height 40% --reverse --preview 'ls --color=always {}'
+  )
+  [[ -n "$choice" ]] && builtin cd "$choice"
+}

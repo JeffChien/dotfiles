@@ -14,6 +14,7 @@
 
 
 fpath=(
+    "$HOME/dotfiles/zsh/nix/autoload"
     "$HOME/dotfiles/zsh/nix/completions"
     "$XDG_DATA_HOME/zsh/completions"
     /opt/homebrew/share/zsh/site-functionqs
@@ -115,8 +116,10 @@ export FZF_ALT_C_COMMAND='' # don't use fzf's keybinding
 zinit ice wait'0' lucid id-as"snippect-local-fuzzy-select"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
 
-zinit ice wait'0' lucid id-as"snippect-local-ai"
-zinit snippet "$HOME/dotfiles/zsh/nix/lib/ai.zsh"
+autoload -Uz aicmd
+autoload -Uz fuzzy_man
+autoload -Uz bd
+autoload -Uz fff
 
 zinit ice wait'0' lucid id-as"snippect-local-utils"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/utils.zsh"
