@@ -75,6 +75,7 @@
     rustup
     gum
     kanata
+    minijinja
   ];
   homebrew = {
     enable = true;
