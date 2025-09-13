@@ -159,26 +159,26 @@ automatically-unhide-macos-hidden-apps = true
     equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    s = 'workspace 1'
-    d = 'workspace 2'
-    f = 'workspace 3'
-    w = 'workspace 4'
-    e = 'workspace 5'
-    r = 'workspace 6'
-    x = 'workspace 7'
-    c = 'workspace 8'
-    v = 'workspace 9'
+    s = ['workspace 1', 'mode main']
+    d = ['workspace 2', 'mode main']
+    f = ['workspace 3', 'mode main']
+    w = ['workspace 4', 'mode main']
+    e = ['workspace 5', 'mode main']
+    r = ['workspace 6', 'mode main']
+    x = ['workspace 7', 'mode main']
+    c = ['workspace 8', 'mode main']
+    v = ['workspace 9', 'mode main']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    shift-s = 'move-node-to-workspace 1'
-    shift-d = 'move-node-to-workspace 2'
-    shift-f = 'move-node-to-workspace 3'
-    shift-w = 'move-node-to-workspace 4'
-    shift-e = 'move-node-to-workspace 5'
-    shift-r = 'move-node-to-workspace 6'
-    shift-x = 'move-node-to-workspace 7'
-    shift-c = 'move-node-to-workspace 8'
-    shift-v = 'move-node-to-workspace 9'
+    shift-s = ['move-node-to-workspace 1', 'mode main']
+    shift-d = ['move-node-to-workspace 2', 'mode main']
+    shift-f = ['move-node-to-workspace 3', 'mode main']
+    shift-w = ['move-node-to-workspace 4', 'mode main']
+    shift-e = ['move-node-to-workspace 5', 'mode main']
+    shift-r = ['move-node-to-workspace 6', 'mode main']
+    shift-x = ['move-node-to-workspace 7', 'mode main']
+    shift-c = ['move-node-to-workspace 8', 'mode main']
+    shift-v = ['move-node-to-workspace 9', 'mode main']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = ['exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth', 'mode main']
