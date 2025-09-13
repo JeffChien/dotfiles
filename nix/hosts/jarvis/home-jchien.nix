@@ -61,9 +61,6 @@ in
     pnpm
     aria2
     zsh
-    podman
-    podman-compose
-    podman-tui
     pv
     gum
     proxychains-ng
