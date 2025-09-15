@@ -99,5 +99,8 @@ in
     ".config/aerospace" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/aerospace/nix";
     };
+    ".vscodevimrc" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/vscode/nix/.vscodevimrc";
+    };
   };
 }
