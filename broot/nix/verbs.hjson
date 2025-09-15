@@ -137,6 +137,24 @@ verbs: [
         key: ctrl-d
         execution: ":page_down"
     }
+    {
+        # go up one folder, can go back with esc
+        key: ctrl-h
+        execution: ":up_tree"
+    }
+    {
+        # go into to the select folder
+        key: ctrl-l
+        cmd: ":focus;:input_clear"
+    }
+    {
+        invocation: zoxide
+        shortcut: z
+        key: "alt-z"
+        external: "br $(zoxide query -i)"
+        from_shell: true
+        leave_broot: true
+    }
 
     # If you develop using git, you might like to often switch
     # to the git status filter:
