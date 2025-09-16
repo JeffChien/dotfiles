@@ -76,6 +76,7 @@
     gum
     kanata
     minijinja
+    lazydocker
   ];
   homebrew = {
     enable = true;

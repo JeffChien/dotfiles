@@ -64,6 +64,7 @@ in
     pv
     gum
     proxychains-ng
+    lazydocker
   ];
 
   # Let Home Manager install and manage itself.
