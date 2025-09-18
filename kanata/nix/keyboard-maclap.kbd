@@ -77,4 +77,5 @@
 
 (defchordsv2
   (j i) esc 50 first-release ()
+  (f j) (caps-word 3000) 50 first-release ()
 )
