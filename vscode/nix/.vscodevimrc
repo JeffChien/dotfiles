@@ -1,4 +1,4 @@
-" Don't include leading whitespace
+" Don't include leading whitespace when using surround
 onoremap a' 2i'
 onoremap a" 2i"
 xnoremap a' 2i'
@@ -6,3 +6,7 @@ xnoremap a" 2i"
 
 onoremap <plugys>a' 2i'
 onoremap <plugys>a" 2i"
+
+" stay in visual mode when indent/outdent
+vnoremap < <gv
+vnoremap > >gv
