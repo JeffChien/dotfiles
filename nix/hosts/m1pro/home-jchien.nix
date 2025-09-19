@@ -99,6 +99,9 @@ in
     ".config/aerospace" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/aerospace/nix";
     };
+    ".config/leader_key" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/leader_key/nix";
+    };
     ".vscodevimrc" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/vscode/nix/.vscodevimrc";
     };

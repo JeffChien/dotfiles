@@ -1,0 +1,73 @@
+{
+  "actions" : [
+    {
+      "actions" : [
+
+      ],
+      "key" : "o",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "e",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key" : "p",
+          "type" : "url",
+          "value" : "raycast://confetti"
+        },
+        {
+          "actions" : [
+            {
+              "key" : "t",
+              "label" : "OCR translate",
+              "type" : "url",
+              "value" : "raycast://extensions/douo/openai-translator/ocr"
+            },
+            {
+              "key" : "o",
+              "label" : "OCR text",
+              "type" : "command",
+              "value" : "shortcuts run 'Simple OCR'"
+            }
+          ],
+          "key" : "o",
+          "label" : "OCR",
+          "type" : "group"
+        }
+      ],
+      "key" : "r",
+      "label" : "Raycast",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "space",
+          "label" : "ABC",
+          "type" : "command",
+          "value" : "im-select org.unknown.keylayout.ABC-altkey"
+        },
+        {
+          "key" : "c",
+          "label" : "Chinese",
+          "type" : "command",
+          "value" : "im-select im.rime.inputmethod.Squirrel.Hant"
+        },
+        {
+          "key" : "j",
+          "label" : "Japanese",
+          "type" : "command",
+          "value" : "im-select com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese"
+        }
+      ],
+      "key" : "i",
+      "label" : "Input methods",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}
