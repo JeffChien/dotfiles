@@ -877,6 +877,22 @@
                         "vendor_id": 14648
                     },
                     "ignore": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 834,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 18805,
+                        "vendor_id": 12951
+                    },
+                    "ignore": true
                 }
             ],
             "fn_function_keys": [
@@ -902,6 +918,7 @@
                 }
             ],
             "name": "all programming",
+            "selected": true,
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": false,
@@ -3276,7 +3293,6 @@
                 }
             ],
             "name": "ts",
-            "selected": true,
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": false,
