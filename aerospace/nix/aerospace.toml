@@ -65,6 +65,12 @@ automatically-unhide-macos-hidden-apps = true
     if.window-title-regex-substring = ' - modal'
     run = ['layout floating']  # The callback itself
 
+# Make Flameshot float
+[[on-window-detected]]
+    # You might need to verify the app ID with 'aerospace debug-windows'
+    if.app-id = 'org.flameshot.Flameshot'
+    run = ['layout floating']
+
 [workspace-to-monitor-force-assignment]
     1 = 'built-in'
     2 = 'built-in'
