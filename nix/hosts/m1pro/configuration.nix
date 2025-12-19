@@ -77,6 +77,7 @@
     kanata
     minijinja
     lazydocker
+    httpyac
   ];
   homebrew = {
     enable = true;
