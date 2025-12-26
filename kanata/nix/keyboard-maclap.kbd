@@ -48,24 +48,24 @@
  l @ralt-mod
  ; @rgui-mod
  caps esc
- spc (tap-hold $tap-repress-timeout $hold-timeout spc (layer-while-held numbers-symbols-layer))
+ spc (tap-hold $tap-repress-timeout $hold-timeout spc (layer-while-held numbers-symbols-movement-layer))
  v (tap-hold $tap-repress-timeout $hold-timeout v @hyper-mod)
  c (tap-hold $tap-repress-timeout $hold-timeout c @meh-mod)
  m (tap-hold $tap-repress-timeout $hold-timeout m @hyper-mod)
  , (tap-hold $tap-repress-timeout $hold-timeout , @meh-mod)
 )
 
-(deflayermap (numbers-symbols-layer)
+(deflayermap (numbers-symbols-movement-layer)
     q grv
     w 7
     e 8
     r 9 
     t 0
 
-    a min
-    s 4
-    d 5
-    f 6
+    a (tap-hold $tap-repress-timeout $hold-timeout min lmet)
+    s (tap-hold $tap-repress-timeout $hold-timeout 4 lalt)
+    d (tap-hold $tap-repress-timeout $hold-timeout 5 lctl)
+    f (tap-hold $tap-repress-timeout $hold-timeout 6 lshft)
     g eql
     
     z bksl
@@ -73,6 +73,15 @@
     c 2
     v 3
     b apo
+
+    h left
+    j (tap-hold $tap-repress-timeout $hold-timeout down lshft)
+    k (tap-hold $tap-repress-timeout $hold-timeout up rctl)
+    l (tap-hold $tap-repress-timeout $hold-timeout right lalt)
+    y home
+    u pgdn
+    i pgup
+    o end
 )
 
 (defchordsv2
