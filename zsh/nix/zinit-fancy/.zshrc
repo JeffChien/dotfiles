@@ -25,6 +25,7 @@ fpath=(
 path=(
     "$HOME/.lmstudio/bin"
     "$HOME/bin"
+    "$HOME/.cache/.bun/bin"
     "$HOME/.poetry/bin"
     "$HOME"/.nix-profile/bin
     "$HOME/.local/bin"
@@ -200,6 +201,9 @@ path=("$CARGO_HOME/bin" $path)
 if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
 fi
+
+export OPENCODE_CONFIG_DIR="${HOME}/dotfiles/opencode/nix/opencode.jsonc"
+export OPENCODE_CONFIG_DIR="${HOME}/dotfiles/opencode/nix/"
 
 # OS related
 case "$OS_NAME" in
