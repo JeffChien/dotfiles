@@ -36,8 +36,6 @@
     rctl-mod (tap-hold $tap-repress-timeout $hold-timeout k rctl)
     meh-mod (multi lctl lalt lshft)
     hyper-mod (multi lmet lctl lalt lshft)
-    ;; para-bra-l (tap-hold $tap-repress-timeout $hold-timeout 9 BracketLeft)
-    ;; para-bra-r (tap-hold $tap-repress-timeout $hold-timeout 0 BracketRight)
     para-bra-l (tap-dance $tap-repress-timeout (9 BracketLeft))
     para-bra-r (tap-dance $tap-repress-timeout (0 BracketRight))
 )
@@ -50,22 +48,25 @@
  k @rctl-mod
  l @ralt-mod
  ; @rgui-mod
- 9 @para-bra-l
- 0 @para-bra-r
  caps esc
  spc (tap-hold $tap-repress-timeout $hold-timeout spc (layer-while-held numbers-symbols-movement-layer))
  v (tap-hold $tap-repress-timeout $hold-timeout v @hyper-mod)
  c (tap-hold $tap-repress-timeout $hold-timeout c @meh-mod)
  m (tap-hold $tap-repress-timeout $hold-timeout m @hyper-mod)
  , (tap-hold $tap-repress-timeout $hold-timeout , @meh-mod)
+
+ lmet (layer-while-held fn-layer)
+ rmet (layer-while-held fn-layer)
 )
 
 (deflayermap (numbers-symbols-movement-layer)
     q grv
     w 7
     e 8
-    r @para-bra-l 
-    t @para-bra-r
+    r 9
+    t BracketLeft
+    3 0
+    4 BracketRight
 
     a (tap-hold $tap-repress-timeout $hold-timeout min lmet)
     s (tap-hold $tap-repress-timeout $hold-timeout 4 lalt)
@@ -87,6 +88,24 @@
     u pgdn
     i pgup
     o end
+)
+
+(deflayermap (fn-layer)
+    m f1
+    , f2
+    . f3
+
+    j f4
+    k f5
+    l f6
+
+    u f7
+    i f8
+    o f9
+
+    7 f10
+    8 f11
+    9 f12
 )
 
 (defchordsv2

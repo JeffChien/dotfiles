@@ -15,15 +15,14 @@
     macos-dev-names-include (
         "ErgoDox EZ Shine"
     )
+    concurrent-tap-hold yes
 )
 
-(defsrc
-    a s d f j k l ;
-)
+(defsrc)
 
 (defvar
-  tap-repress-timeout   200
-  hold-timeout  200
+  tap-repress-timeout   180
+  hold-timeout  180
 )
 
 (defalias
@@ -35,6 +34,10 @@
     rshft-mod (tap-hold $tap-repress-timeout $hold-timeout j rshft)
     lctl-mod (tap-hold $tap-repress-timeout $hold-timeout d lctl)
     rctl-mod (tap-hold $tap-repress-timeout $hold-timeout k rctl)
+    meh-mod (multi lctl lalt lshft)
+    hyper-mod (multi lmet lctl lalt lshft)
+    para-bra-l (tap-dance $tap-repress-timeout (9 BracketLeft))
+    para-bra-r (tap-dance $tap-repress-timeout (0 BracketRight))
 )
 
 (deflayermap (base-layer)
@@ -46,4 +49,16 @@
  k @rctl-mod
  l @ralt-mod
  ; @rgui-mod
+
+
+ v (tap-hold $tap-repress-timeout $hold-timeout v @hyper-mod)
+ c (tap-hold $tap-repress-timeout $hold-timeout c @meh-mod)
+ m (tap-hold $tap-repress-timeout $hold-timeout m @hyper-mod)
+ , (tap-hold $tap-repress-timeout $hold-timeout , @meh-mod)
+
+)
+
+(defchordsv2
+  (j i) esc 50 first-release ()
+  (f j) (caps-word 3000) 50 first-release ()
 )
