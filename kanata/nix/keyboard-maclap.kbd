@@ -57,6 +57,7 @@
 
  lmet (layer-while-held fn-layer)
  rmet (layer-while-held fn-layer)
+ fn (tap-hold $tap-repress-timeout $hold-timeout fn (layer-toggle fix-globe-key)) 
 )
 
 (deflayermap (numbers-symbols-movement-layer)
@@ -106,6 +107,22 @@
     7 f10
     8 f11
     9 f12
+)
+
+(deflayermap (fix-globe-key)
+    f1 brdn
+    f2 brup
+    f3 _
+    f4 _
+    f5 _
+    f6 _
+    f7 prev
+    f8 pp
+    f9 next
+    f10 mute
+    f11 vold
+    f12 volu
+    Backspace Delete
 )
 
 (defchordsv2
