@@ -78,6 +78,7 @@
     minijinja
     lazydocker
     httpyac
+    gh
   ];
   homebrew = {
     enable = true;
