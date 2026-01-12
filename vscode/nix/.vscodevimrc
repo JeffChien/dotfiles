@@ -7,6 +7,24 @@ xnoremap a" 2i"
 onoremap <plugys>a' 2i'
 onoremap <plugys>a" 2i"
 
+" next and previous bracket
+nnoremap <leader>]] /[\[\](){}]<CR>
+nnoremap <leader>[[ ?[\[\](){}]<CR>
+vnoremap <leader>]] /[\[\](){}]<CR>
+vnoremap <leader>[[ ?[\[\](){}]<CR>
+
+" next and previous quote
+nnoremap <leader>]q /["']<CR>
+nnoremap <leader>[q ?["']<CR>
+vnoremap <leader>]q /["']<CR>
+vnoremap <leader>[q ?["']<CR>
+
+" next and previous number
+nnoremap <leader>]1 /\d+<CR>
+nnoremap <leader>[1 ?\d+<CR>
+vnoremap <leader>]1 /\d+<CR>
+vnoremap <leader>[1 ?\d+<CR>
+
 " stay in visual mode when indent/outdent
 vnoremap < <gv
 vnoremap > >gv
