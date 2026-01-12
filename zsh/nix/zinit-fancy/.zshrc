@@ -1,3 +1,16 @@
+# Keybindings (brief):
+#
+# | Key/Binding         | Description                                         | Notes/Function                      |
+# |---------------------|-----------------------------------------------------|-------------------------------------|
+# | ^T (Ctrl-T)         | File picker / file menu                            | _ctrl_t_file → fzf preview          |
+# | ^R (Ctrl-R)         | History menu (fzf-based)                           |                                     |
+# | \ec (Alt-c)         | Directory menu                                     | _alt_c_dir                          |
+# | \e\\ (Alt-\)        | Send message to aichat                             | _aichat_zsh                         |
+# | vv                  | Edit current command in $EDITOR                    | via vi-mode                         |
+# | Alt+BackTab         | Backward-kill-word in vi-insert mode               | mapped in zvm                       |
+#
+# See shell/key-bindings.zsh and lib/ for more bindings and helper functions.
+
 # Helper commands
 # to remove dangling plugins / snippets
 # $ zinit delete --clean
