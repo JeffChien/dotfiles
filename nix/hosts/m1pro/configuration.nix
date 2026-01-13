@@ -79,6 +79,8 @@
     lazydocker
     httpyac
     gh
+    gopass
+    pinentry-tty
   ];
   homebrew = {
     enable = true;
@@ -90,6 +92,7 @@
       "findutils"
       "choose-gui"
       "proxychains-ng"
+      "pinentry-mac"
     ];
     casks = [
       "hammerspoon"
