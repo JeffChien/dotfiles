@@ -37,8 +37,14 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = true
 
+# my ts script to handle mode change, allowing automatically change back to main mode after timeout.
+on-mode-changed = [
+  "exec-and-forget aerospace-back2main -t 1500"
+]
+
+
 [exec.env-vars]
-    PATH = '${HOME}/.nix-profile/bin:/opt/homebrew/bin:${PATH}'
+    PATH = '${HOME}/.cache/.bun/bin:${HOME}/.nix-profile/bin:/opt/homebrew/bin:${PATH}'
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
