@@ -81,6 +81,7 @@
     gh
     gopass
     pinentry-tty
+    bindfs
   ];
   homebrew = {
     enable = true;
