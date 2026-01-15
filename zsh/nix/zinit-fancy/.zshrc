@@ -35,14 +35,21 @@ fpath=(
     $fpath
 )
 
-path=(
+# path=(
+#     $path
+# )
+
+typeset -Ux path_mid
+path_mid=(
     "$HOME/.lmstudio/bin"
-    "$HOME/bin"
     "$HOME/.cache/.bun/bin"
-    "$HOME/.poetry/bin"
     "$HOME"/.nix-profile/bin
+)
+
+typeset -Ux path_top
+path_top=(
+    "$HOME/bin"
     "$HOME/.local/bin"
-    $path
 )
 
 HISTFILE="$XDG_DATA_HOME/zsh/.zhistory"       # The path to the history file.
@@ -178,7 +185,7 @@ zinit light tmux-plugins/tpm
 ASDF_DATA_DIR="$HOME/.asdf"
 if [[ -d $ASDF_DATA_DIR ]]; then
     export ASDF_DATA_DIR
-    path=("$ASDF_DATA_DIR/shims" $path)
+    path_mid=("$ASDF_DATA_DIR/shims" $path_mid)
 fi
 asdf_update_java_home() {
   JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
@@ -191,7 +198,7 @@ typeset -Ux kubeconfig=( "$HOME/.kube/config" )
 if [[ -d "$HOME/.kube/config.d" ]]; then
     other_confs=($(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -))
     kubeconfig=($other_confs $kubeconfig)
-    path=("$HOME/.krew/bin" $path)
+    path_mid=("$HOME/.krew/bin" $path_mid)
 fi
 
 SPARK_HOME="/opt/homebrew/opt/apache-spark/libexec"
@@ -202,10 +209,10 @@ fi
 NPM_PACKAGES="${HOME}/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/node_modules:$NODE_PATH"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-path=(
+path_mid=(
     "$PNPM_HOME"
     "$NPM_PACKAGES/bin"
-    $path)
+    $path_mid)
 
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
@@ -233,13 +240,14 @@ case "$OS_NAME" in
     zinit snippet "$HOME/dotfiles/zsh/nix/lib/java.zsh"
 
     # vscode os related
-    path=(
+    path_mid=(
+        "/Applications/flameshot.app/Contents/MacOS"
         "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
         "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-        $path)
-    if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-        zsh-defer -t1 source "$(code --locate-shell-integration-path zsh)"
-    fi
+        $path_mid)
+    # if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+    #     zsh-defer -t1 source "$(code --locate-shell-integration-path zsh)"
+    # fi
 
   ;;
   Linux)
@@ -256,7 +264,7 @@ zinit snippet "$HOME/.localrc.zsh"
 # cleanup path
 function finalize_path() {
     temp_path=()
-    for p in "${path[@]}"; do
+    for p in "${path_top[@]}" "${path_mid[@]}" "${path[@]}" ; do
         [[ -d "$p" ]] && temp_path+=($p)
     done
     path=($temp_path)
@@ -321,15 +329,15 @@ function zsh_style_setup() {
     zstyle ':completion:*' complete-options true
 
     zstyle ':completion:*' file-sort modification
-}; zsh-defer -t1 zsh_style_setup
-
-# use my implementations of fzf ctrl-t and alt-c functions.
-for keymap in emacs viins vicmd; do
-    bindkey -M $keymap '^T' _ctrl_t_file
-    bindkey -M $keymap '\ec' _alt_c_dir
-done
+}; zsh-defer -t0 zsh_style_setup
 
 function final() {
     zpcompinit
     zpcdreplay
-}; zsh-defer -t 2.5 final
+
+    # use my implementations of fzf ctrl-t and alt-c functions.
+    for keymap in emacs viins vicmd; do
+        bindkey -M $keymap '^T' _ctrl_t_file
+        bindkey -M $keymap '\ec' _alt_c_dir
+    done
+}; zsh-defer -t 1 final
