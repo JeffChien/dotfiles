@@ -222,8 +222,8 @@ if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
 fi
 
-export OPENCODE_CONFIG_DIR="${HOME}/dotfiles/opencode/nix/opencode.jsonc"
-export OPENCODE_CONFIG_DIR="${HOME}/dotfiles/opencode/nix/"
+export OPENCODE_CONFIG_DIR="${HOME}/workspace/llmcli/opencode"
+export OPENCODE_CONFIG="${OPENCODE_CONFIG_DIR}/opencode.jsonc"
 
 # OS related
 case "$OS_NAME" in
