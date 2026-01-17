@@ -302,6 +302,7 @@ function make_alias() {
         alias tree4='tree -L4'
         alias tree8='tree -L8'
     fi
+    alias icat='chafa' # easy to remember
     alias grep='rg --color=auto -S'
     alias egrep='rg --color=auto -e'
     alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
