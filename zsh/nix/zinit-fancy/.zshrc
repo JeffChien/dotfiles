@@ -85,6 +85,28 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice depth"1"
 zinit light romkatv/zsh-defer
 
+# ignore expansion of these regular/global aliases
+export ZPWR_EXPAND_BLACKLIST=(cd ls ll rtrim)
+# aliases expand in first position
+export ZPWR_EXPAND=true
+# aliases expand in second position after sudo
+export ZPWR_EXPAND_SECOND_POSITION=true
+# expand globs, history etc with zle expand-word
+export ZPWR_EXPAND_NATIVE=true
+# spelling correction in zsh-expand plugin
+export ZPWR_CORRECT=true
+# aliases expand after spelling correction
+export ZPWR_CORRECT_EXPAND=true
+# expand inside "
+export ZPWR_EXPAND_QUOTE_DOUBLE=true
+# expand inside '
+export ZPWR_EXPAND_QUOTE_SINGLE=false
+# expand into history any unexpanded
+export ZPWR_EXPAND_TO_HISTORY=false
+
+zinit ice lucid depth"1" nocompile
+zinit load MenkeTechnologies/zsh-expand
+
 # light powerlevel10k theme
 zinit ice depth"1"
 zinit light romkatv/Powerlevel10k
@@ -285,7 +307,7 @@ function make_alias() {
     alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
     alias lspath='print -l $path'
     alias em='emacsclient -t -a ""'                # Opens emacs inside terminal
-    alias please='sudo $(fc -ln -1)' # sudo the last command
+    alias please='sudo !!' # sudo the last command
     alias mkdir='mkdir -p'
     alias cd='builtin cd'
     alias cdd='br -pf -h --max-depth=3'
@@ -294,6 +316,20 @@ function make_alias() {
     alias fman='fuzzy_man'
     alias aff='_aerospace_find_window'
     alias pvcp='_pv_as_cp'
+    # rtrim, remove the trailing spaces and newline.
+    alias rtrim="perl -pe 's/\s+$//' | perl -0777 -pe 's/\n\z//'"
+    alias -g ,r='| rtrim'
+    alias -g ,rc='| rtrim | pbcopy'
+    alias -g ,g='| grep'
+    alias -g ,p='| less -R'
+    alias -g ,c='| pbcopy'
+    alias -g ,pp='<(pbpaste)'
+    alias -g p,='pbpaste | '
+    alias -g ,='| '
+    alias -g .x='> /dev/null'
+    alias -g .xx='> /dev/null 2>&1'
+    alias -g .2x='2> /dev/null'
+    alias -g .21='2>&1'
 
     # replace core commands with GNU version provided by coreutils
     if [[ $OS_NAME == "Darwin" ]]; then
