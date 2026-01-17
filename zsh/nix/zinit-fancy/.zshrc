@@ -241,6 +241,7 @@ case "$OS_NAME" in
 
     # vscode os related
     path_mid=(
+        "/Applications/Ghostty.app/Contents/MacOS"
         "/Applications/flameshot.app/Contents/MacOS"
         "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
         "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
