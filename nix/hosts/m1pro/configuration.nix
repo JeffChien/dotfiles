@@ -82,6 +82,7 @@
     gopass
     pinentry-tty
     bindfs
+    chafa
   ];
   homebrew = {
     enable = true;
@@ -100,6 +101,7 @@
       "nikitabobko/tap/aerospace"
       "raycast"
       "leader-key"
+      "ghostty"
     ];
   };
 
