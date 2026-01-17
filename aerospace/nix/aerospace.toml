@@ -39,7 +39,7 @@ automatically-unhide-macos-hidden-apps = true
 
 # my ts script to handle mode change, allowing automatically change back to main mode after timeout.
 on-mode-changed = [
-  "exec-and-forget aerospace-back2main -t 1500"
+  "exec-and-forget aerospace-back2main -t 1200"
 ]
 
 
@@ -120,7 +120,7 @@ on-mode-changed = [
     # end tell'
     # '''
 
-    cmd-alt-ctrl-shift-a = 'mode layer1'
+    cmd-alt-ctrl-shift-tab = 'mode layer1'
 
     cmd-h = [] # Disable "hide application"
     cmd-alt-h = [] # Disable "hide others"k
@@ -145,9 +145,9 @@ on-mode-changed = [
     cmd-semicolon = 'mode service'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    slash = 'layout tiles horizontal vertical'
-    comma = 'layout accordion horizontal vertical'
-    shift-space = 'layout floating tiling' # Toggle between floating and tiling layout
+    comma = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+    shift-comma = 'layout floating tiling' # Toggle between floating and tiling layout
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     h = 'focus left'
@@ -181,6 +181,14 @@ on-mode-changed = [
     c = ['workspace 8', 'mode main']
     v = ['workspace 9', 'mode main']
 
+    u = ['focus-monitor 2515h', 'mode main']
+    i = ['focus-monitor built-in', 'mode main']
+    o = ['focus-monitor 2412m', 'mode main']
+
+    # toggle window maximum, not native fullscreen
+    m = ['fullscreen', 'mode main']
+    0 = ['close-all-windows-but-current', 'mode main']
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     shift-s = ['move-node-to-workspace 1', 'mode main']
     shift-d = ['move-node-to-workspace 2', 'mode main']
@@ -204,6 +212,6 @@ on-mode-changed = [
     alt-shift-v = ['move-node-to-workspace 9', 'workspace 9', 'mode main']
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-tab = ['exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth', 'mode main']
-    tab = ['''exec-and-forget aerospace list-windows --all | choose | awk '{print $1}' | xargs aerospace focus --window-id''',
+    tab = ['exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth', 'mode main']
+    slash = ['''exec-and-forget aerospace list-windows --all | choose | awk '{print $1}' | xargs aerospace focus --window-id''',
         'mode main']
