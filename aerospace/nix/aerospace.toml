@@ -120,7 +120,7 @@ on-mode-changed = [
     # end tell'
     # '''
 
-    cmd-alt-ctrl-shift-tab = 'mode layer1'
+    cmd-alt-ctrl-shift-space = 'mode layer1'
 
     cmd-h = [] # Disable "hide application"
     cmd-alt-h = [] # Disable "hide others"k
@@ -181,6 +181,7 @@ on-mode-changed = [
     c = ['workspace 8', 'mode main']
     v = ['workspace 9', 'mode main']
 
+    # monitor
     u = ['focus-monitor 2515h', 'mode main']
     i = ['focus-monitor built-in', 'mode main']
     o = ['focus-monitor 2412m', 'mode main']
@@ -200,6 +201,10 @@ on-mode-changed = [
     shift-c = ['move-node-to-workspace 8', 'mode main']
     shift-v = ['move-node-to-workspace 9', 'mode main']
 
+    shift-u = ['move-node-to-monitor 2515h', 'mode main']
+    shift-i = ['move-node-to-monitor built-in', 'mode main']
+    shift-o = ['move-node-to-monitor 2412m', 'mode main']
+
     # move window to workspace and follow it.
     alt-shift-s = ['move-node-to-workspace 1', 'workspace 1', 'mode main']
     alt-shift-d = ['move-node-to-workspace 2', 'workspace 2', 'mode main']
@@ -211,7 +216,13 @@ on-mode-changed = [
     alt-shift-c = ['move-node-to-workspace 8', 'workspace 8', 'mode main']
     alt-shift-v = ['move-node-to-workspace 9', 'workspace 9', 'mode main']
 
+    alt-shift-u = ['move-node-to-monitor 2515h', 'focus-monitor 2515h', 'mode main']
+    alt-shift-i = ['move-node-to-monitor built-in', 'focus-monitor built-in', 'mode main']
+    alt-shift-o = ['move-node-to-monitor 2412m', 'focus-monitor 2412m', 'mode main']
+
+    tab = "workspace next"
+    shift-tab = "workspace prev"
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    tab = ['exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth', 'mode main']
+    space = ['exec-and-forget aerospace focus-back-and-forth || aerospace workspace-back-and-forth', 'mode main']
     slash = ['''exec-and-forget aerospace list-windows --all | choose | awk '{print $1}' | xargs aerospace focus --window-id''',
         'mode main']
