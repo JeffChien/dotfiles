@@ -75,6 +75,12 @@ run = ['layout floating']                    # The callback itself
 if.app-id = 'org.flameshot.Flameshot'
 run = ['layout floating']
 
+# Make Flameshot float
+[[on-window-detected]]
+# You might need to verify the app ID with 'aerospace debug-windows'
+if.app-id = 'io.mpv'
+run = ['layout floating']
+
 [workspace-to-monitor-force-assignment]
 1 = 'built-in'
 2 = 'built-in'
