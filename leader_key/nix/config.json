@@ -67,6 +67,25 @@
       "key" : "i",
       "label" : "Input methods",
       "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "t",
+          "label" : "edge tts auto",
+          "type" : "command",
+          "value" : "~/.cache/.bun/bin/jc-tts"
+        },
+        {
+          "key" : "i",
+          "label" : "edge tts interactive",
+          "type" : "command",
+          "value" : "~/.cache/.bun/bin/jc-tts -i"
+        }
+      ],
+      "key" : "t",
+      "label" : "tts",
+      "type" : "group"
     }
   ],
   "type" : "group"
