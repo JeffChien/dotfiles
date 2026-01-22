@@ -85,6 +85,8 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice depth"1"
 zinit light romkatv/zsh-defer
 
+zle_highlight=(paste:none) # because it make cursor invisible
+
 # ignore expansion of these regular/global aliases
 export ZPWR_EXPAND_BLACKLIST=(cd ls ll rtrim)
 # aliases expand in first position
@@ -191,9 +193,15 @@ zinit snippet "https://raw.githubusercontent.com/sigoden/aichat/refs/heads/main/
 function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSER
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+  ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
   ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
 
   bindkey -M viins '^[^?' backward-kill-word # alt + backtab
+  # use my implementations of fzf ctrl-t and alt-c functions.
+  for keymap in emacs viins vicmd; do
+      bindkey -M $keymap '^T' _ctrl_t_file
+      bindkey -M $keymap '\ec' _alt_c_dir
+  done
 }
 zinit ice wait'0' lucid depth=1
 zinit light jeffreytse/zsh-vi-mode
@@ -373,9 +381,4 @@ function final() {
     zpcompinit
     zpcdreplay
 
-    # use my implementations of fzf ctrl-t and alt-c functions.
-    for keymap in emacs viins vicmd; do
-        bindkey -M $keymap '^T' _ctrl_t_file
-        bindkey -M $keymap '\ec' _alt_c_dir
-    done
 }; zsh-defer -t 1 final
