@@ -74,13 +74,13 @@
           "key" : "t",
           "label" : "edge tts auto",
           "type" : "command",
-          "value" : "~/.cache/.bun/bin/jc-tts"
+          "value" : "~/.cache/.bun/bin/jc-tts-select"
         },
         {
           "key" : "i",
           "label" : "edge tts interactive",
           "type" : "command",
-          "value" : "~/.cache/.bun/bin/jc-tts -i"
+          "value" : "~/.cache/.bun/bin/jc-tts-select -i"
         }
       ],
       "key" : "t",
