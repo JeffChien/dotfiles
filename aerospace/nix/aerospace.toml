@@ -69,13 +69,12 @@ outer.right = 0
 if.window-title-regex-substring = ' - modal'
 run = ['layout floating']                    # The callback itself
 
-# Make Flameshot float
+# Make window float
 [[on-window-detected]]
 # You might need to verify the app ID with 'aerospace debug-windows'
 if.app-id = 'org.flameshot.Flameshot'
 run = ['layout floating']
 
-# Make Flameshot float
 [[on-window-detected]]
 # You might need to verify the app ID with 'aerospace debug-windows'
 if.app-id = 'io.mpv'
