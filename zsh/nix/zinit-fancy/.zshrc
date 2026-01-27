@@ -163,7 +163,7 @@ zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
 
 autoload -Uz aicmd
 autoload -Uz fuzzy_man
-autoload -Uz bd
+autoload -Uz bcd
 autoload -Uz fff
 
 zinit ice wait'0' lucid id-as"snippect-local-utils"

@@ -1,5 +1,5 @@
 # backward cd
-bd() {
+bcd() {
   candidates=()
   pdir="${1:-$PWD}"
   while [[ "$pdir" != "/" ]]; do
