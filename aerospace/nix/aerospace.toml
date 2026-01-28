@@ -69,6 +69,10 @@ outer.right = 0
 if.window-title-regex-substring = ' - modal'
 run = ['layout floating']                    # The callback itself
 
+[[on-window-detected]]
+if.window-title-regex-substring = '- Selection Assistant'
+run = ['layout floating']
+
 # Make window float
 [[on-window-detected]]
 # You might need to verify the app ID with 'aerospace debug-windows'
