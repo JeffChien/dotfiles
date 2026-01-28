@@ -105,5 +105,8 @@ in
     ".vscodevimrc" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/vscode/nix/.vscodevimrc";
     };
+    ".config/mpv" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/mpv/nix";
+    };
   };
 }
