@@ -23,6 +23,23 @@
 (defvar
   tap-repress-timeout   180
   hold-timeout  180
+  mm-sp1-ms 10
+  mm-sp1-px 1
+  mm-sp2-ms 3
+  mm-sp2-px 1
+  mm-sp3-ms 1
+  mm-sp3-px 1
+  mm-sp4-ms 1
+  mm-sp4-px 3
+  mm-sp5-ms 1
+  mm-sp5-px 9
+
+  mw-sp1-ms 100
+  mw-sp1-px 3
+  mw-sp2-ms 30
+  mw-sp2-px 3
+  mw-sp3-ms 10
+  mw-sp3-px 3
 )
 
 (defalias
@@ -96,9 +113,9 @@
     , f2
     . f3
 
-    j f4
-    k f5
-    l f6
+    j (tap-hold $tap-repress-timeout $hold-timeout f4 rshft)
+    k (tap-hold $tap-repress-timeout $hold-timeout f5 rctl)
+    l (tap-hold $tap-repress-timeout $hold-timeout f6 ralt)
 
     u f7
     i f8
@@ -107,6 +124,49 @@
     7 f10
     8 f11
     9 f12
+
+ s (switch
+   (rmet) (movemouse-left $mm-sp5-ms $mm-sp5-px) break
+   (ralt) (movemouse-left $mm-sp4-ms $mm-sp4-px) break
+   (rctl) (movemouse-left $mm-sp3-ms $mm-sp3-px) break
+   (rsft) (movemouse-left $mm-sp2-ms $mm-sp2-px) break
+   () (movemouse-left $mm-sp1-ms $mm-sp1-px) break
+ )
+ d (switch
+   (rmet) (movemouse-down $mm-sp5-ms $mm-sp5-px) break
+   (ralt) (movemouse-down $mm-sp4-ms $mm-sp4-px) break
+   (rctl) (movemouse-down $mm-sp3-ms $mm-sp3-px) break
+   (rsft) (movemouse-down $mm-sp2-ms $mm-sp2-px) break
+   () (movemouse-down $mm-sp1-ms $mm-sp1-px) break
+ )
+ f (switch
+   (rmet) (movemouse-right $mm-sp5-ms $mm-sp5-px) break
+   (ralt) (movemouse-right $mm-sp4-ms $mm-sp4-px) break
+   (rctl) (movemouse-right $mm-sp3-ms $mm-sp3-px) break
+   (rsft) (movemouse-right $mm-sp2-ms $mm-sp2-px) break
+   () (movemouse-right $mm-sp1-ms $mm-sp1-px) break
+ )
+ e (switch
+   (rmet) (movemouse-up $mm-sp5-ms $mm-sp5-px) break
+   (ralt) (movemouse-up $mm-sp4-ms $mm-sp4-px) break
+   (rctl) (movemouse-up $mm-sp3-ms $mm-sp3-px) break
+   (rsft) (movemouse-up $mm-sp2-ms $mm-sp2-px) break
+   () (movemouse-up $mm-sp1-ms $mm-sp1-px) break
+ )
+ w (switch
+    (lalt) (mwheel-down $mw-sp3-ms $mw-sp3-px) break
+    (rctl) (mwheel-down $mw-sp2-ms $mw-sp2-px) break
+    () (mwheel-down $mw-sp1-ms $mw-sp1-px) break
+ )
+ r (switch
+    (lalt) (mwheel-up $mw-sp3-ms $mw-sp3-px) break
+    (rctl) (mwheel-up $mw-sp2-ms $mw-sp2-px) break
+    () (mwheel-up $mw-sp1-ms $mw-sp1-px) break
+ )
+
+ spc mlft
+ rmet mrgt
+ ralt mmid
 )
 
 (deflayermap (fix-globe-key)
