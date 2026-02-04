@@ -254,6 +254,7 @@ fi
 
 export OPENCODE_CONFIG_DIR="${HOME}/workspace/llmcli/opencode"
 export OPENCODE_CONFIG="${OPENCODE_CONFIG_DIR}/opencode.jsonc"
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 
 # OS related
 case "$OS_NAME" in
