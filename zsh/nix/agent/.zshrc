@@ -2,15 +2,15 @@
 typeset -Ux path
 
 path=(
-    "/Users/jchien/bin"
-    "/Users/jchien/.local/bin"
+    "$HOME/bin"
+    "$HOME/.local/bin"
     "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
     "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-    "/Users/jchien/.local/share/pnpm"
-    "/Users/jchien/.npm-packages/bin"
-    "/Users/jchien/.krew/bin"
-    "/Users/jchien/.asdf/shims"
-    "/Users/jchien/.cache/.bun/bin"
+    "$HOME/.local/share/pnpm"
+    "$HOME/.npm-packages/bin"
+    "$HOME/.krew/bin"
+    "$HOME/.asdf/shims"
+    "$HOME/.cache/.bun/bin"
     "/opt/homebrew/bin"
     "/opt/homebrew/sbin"
     "/run/current-system/sw/bin"

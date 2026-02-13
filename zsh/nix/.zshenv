@@ -9,6 +9,9 @@ fi
 
 # agent detector, agent don't need fancy zsh environment like human
 # this is a workaround, most agent app don't have a way to configure shell command.
+# caveates:
+## 1. some agents will run interactive / none-interactive randomly. below is for interactive shell.
+## need another workaround for none-interactive shell.
 AGENT_PROCESS=(
   "opencode"
   "opencode-cli"
