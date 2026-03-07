@@ -83,6 +83,8 @@
     pinentry-tty
     bindfs
     chafa
+    just
+    watchexec
   ];
   homebrew = {
     enable = true;
