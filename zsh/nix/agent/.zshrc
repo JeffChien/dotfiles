@@ -28,3 +28,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
 export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
 export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-$HOME/.xdg}
+
+export OPENCODE_CONFIG_DIR="${HOME}/workspace/llmcli/opencode"
+export OPENCODE_CONFIG="${OPENCODE_CONFIG_DIR}/opencode.jsonc"
+export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
