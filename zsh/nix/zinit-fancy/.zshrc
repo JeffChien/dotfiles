@@ -165,6 +165,7 @@ autoload -Uz aicmd
 autoload -Uz fuzzy_man
 autoload -Uz bcd
 autoload -Uz fff
+autoload -Uz getbid
 
 zinit ice wait'0' lucid id-as"snippect-local-utils"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/utils.zsh"

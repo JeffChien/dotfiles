@@ -1,0 +1,10 @@
+getbid() {
+    # Manual directory crawl since Spotlight is off
+    local selected_app=$(find /Applications /System/Applications ~/Applications -maxdepth 1 -name "*.app" 2>/dev/null | sed 's/.*\///;s/\.app//' | fzf --height 40% --layout=reverse --border --prompt="Select App: ")
+    
+    if [ -n "$selected_app" ]; then
+        osascript -e "id of app \"$selected_app\""
+    else
+        echo "No app selected."
+    fi
+}
