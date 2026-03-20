@@ -243,7 +243,7 @@ path_mid=(
 
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
-path=("$CARGO_HOME/bin" $path)
+path_mid=("$CARGO_HOME/bin" $path_mid)
 
 if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
