@@ -161,11 +161,7 @@ export FZF_ALT_C_COMMAND='' # don't use fzf's keybinding
 zinit ice wait'0' lucid id-as"snippect-local-fuzzy-select"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/fuzzy-select.zsh"
 
-autoload -Uz aicmd
-autoload -Uz fuzzy_man
-autoload -Uz bcd
-autoload -Uz fff
-autoload -Uz getbid
+autoload -Uz aicmd fuzzy_man bcd fff getbid
 
 zinit ice wait'0' lucid id-as"snippect-local-utils"
 zinit snippet "$HOME/dotfiles/zsh/nix/lib/utils.zsh"
