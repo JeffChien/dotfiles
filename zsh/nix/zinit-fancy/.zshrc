@@ -253,7 +253,7 @@ if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
 fi
 
-export OPENCODE_CONFIG_DIR="${HOME}/workspace/llmcli/opencode"
+export OPENCODE_CONFIG_DIR="${XDG_CONFIG_HOME}/opencode"
 export OPENCODE_CONFIG="${OPENCODE_CONFIG_DIR}/opencode.jsonc"
 export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 
