@@ -257,6 +257,7 @@ export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
 case "$OS_NAME" in
   Darwin)
     export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_INSTALL_UPGRADE=1
     zinit ice wait'4' lucid depth"1" atclone'ln -s `pwd` "$HOME/iTerm2-Color-Schemes"' atpull'%atclone' if'[[ ! -z $ITERM_SESSION_ID ]]'
     zinit light mbadolato/iTerm2-Color-Schemes
 
