@@ -26,6 +26,9 @@
 #
 
 
+# restore path that could be modified by system zsh config file.
+path=($backup_path)
+
 fpath=(
     "$HOME/dotfiles/zsh/nix/autoload"
     "$HOME/dotfiles/zsh/nix/completions"
@@ -33,23 +36,6 @@ fpath=(
     /opt/homebrew/share/zsh/site-functionqs
     /usr/local/share/zsh/site-functions
     $fpath
-)
-
-# path=(
-#     $path
-# )
-
-typeset -Ux path_mid
-path_mid=(
-    "$HOME/.lmstudio/bin"
-    "$HOME/.cache/.bun/bin"
-    "$HOME"/.nix-profile/bin
-)
-
-typeset -Ux path_top
-path_top=(
-    "$HOME/bin"
-    "$HOME/.local/bin"
 )
 
 HISTFILE="$XDG_DATA_HOME/zsh/.zhistory"       # The path to the history file.
@@ -82,46 +68,18 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+for mod in "$ZDOTDIR/mods/"*(/); do
+    modfile="$mod/zshrc"
+    if [[ -s "$modfile" ]]; then
+        source "$modfile"
+    fi
+done
+
+
 zinit ice depth"1"
 zinit light romkatv/zsh-defer
 
 zle_highlight=(paste:none) # because it make cursor invisible
-
-# ignore expansion of these regular/global aliases
-export ZPWR_EXPAND_BLACKLIST=(cd ls ll rtrim)
-# aliases expand in first position
-export ZPWR_EXPAND=true
-# aliases expand in second position after sudo
-export ZPWR_EXPAND_SECOND_POSITION=true
-# expand globs, history etc with zle expand-word
-export ZPWR_EXPAND_NATIVE=true
-# spelling correction in zsh-expand plugin
-export ZPWR_CORRECT=true
-# aliases expand after spelling correction
-export ZPWR_CORRECT_EXPAND=true
-# expand inside "
-export ZPWR_EXPAND_QUOTE_DOUBLE=true
-# expand inside '
-export ZPWR_EXPAND_QUOTE_SINGLE=false
-# expand into history any unexpanded
-export ZPWR_EXPAND_TO_HISTORY=false
-
-zinit ice lucid depth"1" nocompile
-zinit load MenkeTechnologies/zsh-expand
-
-# light powerlevel10k theme
-zinit ice depth"1"
-zinit light romkatv/Powerlevel10k
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-zinit ice if'[[ -f "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]'
-zinit snippet "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
-
-zinit ice if'[[ -f "$ZDOTDIR/.p10k.zsh" ]]'
-zinit snippet "$ZDOTDIR/.p10k.zsh"
-typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
 
 # auto suggestion conflicts with history-search-multi-word
 zinit ice wait'2' lucid depth"1"; zinit light zsh-users/zsh-autosuggestions
@@ -209,42 +167,6 @@ export TMUX_PLUGIN_MANAGER_PATH="$HOME/.tmux-3rd-plugins"
 zinit ice wait'2' lucid atclone'./bin/install_plugins'
 zinit light tmux-plugins/tpm
 
-ASDF_DATA_DIR="$HOME/.asdf"
-if [[ -d $ASDF_DATA_DIR ]]; then
-    export ASDF_DATA_DIR
-    path_mid=("$ASDF_DATA_DIR/shims" $path_mid)
-fi
-asdf_update_java_home() {
-  JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
-  export JAVA_HOME;
-}
-
-# autolight -U add-zsh-hook
-# add-zsh-hook precmd asdf_update_java_home
-typeset -Ux kubeconfig=( "$HOME/.kube/config" )
-if [[ -d "$HOME/.kube/config.d" ]]; then
-    other_confs=($(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -))
-    kubeconfig=($other_confs $kubeconfig)
-    path_mid=("$HOME/.krew/bin" $path_mid)
-fi
-
-SPARK_HOME="/opt/homebrew/opt/apache-spark/libexec"
-if [[ -d "$SPARK_HOME" ]]; then
-    export SPARK_HOME
-fi
-
-NPM_PACKAGES="${HOME}/.npm-packages"
-export NODE_PATH="$NPM_PACKAGES/node_modules:$NODE_PATH"
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-path_mid=(
-    "$PNPM_HOME"
-    "$NPM_PACKAGES/bin"
-    $path_mid)
-
-export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-path_mid=("$CARGO_HOME/bin" $path_mid)
-
 if (( $+commands[direnv] )); then
     zsh-defer -t2 eval "$(direnv hook zsh)"
 fi
@@ -267,18 +189,6 @@ case "$OS_NAME" in
     # ALIAS
     zinit ice wait'2' lucid if'[[ -x "/usr/libexec/java_home" ]]'
     zinit snippet "$HOME/dotfiles/zsh/nix/lib/java.zsh"
-
-    # vscode os related
-    path_mid=(
-        "/Applications/Ghostty.app/Contents/MacOS"
-        "/Applications/flameshot.app/Contents/MacOS"
-        "/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
-        "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-        $path_mid)
-    # if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-    #     zsh-defer -t1 source "$(code --locate-shell-integration-path zsh)"
-    # fi
-
   ;;
   Linux)
     # disable ctrl-s stop terminal feature {{{
@@ -290,15 +200,6 @@ esac
 
 zinit ice if'[[ -e $HOME/.localrc.zsh ]]'
 zinit snippet "$HOME/.localrc.zsh"
-
-# cleanup path
-function finalize_path() {
-    temp_path=()
-    for p in "${path_top[@]}" "${path_mid[@]}" "${path[@]}" ; do
-        [[ -d "$p" ]] && temp_path+=($p)
-    done
-    path=($temp_path)
-}; finalize_path
 
 function make_alias() {
     if (( $+commands[eza] )); then

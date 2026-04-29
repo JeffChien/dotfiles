@@ -1,0 +1,9 @@
+NPM_PACKAGES="${HOME}/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/node_modules:$NODE_PATH"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+
+path=(
+    "$PNPM_HOME"
+    "$NPM_PACKAGES/bin"
+    $path
+)

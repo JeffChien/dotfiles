@@ -1,0 +1,5 @@
+ASDF_DATA_DIR="$HOME/.asdf"
+if [[ -d $ASDF_DATA_DIR ]]; then
+    export ASDF_DATA_DIR
+    path=("$ASDF_DATA_DIR/shims" $path)
+fi

@@ -1,0 +1,8 @@
+if (( ! $+commands[asdf] )); then
+    return
+fi
+
+asdf_update_java_home() {
+  JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
+  export JAVA_HOME;
+}

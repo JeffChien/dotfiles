@@ -1,0 +1,7 @@
+# autolight -U add-zsh-hook
+# add-zsh-hook precmd asdf_update_java_home
+typeset -Ux kubeconfig=( "$HOME/.kube/config" )
+if [[ -d "$HOME/.kube/config.d" ]]; then
+    other_confs=($(find "$HOME/.kube/config.d" -type f -exec readlink -f {} \+ | paste -s -d ':' -))
+    kubeconfig=($other_confs $kubeconfig)
+fi

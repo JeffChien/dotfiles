@@ -1,0 +1,6 @@
+path=(
+    "/opt/homebrew/bin"
+    "/opt/homebrew/sbin"
+    "/run/current-system/sw/bin"
+    $path
+)

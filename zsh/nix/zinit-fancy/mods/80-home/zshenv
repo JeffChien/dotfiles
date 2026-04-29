@@ -1,0 +1,8 @@
+path=(
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$HOME/.lmstudio/bin"
+    "$HOME/.cache/.bun/bin"
+    "$HOME/.nix-profile/bin"
+    $path
+)
