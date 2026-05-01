@@ -5,7 +5,6 @@
 # | ^T (Ctrl-T)         | File picker / file menu                            | _ctrl_t_file → fzf preview          |
 # | ^R (Ctrl-R)         | History menu (fzf-based)                           |                                     |
 # | \ec (Alt-c)         | Directory menu                                     | _alt_c_dir                          |
-# | \e\\ (Alt-\)        | Send message to aichat                             | _aichat_zsh                         |
 # | vv                  | Edit current command in $EDITOR                    | via vi-mode                         |
 # | Alt+BackTab         | Backward-kill-word in vi-insert mode               | mapped in zvm                       |
 #
@@ -135,16 +134,6 @@ fi
 zinit ice wait'0' lucid if'[[ -e $XDG_CONFIG_HOME/broot/launcher/bash/br ]]'
 zinit snippet "$XDG_CONFIG_HOME/broot/launcher/bash/br"
 
-function after_aichat() {
-    # alt + \ , send messsage to aichat -e "<message>"
-    bindkey -M main '\e\\' _aichat_zsh
-    bindkey -M vicmd '\e\\' _aichat_zsh
-    bindkey -M viins '\e\\' _aichat_zsh
-}
-zinit ice wait'2' lucid if'[[ -n "$commands[aichat]" ]]' id-as'snippet-aichat-zsh' atload'after_aichat'
-zinit snippet "https://raw.githubusercontent.com/sigoden/aichat/refs/heads/main/scripts/shell-integration/integration.zsh"
-
-
 function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSER
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
@@ -202,10 +191,20 @@ zinit ice if'[[ -e $HOME/.localrc.zsh ]]'
 zinit snippet "$HOME/.localrc.zsh"
 
 function make_alias() {
+    if [[ "$OS_NAME" == "Linux" ]]; then
+      if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
+        alias pbcopy='wl-copy'
+        alias pbcopy='wl-paste'
+      else
+        alias pbcopy='xclip -selection clipboard'
+        alias pbcopy='xclip -selection clipboard -out'
+      fi
+    fi
+
     if (( $+commands[eza] )); then
         alias ls='eza -A -F --icons --color=auto --group-directories-first'
         alias ll='ls -A -l --time-style iso'
-        alias tree='eza -T --icons --color=auto --group-directories-first'
+        alias tree='ls -T'
         alias tree2='tree -L2'
         alias tree4='tree -L4'
         alias tree8='tree -L8'
@@ -213,7 +212,6 @@ function make_alias() {
     alias icat='chafa' # easy to remember
     alias grep='rg --color=auto -S'
     alias egrep='rg --color=auto -e'
-    alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
     alias lspath='print -l $path'
     alias em='emacsclient -t -a ""'                # Opens emacs inside terminal
     alias please='sudo !!' # sudo the last command
@@ -255,6 +253,7 @@ function zsh_style_setup() {
     # disable sort when completing `git checkout`
     zstyle ':completion:*:git-checkout:*' sort false
     # set descriptions format to enable group support
+    #zstyle ':completion:*:descriptions' format '[%d]'
     zstyle ':completion:*:descriptions' format '[%d]'
     # set list-colors to enable filename colorizing
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -275,10 +274,9 @@ function zsh_style_setup() {
     zstyle ':completion:*' complete-options true
 
     zstyle ':completion:*' file-sort modification
-}; zsh-defer -t0 zsh_style_setup
+}
+zinit ice wait"0" lucid atload'zsh_style_setup'
+zinit snippet /dev/null
 
-function final() {
-    zpcompinit
-    zpcdreplay
-
-}; zsh-defer -t 1 final
+zpcompinit
+zpcdreplay
