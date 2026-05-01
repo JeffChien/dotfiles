@@ -1,0 +1,4 @@
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+
+zinit ice wait"0" lucid if'(( $+commands[carapace] ))' atload'eval "$(carapace _carapace)"'
+zinit snippet /dev/null
