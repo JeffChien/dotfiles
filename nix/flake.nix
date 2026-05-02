@@ -58,6 +58,12 @@
             ./hosts/jarvis/home-jchien.nix
           ];
         };
+        cachyos = inputs.home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./hosts/cachyos/home-jchien.nix
+          ];
+        };
       };
 
       # mac devices

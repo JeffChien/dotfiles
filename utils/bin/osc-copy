@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Read stdin into a variable
+# We use a loop or cat to ensure we handle multi-line input correctly
+content=$(cat -)
+
+# 1. Encode the content to Base64 (removing any newlines added by the base64 tool)
+encoded=$(echo -n "$content" | base64 | tr -d '\n')
+
+# 2. Print the sequence:
+# \e]52;c;  -> Start sequence for clipboard
+# $encoded   -> The base64 payload
+# \a         -> The Bell character (terminator)
+printf "\e]52;c;%s\a" "$encoded"

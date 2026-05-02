@@ -195,9 +195,11 @@ function make_alias() {
       if [[ "$XDG_SESSION_TYPE" == "wayland" ]]; then
         alias pbcopy='wl-copy'
         alias pbcopy='wl-paste'
-      else
+      elif [[ "$XDG_SESSION_TYPE" == "x11" ]]; then
         alias pbcopy='xclip -selection clipboard'
         alias pbcopy='xclip -selection clipboard -out'
+      else # should be remote tty
+        alias pbcopy='osc-copy'
       fi
     fi
 

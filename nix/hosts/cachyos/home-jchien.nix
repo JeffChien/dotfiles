@@ -100,5 +100,8 @@ in
     ".config/yazi" = {
       source = mkOutOfStoreSymlink "${dotfilesDirectory}/yazi/nix";
     };
+    ".local/bin/osc-copy" = {
+      source = mkOutOfStoreSymlink "${dotfilesDirectory}/utils/bin/osc-copy";
+    };
   };
 }
