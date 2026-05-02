@@ -15,6 +15,9 @@
     macos-dev-names-include (
         "ErgoDox EZ Shine"
     )
+    linux-dev-names-include (
+        "ZSA Technology Labs ErgoDox EZ Shine"
+    )
     concurrent-tap-hold yes
     ;; movemouse-inherit-accel-state yes
 )

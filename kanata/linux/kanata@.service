@@ -1,0 +1,13 @@
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+Wants=modprobe@uinput.service
+After=modprobe@uinput.service
+
+[Service]
+Type=simple
+User=kanata
+ExecStart=/nix/store/7z34b109az0q2jcpcamny4s1cr30zaqm-kanata-1.11.0/bin/kanata --quiet --cfg /etc/kanata/keyboard-%i.kbd
+
+[Install]
+WantedBy=multi-user.target
